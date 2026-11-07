@@ -7,12 +7,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@600;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
-/* Layout: 一列の旅程ノート。共通ルートの時刻レール＋4パターンの予算表。ライトモードのみ */
+/* Layout: 一列の旅程ノート。時刻レール＋要所だけ札で区切る。ライトモードのみ */
 :root{
   --paper:#F5F6F2; --sheet:#FFFFFF; --ink:#1E2433; --sub:#5B6372; --line:#DCDFD8;
   --shu:#B4362A; --shu-soft:#F6E3DF;
   --mori:#2F5D4A; --mori-soft:#E0ECE5;
   --rail:#2C4A6E; --rail-soft:#DFE7F1;
+  --miso:#6E4A2A;
   --warn:#9A6400; --warn-soft:#FBEFD6;
   --f-display:"Zen Old Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
   --f-body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
@@ -52,23 +53,25 @@ h3{font-size:16px;margin:0 0 6px}
 
 .card{background:var(--sheet);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:12px 0}
 .card .k{font-size:12px;color:var(--shu);font-weight:700;letter-spacing:.08em}
+.three{display:grid;gap:10px}
+.three .card{margin:0}
 
+.daylabel{font-size:12px;font-weight:700;color:var(--sub);letter-spacing:.08em;margin:20px 0 8px}
 .rail{list-style:none;margin:0;padding:0;border-left:2px solid var(--line);margin-left:58px}
 .rail li{position:relative;padding:0 0 18px 18px}
 .rail li::before{content:"";position:absolute;left:-7px;top:9px;width:12px;height:12px;border-radius:50%;background:var(--sheet);border:2px solid var(--rail)}
 .rail li.spot::before{border-color:var(--shu);background:var(--shu)}
-.rail li.food::before{border-color:var(--mori)}
-.rail li.stay::before{border-color:var(--ink);background:var(--ink)}
+.rail li.food::before{border-color:var(--miso);background:var(--sheet)}
 .t{position:absolute;left:-62px;top:2px;width:50px;text-align:right;font-family:var(--f-mono);font-size:13px;color:var(--sub);font-variant-numeric:tabular-nums}
 .what{font-weight:700}
 .det{color:var(--sub);font-size:14px;margin-top:2px}
 .det ul{margin:4px 0 0;padding-left:18px}
 .train{font-family:var(--f-mono);font-size:12.5px;color:var(--rail);font-variant-numeric:tabular-nums}
-.branch{font-size:12px;font-weight:700;color:var(--sub);letter-spacing:.06em;margin:4px 0 8px}
 .tag{display:inline-block;font-size:11px;font-weight:700;padding:1px 8px;border-radius:999px;margin-left:6px;vertical-align:2px}
 .tag.r{background:var(--shu-soft);color:var(--shu)}
 .tag.w{background:var(--warn-soft);color:var(--warn)}
 .tag.m{background:var(--mori-soft);color:var(--mori)}
+.tag.k{background:var(--rail-soft);color:var(--rail)}
 
 .tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--sheet)}
 table{width:100%;border-collapse:collapse;font-size:14px}
@@ -76,16 +79,16 @@ th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);verti
 th{font-size:12px;color:var(--sub);font-weight:500;background:var(--paper)}
 td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 tfoot td{font-weight:700}
-tr.pick td{background:var(--mori-soft)}
+tr.in td{background:var(--mori-soft)}
 
-.plans{display:grid;gap:12px}
-details{background:var(--sheet);border:1px solid var(--line);border-radius:12px}
-summary{cursor:pointer;padding:12px 16px;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
+details{background:var(--sheet);border:1px solid var(--line);border-radius:12px;margin:10px 0}
+summary{cursor:pointer;padding:12px 16px;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 summary::-webkit-details-marker{display:none}
 summary .sum{font-family:var(--f-mono);font-variant-numeric:tabular-nums;color:var(--shu)}
 details>div{padding:0 16px 14px}
-details p{margin:0 0 8px}
 
+.alt{display:grid;gap:10px}
+.alt .card{margin:0}
 .check{list-style:none;padding:0;margin:0}
 .check li{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--line)}
 .check input{margin-top:6px;width:18px;height:18px;accent-color:var(--mori);flex:none}
@@ -99,150 +102,142 @@ footer{margin-top:36px;font-size:12px;color:var(--sub)}
 
 <nav aria-label="目次"><ul>
   <li><a href="#overview">概要</a></li>
-  <li><a href="#route">ルート</a></li>
-  <li><a href="#budget">予算比較</a></li>
-  <li><a href="#detail">内訳</a></li>
-  <li><a href="#honden">本殿の見方</a></li>
+  <li><a href="#plan">旅程</a></li>
+  <li><a href="#extra">追加スポット</a></li>
+  <li><a href="#dinner">夜ごはん</a></li>
+  <li><a href="#budget">予算</a></li>
   <li><a href="#caution">注意</a></li>
-  <li><a href="#check">チェック</a></li>
+  <li><a href="#options">別案</a></li>
+  <li><a href="#check">持ち物</a></li>
 </ul></nav>
 
 <div class="wrap">
 <header id="overview">
-  <div class="eyebrow">2026.11.21 土 ／ 奥さん・息子さん（大人2人） ／ 予算比較 v2</div>
-  <h1>豊川稲荷の御開帳と、熱田神宮</h1>
-  <p class="lede">スポットは豊川稲荷と熱田神宮の2つだけ。行きは名古屋まで、帰りは豊橋から新幹線に乗ります。この順番だと豊川稲荷に着くのがちょうど14:00の大祭渡御の前で、15:00に本殿が再開したらすぐ入れます。日帰り・泊まり×最低限・おすすめの4パターンで予算を比べました。</p>
+  <div class="eyebrow">2026.11.21 土 ／ 日帰り ／ 奥さん・息子さん（大人2人） ／ 確定版 v1</div>
+  <h1>72年ぶりの御開帳と、熱田神宮と、味噌カツ</h1>
+  <p class="lede">朝いちばんの熱田神宮で三種の神器・草薙神剣ゆかりの宝物を見て、お昼は境内のきしめん。午後は豊川稲荷で、この日しか見られない大祭の渡御と御開帳の本殿へ。灯りがともり始めた境内をあとに名古屋へ戻り、矢場とんの味噌カツで締めます。</p>
   <div class="facts">
-    <div class="fact"><b>移動</b><span>新幹線（自由席）＋名鉄・JR</span></div>
-    <div class="fact"><b>日帰り</b><span>2人で約3.9万〜4.2万円</span></div>
-    <div class="fact"><b>泊まり（浜松泊）</b><span>2人で約6.0万〜6.4万円</span></div>
-    <div class="fact"><b>おすすめ</b><span>② 日帰り・おすすめ</span></div>
+    <div class="fact"><b>出発・帰着</b><span>本厚木 06:06発 → 21:42着</span></div>
+    <div class="fact"><b>移動</b><span>新幹線自由席＋名鉄・JR</span></div>
+    <div class="fact"><b>予算</b><span>1人 約26,800円（2人で約53,700円）</span></div>
+    <div class="fact"><b>おすすめ度</b><span>★★★★★ 大祭の日だけの行列</span></div>
   </div>
 </header>
 
 <div class="card" style="border-color:var(--shu)">
-  <div class="k">この日だけの見どころ</div>
-  <p style="margin:6px 0 0">11/21と22日は豊川稲荷の御開帳大祭。14:00から、尊天さまを神輿に乗せて、稚児・雅楽・僧侶が境内を練り歩く「開帳大祭渡御」があります。前回の御開帳は昭和29年なので、この行列はめったに見られません。</p>
+  <div class="k">この旅でいちばん心が動きそうな瞬間</div>
+  <p style="margin:6px 0 0">14:00、尊天さまを乗せた神輿が、稚児や雅楽、僧侶の列とともに境内を進む「開帳大祭渡御」。前回の御開帳は昭和29年。72年に一度の大祭の、さらに2日間だけの行列です。</p>
 </div>
 
-<h2 id="route">共通のルート（4パターンとも同じ）</h2>
+<h2>ハイライト3選</h2>
+<div class="three">
+  <div class="card"><div class="k">1 ／ 09:30</div><h3>朝の熱田神宮と草薙館</h3>人が少ない朝の本宮へ。草薙館では草薙神剣ゆかりの刀剣が見られます。</div>
+  <div class="card"><div class="k">2 ／ 14:00〜15:00</div><h3>大祭の渡御と、御開帳の本殿</h3>行列を見届けたら、15時に再開する本殿へ。御縁柱に触れてご縁を結びます。</div>
+  <div class="card"><div class="k">3 ／ 18:15</div><h3>矢場とんの味噌カツ</h3>名古屋駅の地下街で、甘辛い八丁味噌だれの名古屋名物を。</div>
+</div>
+
+<h2 id="plan">旅程（11/21のダイヤで確認済み）</h2>
+<div class="daylabel">朝 ― 名古屋・熱田へ</div>
 <ol class="rail">
-  <li><span class="t">07:12</span><div class="what">本厚木 発</div><div class="det"><span class="train">小田急 急行 小田原行（2番線）→ 07:52 小田原</span></div></li>
-  <li><span class="t">08:11</span><div class="what">小田原 発 ひかり633号（自由席）</div><div class="det"><span class="train">13番線 → 09:19 名古屋（JR東海道線 09:33発）→ 09:41 熱田</span></div></li>
-  <li class="spot"><span class="t">09:45</span><div class="what">熱田神宮</div><div class="det">JR熱田駅から歩いてすぐ。参拝は無料。朝のうちは参道が静かです</div></li>
-  <li class="food"><span class="t">11:15</span><div class="what">お昼</div><div class="det">
-    <ul>
-      <li><b>最低限</b>：コンビニや持参のおにぎり</li>
-      <li><b>おすすめ</b>：境内の「宮きしめん 神宮店」で名古屋名物のきしめん（第二鳥居そばのくさなぎ広場・9:00〜16:30・無休）。予算の目安は1人1,000円ほど。冬季限定のカルボナーラきしめんや、神宮店限定の宮クリームぜんざいも<span class="tag w">⚠️個別の価格は未確認</span></li>
-    </ul></div></li>
-  <li><span class="t">12:40</span><div class="what">神宮前 発 名鉄 特急 豊橋行</div><div class="det"><span class="train">4番線 → 13:18 国府（豊川稲荷行に乗換）13:26 → 13:38 豊川稲荷</span>　1,190円</div></li>
-  <li class="spot"><span class="t">13:45</span><div class="what">豊川稲荷 <span class="tag r">72年ぶりの御開帳</span></div><div class="det">
-    <ul>
-      <li>本殿は<b>13:00〜15:00、大祭のためお休み</b>。先に本殿前の<b>御縁柱</b>に触れて、境内を散策</li>
-      <li><b>14:00 開帳大祭渡御</b>を見学（無料）</li>
-      <li><b>15:00〜 本殿拝観</b>：最低限なら本殿のみ500円、おすすめなら本殿・法堂・万堂・襖絵の各御堂セット1,500円（法堂などは16:00受付終了）</li>
-      <li>おすすめなら、門前で稲荷寿司をつまんで</li>
-    </ul></div></li>
-</ol>
-<div class="branch">▼ ここから日帰りと泊まりで分かれます</div>
-<ol class="rail">
-  <li><span class="t">16:30</span><div class="what">【日帰り】豊川稲荷 → JR豊川 → 豊橋</div><div class="det"><span class="train">飯田線 16:34 → 16:46 豊橋</span></div></li>
-  <li><span class="t">17:09</span><div class="what">【日帰り】豊橋 発 こだま838号（自由席）</div><div class="det"><span class="train">12番線 → 18:39 小田原（小田急 快速急行 18:51）→ 19:34 本厚木 着</span></div></li>
-</ol>
-<ol class="rail">
-  <li><span class="t">16:30</span><div class="what">【泊まり】豊川稲荷 → JR豊川 → 浜松</div><div class="det"><span class="train">飯田線 16:34 → 16:46 豊橋（東海道線 17:08）→ 17:42 浜松</span>　860円</div></li>
-  <li class="stay"><span class="t">18:00</span><div class="what">【泊まり】センチュリオンホテル アクト浜松</div><div class="det">JR浜松駅北口から徒歩約6分。2名20,400円〜・食事なし（じゃらん 11/7時点）。おすすめなら夜は浜松餃子<span class="tag w">⚠️親子なのでツインか予約時に確認</span></div></li>
-  <li><span class="t">09:17</span><div class="what">【泊まり・翌22日(日)】浜松 発 ひかり640号（自由席）</div><div class="det"><span class="train">→ 09:57 三島（こだま924号 10:15）→ 10:30 小田原 → 11:25 本厚木 着</span>　6,082円</div></li>
+  <li><span class="t">06:06</span><div class="what">本厚木 発</div><div class="det"><span class="train">小田急 普通 小田原行（2番線）→ 06:53 小田原</span></div></li>
+  <li><span class="t">07:05</span><div class="what">小田原 発 こだま801号（自由席）<span class="tag k">✅確認済</span></div><div class="det"><span class="train">13番線 → 09:06 名古屋（16番線）</span></div></li>
+  <li><span class="t">09:18</span><div class="what">名古屋 発 JR東海道線 岡崎行</div><div class="det"><span class="train">2番線 → 09:26 熱田</span>　切符は本厚木→熱田の通しでOK</div></li>
+  <li class="spot"><span class="t">09:30</span><div class="what">熱田神宮 本宮へ参拝</div><div class="det">参拝は無料。樹齢千年を超える大楠や、信長が奉納した信長塀も参道沿いに。朝の境内は静かでおすすめです</div></li>
+  <li class="spot"><span class="t">10:30</span><div class="what">剣の宝庫 草薙館・宝物館<span class="tag m">追加スポット</span></div><div class="det">9:00〜16:30（最終入館16:00）・共通拝観料 大人800円。11/21（土）は開館日。刀剣好きでなくても、大太刀の迫力は見ごたえあり</div></li>
+  <li class="food"><span class="t">11:30</span><div class="what">お昼：宮きしめん 神宮店</div><div class="det">境内・第二鳥居そばの「くさなぎ広場」。9:00〜16:30・無休・予算1人1,000円ほど。冬季限定のカルボナーラきしめんや、神宮店限定の宮クリームぜんざいも<span class="tag w">⚠️個別の価格は未確認</span></div></li>
+  <li><span class="t">12:20</span><div class="what">東門から名鉄 神宮前駅へ（徒歩数分）</div><div class="det">余裕があれば、境内のお守り・御朱印はここで</div></li>
 </ol>
 
-<h2 id="budget">予算比較（大人2人）</h2>
+<div class="daylabel">昼 ― 豊川稲荷の大祭</div>
+<ol class="rail">
+  <li><span class="t">12:40</span><div class="what">神宮前 発 名鉄 特急 豊橋行</div><div class="det"><span class="train">4番線 → 13:18 国府（豊川稲荷行に乗換）13:26 → 13:38 豊川稲荷</span>　1,190円</div></li>
+  <li class="spot"><span class="t">13:45</span><div class="what">豊川稲荷：御縁柱と境内さんぽ</div><div class="det">本殿は<b>13:00〜15:00、大祭のためお休み</b>。先に本殿前の<b>御縁柱</b>へ。善の綱で御前立尊像とつながっていて、触れると秘仏・吒枳尼真天に触れるのと同じご利益があるとされています（無料）</div></li>
+  <li class="spot"><span class="t">14:00</span><div class="what">開帳大祭渡御を見学<span class="tag r">この日だけ</span></div><div class="det">尊天さまを神輿に乗せ、稚児・雅楽・僧侶が境内を練り歩きます。人出が多いので、早めに場所を決めて</div></li>
+  <li class="spot"><span class="t">15:00</span><div class="what">本殿拝観＋各御堂セット</div><div class="det">各御堂セット1,500円：本殿（普段は御祈祷の人しか入れない祈祷施主殿）・法堂（千手観音）・万堂・襖絵「豊川 新鳥獣戯画」。<b>法堂などは16:00で受付終了</b>なので、15時になったらすぐ。本殿のみは20:00まで</div></li>
+  <li class="spot"><span class="t">16:00</span><div class="what">奥の院・霊狐塚 → 門前町で稲荷寿司とお土産</div><div class="det">千体以上のキツネ像が並ぶ霊狐塚は、夕方の光がいちばん雰囲気あり。門前でいなり寿司をつまんで、お土産も</div></li>
+  <li class="spot"><span class="t">17:00</span><div class="what">ヨルモウデ（境内ライトアップ）の点灯</div><div class="det">土曜は17:00〜21:00。日の入りは16:40ごろなので、点灯したての境内を見てから駅へ</div></li>
+</ol>
+
+<div class="daylabel">夜 ― 名古屋で味噌カツ、帰路へ</div>
+<ol class="rail">
+  <li><span class="t">17:08</span><div class="what">豊川稲荷 発 名鉄</div><div class="det"><span class="train">2番線 → 17:19 国府（特急 名鉄岐阜行）17:23 → 18:08 名鉄名古屋</span>　1,270円</div></li>
+  <li class="food"><span class="t">18:15</span><div class="what">夜ごはん：矢場とん 名古屋駅エスカ店</div><div class="det">JR名古屋駅の新幹線口（太閤通口）側の地下街エスカ。11:00〜22:00（L.O.21:30）・予約不可・予算1人2,000〜2,999円（食べログ口コミ集計）。名鉄名古屋駅からはJR駅の中央通路を抜けて徒歩10分ほど<span class="tag w">⚠️土曜夜は行列の可能性</span></div></li>
+  <li><span class="t">19:15</span><div class="what">新幹線改札へ</div><div class="det">お土産はエスカか、新幹線改札内の売店で</div></li>
+  <li><span class="t">19:31</span><div class="what">名古屋 発 ひかり662号（自由席）<span class="tag k">✅確認済</span></div><div class="det"><span class="train">14番線 → 20:38 小田原（小田急 町田行 20:59）→ 21:42 本厚木 着</span></div></li>
+</ol>
+
+<h2 id="extra">追加スポットの候補</h2>
+<p>滞在時間が延びたぶん、こんな候補を考えました。緑の行は旅程に入れてあります。</p>
 <div class="tbl"><table>
-  <thead><tr><th>パターン</th><th class="n">1人</th><th class="n">2人合計</th></tr></thead>
+  <thead><tr><th>候補</th><th>場所・時間</th><th class="n">大人</th></tr></thead>
   <tbody>
-    <tr><td><b>① 日帰り・最低限</b><br><small>本殿のみ拝観・コンビニ飯</small></td><td class="n">約19,300円</td><td class="n">約38,700円</td></tr>
-    <tr class="pick"><td><b>② 日帰り・おすすめ</b><span class="tag m">おすすめ</span><br><small>宮きしめん・各御堂セット・稲荷寿司</small></td><td class="n">約20,800円</td><td class="n">約41,700円</td></tr>
-    <tr><td><b>③ 泊まり・最低限</b><br><small>浜松のビジネスホテル・コンビニ飯</small></td><td class="n">約29,900円</td><td class="n">約59,700円</td></tr>
-    <tr><td><b>④ 泊まり・おすすめ</b><br><small>②＋浜松泊・浜松餃子</small></td><td class="n">約31,900円</td><td class="n">約63,700円</td></tr>
+    <tr class="in"><td><b>剣の宝庫 草薙館・宝物館</b><br><small>熱田神宮ゆかりの刀剣と宝物</small></td><td>熱田神宮の境内・9:00〜16:30</td><td class="n">800円（共通）</td></tr>
+    <tr class="in"><td><b>ヨルモウデ</b><br><small>夜の境内ライトアップ</small></td><td>豊川稲荷・金土日の17:00〜21:00</td><td class="n">無料（庭園・通天廊は有料）</td></tr>
+    <tr class="in"><td><b>霊狐塚・奥の院</b><br><small>千体以上のキツネ像</small></td><td>豊川稲荷の境内</td><td class="n">無料</td></tr>
+    <tr><td><b>西元祐貴美術館</b><br><small>墨絵。御開帳のための描き下ろし作品も</small></td><td>豊川稲荷の境内（旧寺宝館）・土日祝10:00〜16:00最終入館</td><td class="n">1,500円</td></tr>
+    <tr><td><b>宮の渡し公園</b><br><small>東海道「七里の渡し」跡。常夜灯と時の鐘</small></td><td>熱田神宮の南。地下鉄 熱田神宮伝馬町駅から徒歩10分</td><td class="n">無料</td></tr>
   </tbody>
 </table></div>
-<div class="note mori"><b>日帰りがおすすめな理由</b><p>泊まりは交通費が1人約670円安くなりますが、宿代が足されて日帰りより1人1万円ほど高くなります。2日目はほぼ帰るだけなので、スポット2つなら日帰りで十分回れます。11/21は三連休の初日で、名古屋は2名3万円台〜、豊橋も2名3.7万円〜と宿が高く、泊まるなら浜松が現実的です。</p></div>
+<div class="note rail"><b>入れ替えるなら</b><p>西元祐貴美術館は、13:45〜14:00の渡御前か、霊狐塚の代わりに15:45ごろ（16:00最終入館）。宮の渡し公園は、草薙館の代わりに入れると熱田でちょうど収まります。</p></div>
 
-<h2 id="detail">パターンごとの内訳（1人あたり）</h2>
-<div class="plans">
-<details>
-  <summary><span>① 日帰り・最低限</span><span class="sum">19,344円</span></summary>
-  <div><div class="tbl"><table><tbody>
-    <tr><td>本厚木→熱田（小田急＋ひかり自由席）</td><td class="n">9,042円</td></tr>
-    <tr><td>名鉄 神宮前→豊川稲荷</td><td class="n">1,190円</td></tr>
-    <tr><td>豊川→本厚木（飯田線＋こだま自由席＋小田急）</td><td class="n">7,612円</td></tr>
-    <tr><td>豊川稲荷 本殿拝観</td><td class="n">500円</td></tr>
-    <tr><td>食事（コンビニ・持参）</td><td class="n">1,000円</td></tr>
-  </tbody><tfoot><tr><td>合計</td><td class="n">19,344円</td></tr></tfoot></table></div></div>
-</details>
+<h2 id="dinner">夜ごはん：矢場とんの味噌カツ</h2>
+<p>味噌カツの本場は名古屋。豊橋駅のまわりには名物と呼べる味噌カツの店が見つからなかったので、帰りは豊橋ではなく名古屋から新幹線に乗ることにしました。</p>
+<div class="alt">
+  <div class="card"><div class="k">本命</div><h3>矢場とん 名古屋駅エスカ店</h3>名古屋名物みそかつの代表格。新幹線口側の地下街で、食べてそのまま新幹線へ乗れます。予約できないので、着いたらすぐ並んでください。</div>
+  <div class="card"><div class="k">混んでいたら</div><h3>名古屋めし食堂 丸八</h3>ルーセントタワー地下1階（名古屋駅から約500m）。矢場とんの味噌かつを含む名古屋めしが食べられます<span class="tag w">⚠️営業時間は要確認</span></div>
+  <div class="card"><div class="k">時間がないときは</div><h3>駅弁や持ち帰りにして新幹線で</h3>行列が長くて19:15を過ぎそうなら、名古屋駅の売店で味噌カツの駅弁やかつサンドを買って車内で。</div>
+</div>
+
+<h2 id="budget">予算（1人あたり）</h2>
 <details open>
-  <summary><span>② 日帰り・おすすめ</span><span class="sum">20,844円</span></summary>
+  <summary><span>1人 約26,800円（2人で約53,700円）</span><span class="sum">26,844円</span></summary>
   <div><div class="tbl"><table><tbody>
-    <tr><td>交通費（①と同じ）</td><td class="n">17,844円</td></tr>
-    <tr><td>宮きしめん 神宮店 ⚠️目安</td><td class="n">1,000円</td></tr>
-    <tr><td>豊川稲荷 各御堂セット（本殿・法堂・万堂・襖絵）</td><td class="n">1,500円</td></tr>
-    <tr><td>門前の稲荷寿司 ⚠️目安</td><td class="n">500円</td></tr>
-  </tbody><tfoot><tr><td>合計</td><td class="n">20,844円</td></tr></tfoot></table></div></div>
-</details>
-<details>
-  <summary><span>③ 泊まり・最低限</span><span class="sum">29,874円</span></summary>
-  <div><div class="tbl"><table><tbody>
-    <tr><td>本厚木→熱田（小田急＋ひかり自由席）</td><td class="n">9,042円</td></tr>
+    <tr><td>本厚木→熱田（小田急＋こだま自由席）</td><td class="n">9,042円</td></tr>
     <tr><td>名鉄 神宮前→豊川稲荷</td><td class="n">1,190円</td></tr>
-    <tr><td>JR 豊川→浜松</td><td class="n">860円</td></tr>
-    <tr><td>浜松→本厚木（新幹線自由席＋小田急）</td><td class="n">6,082円</td></tr>
-    <tr><td>センチュリオンホテル アクト浜松（2名20,400円を半分）</td><td class="n">10,200円</td></tr>
-    <tr><td>豊川稲荷 本殿拝観</td><td class="n">500円</td></tr>
-    <tr><td>食事（コンビニ・持参 3食）</td><td class="n">2,000円</td></tr>
-  </tbody><tfoot><tr><td>合計</td><td class="n">29,874円</td></tr></tfoot></table></div></div>
-</details>
-<details>
-  <summary><span>④ 泊まり・おすすめ</span><span class="sum">31,874円</span></summary>
-  <div><div class="tbl"><table><tbody>
-    <tr><td>交通費（③と同じ）</td><td class="n">17,174円</td></tr>
-    <tr><td>センチュリオンホテル アクト浜松</td><td class="n">10,200円</td></tr>
-    <tr><td>宮きしめん 神宮店 ⚠️目安</td><td class="n">1,000円</td></tr>
+    <tr><td>名鉄 豊川稲荷→名鉄名古屋</td><td class="n">1,270円</td></tr>
+    <tr><td>名古屋→本厚木（ひかり自由席＋小田急）</td><td class="n">9,042円</td></tr>
+    <tr><td>草薙館・宝物館 共通拝観料</td><td class="n">800円</td></tr>
+    <tr><td>宮きしめん ⚠️目安</td><td class="n">1,000円</td></tr>
     <tr><td>豊川稲荷 各御堂セット</td><td class="n">1,500円</td></tr>
     <tr><td>門前の稲荷寿司 ⚠️目安</td><td class="n">500円</td></tr>
-    <tr><td>浜松餃子の夕ごはん ⚠️目安</td><td class="n">1,500円</td></tr>
-  </tbody><tfoot><tr><td>合計</td><td class="n">31,874円</td></tr></tfoot></table></div></div>
+    <tr><td>矢場とん ⚠️目安</td><td class="n">2,500円</td></tr>
+  </tbody><tfoot><tr><td>合計</td><td class="n">26,844円</td></tr></tfoot></table></div>
+  <p class="src">運賃はIC優先・自由席（Yahoo!路線情報）。帰りを名古屋発にしたので、豊橋発の案より交通費が1人約2,700円上がっています。お土産代は別。</p></div>
 </details>
-</div>
-<p class="src">運賃はIC優先・自由席（Yahoo!路線情報、JR時刻表 令和8年10月号）。宿はじゃらん 11/7時点の最安。⚠️は口コミの予算目安です。</p>
-
-<h2 id="honden">本殿で見られるもの</h2>
-<div class="tbl"><table>
-  <thead><tr><th>参拝の仕方</th><th>できること</th><th class="n">大人</th></tr></thead>
-  <tbody>
-    <tr><td>境内の参拝</td><td>本殿前の御縁柱に触れる。御縁柱は善の綱で御前立尊像とつながっていて、触れると秘仏の吒枳尼真天に触れるのと同じご利益があるとされています</td><td class="n">無料</td></tr>
-    <tr><td>本殿拝観</td><td>ふだんは御祈祷を受ける人しか入れない本殿内の祈祷施主殿に入れます</td><td class="n">500円</td></tr>
-    <tr><td>各御堂セット</td><td>本殿＋法堂（千手観音）・万堂・襖絵「豊川 新鳥獣戯画 乙巻」</td><td class="n">1,500円</td></tr>
-    <tr><td>御祈祷</td><td>御前立尊像に拝礼できるのはここだけ。11/21は受付13:30まで</td><td class="n">5,000円〜</td></tr>
-  </tbody>
-</table></div>
-<p class="src">本殿拝観で御前立尊像が遠くからどのくらい見えるかは、公式に記載がありません。</p>
 
 <h2 id="caution">注意事項</h2>
-<div class="note warn"><b>本殿は13:00〜15:00お休み</b><p>11/21・22日は大祭のため。御祈祷を受けたい場合は、受付が13:30までなので順番を入れ替えて豊川稲荷を午前にしてください。</p></div>
-<div class="note warn"><b>三連休の初日で混みます</b><p>帰りのこだまの自由席が混んでいたら、指定席を買い足してください（1人あたり、こだま+730円・ひかり+530円ほど）。2人並んで座りたいなら最初から指定席でも。</p></div>
-<div class="note rail"><b>夕方以降も楽しめます</b><p>本殿拝観は20:00まで受付。土曜は17:00〜21:00に境内のライトアップ「ヨルモウデ」もあります。日帰りでも、帰りを1本遅らせて夜の境内を見る手もあります（17:40発 こだま840号で本厚木20:05着）。</p></div>
-<div class="note mori"><b>雨の日</b><p>熱田神宮も豊川稲荷も、参道は傘で歩けます。法堂・万堂・襖絵など屋内の拝観を長めに。</p></div>
+<div class="note warn"><b>本殿は13:00〜15:00お休み・御祈祷は13:30締切</b><p>11/21は大祭の日。御前立尊像に拝礼できる御祈祷（5,000円〜）は受付が13:30までなので、この旅程では受けられません。受けたい場合は「別案」のとおり、豊川稲荷を午前にしてください。</p></div>
+<div class="note warn"><b>三連休の初日で混みます</b><p>帰りのひかりの自由席は混むかもしれません。並んで座りたいなら指定席に（ひかりは1人+530円ほど）。夜ごはんが押したときに乗り遅れないよう、19:15には新幹線改札へ。</p></div>
+<div class="note rail"><b>乗り換えのコツ</b><p>名鉄名古屋駅からエスカまでは、JR名古屋駅の中央コンコースを東から西へ抜けます。18:08着ならだいたい18:20ごろに店に着きます。</p></div>
+<div class="note mori"><b>雨の日</b><p>熱田神宮は草薙館・宝物館を長めに。豊川稲荷は法堂・万堂・襖絵の屋内拝観と、西元祐貴美術館（屋内・16:00最終入館）を足すのがおすすめ。渡御の雨天時の扱いは公式に記載がないので、当日に確認してください。</p></div>
+
+<h2>削ってもいい候補</h2>
+<ul>
+  <li><b>草薙館・宝物館</b>：1人800円の節約。熱田神宮をのんびり歩くだけでも十分</li>
+  <li><b>ヨルモウデ</b>：疲れていたら1本早い名鉄で名古屋へ向かえば、矢場とんの行列にも余裕を持って並べます</li>
+  <li><b>各御堂セット</b>：本殿だけ（500円）にすれば1,000円の節約</li>
+</ul>
+
+<h2 id="options">別案</h2>
+<div class="alt">
+  <div class="card"><div class="k">予算を抑える</div><h3>帰りを豊橋発にして、夕ごはんは豊橋で</h3>豊川稲荷から豊橋に出て、19:09発のこだま846号（21:42本厚木着）で帰ると、交通費が1人約2,700円安くなります。ただし豊橋駅には名物の味噌カツの店が見当たらず、駅ビルの和幸（とんかつのチェーン店）や、豊橋名物のカレーうどんになります。</div>
+  <div class="card"><div class="k">贅沢にする</div><h3>指定席＋西元祐貴美術館</h3>新幹線を往復とも指定席にして（1人+1,300円ほど）、豊川稲荷では西元祐貴美術館（1,500円）も。夜はヨルモウデの有料エリア、庭園・通天廊のライトアップを見てから17:38の名鉄に乗ると、矢場とんは18:40ごろになり、かなりギリギリです。</div>
+  <div class="card"><div class="k">御祈祷を受けたい</div><h3>順番を逆にして、豊川稲荷を午前に</h3>06:06本厚木発・こだま801号を豊橋（08:35着）で降りて、名鉄で09:12に豊川稲荷へ。13:30の締切前に御祈祷を受けて、午後に熱田神宮、夜は矢場とん。そのかわり14:00の渡御は見られません。</div>
+</div>
 
 <h2 id="check">予約・持ち物チェック</h2>
 <ul class="check" id="checklist">
-  <li><input type="checkbox" id="k1"><label for="k1">パターンを決める</label></li>
-  <li><input type="checkbox" id="k2"><label for="k2">新幹線のきっぷ（自由席なら当日でもOK。並んで座りたいなら指定席を予約）</label></li>
-  <li><input type="checkbox" id="k3"><label for="k3">泊まりなら浜松のホテルを予約（ツインを確認）</label></li>
-  <li><input type="checkbox" id="k4"><label for="k4">御祈祷を受けるならオンラインで事前申込</label></li>
-  <li><input type="checkbox" id="k5"><label for="k5">御朱印帳</label></li>
-  <li><input type="checkbox" id="k6"><label for="k6">小銭（賽銭・拝観の券売機）</label></li>
-  <li><input type="checkbox" id="k7"><label for="k7">歩きやすい靴・薄手の上着・折りたたみ傘</label></li>
+  <li><input type="checkbox" id="k1"><label for="k1">新幹線のきっぷ（自由席なら当日でもOK。並んで座りたいなら指定席を予約）</label></li>
+  <li><input type="checkbox" id="k2"><label for="k2">交通系ICカードのチャージ（名鉄・JR在来線用）</label></li>
+  <li><input type="checkbox" id="k3"><label for="k3">現金（豊川稲荷の拝観料は現金のみ）・小銭（賽銭）</label></li>
+  <li><input type="checkbox" id="k4"><label for="k4">御朱印帳（熱田神宮・豊川稲荷）</label></li>
+  <li><input type="checkbox" id="k5"><label for="k5">歩きやすい靴</label></li>
+  <li><input type="checkbox" id="k6"><label for="k6">薄手のダウンなど（夕方以降の境内は冷えます）</label></li>
+  <li><input type="checkbox" id="k7"><label for="k7">折りたたみ傘・モバイルバッテリー</label></li>
   <li><input type="checkbox" id="k8"><label for="k8">前日に天気を確認</label></li>
 </ul>
+
+<p class="src" style="margin-top:24px"><a href="compare.html">4パターンの予算比較はこちら</a></p>
 
 <div class="src">
   <h2 style="font-size:18px">情報源（2026/11/7 確認）</h2>
@@ -250,20 +245,21 @@ footer{margin-top:36px;font-size:12px;color:var(--sub)}
     <li><a href="https://toyokawainari-gokaicho.com/special-viewing/" target="_blank" rel="noopener">豊川稲荷御開帳 公式：特別拝観・ご参拝</a></li>
     <li><a href="https://toyokawainari-gokaicho.com/about-opening/" target="_blank" rel="noopener">豊川稲荷御開帳 公式：御開帳について</a></li>
     <li><a href="https://toyokawa-omotenashi.com/" target="_blank" rel="noopener">豊川市おもてなし事業推進委員会：御開帳関連行事</a></li>
-    <li><a href="https://www.jalan.net/210000/STA_990600/" target="_blank" rel="noopener">じゃらん：浜松駅周辺の宿</a></li>
-    <li><a href="https://www.jalan.net/230000/LRG_230200/SML_230202/" target="_blank" rel="noopener">じゃらん：名古屋駅周辺の宿</a></li>
-    <li><a href="https://www.jalan.net/230000/STA_990515/" target="_blank" rel="noopener">じゃらん：豊橋駅周辺の宿</a></li>
+    <li><a href="https://aichinow.pref.aichi.jp/news/detail/181/" target="_blank" rel="noopener">Aichi Now：72年ぶりの御開帳特集（ヨルモウデ・西元祐貴美術館）</a></li>
+    <li><a href="https://koubo.jp/press-release/prtimes/c74187_r573" target="_blank" rel="noopener">西元祐貴美術館 開館のお知らせ</a></li>
+    <li><a href="https://www.walkerplus.com/spot/ar0623s50414/price.html" target="_blank" rel="noopener">ウォーカープラス：熱田神宮宝物館・剣の宝庫 草薙館</a></li>
     <li><a href="https://www.gltjp.com/ja/directory/item/14758/" target="_blank" rel="noopener">Guidoor：宮きしめん 神宮店</a></li>
-    <li><a href="https://retty.me/restaurant/100000426411/" target="_blank" rel="noopener">Retty：宮きしめん 神宮店</a></li>
+    <li><a href="https://tabelog.com/aichi/A2301/A230101/23000136/" target="_blank" rel="noopener">食べログ：矢場とん 名古屋駅エスカ店</a></li>
+    <li><a href="https://rurubu.jp/andmore/spot/80023780" target="_blank" rel="noopener">るるぶ：宮の渡し公園</a></li>
     <li>列車時刻：Yahoo!路線情報（JR時刻表 令和8年10月号）</li>
   </ul>
 </div>
-<footer>v2・2026/11/7更新（ランチをひつまぶしから宮きしめんに変更）。パターンが決まったら、ぽけたび用JSONを作ります。</footer>
+<footer>確定版 v1・2026/11/7作成（日帰り・おすすめ／朝1時間早め・帰り19時台・夜は味噌カツ）。</footer>
 </div>
 
 <script>
 (function(){
-  var KEY='toyokawa-atsuta-1121-check';
+  var KEY='toyokawa-atsuta-1121-plan-check';
   var saved={};
   try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){saved={}}
   document.querySelectorAll('#checklist input').forEach(function(cb){
