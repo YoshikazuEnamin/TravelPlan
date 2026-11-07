@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>熱海三昧 日帰り｜2026/10/3(土) v3・実施レポ入り</title>
+<style>
+  :root{
+    --bg:#f3f1ec; --card:#ffffff; --text:#24221f; --sub:#6b635b;
+    --accent:#1f6f8b; --accent2:#b0622e; --border:#e1dbd1;
+    --tag-yellow-bg:#fff3d6; --tag-yellow-text:#8a5a00;
+    --tag-green-bg:#e2f5ec; --tag-green-text:#1f7a52;
+    --tag-red-bg:#fdeaea; --tag-red-text:#a32a2a;
+    --shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  [data-theme="dark"]{
+    --bg:#14181b; --card:#1d2327; --text:#eef0f2; --sub:#a6aeb4;
+    --accent:#6cc0dc; --accent2:#e3a06f; --border:#2e363b;
+    --tag-yellow-bg:#4a3a10; --tag-yellow-text:#f5cf7a;
+    --tag-green-bg:#173d2e; --tag-green-text:#7fe0b8;
+    --tag-red-bg:#43201f; --tag-red-text:#f2a3a0;
+    --shadow: 0 2px 14px rgba(0,0,0,0.4);
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; font-family:-apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+    background:var(--bg); color:var(--text); line-height:1.7; padding-bottom:60px; transition:background .2s,color .2s;}
+  header{position:sticky; top:0; z-index:100; background:var(--card); border-bottom:1px solid var(--border);
+    padding:12px 16px; display:flex; justify-content:space-between; align-items:center; box-shadow:var(--shadow);}
+  header .title{font-size:14px; font-weight:700; color:var(--accent);}
+  header .sub{font-size:11px; color:var(--sub);}
+  .theme-btn{background:var(--bg); border:1px solid var(--border); border-radius:20px; padding:6px 12px; font-size:12px; color:var(--text); cursor:pointer; flex-shrink:0;}
+  nav.subnav{position:sticky; top:56px; z-index:99; background:var(--bg); border-bottom:1px solid var(--border);
+    display:flex; gap:6px; overflow-x:auto; padding:8px 12px; -webkit-overflow-scrolling:touch;}
+  nav.subnav a{flex-shrink:0; font-size:12px; color:var(--sub); text-decoration:none; background:var(--card); border:1px solid var(--border); border-radius:16px; padding:6px 12px;}
+  main{max-width:720px; margin:0 auto; padding:16px;}
+  .hero{background:linear-gradient(135deg, var(--accent), var(--accent2)); color:#fff; border-radius:16px; padding:22px 18px; margin-bottom:18px; box-shadow:var(--shadow);}
+  .hero h1{font-size:19px; margin:0 0 6px;}
+  .hero p{font-size:13px; margin:0; opacity:.95;}
+  section{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:16px; margin-bottom:14px; box-shadow:var(--shadow); scroll-margin-top:110px;}
+  h2{font-size:15px; margin:0 0 10px; color:var(--accent);}
+  h3{font-size:13px; margin:14px 0 6px; color:var(--accent2);}
+  p{font-size:13px;}
+  table{width:100%; border-collapse:collapse; font-size:12.5px; margin:8px 0;}
+  th,td{border-bottom:1px solid var(--border); text-align:left; padding:7px 6px; vertical-align:top;}
+  th{color:var(--sub); font-weight:600;}
+  td.t{white-space:nowrap; font-variant-numeric:tabular-nums; color:var(--accent); font-weight:700;}
+  td.num{text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums;}
+  tr.area td{background:var(--bg); font-weight:700; color:var(--accent2); font-size:12px;}
+  .route{background:var(--bg); border:1px dashed var(--border); border-radius:10px; padding:12px; font-size:11px; white-space:pre; font-family:"SFMono-Regular",Consolas,monospace; line-height:1.8; color:var(--sub); overflow-x:auto;}
+  .tip{border-left:3px solid var(--accent2); background:var(--tag-green-bg); color:var(--tag-green-text); padding:10px 12px; border-radius:0 8px 8px 0; font-size:12.5px; margin:10px 0;}
+  .warn{border-left:3px solid #d05a52; background:var(--tag-red-bg); color:var(--tag-red-text); padding:10px 12px; border-radius:0 8px 8px 0; font-size:12.5px; margin:10px 0;}
+  .flag-y{background:var(--tag-yellow-bg); color:var(--tag-yellow-text); border-radius:6px; padding:1px 6px; font-size:11px; font-weight:700; white-space:nowrap;}
+  .flag-g{background:var(--tag-green-bg); color:var(--tag-green-text); border-radius:6px; padding:1px 6px; font-size:11px; font-weight:700; white-space:nowrap;}
+  details{background:var(--bg); border:1px solid var(--border); border-radius:10px; padding:10px 12px; margin:8px 0;}
+  summary{cursor:pointer; font-size:13px; font-weight:600; color:var(--accent);}
+  ul{margin:6px 0; padding-left:18px; font-size:13px;}
+  li{margin-bottom:4px;}
+  a{color:var(--accent);}
+  .checklist label{display:flex; align-items:center; gap:8px; font-size:13px; padding:6px 0; border-bottom:1px dashed var(--border);}
+  .checklist input{width:16px; height:16px; accent-color:var(--accent); flex-shrink:0;}
+  .checklist label.done span{text-decoration:line-through; color:var(--sub);}
+  .highlight-grid{display:flex; flex-direction:column; gap:8px;}
+  .highlight-item{display:flex; gap:10px; align-items:flex-start; background:var(--bg); border-radius:10px; padding:10px 12px; font-size:13px;}
+  .highlight-num{background:var(--accent); color:#fff; font-weight:700; font-size:12px; border-radius:50%; width:22px; height:22px; display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .total-row td{font-weight:700; color:var(--accent); border-top:2px solid var(--border);}
+  .card{background:var(--bg); border:1px solid var(--border); border-radius:12px; padding:12px; margin:10px 0;}
+  .card h4{margin:0 0 6px; font-size:14px; color:var(--accent);}
+  .card p{margin:4px 0;}
+  footer{text-align:center; font-size:11px; color:var(--sub); padding:20px 0;}
+</style>
+</head>
+<body data-theme="light">
+
+<header>
+  <div>
+    <div class="title">♨️ 熱海三昧 日帰り</div>
+    <div class="sub">2026/10/3(土) 日帰り・一人・動画撮影あり／v3（10/3実施・思い出を追記）</div>
+  </div>
+  <button class="theme-btn" id="themeBtn" onclick="toggleTheme()">🌙 ダーク</button>
+</header>
+
+<nav class="subnav">
+  <a href="#memo">🎬 旅の記録</a>
+  <a href="#first">まず押さえる</a>
+  <a href="#route">ルート</a>
+  <a href="#gaiyo">概要</a>
+  <a href="#plan">旅程</a>
+  <a href="#spot">スポット</a>
+  <a href="#meal">食べる・買う</a>
+  <a href="#movie">撮影メモ</a>
+  <a href="#budget">予算</a>
+  <a href="#highlight">ハイライト</a>
+  <a href="#alt">調整・プランB</a>
+  <a href="#notice">注意</a>
+  <a href="#pack">持ち物</a>
+  <a href="#check">チェック</a>
+  <a href="#link">リンク</a>
+</nav>
+
+<main>
+
+  <div class="hero">
+    <h1>熱海の中心から南へどんどん下って、最後は熱海の温泉のはじまりの地で湯締め</h1>
+    <p>始発で朝の海 → 湯前神社 → 8時台の来宮の大楠 → 伊豆多賀の浜でパン朝ごはん＆プリン → 網代でイカメンチ → 伊豆山神社から837段を海へ → 走り湯浜浴場 → 銀座でマカロンモナカ → 屋台村で浜焼き。<strong>伊豆多賀も網代も住所は「熱海市」</strong>っていうのがこの旅のネタ。</p>
+  </div>
+
+  <section id="memo">
+    <h2>🎬 旅の記録（2026/10/3 実施・動画用メモ）</h2>
+    <p><strong>実施済み。</strong>予定からランチ・移動・夜ご飯が変わって、時間が余ったぶん熱海七湯めぐりが増えた一日。以下、編集で使うための素材メモです（本人メモをエリア順に整理）。</p>
+
+    <h3>🔁 予定と実際のちがい</h3>
+    <table>
+      <tr><th>場面</th><th>予定</th><th>実際</th></tr>
+      <tr><td>朝の熱海</td><td>湯前神社・大湯間歇泉</td><td>時間が余って<strong>熱海七湯を全部めぐった</strong>。間歇泉は8時からで動いておらず、夕方に再訪</td></tr>
+      <tr><td>長浜の足湯</td><td>9:00〜</td><td><strong>10時から</strong>だったので、椅子に座って休憩して待った</td></tr>
+      <tr><td>伊豆多賀→網代</td><td>バス（長浜→弘法滝藤哲）</td><td>バスは電車の倍の時間と運賃がかかるので<strong>電車に変更</strong>。時間ギリギリで駅までの坂を走った</td></tr>
+      <tr><td>ランチ</td><td>味里（イカメンチ）</td><td><strong>むすび食堂 風待ち港</strong>のさばみりん定食＋ソイラッシー</td></tr>
+      <tr><td>和田木神社</td><td>立ち寄り</td><td>時間がなくて行けず</td></tr>
+      <tr><td>網代→熱海</td><td>JR伊東線</td><td><strong>バス</strong>で熱海駅へ</td></tr>
+      <tr><td>夜ご飯</td><td>熱海屋台村（浜焼き）</td><td><strong>熱海ゴールデンアイ</strong>の「金目鯛ラーメン極み」</td></tr>
+    </table>
+
+    <h3>♨️ 朝の熱海：熱海七湯コンプリート</h3>
+    <ul>
+      <li>時間が余ったので<strong>熱海七湯を全部めぐった</strong>（予定外の収穫。7か所そろっていれば連続カットで使える）</li>
+      <li>大湯間歇泉は<strong>8時からなので朝は動いていなかった</strong> →「またあとで来る」と伏線にできる</li>
+      <li><strong>夕方に再訪した結果</strong>：思ったよりチョロチョロで、<strong>20秒くらいで終了</strong>。ショボかった（オチとして使える）</li>
+    </ul>
+
+    <h3>🥐 パン樹 久遠</h3>
+    <ul>
+      <li>買ったのは<strong>キノコのアヒージョ</strong>と<strong>茄子カレー</strong></li>
+      <li>茄子カレー：スパイシーで美味しい</li>
+      <li>キノコ：弾力があって美味しい</li>
+    </ul>
+
+    <h3>🦶 伊豆多賀：長浜の足湯</h3>
+    <ul>
+      <li>足湯は<strong>10時から</strong>だったので、椅子に座って休憩しながら待った</li>
+      <li><strong>源泉かけ流しで、けっこう熱かった</strong></li>
+    </ul>
+
+    <h3>🍮 熱海プリン食堂（サービスに感動）</h3>
+    <ul>
+      <li>プリンは<strong>硬めのクラシック系</strong>。<strong>アイス・コーヒーゼリー・プリン</strong>が全部味わえた</li>
+      <li>お冷が<strong>レモン水</strong>だった</li>
+      <li><strong>ウェルカムプレート</strong>まで出してくれて、サービスすごいなと思った</li>
+    </ul>
+
+    <h3>🏃 伊豆多賀→網代：バスをやめて電車、坂ダッシュ</h3>
+    <ul>
+      <li>網代までバスで行くつもりが、<strong>電車の倍の時間と運賃</strong>がかかるので結局電車にした</li>
+      <li>電車の時間がギリギリで、<strong>坂を走ったら疲れた</strong>（伊豆多賀駅は高台）</li>
+    </ul>
+
+    <h3>🐟 網代：むすび食堂 風待ち港のさばみりん定食（今日いちばんの「うまい」）</h3>
+    <ul>
+      <li>ランチは<strong>むすび食堂 風待ち港</strong>の干物定食に変更</li>
+      <li>途中で見かけた<strong>サバ味醂が美味しそうすぎて</strong>、さばみりん定食に<strong>ソイラッシー</strong>を付けた</li>
+      <li><strong>脂ジュワジュワでヤバいくらい美味しかった</strong></li>
+      <li>付け合わせが全部変わっていて、<strong>アチャール</strong>が美味しかった</li>
+      <li>ソイラッシーは甘酸っぱくて飲みやすかった</li>
+      <li>港は<strong>だれもいなくて、のんびりできた</strong></li>
+      <li>和田木神社は時間がなくて行けなかった</li>
+      <li>網代から熱海駅までは<strong>バス</strong>で移動</li>
+    </ul>
+
+    <h3>⛩️ 伊豆山：神社と走り湯</h3>
+    <ul>
+      <li>伊豆山神社の<strong>鯉の餌は売り切れ</strong>で残念</li>
+      <li>走り湯の洞窟は<strong>スチームサウナ</strong>だった</li>
+      <li>走り湯（浜浴場）は<strong>ほんとに温まるお湯で、しばらく汗が止まらなかった</strong></li>
+    </ul>
+
+    <h3>🍜 夜：熱海ゴールデンアイの金目鯛ラーメン極み</h3>
+    <ul>
+      <li>ディナーは<strong>熱海ゴールデンアイ</strong>に変更して、<strong>金目鯛ラーメン極み</strong>を食べた</li>
+      <li>お店の場所が<strong>Googleマップと全然違った</strong>（迷ったくだりはネタになる）</li>
+      <li>スープが<strong>金目鯛を濃縮した感じで感動</strong>した</li>
+    </ul>
+
+    <h3>🎞 動画の組み立て案（編集のヒント）</h3>
+    <div class="tip">ここは参謀からの提案。メモの出来事をどう並べるかの案です。</div>
+    <ul>
+      <li><strong>伏線と回収</strong>：朝「間歇泉は8時から…またあとで来る」→ 夕方「20秒チョロチョロで終了」。一日の最初と最後をつなぐオチにできる</li>
+      <li><strong>予定変更3連発</strong>：バス→電車（坂ダッシュ）／イカメンチ→さばみりん／浜焼き→金目鯛ラーメン。「計画どおりにいかない旅」を軸にするとテンポが出る</li>
+      <li><strong>うまいの山場は2つ</strong>：昼の「脂ジュワジュワ」のさばみりんと、夜の「金目鯛を濃縮した」スープ。寄りのカットがあればここに厚く使う</li>
+      <li><strong>ほっこり枠</strong>：プリン食堂のウェルカムプレートとレモン水、だれもいない網代の港</li>
+      <li><strong>体感ワード</strong>：「足湯が熱い」「洞窟はスチームサウナ」「汗が止まらない」は温泉の説得力になるので、テロップ向き</li>
+      <li>テロップ候補：<em>「ぜんぶ熱海市」</em>／<em>「間歇泉、20秒」</em>／<em>「サバ味醂に負けた」</em>／<em>「Googleマップ、そこじゃない」</em></li>
+    </ul>
+
+    <h3>📝 次に行くときの学び</h3>
+    <ul>
+      <li>大湯間歇泉は<strong>8時から</strong>。朝イチでは見られない</li>
+      <li>長浜の足湯は<strong>10時から</strong>（しおりの「9:00〜」は実際と違った）</li>
+      <li>伊豆多賀→網代は<strong>電車のほうが早くて安い</strong>。ただし駅は坂の上なので、時間に余裕を持つ</li>
+      <li>熱海ゴールデンアイは<strong>Googleマップのピンが実際の場所とズレている</strong></li>
+      <li>伊豆山神社の鯉の餌は売り切れることがある</li>
+    </ul>
+    <p style="color:var(--sub);font-size:12px;">※ 来宮神社・837段の石段・熱海銀座のお土産については、メモに記載がなかったので書いていません。素材があれば追記します。</p>
+  </section>
+
+  <section id="first">
+    <h2>🔴 まず押さえておきたいこと</h2>
+    <ul>
+      <li><strong>日程は2026/10/3(土)で確定</strong> <span class="flag-g">✅</span>。時刻はすべて10/3(土)のダイヤで確認済み。</li>
+      <li>🌤 <strong>天気（9/29 18:00発表・tenki.jp）</strong>：曇時々晴・最高22℃／最低18℃・降水確率30%。日中は晴れ間が増える見込み。前日にもう一度チェック。</li>
+      <li><strong>予約が必要なものはゼロ</strong>。味里・屋台村も予約なしで行く前提。</li>
+      <li>乗り遅れると響くのは <strong>長浜10:26のバス</strong>（プリン食堂の目の前）。逃したら次は10:51発で、味里着が11:36ごろになる。</li>
+      <li>タクシーは使わない。そのぶん<strong>味里は開店10分遅れの11:10着</strong>（バスがぐるっと回るため）。</li>
+      <li>浜浴場は<strong>タオル・ドライヤー無料</strong>だけど、小銭（350円）は用意しておく。</li>
+    </ul>
+  </section>
+
+  <section id="route">
+    <h2>🗺 ルート（北から南へ下って、最後に北へワープ）</h2>
+<div class="route">本厚木 05:10 ─小田急─ 小田原 ─JR─ 熱海 06:16
+                                        │
+     ┌───────────── 熱海の中心（徒歩）──────────────┐
+     │ サンビーチ → 熱海銀座 → 湯前神社・大湯 → 久遠 │
+     └──────────────────────────────────┘
+                                        │ 徒歩20分
+                              來宮神社（8時台の大楠）
+                                        │ JR伊東線 6分
+                              伊豆多賀（長浜の浜・プリン食堂）
+                                        │ バス（長浜→弘法滝藤哲）
+                              網代（味里 → ひもの銀座 → 和田木神社）
+                                        │ JR伊東線 13分 ↑北へワープ
+                              熱海駅 ─バス─ 伊豆山神社
+                                        │ 837段を下る
+                              走り湯・走湯神社・浜浴場
+                                        │ バス
+                              熱海駅 → 銀座（マカロンモナカ）→ 屋台村
+                                        │
+熱海 18:12 ─JR─ 小田原 ─小田急─ 本厚木 19:21</div>
+  </section>
+
+  <section id="gaiyo">
+    <h2>① 旅の概要</h2>
+    <table>
+      <tr><th>テーマ</th><td>熱海三昧。熱海・来宮・伊豆多賀・網代・伊豆山、ぜんぶ熱海市</td></tr>
+      <tr><th>日程</th><td><strong>2026/10/3(土)</strong> 日帰り</td></tr>
+      <tr><th>スタイル</th><td>一人・公共交通のみ（タクシーなし）</td></tr>
+      <tr><th>予算</th><td><strong>約¥9,300</strong>（予算1万円以内）</td></tr>
+      <tr><th>歩き</th><td>多め。837段の下り＋網代で約3km（下り基調）</td></tr>
+      <tr><th>おすすめ度</th><td>★★★★☆</td></tr>
+    </table>
+  </section>
+
+  <section id="plan">
+    <h2>② 時系列旅程</h2>
+    <table>
+      <tr><th>時刻</th><th>内容</th></tr>
+      <tr class="area"><td colspan="2">🚃 行き</td></tr>
+      <tr><td class="t">05:10</td><td>本厚木 発（小田急 快速急行 小田原行）→ 05:48 小田原</td></tr>
+      <tr><td class="t">05:52</td><td>小田原 発（JR東海道線 熱海行）→ <strong>06:16 熱海</strong>　<span class="flag-g">✅ 912円</span></td></tr>
+      <tr class="area"><td colspan="2">🌊 熱海の中心（徒歩）</td></tr>
+      <tr><td class="t">06:30</td><td>熱海サンビーチ・親水公園（ムーンテラス）で朝の海</td></tr>
+      <tr><td class="t">07:05</td><td>熱海銀座のレトロな街並みを撮影</td></tr>
+      <tr><td class="t">07:25</td><td>湯前神社・大湯間歇泉（約5分ごとに噴出）</td></tr>
+      <tr><td class="t">07:55</td><td>パン樹 久遠で朝ごはん用のパン（8:00開店）<span class="flag-y">⚠️ 開店時刻</span></td></tr>
+      <tr class="area"><td colspan="2">🌳 来宮</td></tr>
+      <tr><td class="t">08:10</td><td>来宮神社まで歩く（約20分・上り）</td></tr>
+      <tr><td class="t">08:30</td><td><strong>來宮神社</strong>：人の少ない8時台の大楠</td></tr>
+      <tr><td class="t">09:05</td><td>来宮 発（JR伊東線）→ 09:11 伊豆多賀　<span class="flag-g">✅ 199円</span></td></tr>
+      <tr class="area"><td colspan="2">🦶 伊豆多賀</td></tr>
+      <tr><td class="t">09:20</td><td>長浜海浜公園：浜でパンの朝ごはん＋うみえ～る長浜の無料足湯</td></tr>
+      <tr><td class="t">10:00</td><td><strong>熱海プリン食堂</strong>に開店と同時に入る（皿プリン）</td></tr>
+      <tr><td class="t">10:26</td><td>長浜 → 11:07 弘法滝藤哲（東海バス）　<span class="flag-g">✅ 340円</span></td></tr>
+      <tr class="area"><td colspan="2">🦑 網代</td></tr>
+      <tr><td class="t">11:10</td><td><strong>味里 網代本店</strong>でランチ（イカメンチ・漁師めし）</td></tr>
+      <tr><td class="t">11:55</td><td>網代の町へ歩いて下る（約2.5km・30〜35分）</td></tr>
+      <tr><td class="t">12:30</td><td>ひもの銀座（片町）→ 12:45 和田木神社</td></tr>
+      <tr><td class="t">13:03</td><td>網代 発（JR伊東線）→ 13:16 熱海　<span class="flag-g">✅ 209円</span></td></tr>
+      <tr class="area"><td colspan="2">♨️ 伊豆山で締め</td></tr>
+      <tr><td class="t">13:35</td><td>熱海駅 → 13:42 伊豆山神社前（東海バス）　<span class="flag-g">✅ 230円</span></td></tr>
+      <tr><td class="t">13:45</td><td><strong>伊豆山神社</strong></td></tr>
+      <tr><td class="t">14:25</td><td><strong>837段の石段</strong>を海に向かって下る</td></tr>
+      <tr><td class="t">14:45</td><td>走湯神社・走り湯（洞窟見学は17時まで）</td></tr>
+      <tr><td class="t">15:05</td><td><strong>走り湯浜浴場</strong>で30分（350円）</td></tr>
+      <tr><td class="t">15:45</td><td>逢初橋 → 16:05 熱海駅（東海バス A48）　<span class="flag-g">✅ 230円</span></td></tr>
+      <tr class="area"><td colspan="2">🎁 熱海でお土産と夜ご飯</td></tr>
+      <tr><td class="t">16:05</td><td>平和通りを下って熱海銀座へ（約15分）</td></tr>
+      <tr><td class="t">16:20</td><td>常盤木羊羹店 總本店でマカロンモナカ（〜18:00）</td></tr>
+      <tr><td class="t">16:40</td><td><strong>熱海屋台村</strong>で浜焼きの夜ご飯（食べたいものだけ選ぶ）</td></tr>
+      <tr><td class="t">17:55</td><td>熱海駅へ（徒歩7分）</td></tr>
+      <tr class="area"><td colspan="2">🚃 帰り</td></tr>
+      <tr><td class="t">18:12</td><td>熱海 発（JR東海道線）→ 18:34 小田原 18:38 発（小田急）→ <strong>19:21 本厚木</strong>　<span class="flag-g">✅ 912円</span></td></tr>
+    </table>
+    <div class="tip">💡 もう少し飲みたくなったら、次は <strong>18:40発 → 19:54本厚木着</strong>。</div>
+  </section>
+
+  <section id="spot">
+    <h2>③ スポット情報</h2>
+    <div class="card">
+      <h4>⛩️ 湯前神社・大湯間歇泉</h4>
+      <p>749年創建の熱海温泉の守り神（上宿町4-12）。隣の大湯間歇泉（上宿町4-3）は、往年の大湯の噴出をおおむね5分ごとに再現している。どちらも無料。</p>
+    </div>
+    <div class="card">
+      <h4>🌳 來宮神社</h4>
+      <p>国の天然記念物・樹齢2100年超の大楠。昼は行列ができるほど混むので、<strong>8時台がいちばん静か</strong>。御朱印・授与所は9時から（今回はもらわない）。<span class="flag-y">⚠️ 境内の開門時刻は公式に記載なし</span></p>
+    </div>
+    <div class="card">
+      <h4>🦶 長浜海浜公園（うみえ～る長浜）</h4>
+      <p>約400mの砂浜とカモメ。うみえ～る長浜の<strong>足湯は無料・9:00〜17:00</strong>。住所は熱海市上多賀地先。</p>
+    </div>
+    <div class="card">
+      <h4>🐟 ひもの銀座（網代・片町）／和田木神社</h4>
+      <p>網代港の干物屋が両側に並ぶ昔ながらの通り。和田木神社は網代駅から徒歩5分で、10月の例大祭では獅子神楽が奉納される（今年の日程は未確認）。</p>
+    </div>
+    <div class="card">
+      <h4>⛩️ 伊豆山神社 → 837段 → 走湯神社・走り湯</h4>
+      <p>源頼朝・北条政子ゆかりの縁結びの神社から、相模湾を正面に見ながら837段を下る。下りきった先が<strong>走り湯</strong>（日本三大古泉・横穴式源泉・見学9:00〜17:00・無料）と、源泉を守る<strong>走湯神社</strong>。</p>
+    </div>
+    <div class="card">
+      <h4>♨️ 走り湯浜浴場</h4>
+      <p>伊豆山唯一の共同浴場。<strong>350円</strong>、14:00〜19:00（受付18:30まで）、<strong>木曜・第4金曜定休</strong>（土曜はOK）。ぬるめと熱めの2槽。泉質はカルシウム・ナトリウム-塩化物温泉（高張性・弱アルカリ性・高温泉）。タオル・ドライヤー無料。</p>
+      <p>🕐 <strong>おすすめの入り方</strong>：837段を下りきって汗をかいたところで、まずぬるめの湯へ。30分なので洗い場→ぬるめ→熱めを1回ずつくらいがちょうどいい。</p>
+    </div>
+  </section>
+
+  <section id="meal">
+    <h2>④ 食べる・買う（今日の並び）</h2>
+    <table>
+      <tr><th>時刻</th><th>お店</th><th>内容</th></tr>
+      <tr><td class="t">07:55</td><td>パン樹 久遠</td><td>天然酵母のパン（百名店）。8:00〜18:00・木曜は16時まで・不定休</td></tr>
+      <tr><td class="t">10:00</td><td>熱海プリン食堂</td><td>皿プリン500円／プリンパンケーキ1,200円。10:00〜17:30・不定休</td></tr>
+      <tr><td class="t">11:10</td><td>味里 網代本店</td><td>元祖イカメンチ。定食1,500円〜。土11:00〜15:00・火曜定休</td></tr>
+      <tr><td class="t">16:20</td><td>常盤木羊羹店 總本店</td><td>MACARON MONAKA 1個500円（總本店限定）。10:00〜18:00・不定休</td></tr>
+      <tr><td class="t">16:40</td><td>熱海屋台村</td><td>1階で選んで会計→2階で浜焼き。11:00〜21:00（LO20:30）</td></tr>
+    </table>
+    <h3>🎁 お土産戦略</h3>
+    <ul>
+      <li><strong>MACARON MONAKA</strong>（さくら・みかん・ゆず・抹茶）。常盤木羊羹店は<strong>伊豆山神社の御用菓子司</strong>なので、伊豆山にお参りした日のお土産としてストーリーがつながる。常温7日・軽いので最後に買えばOK。</li>
+      <li>干物は今回パス。</li>
+    </ul>
+    <h3>🦪 熱海屋台村のこと</h3>
+    <ul>
+      <li>食べ放題・飲み放題・せんべろもあるけど、今回は<strong>食べたいものだけ選ぶスタイル</strong>で約2,500円を想定。</li>
+      <li>2026年にできたばかりのお店で、食べログの口コミはまだ少なめ。予約・最新情報はインスタのプロフィールにあるLINEから。</li>
+    </ul>
+  </section>
+
+  <section id="movie">
+    <h2>⑤ 撮影メモ</h2>
+    <ul>
+      <li><strong>つかみ</strong>：「今日はぜんぶ熱海市です」→ 伊豆多賀駅・網代駅の駅名標 →「ここも熱海」を繰り返す構成</li>
+      <li><strong>朝の対比</strong>：06:30の誰もいないサンビーチ／8時台の静かな大楠</li>
+      <li><strong>伊豆多賀</strong>：カモメと浜でパン、プリン食堂の海が見える席</li>
+      <li><strong>網代</strong>：イカメンチの断面（外サク・中ふわ）、ひもの銀座の干物が並ぶ通り</li>
+      <li><strong>クライマックス</strong>：837段を海に向かって下る主観カット → 走り湯の湯けむり → 浜浴場の外観</li>
+      <li><strong>オチ</strong>：屋台村の網の上で海鮮が焼ける音で締め</li>
+    </ul>
+  </section>
+
+  <section id="budget">
+    <h2>⑥ 予算</h2>
+    <details open>
+      <summary>内訳を見る（合計 約¥9,282）</summary>
+      <table>
+        <tr><th>項目</th><th class="num">金額</th></tr>
+        <tr><td>本厚木⇄熱海（小田急＋JR）往復</td><td class="num">¥1,824</td></tr>
+        <tr><td>来宮→伊豆多賀／網代→熱海（JR伊東線）</td><td class="num">¥408</td></tr>
+        <tr><td>バス（長浜→弘法滝藤哲・伊豆山神社前・逢初橋）</td><td class="num">¥800</td></tr>
+        <tr><td>パン（朝ごはん）</td><td class="num">約¥600</td></tr>
+        <tr><td>熱海プリン食堂（皿プリン）</td><td class="num">¥500</td></tr>
+        <tr><td>味里（ランチ）</td><td class="num">約¥1,800</td></tr>
+        <tr><td>走り湯浜浴場</td><td class="num">¥350</td></tr>
+        <tr><td>マカロンモナカ（1個）</td><td class="num">¥500</td></tr>
+        <tr><td>熱海屋台村（選ぶスタイル）</td><td class="num">約¥2,500</td></tr>
+        <tr class="total-row"><td>合計</td><td class="num">約¥9,282</td></tr>
+      </table>
+    </details>
+    <div class="tip">来宮神社へは歩く前提。熱海08:26発の電車（155円）に乗ってもOK。</div>
+  </section>
+
+  <section id="highlight">
+    <h2>⑦ ハイライト3選</h2>
+    <div class="highlight-grid">
+      <div class="highlight-item"><div class="highlight-num">1</div><div><strong>8時台の來宮神社</strong>：昼の混雑がうそみたいに静かな大楠</div></div>
+      <div class="highlight-item"><div class="highlight-num">2</div><div><strong>網代のイカメンチ</strong>：「ここも熱海」ネタの主役</div></div>
+      <div class="highlight-item"><div class="highlight-num">3</div><div><strong>837段 → 走り湯 → 浜浴場</strong>：海へ下りきって、1300年前から湧く湯に350円でつかる</div></div>
+    </div>
+    <div class="tip">✨ <strong>いちばん感動しそうな瞬間</strong>：837段の最後の数段で、目の前に相模湾と走り湯の湯けむりが一気に開けるところ。</div>
+  </section>
+
+  <section id="alt">
+    <h2>⑧ 調整・プランB</h2>
+    <h3>✂️ 削ってもいい候補</h3>
+    <ul>
+      <li>熱海銀座の朝散歩（そのぶん朝の海でゆっくり）</li>
+      <li>長浜の足湯（浜でパンだけにする）</li>
+    </ul>
+    <h3>🔁 来宮にもっと居たい場合</h3>
+    <ul>
+      <li>パンは久遠のイートインで食べて、来宮を長めに。<strong>来宮09:43発 → 伊豆多賀09:48</strong>。長浜は通過してプリン食堂の10:00開店へ直行。</li>
+    </ul>
+    <h3>🚌 10:26のバスに乗り遅れたら</h3>
+    <ul>
+      <li>次の<strong>10:51発 → 11:36弘法滝藤哲</strong>。味里でゆっくりして、帰りは網代13:03発に間に合わせる（ひもの銀座・和田木神社は短めに）。</li>
+    </ul>
+    <h3>☔ 雨の日</h3>
+    <ul>
+      <li>837段は滑るのでやめて、伊豆山神社にバスでお参り → 逢初橋までバス → 走り湯・浜浴場へ。</li>
+      <li>網代は歩かずに、弘法滝藤哲から網代駅口までバスで戻る。</li>
+      <li>長浜の浜はやめて、プリン食堂でゆっくり。</li>
+    </ul>
+    <h3>💰 もっと抑える</h3>
+    <ul>
+      <li>屋台村はせんべろにする／パンは1個にする → 約¥8,000前後</li>
+    </ul>
+    <h3>🌟 ちょい贅沢</h3>
+    <ul>
+      <li>プリンパンケーキ（+700円）、マカロンモナカ4個入（約2,300円）、屋台村で飲み放題を追加</li>
+    </ul>
+  </section>
+
+  <section id="notice">
+    <h2>⑨ 注意事項</h2>
+    <div class="warn">🚌 <strong>長浜10:26のバスがいちばんのキモ</strong>。プリン食堂は10:00ぴったりに入って、25分以内に出る。バス停は<strong>網代方面行きののりば</strong>かを確認。</div>
+    <ul>
+      <li><strong>味里は国道135号沿いの高台</strong>（標高約90m）。網代の町まで約2.5kmは下り坂だけど、けっこう歩く。</li>
+      <li>伊豆多賀駅は高台なので、浜まで下り約8〜10分。</li>
+      <li>浜浴場は<strong>木曜・第4金曜が定休</strong>。土曜はOK。</li>
+      <li>走り湯の洞窟見学は<strong>17:00まで</strong>。</li>
+      <li>10月の熱海海上花火大会は12日(月祝)と25日(日)。土曜の開催はない。</li>
+      <li><span class="flag-y">⚠️ 未確認</span> パン樹 久遠の開店時刻（8:00／7:30の2説）、來宮神社の早朝の開門、和田木神社の例大祭日、熱海屋台村の料金。</li>
+    </ul>
+  </section>
+
+  <section id="pack">
+    <h2>⑩ 持ち物</h2>
+    <ul>
+      <li>歩きやすいスニーカー（837段＋網代の坂）</li>
+      <li>小銭（浜浴場350円、バス）・交通系IC</li>
+      <li>薄手の羽織り（10月の朝の海沿いは冷える）</li>
+      <li>エコバッグ（パン・お土産用）</li>
+      <li>モバイルバッテリー・撮影機材</li>
+      <li>タオルは浜浴場で無料だけど、足湯用に小さいタオルが1枚あると便利</li>
+    </ul>
+  </section>
+
+  <section id="check">
+    <h2>⑪ 当日までのチェック</h2>
+    <div class="checklist" id="checklist">
+      <label><input type="checkbox"><span>前日に天気予報を再確認（9/29時点：曇時々晴・降水30%）</span></label>
+      <label><input type="checkbox"><span>運行情報を当日朝にチェック（特に長浜10:26のバス）</span></label>
+      <label><input type="checkbox"><span>パン樹 久遠の開店時刻を確認</span></label>
+      <label><input type="checkbox"><span>味里・熱海プリン食堂・屋台村の臨時休業をSNSで確認</span></label>
+      <label><input type="checkbox"><span>熱海屋台村の料金・混み具合をLINEで確認（必要なら予約）</span></label>
+      <label><input type="checkbox"><span>交通系ICのチャージ・小銭の用意</span></label>
+      <label><input type="checkbox"><span>ぽけたびにJSONを読み込む</span></label>
+    </div>
+  </section>
+
+  <section id="link">
+    <h2>⑫ リンク</h2>
+    <ul>
+      <li><a href="https://www.jorudan.co.jp/norikae/" target="_blank" rel="noopener">ジョルダン乗換案内</a></li>
+      <li><a href="https://www.navitime.co.jp/bus/company/00001229/route/00055497/" target="_blank" rel="noopener">NAVITIME 東海バス A61-64（熱海〜網代・弘法滝）</a></li>
+      <li><a href="https://www.ataminews.gr.jp/spot/313" target="_blank" rel="noopener">あたみニュース：湯前神社</a>／<a href="https://www.ataminews.gr.jp/spot/129" target="_blank" rel="noopener">大湯間歇泉</a></li>
+      <li><a href="https://rurubu.jp/andmore/spot/80022162" target="_blank" rel="noopener">るるぶ&amp;more.：パン樹 久遠</a></li>
+      <li><a href="https://kinomiya.or.jp/" target="_blank" rel="noopener">來宮神社 公式</a>／<a href="https://gotoatami.com/post-7206" target="_blank" rel="noopener">GO to ATAMI：来宮は朝9時前に</a></li>
+      <li><a href="https://www.ataminews.gr.jp/spot/684" target="_blank" rel="noopener">あたみニュース：長浜海浜公園</a></li>
+      <li><a href="https://shokudo.atami-purin.com/" target="_blank" rel="noopener">ドライブイン 熱海プリン食堂</a></li>
+      <li><a href="https://izu-navi.com/gourmet/ajiro-misato/" target="_blank" rel="noopener">伊豆半島観光情報：味里 網代本店</a></li>
+      <li><a href="https://ajirospa.com/experience-facility/%E6%9C%88%E8%A6%8B%E3%83%B6%E4%B8%98%E5%85%AC%E5%9C%92-2/" target="_blank" rel="noopener">伊豆網代温泉観光ナビ：ひもの銀座</a></li>
+      <li><a href="https://izusanjinjya.jp/" target="_blank" rel="noopener">伊豆山神社 公式</a>／<a href="https://izusanjinjya.jp/free/map13" target="_blank" rel="noopener">走湯神社</a></li>
+      <li><a href="https://www.ataminews.gr.jp/spot/133" target="_blank" rel="noopener">あたみニュース：走り湯</a></li>
+      <li><a href="https://onsen.surugabank.co.jp/higashiizu/2115.html" target="_blank" rel="noopener">スルガ銀行 温泉探訪：走り湯浜浴場</a></li>
+      <li><a href="https://tokiwagi-yohkanten.com/japanese-sweets/macaron-monaka/" target="_blank" rel="noopener">常盤木羊羹店：MACARON MONAKA</a></li>
+      <li><a href="https://www.instagram.com/atami_yataimura/" target="_blank" rel="noopener">熱海屋台村 公式Instagram</a></li>
+    </ul>
+  </section>
+
+  <footer>熱海三昧 日帰り v3（2026/10/3実施・思い出を追記）｜計画部分の情報は2026/9/29時点</footer>
+</main>
+
+<script>
+  function toggleTheme(){
+    const b=document.body; const dark=b.getAttribute('data-theme')!=='dark';
+    b.setAttribute('data-theme', dark?'dark':'light');
+    document.getElementById('themeBtn').textContent = dark?'☀️ ライト':'🌙 ダーク';
+    try{localStorage.setItem('atami-theme', dark?'dark':'light');}catch(e){}
+  }
+  try{ if(localStorage.getItem('atami-theme')==='dark'){ toggleTheme(); } }catch(e){}
+  const KEY='atami-check-v1';
+  const boxes=[...document.querySelectorAll('#checklist input')];
+  let saved=[]; try{saved=JSON.parse(localStorage.getItem(KEY)||'[]');}catch(e){}
+  boxes.forEach((b,i)=>{
+    b.checked=!!saved[i]; b.parentElement.classList.toggle('done',b.checked);
+    b.addEventListener('change',()=>{
+      b.parentElement.classList.toggle('done',b.checked);
+      try{localStorage.setItem(KEY, JSON.stringify(boxes.map(x=>x.checked)));}catch(e){}
+    });
+  });
+</script>
+</body>
+</html>

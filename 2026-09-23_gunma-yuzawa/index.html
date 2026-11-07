@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>上毛三山と越後湯沢 2泊3日｜2026/9/23-25</title>
+<style>
+:root{--bg:#f8f6f2;--card:#fff;--ink:#2a2724;--sub:#6d6459;--line:#e5e0d6;--accent:#8a5a2b;--accent2:#4b7f5c;--accent3:#2f6b8f;--warn:#c8842b;--danger:#b23b3b;--chip:#f0ece4;--shadow:0 1px 3px rgba(0,0,0,.06),0 6px 20px rgba(0,0,0,.04)}
+html[data-theme="dark"]{--bg:#16130f;--card:#211d18;--ink:#ece5db;--sub:#a2988c;--line:#3a332b;--accent:#d6a06a;--accent2:#7fc9a3;--accent3:#78b6d8;--warn:#e0ac5e;--danger:#e07373;--chip:#2c2620;--shadow:0 1px 3px rgba(0,0,0,.4),0 6px 20px rgba(0,0,0,.3)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif;line-height:1.85;font-size:16px;-webkit-text-size-adjust:100%}
+.wrap{max-width:820px;margin:0 auto;padding:0 16px 80px}
+header.hero{background:linear-gradient(150deg,#8a5a2b,#5e3f22 40%,#2f4a38 72%,#274d63);color:#fff;padding:34px 20px 28px;text-align:center}
+header.hero h1{margin:0 0 6px;font-size:1.5rem;letter-spacing:.02em}
+header.hero .date{opacity:.9;font-size:.92rem}
+header.hero .lead{margin:14px auto 0;max-width:640px;font-size:.92rem;opacity:.95;text-align:left;line-height:1.8}
+nav.sticky{position:sticky;top:0;z-index:20;background:var(--card);border-bottom:1px solid var(--line);display:flex;gap:6px;overflow-x:auto;padding:8px 10px;box-shadow:var(--shadow)}
+nav.sticky a{flex:0 0 auto;text-decoration:none;color:var(--sub);background:var(--chip);padding:6px 12px;border-radius:999px;font-size:.82rem;white-space:nowrap}
+nav.sticky a:hover{color:var(--accent)}
+nav.sticky a.d1{border-left:3px solid var(--accent)}
+nav.sticky a.d2{border-left:3px solid var(--accent2)}
+nav.sticky a.d3{border-left:3px solid var(--accent3)}
+#themeBtn{position:fixed;right:14px;bottom:14px;z-index:30;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:10px 14px;font-size:.85rem;box-shadow:var(--shadow);cursor:pointer}
+section{margin:26px 0}
+h2{font-size:1.16rem;border-left:5px solid var(--accent);padding-left:10px;margin:34px 0 12px}
+section.dayA h2{border-left-color:var(--accent)}
+section.dayB h2{border-left-color:var(--accent2)}
+section.dayC h2{border-left-color:var(--accent3)}
+h3{font-size:1rem;margin:22px 0 8px;color:var(--accent2)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:12px 0;box-shadow:var(--shadow)}
+.callout{border-left:4px solid var(--accent2);background:var(--chip);border-radius:0 10px 10px 0;padding:12px 14px;margin:12px 0;font-size:.93rem}
+.callout.warn{border-left-color:var(--warn)}
+.callout.danger{border-left-color:var(--danger)}
+.callout .t{font-weight:700;display:block;margin-bottom:4px}
+table{width:100%;border-collapse:collapse;font-size:.88rem;margin:10px 0}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--chip);font-weight:600}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+pre.route{background:var(--chip);border-radius:10px;padding:12px;font-size:.78rem;line-height:1.7;overflow-x:auto;margin:10px 0}
+.tl{list-style:none;padding:0;margin:0}
+.tl li{display:flex;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line)}
+.tl li:last-child{border-bottom:none}
+.tl .t{flex:0 0 62px;font-variant-numeric:tabular-nums;font-weight:700;color:var(--accent);font-size:.92rem;padding-top:1px}
+.tl .b{flex:1;font-size:.92rem}
+.tl .b small{display:block;color:var(--sub);font-size:.82rem;line-height:1.65}
+.tl li.drive{background:linear-gradient(90deg,rgba(109,100,89,.14),transparent);border-radius:8px;padding-left:8px}
+.tl li.star{background:linear-gradient(90deg,rgba(138,90,43,.14),transparent);border-radius:8px;padding-left:8px}
+.tl li.eat{background:linear-gradient(90deg,rgba(178,59,59,.11),transparent);border-radius:8px;padding-left:8px}
+.tl li.bath{background:linear-gradient(90deg,rgba(75,127,92,.13),transparent);border-radius:8px;padding-left:8px}
+.tl li.foot{background:linear-gradient(90deg,rgba(200,132,43,.16),transparent);border-radius:8px;padding-left:8px}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px;margin:12px 0;box-shadow:var(--shadow)}
+details>summary{cursor:pointer;font-weight:700;font-size:.98rem;list-style:none}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:"▸ ";color:var(--accent)}
+details[open]>summary::before{content:"▾ "}
+.chk{list-style:none;padding:0;margin:6px 0}
+.chk li{padding:5px 0;font-size:.92rem}
+.chk input{margin-right:9px;transform:scale(1.15)}
+.chk input:checked + span{opacity:.45;text-decoration:line-through}
+.tag{display:inline-block;background:var(--chip);color:var(--sub);border-radius:6px;padding:1px 7px;font-size:.76rem;margin-right:5px}
+.big{font-size:1.28rem;font-weight:700;color:var(--accent)}
+.daychip{display:inline-block;border-radius:999px;padding:2px 10px;font-size:.78rem;font-weight:700;color:#fff;margin-right:6px}
+.daychip.a{background:#8a5a2b}.daychip.b{background:#4b7f5c}.daychip.c{background:#2f6b8f}
+a{color:var(--accent)}
+footer{text-align:center;color:var(--sub);font-size:.8rem;margin-top:40px}
+ul.plain{padding-left:1.2em;font-size:.92rem}
+ol.plain{padding-left:1.3em;font-size:.92rem}
+</style>
+</head>
+<body>
+<header class="hero">
+  <h1>⛰️♨️ 上毛三山と越後湯沢　2泊3日</h1>
+  <div class="date">2026/9/23(水・秋分の日)〜9/25(金)　v12　｜　本厚木発・一人旅</div>
+  <p class="lead">初日は群馬。カーシェアで妙義・榛名・赤城の上毛三山を1日でつなぎ、<strong>昼は座らず、三山それぞれで群馬の名物をつまみ歩き</strong>。夜は<strong>登利平の鳥めし松と群馬いろはのおつまみを買って、大塚酒店で「結人」</strong>を一本。部屋でのんびり晩酌して、デザートはレンチン焼きまんじゅう。宿は駅から徒歩4分のセントラルホテル高崎で、買っておいた入浴剤で部屋風呂を温泉に。<br>2日目は新幹線27分で越後湯沢へ渡り、雲のデッキの足湯から始まって、駅ナカでへぎそばと舞茸天ぷら、温泉通りの足湯はしご、唎酒番所で5杯、夜は8席の焼肉屋、〆は24時間空いてる駅前の足湯で日本酒。<strong>群馬の温泉2湯をやめたぶん、温泉はニューモンドの貸切風呂（好きなときに何度でも）に集約しました。</strong><br>3日目は車で清津峡の水鏡と魚沼展望台。おにぎりを持って新幹線で帰ります。<strong>足湯は3日で6か所、すべて無料。</strong></p>
+</header>
+
+<nav class="sticky">
+  <a href="#memo">📝 旅の記録</a>
+  <a href="#zentai">全体像</a>
+  <a href="#todo-now">🔴 いま必要な手続き</a>
+  <a href="#book">予約の状況</a>
+  <a class="d1" href="#day1">DAY1 上毛三山</a>
+  <a class="d1" href="#drive">ドライブ図</a>
+  <a class="d1" href="#nyuyoku">入浴剤</a>
+  <a class="d1" href="#dinner1">高崎の夜</a>
+  <a class="d1" href="#omiyage">お土産</a>
+  <a class="d2" href="#day2">DAY2 越後湯沢</a>
+  <a class="d2" href="#ashiyu">足湯6か所</a>
+  <a class="d3" href="#day3">DAY3 清津峡</a>
+  <a href="#budget">予算</a>
+  <a href="#high">ハイライト</a>
+  <a href="#risk">注意</a>
+  <a href="#pack">持ち物</a>
+  <a href="#todo">要確認</a>
+  <a href="#link">リンク</a>
+</nav>
+
+<div class="wrap">
+
+<section id="memo">
+<h2>📝 旅の記録 ── 実際どうだったか（動画のネタ帳）</h2>
+<div class="card">
+<div class="callout"><span class="t">🎬 帰ってきてからのメモ</span>えなみんさんが旅先で残した感想をそのまま並べたもの。<strong>編集のときに「どこで何を感じたか」を思い出すための素材</strong>です。計画側の記述（下のセクション）と食い違うところは、こちらが実際に起きたこと。</div>
+
+<h3><span class="daychip a">DAY1</span>⛩️ 妙義</h3>
+<ul class="plain">
+<li><strong>霧がかっていて幻想的！</strong></li>
+<li>😅<strong>スタンプラリーの台紙が見当たらず焦った</strong>けれど、物産展に置いてあった</li>
+<li><strong>飲むヨーグルトで腸活。</strong>甘酸っぱいのが良い</li>
+</ul>
+
+<h3><span class="daychip a">DAY1</span>⛩️ 榛名</h3>
+<ul class="plain">
+<li>上のほうにも無料駐車場があったけれど、そこに停めていたら<strong>蕎麦屋と巡り合えなかった</strong>。霧がかっていなかったら展望台に時間を使って立ち寄らなかったはず。<strong>「ゆっくりしていって」ということなのかな？</strong></li>
+<li>参道は<strong>大きい岩やせり出した大木</strong>がたくさんあって怖い…</li>
+<li>おでんは安かったので<strong>唐辛子味噌と山椒味噌</strong>を注文。100円で食べておいてよかった</li>
+<li>急遽、蕎麦屋に入店。味噌ダレで手がベタついていたので<strong>おしぼりが嬉しかった</strong></li>
+<li>蕎麦屋の<strong>こんにゃくは味がしみていて美味しい！</strong> そばは細くて繊細で、味がしっかりしてる。<strong>蕎麦湯が温かくてほっこり</strong></li>
+</ul>
+
+<h3><span class="daychip a">DAY1</span>⛩️ 赤城</h3>
+<ul class="plain">
+<li><strong>3社ぜんぶ集まってスタンプ・コンプリート！</strong></li>
+<li>なんだかんだで<strong>鯉の餌やりがいちばん楽しかった</strong>（笑）</li>
+<li><strong>揚げまんじゅうが美味しすぎ！</strong> 衣がサクサクで、饅頭の甘さとマッチしてる。流行ってほしい</li>
+</ul>
+
+<h3><span class="daychip a">DAY1</span>🏨 高崎のホテル</h3>
+<ul class="plain">
+<li><strong>もつ煮は高かったけど、ほんとに美味しかった。</strong>ピリッと胡椒が効いていて、モツの旨味がスープに溶け込んでいて贅沢な感じ</li>
+<li><strong>鶏めしのご飯でおじや</strong>にした</li>
+<li>朝ごはんは普通に美味しかった</li>
+<li>翌日の越後湯沢が午前中は雨模様だったので、<strong>午前中に達磨寺と観音像へ行くことに決めた</strong></li>
+<li>😅退室シーンを撮ろうとして、<strong>鍵を置いたまま部屋を出てしまった</strong>。幸い忘れ物はなし</li>
+</ul>
+
+<h3><span class="daychip b">DAY2</span>⛩️ 達磨寺</h3>
+<ul class="plain">
+<li>鯉の餌が売っていなかったのが残念</li>
+<li><strong>貸切状態</strong>で楽しめた</li>
+<li><strong>線香が炎を出していてヤバかった</strong></li>
+<li><strong>だるまみくじ</strong>が売っていて嬉しかった</li>
+</ul>
+
+<h3><span class="daychip b">DAY2</span>🗻 観音像</h3>
+<ul class="plain">
+<li><strong>めっちゃ晴れて観音像が映える</strong></li>
+<li>時間がなくて<strong>胎内巡りができなかった</strong>のが残念</li>
+<li>急に天気が心配になって調べたら、<strong>なんとちょうど午後から晴れ</strong>！</li>
+<li>このあと足湯に入りまくる予定で丈の短いパンツを履いてきたけれど、ここまで晴れるとは聞いていなかったので<strong>高崎駅で日焼け止めを塗った</strong></li>
+</ul>
+
+<h3><span class="daychip b">DAY2</span>🚡 湯沢高原</h3>
+<ul class="plain">
+<li><strong>空気が秋！</strong> 入道雲も見納めかと思うと寂しい気持ちになる</li>
+<li><strong>リフトが怖かった</strong></li>
+<li>パターゴルフやボブスレーは、複数人で来ると楽しそう</li>
+<li>足湯からの景色はよかったけれど、<strong>お湯が少し汚い…</strong>子どもを入れている人がいてビックリ</li>
+<li><strong>秋の空気感が心地よかった</strong></li>
+</ul>
+
+<h3><span class="daychip b">DAY2</span>♨️ 越後湯沢（滝・足湯）</h3>
+<ul class="plain">
+<li>滝は<strong>誰もいなかった</strong>。水量が多いと思ったら普通だった</li>
+<li><strong>足湯をたくさん巡れて嬉しかった</strong></li>
+</ul>
+
+<h3><span class="daychip b">DAY2</span>🍶 ぽんしゅ館</h3>
+<ul class="plain">
+<li><strong>888 ＝ 酸っぱくてめちゃうま</strong>🏆</li>
+<li>上善如水 ＝ 普通かな…</li>
+<li>越後の甘口 ＝ 甘いだけで普通かな…</li>
+<li>スィートなんとか ＝ うん、普通…</li>
+</ul>
+
+<h3><span class="daychip b">DAY2</span>🥩 焼肉（さかえや）</h3>
+<ul class="plain">
+<li><strong>タレがちゃんと冷えてる！</strong></li>
+<li><strong>肉はどれも美味い！ 赤ワインにピッタリ！</strong></li>
+<li>⚠️<strong>ホルモンは真ん中の鉄板エリアで焼くもんじゃない</strong>…油がバチバチに飛び跳ねて焦った</li>
+<li>お客さんの年齢層は総じて高めで常連っぽい人が多かったけれど、<strong>連休明けで空いていてのんびり</strong>食べられた</li>
+<li><strong>ワインのハーフボトルまで空けて4,000円台は安すぎる…</strong></li>
+</ul>
+
+<h3><span class="daychip b">DAY2</span>🏮 ホテルニューモンド</h3>
+<ul class="plain">
+<li>猫ちゃんが可愛かったけれど、<strong>名前と年齢を聞くのを忘れた</strong>…</li>
+<li><strong>朝ごはんがとにかく美味しい！</strong> ホテルの朝食というより旅館の朝食っぽい</li>
+<li><strong>オーナーが収穫した湯沢産のコシヒカリはもっちりツヤツヤ</strong>で、米の味音痴でもハッキリ分かるくらい甘くて美味しかった</li>
+<li>朝起きられなくて魚沼スカイラインの展望台に行けなかったけれど、<strong>朝方は曇っていたので結果オーライ</strong>（笑）。おかげで<strong>朝からのんびり温泉に</strong></li>
+</ul>
+
+<h3><span class="daychip c">DAY3</span>🏞 清津峡</h3>
+<ul class="plain">
+<li>道中の<strong>スノーシェッドが初体験で感動</strong></li>
+<li>映え狙いの人が多くて<strong>渋谷かと思った</strong>（笑）</li>
+<li><strong>柱状節理</strong>は箱根で何度か見たけれど、<strong>スケールとしっかりした六角形構造</strong>が見られて感動</li>
+<li>川の流れは意外と細いのに、<strong>よくこんなに深く切り込んだな</strong>と感動</li>
+<li>足湯は<strong>硫黄の香りが漂う良泉</strong>だった</li>
+</ul>
+
+<h3><span class="daychip c">DAY3</span>🏔 魚沼スカイライン</h3>
+<ul class="plain">
+<li><strong>標高940mだけあってとても涼しい</strong></li>
+<li><strong>ススキの穂が秋風になびき哀愁を感じた</strong></li>
+<li><strong>秋の虫の鳴き声と秋の空が美しかった</strong></li>
+</ul>
+
+<h3><span class="daychip c">DAY3</span>♨️ 越後湯沢（最後の足湯）</h3>
+<ul class="plain">
+<li>足湯は<strong>お気に入りのところ</strong>を利用。<strong>温度調整と深さがベスト！ 今度泊まってみたい</strong></li>
+<li><strong>日本酒を買ってチビチビできて本当に幸せだった</strong></li>
+<li><strong>足湯は終始貸切だった</strong></li>
+</ul>
+
+<div class="callout"><span class="t">🎞 動画に使えそうな軸</span><strong>①「霧の朝から始まった日」</strong>＝妙義の幻想的な霧→榛名も霧で展望台に寄れず、そのぶん下の駐車場に停めて蕎麦屋に出会えた偶然の連鎖。<strong>②「天気に振り回されて、結局ぜんぶ良かった」</strong>＝雨予報で朝に2寺へ→観音像でまさかの快晴→高崎駅で日焼け止め→午後も晴れ→翌朝は曇りで展望台を落としても結果オーライ。<strong>③「静かさの記録」</strong>＝達磨寺も滝も最後の足湯も貸切、対して清津峡は渋谷。<strong>④食べ物の当たり</strong>＝赤城の揚げまんじゅう、高崎のもつ煮と鶏めしおじや、ニューモンドの朝ごはん、888。</div>
+
+<div class="callout warn"><span class="t">🔖 次回の宿題</span>①白衣大観音の<strong>胎内巡り</strong>（時間切れ）②<strong>魚沼スカイラインの展望台</strong>（朝寝坊）③ニューモンドの<strong>猫ちゃんの名前と年齢</strong>④お気に入りの足湯がある宿に<strong>泊まってみる</strong>⑤達磨寺の<strong>鯉の餌</strong>。</div>
+</div>
+</section>
+
+<section id="zentai">
+<h2>🗺 全体像</h2>
+<div class="card">
+<div class="scroll"><table>
+<tr><th></th><th>日</th><th>やること</th><th>泊</th></tr>
+<tr><td><span class="daychip a">DAY1</span></td><td>9/23(水)<br>秋分の日</td><td><strong>上毛三山スタンプラリーと食べ歩き</strong>――妙義／榛名／赤城でスタンプを集めながら、三山それぞれで群馬の名物をつまみ歩き。榛名は硯岩、赤城は見晴山・鳥居峠から景色を。夜は鳥めし＋結人でビジホ晩酌</td><td>セントラル<br>ホテル高崎</td></tr>
+<tr><td><span class="daychip b">DAY2</span></td><td>9/24(木)</td><td><strong>朝は高崎の2寺、昼から越後湯沢</strong>――達磨寺と白衣大観音 → 09:04の新幹線 → 湯沢高原の足湯 → へぎそば＋舞茸天 → 足湯3連続 → 唎酒番所 → 焼肉さかえや → 夜の足湯で日本酒</td><td>ニューモンド<br>（貸切風呂）</td></tr>
+<tr><td><span class="daychip c">DAY3</span></td><td>9/25(金)</td><td><strong>清津峡と魚沼展望台</strong>――カーシェアで水鏡のトンネルと尾根の展望台。おにぎりを持って新幹線で帰宅</td><td>—</td></tr>
+</table></div>
+<pre class="route">  本厚木 ●9/23 05:24
+     │ 新宿 → 東京 → あさま601号
+  高崎 ●07:43 ─🚗─ 妙義 → 榛名 → 硯岩 → 赤城 ─🚗─ 高崎 ●17:00
+     │ 高崎泊（入浴剤で部屋風呂を温泉に）
+     │ 9/24 朝：達磨寺・白衣大観音（6:00カーシェア）
+     │ たにがわ403号 09:04 → 29分
+  越後湯沢 ●09:33 ── 湯沢高原 → へぎそば → 温泉通り → 足湯×3 → 唎酒番所 → 焼肉 → 夜の足湯
+     │ ニューモンド泊（貸切風呂は好きなタイミングで）
+     │ 9/25 カーシェア 11:00〜14:15
+  清津峡 → 魚沼展望台 → 越後湯沢 ●14:49 とき68号
+  本厚木 ●17:28</pre>
+<p><span class="tag">総額目安</span><span class="big">約¥70,600〜83,200</span>　<span class="tag">足湯</span>6か所すべて無料　<span class="tag">温泉</span>貸切風呂（入り放題）＋部屋風呂1回</p>
+</div>
+</section>
+
+<section id="todo-now">
+<h2>🔴 いま必要な手続き</h2>
+<div class="card">
+<div class="callout"><span class="t">✅ 大物はすべて押さえ終わりました</span><strong>新幹線3本（あさま601号・たにがわ403号・とき68号）／カーシェア3台（高崎2台・越後湯沢1台）／宿2軒</strong>。<strong>この旅で「取らないと成立しない」ものは、もう一つも残っていません。</strong></div>
+<div class="callout"><span class="t">♨️ 群馬の温泉2湯はやめて、温泉は越後湯沢に寄せました</span><strong>ゆうすげ元湯</strong>は来夏に行かれるとのことなので今回は見送り、<strong>もみじの湯</strong>もお湯の評価を踏まえて外しました。<strong>DAY1が約2時間ぶん楽になり、その時間は硯岩と赤城の展望スポットに回しています。</strong>温泉はDAY2〜3のニューモンドの<strong>貸切風呂</strong>で、好きなときに存分に。<br>💡スタンプ3つは<strong>妙義神社・榛名神社・赤城神社</strong>から集まるので、<strong>ラリーへの影響はありません</strong>。</div>
+<div class="callout"><span class="t">🚗 9/24朝のカーシェアも予約済み</span>6:00受取→<strong>達磨寺・白衣大観音を外から拝観</strong>→7:55返却→ホテルで朝食・チェックアウト→<strong>09:04 たにがわ403号</strong>で越後湯沢09:33着。走行は<strong>36分・15.4km</strong>です。</div>
+<div class="callout"><span class="t">✅ 9/23の夕食はビジホ晩酌に変更（ソーレマンはキャンセル済み）</span>🍶残っているのは<strong>9/23の朝8時以降の電話2本</strong>だけ：<strong>大塚酒店（☎027-322-4321）に「結人」の在庫確認・取り置き</strong>。<strong>鮮魚 今福</strong>はGoogleマップで<strong>10:00〜20:00（日曜定休）・9/23は「時間変更の可能性」表示</strong>なので、気になれば同じタイミングで☎027-322-2417へ。</div>
+<div class="callout"><span class="t">🛁 セントラルホテル高崎に決定</span>八島町263・<strong>高崎駅から270m・徒歩4分</strong>。<strong>ユニットバスのシングル・素泊まり¥4,950</strong>。🎉<strong>湯船つきが確定した</strong>ので、入浴剤でビジホを温泉にする作戦はそのまま成立します。駅から4分なので、翌朝6:00のカーシェア受取にも、09:04のたにがわにも余裕で間に合います。</div>
+</div>
+</section>
+
+<section id="book">
+<h2>📋 予約の状況</h2>
+<div class="card">
+<div class="scroll"><table>
+<tr><th>項目</th><th>状況</th><th>金額</th></tr>
+<tr><td>9/23 本厚木→高崎（あさま601号）</td><td>✅<strong>予約調整済み</strong></td><td>¥5,113</td></tr>
+<tr><td>9/23 高崎のカーシェア（約9時間半）</td><td>✅<strong>予約済み</strong></td><td>¥9,000〜11,000🟡</td></tr>
+<tr><td><strong>9/23 セントラルホテル高崎</strong>（ユニットバスのシングル・素泊まり）</td><td>✅<strong>予約済み</strong></td><td><strong>¥4,950</strong></td></tr>
+<tr><td><s>9/23 夕食・炉端Bistro ソーレマン</s></td><td>✅<strong>キャンセル済み</strong></td><td>—</td></tr>
+<tr><td>9/23 <strong>大塚酒店で結人</strong>（20:00閉店）</td><td>🟡<strong>当日朝に在庫確認・取り置き</strong></td><td>¥1,600〜2,300</td></tr>
+<tr><td>9/24 夕食・<strong>焼肉さかえや</strong></td><td>🔴<strong>予約不可・8席・17:00に並ぶ</strong></td><td>¥3,000〜4,500</td></tr>
+<tr><td>9/24 高崎→越後湯沢（<strong>たにがわ403号 09:04発</strong>）</td><td>✅<strong>予約調整済み</strong></td><td>¥3,660</td></tr>
+<tr><td><strong>9/24 高崎のカーシェア（朝2時間・2台目）</strong></td><td>✅<strong>予約済み</strong></td><td>¥2,000〜3,000🟡</td></tr>
+<tr><td>9/24 湯沢高原ロープウェイ 往復</td><td>✅<strong>事前予約済み</strong>（QR提示）</td><td>¥2,900</td></tr>
+<tr><td>9/24 ホテルニューモンド（朝食付＋入湯税）</td><td>✅<strong>予約済み</strong>／朝食8:00〜・朝のおにぎりOK</td><td>¥8,850</td></tr>
+<tr><td>9/25 越後湯沢のカーシェア（11:00〜14:15）</td><td>✅<strong>予約済み</strong></td><td>¥3,000</td></tr>
+<tr><td>9/25 越後湯沢→東京（とき68号 全車指定）</td><td>✅<strong>予約済み</strong></td><td>¥6,700</td></tr>
+<tr><td><s>9/24 とき303号（東京07:04発）</s></td><td>✅<strong>調整済み</strong></td><td>▲¥6,500</td></tr>
+</table></div>
+</div>
+</section>
+
+<section id="day1" class="dayA">
+<h2><span class="daychip a">DAY1</span>9/23(水・秋分の日)　上毛三山スタンプラリーと食べ歩き</h2>
+<div class="card">
+<div class="callout"><span class="t">🎉 スタンプ3つは、この旅程のまま自然に集まります</span>ラリーポイントは<strong>妙義エリア＝妙義神社／道の駅みょうぎ／もみじの湯</strong>、<strong>榛名エリア＝榛名神社／榛名湖公園ビジターセンター／ゆうすげ元湯</strong>ほか、<strong>赤城エリア＝赤城神社／風ラインふじみ／富士見温泉</strong>。<strong>温泉2湯をやめても、妙義神社・榛名神社・赤城神社の3か所で各エリア1つずつ揃います。</strong><br>💡<strong>パンフレットは最初の妙義神社で必ずもらってください。</strong>台紙がないと始まりません（温泉の優待割引券も付いていますが、今回は使わずじまいになります）。</div>
+<ul class="tl">
+<li><span class="t">05:24</span><span class="b"><strong>本厚木 発</strong>　小田急 快速急行 新宿行（3番線）<small>¥513（IC）</small></span></li>
+<li><span class="t">06:10</span><span class="b">新宿 着（6番線）→ 06:19発 JR中央線快速 東京行（8番線）<small>⚠️乗換9分。<strong>1本落としても06:27発で間に合います</strong></small></span></li>
+<li><span class="t">06:33</span><span class="b">東京 着（2番線）</span></li>
+<li class="star"><span class="t">06:52</span><span class="b"><strong>東京 発　あさま601号 長野行</strong>（当駅始発／23番線）</span></li>
+<li class="star"><span class="t">07:43</span><span class="b"><strong>高崎 着</strong>（11番線）<small>ここまで<strong>¥5,113</strong></small></span></li>
+<li><span class="t">07:50<br>–08:05</span><span class="b">🚗 カーシェアの受け取り</span></li>
+<li class="drive"><span class="t">08:05</span><span class="b"><strong>🚗 高崎駅 → 妙義神社</strong><small><strong>39分・27.3km</strong>／国道18号</small></span></li>
+<li class="star"><span class="t">08:45<br>–09:30</span><span class="b"><strong>⛩️ 妙義神社</strong>【<span style="color:var(--danger)">スタンプ①</span>】（富岡市妙義町妙義6）<small>境内無料。<strong>宣化天皇2年（537年）創建</strong>。国指定重文＝本社・唐門・総門（高さ12m）。黒漆塗りの権現造に金箔の龍と鳳凰、背後に妙義山の岩峰。石段は<strong>165段</strong><br>✂️<strong>宝物殿は行かない</strong>（v12で確定）。境内と総門・唐門をじっくり見て45分で上がり<br>🔴<strong>ここでスタンプラリーのパンフレットをもらう</strong>――社務所は9:00からなので、<strong>先に参道と社殿→9時過ぎにパンフと御朱印</strong>の順で<br>💡鳥居の目の前が<strong>かどやみやげ店</strong>（9:00〜18:00無休）。こんにゃくと峠ステッカー</small></span></li>
+<li class="eat"><span class="t">09:33<br>–09:50</span><span class="b"><strong>🍢【食べ歩き①】道の駅みょうぎ</strong>【<span style="color:var(--danger)">スタンプ候補</span>】（妙義町岳322-7）<small>9:00〜17:00／<strong>9/23は営業</strong>。妙義神社から車1分<br><strong>地元の舞茸・しいたけ</strong>、ソフトクリームの売店。妙義神社でパンフが取れなかったら<strong>ここで確実にもらえます</strong></small></span></li>
+<li class="drive"><span class="t">09:50</span><span class="b"><strong>🚗 道の駅みょうぎ → 榛名神社</strong><small><strong>44分・33.7km</strong>／県道211号。安中の田園を抜けて榛名の山ふところへ</small></span></li>
+
+<li class="star"><span class="t">10:35<br>–11:45</span><span class="b"><strong>⛩️ 榛名神社（標高910m）＋門前の食べ歩き②</strong>【<span style="color:var(--danger)">スタンプ②</span>】<small>開門7:00〜18:00／授与所8:45〜16:00<br>⚠️<strong>駐車場から授与所まで最短でも徒歩15分</strong>（往復30分）なので、<strong>70分がこれ以上削れない線</strong>です。9/23は祝日なので<strong>御朱印は書き置き</strong><br><strong>随神門</strong>→杉木立の参道→<strong>矢立杉</strong>（国天然記念物・高さ55m）→総ケヤキ造の<strong>双龍門</strong>→<strong>御姿岩に接して建つ本社</strong><br>🍢<strong>門前通り</strong>＝<strong>小松屋</strong>（☎027-374-9115／<strong>11:30〜</strong>・火曜休）の<strong>味噌おでん・焼きまんじゅう</strong>は帰り道の11:30以降に。<strong>延寿亭</strong>（☎027-374-9649）の味噌田楽・あべかわ餅も</small></span></li>
+<li class="drive"><span class="t">11:45</span><span class="b"><strong>🚗 榛名神社 → 榛名湖荘の高崎市営無料駐車場</strong>（湖の西岸）<small><strong>約10分・約3km</strong>🟡目安／九十九折りを越えると湖と榛名富士が開けます<br>駐車場は<strong>128台＋8台・無料・トイレあり</strong></small></span></li>
+<li class="star"><span class="t">11:55<br>–12:50</span><span class="b"><strong>🪨 硯岩（すずりいわ）から榛名湖と榛名富士を見下ろす</strong><small>駐車場から<strong>徒歩3〜4分</strong>で「掃部ヶ岳・硯岩登山口」の標識 → <strong>登り15〜20分</strong>。尾根の分岐から硯岩へは5分ほど<br>🏆<strong>湖越しの榛名富士を真上から見られる、湖畔では絶対に撮れない構図</strong>。足場に気をつけて北側まで出ると全景が入ります<br>⚠️<strong>はしご・ロープのある岩場で、先は絶壁</strong>。9/23の榛名は朝方パラつく予報なので<strong>岩が濡れていたら無理に先端へ出ない</strong>。熊鈴があれば付けて</small></span></li>
+<li class="drive"><span class="t">12:50</span><span class="b"><strong>🚗 榛名湖 → 赤城・見晴山展望台</strong><small><strong>約1時間15分・約52km</strong>🟡目安／県道33号 → からっ風街道 → <strong>県道4号（赤城道路）</strong>。<strong>今日いちばん長い区間</strong>なので途中のコンビニで一度休憩を<br>🚴9/27のヒルクライム大会前で<strong>試走の自転車が多い</strong>。カーブの先に自転車がいる前提で</small></span></li>
+
+<li class="star"><span class="t">14:05<br>–14:25</span><span class="b"><strong>🔭 見晴山展望台</strong>（標高約1,400m）<small>県道4号の<strong>両側に無料駐車場</strong>、少し新坂平側に戻ったところが展望台の入口。<strong>本格的な山ではなく公園の高台くらい</strong>なので気軽に上がれます。晴れれば富士山まで</small></span></li>
+<li class="drive"><span class="t">14:25</span><span class="b"><strong>🚗 見晴山 → 赤城神社</strong><small>約5分・3.6km🟡目安。坂を下ると大沼</small></span></li>
+<li class="star"><span class="t">14:30<br>–15:05</span><span class="b"><strong>⛩️ 赤城神社（大洞赤城神社）＋大沼</strong>【<span style="color:var(--danger)">スタンプ③</span>】（前橋市富士見町赤城山）<small>参拝9:30〜16:30／駐車場8:00〜18:00<br><strong>標高1,345mの大沼の湖畔に建つ朱塗りの社殿</strong>。<strong>赤城姫</strong>の伝説と「<strong>納鏡</strong>」の神事。⚠️啄木鳥橋は通行止め<br>🍢<strong>【食べ歩き③】</strong>湖畔の売店（見晴館☎027-287-8125／レークセンター赤城☎027-287-8411／曽山商店☎027-287-8102・おおむね〜17:00）。<strong>麓より10℃近く低い</strong>ので温かいものが効きます</small></span></li>
+<li class="drive"><span class="t">15:05</span><span class="b"><strong>🚗 赤城神社 → AKAGIフォトスポット</strong><small>約3分・1km弱🟡目安（大沼の南岸）</small></span></li>
+<li class="eat"><span class="t">15:10<br>–15:20</span><span class="b"><strong>📸 AKAGIフォトスポット</strong><small>赤い「AKAGI」の文字オブジェ。大沼と一緒に1枚</small></span></li>
+<li class="drive"><span class="t">15:20</span><span class="b"><strong>🚗 AKAGIフォトスポット → 鳥居峠</strong><small>約3分・1.2km🟡目安</small></span></li>
+<li class="star"><span class="t">15:25<br>–15:50</span><span class="b"><strong>⛰ 鳥居峠</strong>（大沼と覚満淵を見下ろす峠）<small>前橋観光の「<strong>車を降りてすぐ撮れる</strong>」撮影スポットのひとつ。<strong>足元に覚満淵、その向こうに大沼と黒檜山</strong><br>💡覚満淵の木道まで下りるなら<strong>+25分</strong>。見下ろすだけで満足できたら、ここで切り上げて早めに山を下りましょう</small></span></li>
+<li class="drive"><span class="t">15:50</span><span class="b"><strong>🚗 鳥居峠 → 高崎駅</strong><small><strong>約1時間10分・約39km</strong>🟡目安／県道4号を下って前橋経由。<strong>日の入りは17:35頃</strong>――<strong>16:20までに赤城を出れば</strong>九十九折りは明るいうちに下りきれます（この案なら30分の余裕）<br>🔴給油は高崎市街で。返却時、<strong>後部座席と足元の積み残しに注意</strong></small></span></li>
+<li><span class="t">17:00<br>–17:10</span><span class="b">高崎駅 着 → 給油して返却<small>神社の滞在を詰めたぶん、<strong>前の案より25分ほど早い</strong>。実際はもっと早まる前提でOK（その場合は下の買い物・酒屋がそのまま前倒し）</small></span></li>
+<li class="eat"><span class="t">17:15<br>–17:55</span><span class="b"><strong>🛍 イーサイト高崎2Fで晩酌の買い出し＋お土産</strong><small>🔴<strong>祝日はイーサイトが20:00閉店</strong>（登利平はテイクアウトL.O.19:30）<br>🍱<strong>登利平</strong>で<strong>鳥めし松弁当（ムネ＋モモ）1,000円</strong><br>🌿<strong>群馬いろは</strong>で<strong>おつまみ・惣菜</strong>、<strong>自分用の小分け焼きまんじゅう</strong>（お土産とは別）、<strong>入浴剤</strong>、<strong>お土産</strong>をまとめて</small></span></li>
+<li><span class="t">18:00<br>–18:10</span><span class="b">🏨 <strong>セントラルホテル高崎</strong>にチェックイン<small>八島町263／<strong>客室の冷蔵庫は空の状態で無料</strong>なので、買った惣菜はすぐ冷蔵庫へ</small></span></li>
+<li><span class="t">18:15<br>–18:25</span><span class="b">🚌 <strong>高崎駅西口からバスで本町方面へ</strong>（乗車3分ほど）<small>🟡祝日は<strong>休日ダイヤで夕方の本数が少なめ</strong>。乗る便を事前に決めておいて、逃したら歩いても18分なので気にしなくてOK</small></span></li>
+<li class="eat"><span class="t">18:25<br>–18:40</span><span class="b"><strong>🐟 鮮魚 今福で刺身</strong>（高崎市柳川町93／☎027-322-2417）<small>大塚酒店の南西、<strong>直線で約270m・徒歩4分</strong>。えなみんさんが見つけた良質な刺身の店（Google 4.5）<br>✅<strong>10:00〜20:00・日曜定休</strong>（Googleマップ）。🟡9/23は祝日で「時間変更の可能性」の表示あり。<strong>夕方は品が減りやすい</strong>ので、酒屋より先に寄る順のままにしています</small></span></li>
+<li class="star"><span class="t">18:45<br>–19:00</span><span class="b"><strong>🍶 大塚酒店で「結人」を買う</strong>（高崎市本町109-1／☎027-322-4321）<small>🔴<strong>8:00〜20:00・日曜定休</strong>（9/23は水曜なので営業）。<strong>結人の公式特約店</strong><br>💡結人は<strong>完全特約店販売で入荷にムラがある</strong>ので、<strong>当日朝8時以降に電話して在庫確認＋取り置き</strong>が安心。秋限定の<strong>「晩夏早秋」（ひやおろし）</strong>が出ていれば季節もの</small></span></li>
+<li><span class="t">19:00<br>–19:20</span><span class="b">🚶 ホテルへ戻る（徒歩18分／バスが合えばバスで）<small>刺身はすぐ部屋の冷蔵庫へ</small></span></li>
+<li class="star"><span class="t">19:20<br>–</span><span class="b"><strong>🍶 部屋で晩酌</strong><small>登利平の鳥めし松＋<strong>今福の刺身</strong>＋群馬いろはのおつまみ＋結人。<strong>三山をぜんぶ回った日の夜に、群馬のものだけで一人で飲む</strong>――これはかなりいい締めだと思います</small></span></li>
+<li class="eat"><span class="t">20:30頃</span><span class="b"><strong>🍡 デザートにレンチン焼きまんじゅう</strong><small>ホテルの<strong>5階と9階に電子レンジ</strong>あり<br>やり方は<strong>焼かずに30秒ほどチン → 別皿のタレにつけて食べる</strong>だけ。焼くよりフワッとあっさりで、どんどんいける食べ方です<br>💡<strong>タレ用の小皿がない</strong>ので、パッケージのトレーを使うか、ローソンで紙皿を1枚</small></span></li>
+<li class="bath"><span class="t">21:00<br>–21:30</span><span class="b"><strong>♨️ 部屋のお風呂に入浴剤を入れて</strong><small>三山を歩いた日の締め。妙義の石段165段と榛名の参道、硯岩の登りに効きます</small></span></li>
+<li><span class="t">22:30</span><span class="b">就寝<small>翌朝は05:30起き（6:00にカーシェア）。<strong>結人の残りは冷蔵庫へ</strong>――翌日の越後湯沢の足湯酒に回せます</small></span></li>
+</ul>
+<div class="callout"><span class="t">⏱ v12：神社を詰めて、景色の寄り道を足しました</span><strong>妙義45分・榛名神社70分・硯岩55分・赤城エリア（見晴山→赤城神社→AKAGI→鳥居峠）1時間45分</strong>。妙義の宝物殿はなし、覚満淵は鳥居峠から見下ろす形に。<br>🔒<strong>守るのは3つだけ</strong>：<strong>①16:20までに赤城を出る（日没）②19:30までに登利平（イーサイトは20:00閉店）③20:00までに今福と大塚酒店（どちらも20:00閉店）</strong>。<br>✂️押したときの削りどころは<strong>①AKAGIフォトスポット（10分）②見晴山（20分）③硯岩を途中の分岐で引き返す（15分）</strong>の順。</div>
+</div>
+</section>
+
+<section id="drive" class="dayA">
+<h2><span class="daychip a">DAY1</span>🗺 ドライブのルート図</h2>
+<div class="card">
+<pre class="route">  高崎駅（カーシェア）●08:05
+        │ 39分・27.3km（国道18号）
+  ⛩️ 妙義神社 ●08:45〜09:30【スタンプ①】→ 道の駅みょうぎ ●09:33〜09:50【食べ歩き①】
+        │ 44分・33.7km（県道211号）
+  ⛩️ 榛名神社＋門前 ●10:35〜11:45【スタンプ②・食べ歩き②】
+        │ 約10分（九十九折り）
+  🪨 硯岩（榛名湖荘の市営P）●11:55〜12:50
+        │ 約1時間15分・約52km ←3日でいちばん長い
+        │ 県道33号 →（からっ風街道）→ 県道4号 赤城道路
+  🔭 見晴山 ●14:05 → ⛩️ 赤城神社 ●14:30【スタンプ③・食べ歩き③】
+     → 📸 AKAGIフォトスポット ●15:10 → ⛰ 鳥居峠 ●15:25〜15:50
+        │ 約1時間10分・約39km（県道4号・前橋経由）
+  高崎駅 ●17:00 → 返却17:10 → イーサイト → ホテル → 大塚酒店 → 部屋で晩酌
+
+  運転の合計 約4時間・約160km（すべて下道／有料区間なし）
+  🟡硯岩・見晴山・AKAGI・鳥居峠の区間は目安。当日カーナビの表示を優先</pre>
+<div class="callout"><span class="t">⛰ 上毛三山とは</span><strong>赤城・榛名・妙義</strong>の3つ。<strong>妙義は岩峰、榛名と赤城はカルデラ湖を抱く山</strong>で、同じ「三山」でも姿がまるで違うのがこの日の面白さです。しかも3つとも山の名を負う神社があり、<strong>妙義の岩、榛名の御姿岩、赤城の湖上の社</strong>と、祀り方まで一つずつ違います。</div>
+<div class="callout warn"><span class="t">⚠️ 山道が2本、長距離が1本</span>榛名（県道33号）と赤城（県道4号）はどちらも本格的な九十九折り。そして<strong>硯岩（榛名湖）→見晴山（赤城）の約52kmが山場</strong>です。ここだけで1時間18分あるので、<strong>途中で1回コンビニ休憩</strong>を入れる前提で組んであります。</div>
+</div>
+</section>
+
+<section id="nyuyoku" class="dayA">
+<h2><span class="daychip a">DAY1</span>♨️ 入浴剤でビジホを温泉に</h2>
+<div class="card">
+<p style="font-size:.93rem">大浴場のない宿でも、湯船に一杯入れれば十分に「効く」お風呂になります。買える場所を動線の順に。</p>
+<div class="scroll"><table>
+<tr><th>いつ</th><th>どこ</th><th>備考</th></tr>
+<tr><td>9:30頃</td><td><strong>道の駅みょうぎ</strong></td><td>9:00〜17:00・9/23は営業（毎月第3水曜休）。群馬の物産が並ぶので、<strong>ここで見つかればいちばん旅らしい</strong>。🟡入浴剤の取扱いは未確認</td></tr>
+<tr><td><strong>17:40〜17:55（本命）</strong></td><td><strong>群馬いろは</strong><br>イーサイト高崎内</td><td>9:00〜21:00／<strong>祝日は〜20:00</strong>／年中無休。群馬土産の総合。お土産と一緒に買えるのでいちばん確実</td></tr>
+<tr><td>保険</td><td>高崎駅前のドラッグストア</td><td>バスクリン<strong>「日本の名湯」の草津・伊香保</strong>など、群馬の温泉を名乗る入浴剤は普通に置いています。1回分の分包なら数百円</td></tr>
+</table></div>
+<div class="callout"><span class="t">💡 本物の「湯の花」という手も</span><strong>草津温泉の湯の花</strong>は、パッケージの発売元が「群馬県草津町」になっているのが正規品の目印で<strong>¥1,400（税込）</strong>。群馬の土産店に置かれていることがあります。ただし本物の温泉成分なので、<strong>使う前にパッケージの注意書き（浴槽の材質や追い焚きの可否）を必ず確認</strong>してください。</div>
+<div class="callout warn"><span class="t">🛁 ビジホの浴槽は小さめ</span>ユニットバスの湯量は家庭の風呂より少ないので、<strong>1回分を全部入れると濃すぎる</strong>ことがあります。半分から始めるくらいがちょうどいいです。<br>✅<strong>セントラルホテル高崎はユニットバスのシングルで予約済み</strong>なので、湯船は確保できています。この章の作戦はそのまま実行できます。</div>
+</div>
+</section>
+
+<section id="dinner1" class="dayA">
+<h2><span class="daychip a">DAY1</span>🍶 高崎の夜 ── 鳥めしと結人でビジホ晩酌</h2>
+<div class="card">
+<div class="callout"><span class="t">🔄 v12で外食をやめて、部屋飲みに</span><strong>炉端Bistro ソーレマン（19:00予約）とCAFE高崎じまんはやめ</strong>、駅ナカで買った群馬のものと地酒で、部屋でのんびり。<br>✅<strong>ソーレマンの19:00予約はキャンセル済み</strong>。</div>
+
+<h3>① 買い出し：イーサイト高崎2F　17:15〜17:55</h3>
+<p style="font-size:.93rem"><strong>イーサイト高崎（高崎駅東口・改札階）／祝日は9:00〜20:00</strong></p>
+<ul class="plain">
+<li>🍱<strong>登利平</strong>（Sopra Deli・☎027-381-5454）――<strong>鳥めし松弁当 1,000円</strong>。あっさりのムネとコクのあるモモの2種類。<strong>祝日のテイクアウトは9:30〜20:00（L.O.19:30）</strong></li>
+<li>🌿<strong>群馬いろは</strong>（☎027-321-0067・祝日〜20:00）――<strong>おつまみ・惣菜はここで選ぶ</strong>。焼きまんじゅうの小分け（自分用）、入浴剤、お土産も全部ここで一度に</li>
+<li>💡迷ったら同じフロアの<strong>美食亭</strong>（中華惣菜・シューマイ）や<strong>かわばんち</strong>（川場村「雪ほたか」のおにぎり）も<strong>20:00まで</strong></li>
+</ul>
+
+<h3>② 刺身：鮮魚 今福　18:25〜18:40</h3>
+<p style="font-size:.93rem"><strong>群馬県高崎市柳川町93／☎027-322-2417／10:00〜20:00・日曜定休</strong>（Googleマップ・4.5）／🟡9/23は祝日につき時間変更の可能性<br>
+<strong>大塚酒店から徒歩4分</strong>（直線で約270m）。高崎駅西口からバスで3分ほど</p>
+<ul class="plain">
+<li>えなみんさんが見つけた<strong>良質な刺身を売っている街の魚屋さん</strong>。駅ナカにはない一品なので、晩酌の格がひとつ上がります</li>
+<li>🧊宿までは<strong>30分ほど持ち歩く</strong>ので、保冷剤をもらえたらお願いして。<strong>部屋の冷蔵庫は無料・空</strong>です</li>
+<li>🔁閉まっていたら、そのまま大塚酒店へ。駅ナカの惣菜で十分成立します</li>
+</ul>
+
+<h3>③ 地酒：大塚酒店で「結人」　18:45〜19:00</h3>
+<p style="font-size:.93rem"><strong>群馬県高崎市本町109-1／☎027-322-4321／8:00〜20:00・日曜定休</strong><br>
+<strong>行きはバス（3分ほど）、帰りは徒歩約18分</strong>（直線で約1km）</p>
+<ul class="plain">
+<li><strong>結人（むすびと）</strong>は前橋・柳澤酒造の純米造りの銘柄で、<strong>完全特約店販売</strong>。大塚酒店は<strong>蔵の公式サイトに載っている特約店</strong>です</li>
+<li>🔴<strong>在庫は店に直接問い合わせ</strong>が蔵の案内。<strong>当日の朝8時以降に電話して取り置き</strong>をお願いしておくと、18分歩いて空振りがなくなります</li>
+<li>🍂9月なら秋限定の<strong>「晩夏早秋」</strong>（純米吟醸のひやおろし・720ml 1,600円台）が季節もの。定番の純米吟醸も四合瓶で1,600〜2,300円くらい</li>
+<li>🍶結人は<strong>ほぼ四合瓶（720ml）</strong>。飲みきれなかったら<strong>冷蔵庫→翌日の越後湯沢へ</strong>。DAY2の「足湯で飲む小瓶」をこれで代用すれば、その分浮きます</li>
+</ul>
+
+<h3>④ デザート：レンチン焼きまんじゅう　20:30頃</h3>
+<ul class="plain">
+<li><strong>群馬いろはの小分け焼きまんじゅう</strong>を、<strong>焼かずに30秒ほどレンジで温めて、別皿のタレにつけて食べる</strong>。ふわっと軽くて、焼くよりあっさり――群馬の家ではわりと普通の食べ方で、商品の説明書きにさらっと書いてあることもあるそうです</li>
+<li>🔌<strong>電子レンジは5階と9階</strong>にあります。部屋には無いので、近いほうの階へタレと一緒に持っていって</li>
+<li>🥢<strong>小皿の代わり</strong>に、パッケージのトレーか、ホテルから徒歩圏のローソンで紙皿を</li>
+</ul>
+
+<div class="callout"><span class="t">💰 値段はソーレマン＋焼きまんじゅうより少し上、でも中身は濃い</span>鳥めし＋おつまみ＋焼きまんじゅうで<strong>¥2,200〜3,300</strong>、<strong>今福の刺身¥800〜1,500</strong>🟡、<strong>結人の四合瓶¥1,600〜2,300</strong>。瓶と刺身のぶん外食より上がりますが、<strong>半分は越後湯沢まで持っていける</strong>ので、実質はほぼ同額か少し安いくらいです。<strong>いちばん得しているのは「一人でのんびりできる時間」</strong>かもしれません。</div>
+</div>
+</section>
+
+<section id="omiyage" class="dayA">
+<h2><span class="daychip a">全日</span>🎁 お土産 ── 群馬で3つ、越後湯沢で3つ</h2>
+<div class="card">
+<h3>✅ 焼きまんじゅうセット → 高崎駅で買えます</h3>
+<p style="font-size:.93rem"><strong>群馬いろは（イーサイト高崎2F）／9:00〜21:00・祝日は〜20:00／年中無休</strong></p>
+<ul class="plain">
+<li><strong>ほたかやの焼きまんじゅうが「焼く前の状態で真空包装」</strong>で置いてあります。小分けで日持ちするお土産向けの商品です</li>
+<li><strong>高崎駅限定の「ぐんまちゃん入りパッケージ」</strong>もあるそうなので、せっかくなら限定のほうを</li>
+<li>🍡<strong>自分用の小分けは別に1つ</strong>。その夜ホテルのレンジでチンして食べます（食べ方はDAY1の夜の章に）</li>
+<li>💡<strong>高崎だるま</strong>もここに。翌朝の達磨寺は授与所が9:00からで買えないので、だるまが欲しければここで</li>
+<li>（参考）駅の外なら<strong>焼きまんじゅうの小板橋</strong>（石原町504-3・10:00〜17:30頃・不定休）、<strong>田舎や焼きまんじゅう製造本舗</strong>（菊池町157-7・9:30〜18:00・火曜休）にもタレ付きの持ち帰りセットがあります</li>
+</ul>
+
+<h3>🎁 群馬でもう2つ、買っておきたいもの</h3>
+<p style="font-size:.93rem">どちらも<strong>群馬いろは（イーサイト高崎2F）</strong>で焼きまんじゅうと一緒に買えます。DAY1の17:15〜17:55、晩酌の買い出しとまとめてどうぞ。</p>
+<ul class="plain">
+<li><strong>① たむらや「モッツァレラチーズみそ漬」</strong>（前橋・創業130年以上の味噌漬け屋）<br>
+<span style="font-size:.9rem">群馬の伝統的な味噌漬けの製法で、モッツァレラを漬けたもの。まろやかな味噌の風味とチーズのミルク感が合わさって、<strong>そのまま日本酒の肴になります</strong>。冷蔵で日持ちもするので、帰ってから地酒と一緒に楽しめます。えなみんさんは地酒がお好きなので、これはお土産というより「帰宅後の楽しみ」に近いかもしれません。たむらやは他にきゅうり・大根の味噌漬けも定番です</span></li>
+<li><strong>② 花山うどん「鬼ひも川」</strong>（館林・創業1894年）<br>
+<span style="font-size:.9rem">幅5cmほどの<strong>極太の平打ち麺</strong>。「うどん日本一決定戦」で三連覇した、群馬を代表する乾麺です。群馬は小麦の国で、郷土料理の「おっきりこみ」もこの系譜。<strong>乾麺なので軽くて壊れにくく、荷物として優秀</strong>なのも今回の旅向きです。ゆで時間は長めですが、つゆに絡む食感が面白いので一度は試す価値があります</span></li>
+</ul>
+<p style="font-size:.86rem;color:var(--sub)">（他の有力候補）<strong>観音最中（観音屋）</strong>――翌朝に白衣大観音を見るので文脈がぴったり。<strong>旅がらす（清月堂）</strong>――50年以上続く群馬の定番銘菓。<strong>グーテ・デ・ロワ（ガトーフェスタ ハラダ）</strong>――配る用ならこれが無難。<strong>下仁田ネギえびせん（つつじ庵）</strong>――受賞歴あり、つまみ系。</p>
+
+<h3>🎁 越後湯沢で買う3つ</h3>
+<p style="font-size:.93rem">すべて<strong>CoCoLo湯沢「がんぎどおり」</strong>（越後湯沢駅構内・9:00〜19:00頃）で揃います。DAY3の帰りにまとめ買いする想定です。</p>
+<ul class="plain">
+<li><strong>① 笹団子 ── 越後湯沢駅限定「くるみ入りみそあん」</strong><br>
+<span style="font-size:.9rem">がんぎどおりには<strong>6社・7種類の笹団子</strong>が並んでいて、食べ比べができます。その中に<strong>越後湯沢駅限定のくるみ入りみそあん</strong>があるので、せっかくならこれを。定番のつぶあんも1〜2個買って、<strong>帰りの新幹線で食べ比べる</strong>のが楽しいと思います。笹の香りが移った草餅で、新潟の旅らしさがいちばん出るお土産です</span></li>
+<li><strong>② 柿の種のオイル漬け</strong>（阿部幸製菓）<br>
+<span style="font-size:.9rem">柿の種をにんにくラー油に漬けた、<strong>ご飯にかけて食べるタイプ</strong>の変わり種。「新潟カレー漬け」など味の展開もあります。新潟は柿の種の本場（亀田・浪花屋）で、花火柄の缶入りといった定番も並びますが、<strong>話のネタとしてはオイル漬けのほうが強い</strong>です。日持ちも良好</span></li>
+<li><strong>③ 上善如水（白瀧酒造）の小瓶、または「笹雪」</strong><br>
+<span style="font-size:.9rem">白瀧酒造は<strong>越後湯沢駅から徒歩5分</strong>の地元蔵。上善如水は淡麗でクセがなく、300mlの小瓶なら荷物になりません。<strong>「笹雪」は越後湯沢限定</strong>の銘柄なので、限定志向ならこちら。DAY2のぽんしゅ館 唎酒番所で飲み比べて<strong>気に入った一本を翌日買う</strong>のがいちばん失敗しない買い方です</span></li>
+</ul>
+<p style="font-size:.86rem;color:var(--sub)">（他の候補）<strong>安田牛乳ラングドシャ</strong>――配る用に軽くて無難。<strong>南蛮海老せんべい</strong>――新潟らしい海老の風味。<strong>サラダホープ</strong>――新潟県内限定販売の米菓、地元感が強い。<strong>南魚沼産コシヒカリ</strong>――重いので帰り際に。<strong>米袋バッグ・おにぎりストラップ・旧国鉄銘板キーホルダー</strong>――駅限定の雑貨系で、自分用に。</p>
+
+<div class="callout"><span class="t">📌 片原饅頭は今回は見送りです</span>
+前橋本店でしか買えず、赤城を16:20に出る旅程では営業時間に間に合いませんでした。<strong>公式の通販サイト（katahara.square.site）</strong>があるので、帰ってから取り寄せるか、次の群馬旅（伊香保・草津方面）のときに前橋を絡めるのが自然かと思います。</div>
+
+<div class="callout"><span class="t">💡 買うタイミングのまとめ</span>
+<strong>群馬の3つ（焼きまんじゅうセット・味噌漬け・鬼ひも川）はDAY1の夜に</strong>――翌朝はチェックアウト後すぐ新幹線なので、前夜に済ませておくと慌てません。買ったらホテルの部屋に置いておけます。<br>
+<strong>越後湯沢の3つはDAY3の帰りに</strong>――DAY2に買うと宿で荷物になります。ただし<strong>地酒だけはDAY2のぽんしゅ館で味を決めておく</strong>と選びやすいです。<br>
+<strong>お土産予算は¥5,000</strong>で組んでいます（群馬¥2,500＋越後湯沢¥2,500程度）。</div>
+</div>
+</section>
+
+
+<section id="day2" class="dayB">
+<h2><span class="daychip b">DAY2</span>9/24(木)　高崎の朝2寺 → 越後湯沢　高原 → 足湯はしご → へぎそばと焼肉</h2>
+<div class="card">
+<ul class="tl">
+<li><span class="t">05:30</span><span class="b">起床<small>今日は朝いちで高崎のお寺を2つ回ってから越後湯沢へ渡ります</small></span></li>
+<li><span class="t">06:00<br>–06:10</span><span class="b">🚗 <strong>カーシェアの受け取り（2台目）</strong><small>🔴<strong>9/24ぶんのカーシェアは別途の予約が必要</strong>です（高崎駅・約2時間）</small></span></li>
+<li class="star"><span class="t">06:25<br>–06:55</span><span class="b"><strong>⛩️ 少林山 達磨寺</strong>（高崎市鼻高町296／☎027-322-8800）<small>高崎駅から約15分・Google 4.2（<strong>3,654件</strong>）<br><strong>高崎だるま発祥の寺。</strong>杉木立の石段を上がると霊符堂、脇にブルーノ・タウトが暮らした<strong>洗心亭</strong>があります<br>🔴<strong>授与所・寺務所は9:00〜17:00</strong>。6時台は<strong>境内を歩いて外からお参りするだけ</strong>になります。<strong>だるまやだるまみくじは買えません</strong>――そのぶんは昨夜の群馬いろはで高崎だるまを見ておくか、朝いちばんの静けさを取るか、というところです</small></span></li>
+<li class="star"><span class="t">07:06<br>–07:36</span><span class="b"><strong>🗻 高崎白衣大観音（慈眼院）</strong>（高崎市石原町2710-1／☎027-322-2269）<small>達磨寺から約11分・Google 4.1（<strong>2,695件</strong>）<br><strong>観音山の頂に立つ高さ41.8mの白衣観音。</strong>高崎市街のどこからでも見えるシンボルです<br>🔴<strong>胎内拝観は9:00〜16:30</strong>。6〜7時台は<strong>下から見上げるだけ</strong>。ただ<strong>朝の光のなか、人のいない観音山</strong>というのは、日中には味わえない時間だと思います</small></span></li>
+<li class="drive"><span class="t">07:36</span><span class="b">🚗 高崎駅へ戻る<small>約10分。<strong>3か所まわって運転は合計36分・15.4km</strong>（🟡区間ごとの内訳は概算）</small></span></li>
+<li><span class="t">07:46<br>–07:55</span><span class="b">カーシェア返却</span></li>
+<li><span class="t">08:00<br>–08:40</span><span class="b">🍙 ホテルへ戻って朝ごはん・チェックアウト<small>素泊まりなので朝食は駅や近くで調達を。<strong>宿は駅から270m・徒歩4分</strong>なので往復しても負担になりません<br>💡前夜のうちに朝食を買っておくと、この40分がぐっと楽になります</small></span></li>
+<li class="star"><span class="t">09:04</span><span class="b"><strong>高崎 発　JR上越新幹線 たにがわ403号 越後湯沢行</strong>（12番線）<small>自由席¥1,870＋乗車券¥1,790＝<strong>¥3,660</strong>。<strong>終点が越後湯沢</strong>なので乗り過ごしの心配なし<br>💡1本落としても<strong>09:14発 とき307号で09:39着</strong>、その次は09:48発 とき309号で10:20着</small></span></li>
+<li class="star"><span class="t">09:33</span><span class="b"><strong>越後湯沢 着</strong>（11・12番線）</span></li>
+<li><span class="t">09:40<br>–09:55</span><span class="b"><strong>🧳 コインロッカーに荷物</strong>（2階コンコース東口側「マルチエキューブ」）<small>🔴キャッシュレス決済のみ<br>💡足湯用のタオルと替え靴下はここでデイパックに移しておく</small></span></li>
+<li><span class="t">09:55<br>–10:10</span><span class="b">西口へ抜けてロープウェイ山麓駅へ<small>西口から640m・徒歩8分</small></span></li>
+<li class="star"><span class="t">10:20</span><span class="b"><strong>🚡 湯沢高原ロープウェイ 上り</strong>（標高368m→855m）<small>毎時00・20・40分発／所要7分。✅<strong>事前予約済み（往復¥2,900）</strong>――山麓駅のチケットカウンターで購入済みのQRコードを提示して引き換えます。09:39着の便になったときは10:40発へ</small></span></li>
+<li class="foot"><span class="t">10:30<br>–11:10</span><span class="b"><strong>🦶【足湯①】＋ ☕ kumo cafe</strong>（山頂駅舎内・雲のオープンデッキ）<small>足湯：無料（ロープウェイ料金内）・9:00〜16:30・雨天休止／kumo cafe：9:30〜16:00（L.O.）・カウンター8席＋テラス約20席<br><strong>雲をかたどったデッキに足湯が組み込まれている</strong>ので、足を湯につけたまま谷川連峰と湯沢の温泉街を見下ろせます。<strong>ル・レクチェのスムージー</strong>（新潟の洋梨）／<strong>雲の上のソーダ</strong>／ワッフル（プレーン・チョコレートオレオ・キャラメルナッツ）<br>💡ここが「湯沢高原でしかできないこと」の中心。<strong>お茶だけ</strong>にして、ごはんは麓に降りてから（予算¥500〜800）</small></span></li>
+<li class="star"><span class="t">11:10<br>–12:10</span><span class="b"><strong>🌿 高原エリア散策</strong><small>・高山植物園「アルプの里」（やまびこリフト無料／11月上旬まで営業）。ロックガーデンをぐるり<br>・高原内無料バス（パノラマステーション〜エーデルワイス間）あり<br>💡9月下旬は高山植物のピークは過ぎますが、秋の草花とススキ、谷川連峰の眺めがきれいな時期です<br>💡小腹がすいたら<strong>ガレバハウス</strong>（ロックガーデン側・9:30〜15:30）にジェラートと<strong>地酒ベースのサングリア「フラワードリンク」</strong>があります</small></span></li>
+<li><span class="t">12:20</span><span class="b">🚡 ロープウェイ 下り（毎時00・20・40分発）→ 12:27 山麓駅</span></li>
+<li><span class="t">12:27<br>–12:40</span><span class="b">🛍 湯沢マルシェ（山麓駅舎内・8:20〜16:50）をひと回り<small>越後湯沢限定「笹雪」、白瀧酒造「上善如水」、浪花屋の柿の種など。💡ここでは見るだけ。買うのはDAY3の帰りに駅でまとめて</small></span></li>
+<li class="star"><span class="t">12:50<br>–13:50</span><span class="b"><strong>🥢 昼食：越後十日町 小嶋屋 越後湯沢店</strong>――<strong>へぎそば＋舞茸天ぷら</strong><small>湯沢町湯沢2427-1 <strong>CoCoLo湯沢 がんぎどおり2F</strong>／☎025-785-2081／hegisoba.co.jp<br><strong>11:00〜19:30／年中無休／越後湯沢駅から51m＝駅ナカ</strong>。<strong>Google 4.0（686件）</strong><br><strong>へぎそば</strong>は布海苔（ふのり）をつなぎに使う十日町・小千谷の郷土そば。つるりとした喉ごしと、<strong>ひと口ぶんずつ「手繰り（てぐり）」に畳んで盛る</strong>のが特徴です。並盛で7振り、一人前で十振り<br>💡<strong>舞茸の天ぷら</strong>は南魚沼の定番。へぎそばとの組み合わせは王道です<br>💡日本酒の飲み比べもありますが、<strong>夜に唎酒番所で5杯</strong>飲むので、ここはそばに集中するのがおすすめです<br>💡19:30まで通しなので、時間が前後してもまったく困りません</small></span></li>
+<li><span class="t">13:55<br>–14:15</span><span class="b">🚶 温泉通りをゆっくり上って散策<small>⚠️<strong>不動滝は今回カットしました。</strong>新幹線が09:04発になって越後湯沢の到着が1時間31分遅くなったぶん、駅西口から往復1時間（約2km・登り）のここが収まらなくなりました<br>💡どうしても行きたければ、<strong>足湯③④のどちらか</strong>を落とすと入ります（→下の note）</small></span></li>
+<li class="foot"><span class="t">14:20<br>–14:45</span><span class="b"><strong>🦶【足湯②】足休め かんなっくり</strong>（湯沢354-9）<small>9:00〜21:00・無料・駅西口から徒歩7分。「入湯期間中は毎朝すべて新鮮な温泉に入れ替え」（観光協会）<br>💡隣が雪国館（9:00〜17:00・水曜休・¥500）。興味があれば</small></span></li>
+<li class="foot"><span class="t">14:55<br>–15:08</span><span class="b"><strong>🦶【足湯③】からかさ亭 美白の足湯</strong>（越後のお宿 いなもと内／湯沢2448）<small>9:00〜18:00・無料・駅西口から徒歩2分・☎025-784-2251</small></span></li>
+<li class="foot"><span class="t">15:08<br>–15:22</span><span class="b"><strong>🦶【足湯④】旅籠の足湯</strong>（HATAGO井仙前／湯沢2455）<small>9:00〜18:00・無料・不定休・☎025-784-3361<br>💡③と④は隣同士。連続で入れます</small></span></li>
+<li><span class="t">15:22<br>–15:35</span><span class="b">🧳 ロッカーから荷物を回収 → 東口へ（徒歩10分）</span></li>
+<li><span class="t">15:40</span><span class="b"><strong>🔵 ホテルニューモンド チェックイン</strong>（15:30〜）</span></li>
+<li class="star"><span class="t">16:25<br>–16:55</span><span class="b"><strong>🍶 ぽんしゅ館「唎酒番所」＋「駅の酒蔵」</strong>（CoCoLo湯沢内）<small>9:30〜19:00（唎酒番所の最終受付18:45）／<strong>¥1,000でお猪口＋コイン5枚</strong>。新潟全酒蔵の代表銘柄＋季節酒・希少酒<br><strong>ここで足湯用の小瓶も買ってしまいます</strong>（重いものは買わない。本命のお土産はDAY3に）<br>🔴<strong>夕食を17:00の開店に合わせるので、唎酒番所は先に済ませます。</strong>あとに回すと最終受付18:45に間に合いません</small></span></li>
+<li><span class="t">16:55</span><span class="b">🚶 東口から焼肉さかえやへ<small>駅から<strong>202m・徒歩3分</strong></small></span></li>
+<li class="star"><span class="t">17:00<br>–18:30</span><span class="b"><strong>🥩 夕食：焼肉 さかえや</strong>（湯沢3丁目2-1／☎025-784-2551）<small><strong>17:00〜22:00／火曜定休＝9/24(木)は営業✅</strong>／<strong>Google 4.2（330件）</strong>／越後湯沢駅から202m<br>🔴<strong>「席数は8席のみ、予約不可のため来店順で並ぶ」</strong>という口コミがあります。<strong>17:00の開店に合わせて並びます</strong>――8席しかない以上、これがいちばん確実です<br><strong>タンとホルモンが絶品</strong>との評判。地元のフリーペーパー「VITA」でビール1杯サービスがあるそうです<br>💡並ぶ可能性を見込んで、<strong>羽織るものを持って出てください</strong></small></span></li>
+<li class="foot"><span class="t">19:20<br>–20:00</span><span class="b"><strong>🦶【足湯⑤】越後湯沢駅 西口駅前広場の足湯</strong><small>無料・<strong>24時間</strong>・無休。<strong>ここで小瓶をちびちび</strong><br>💡飲み終わった瓶とゴミは必ず持ち帰りで。周りに人がいたら音量にも配慮を</small></span></li>
+</ul>
+<div class="callout"><span class="t">♨️ 貸切風呂は好きなタイミングで</span>ニューモンドの貸切風呂は<strong>15:30〜翌9:30・1回30分以内・入浴中ランプ制</strong>。時間は決めずに、<strong>ランプが消えていたらその都度入る</strong>スタイルで。チェックイン直後・焼肉のあと・寝る前・朝食前あたりが入りやすいタイミングです。</div>
+<div class="callout danger"><span class="t">⚠️ 24時以降は駅の東西通り抜けができません</span>越後湯沢駅の出入口に鍵がかかります（宿の公式Q&amp;Aに明記）。足湯は西口、宿は東口なので、夜遅くの足湯は避けてください。この旅程なら19:45に上がるので問題ありません。</div>
+</div>
+
+</section>
+
+<section id="ashiyu" class="dayB">
+<h2><span class="daychip b">DAY2</span><span class="daychip c">DAY3</span>🦶 足湯めぐり（この旅の主役・6か所すべて無料）</h2>
+
+
+<div class="card">
+<div class="scroll"><table>
+<tr><th>#</th><th>名前</th><th>場所</th><th>時間</th><th>いつ入る</th></tr>
+<tr><td>①</td><td><strong>パノラマステーション前の足湯</strong><br>（kumo cafeの雲のデッキ内）</td><td>湯沢高原 山頂・標高855m</td><td>9:00〜16:30<br>（雨天休止）</td><td>DAY2 09:10〜<br>（ロープウェイ料金内）</td></tr>
+<tr><td>②</td><td><strong>足休め かんなっくり</strong></td><td>温泉通り・湯沢354-9</td><td>9:00〜21:00</td><td>DAY2 14:30〜<br>（不動滝から徒歩10分）</td></tr>
+<tr><td>③</td><td><strong>からかさ亭 美白の足湯</strong></td><td>越後のお宿 いなもと内<br>湯沢2448（駅西口徒歩2分）</td><td>9:00〜18:00</td><td>DAY2 15:03〜</td></tr>
+<tr><td>④</td><td><strong>旅籠の足湯</strong></td><td>HATAGO井仙前<br>湯沢2455（駅西口ロータリー）</td><td>9:00〜18:00<br>（不定休）</td><td>DAY2 15:15〜</td></tr>
+<tr><td>⑤</td><td><strong>越後湯沢駅西口駅前広場の足湯</strong></td><td>駅西口すぐ</td><td><strong>24時間・無休</strong></td><td>DAY2 19:10〜<br>🍶日本酒はここで</td></tr>
+<tr><td>⑥</td><td><strong>清津峡 エントランス2階の足湯</strong></td><td>清津峡渓谷トンネル入口</td><td>9:00〜16:00<br>（4〜11月）</td><td>DAY3 12:20〜</td></tr>
+</table></div>
+<p style="font-size:.93rem"><strong>全部タダです。</strong> ②③④は温泉通りを下りてくる一本道の上に並んでいるので、はしごしても移動はほとんど増えません。</p>
+<div class="callout warn"><span class="t">🧦 靴下とタオルがこの旅の生命線</span>6か所も入るので、<strong>フェイスタオル1枚では足りません</strong>。薄手のハンドタオルを2〜3枚、それと<strong>替えの靴下を1足</strong>持っていくと快適さがまるで違います。サンダルやスリッポンなど、脱ぎ履きが速い靴だとなお良いです。</div>
+<div class="callout danger"><span class="t">🚫 今回は入れなかった足湯（理由の記録）</span>
+<strong>湯沢中央公園の足湯</strong>（土樽151-1・6:00〜20:00・無料）――🔴<strong>毎週金曜が清掃で利用不可</strong>。DAY3の9/25はまさに金曜。DAY2に行こうにも駅から徒歩39分・2.7kmで動線から外れます。<strong>車で行くなら清津峡への道中に4分の寄り道</strong>で寄れる位置（越後湯沢駅→中央公園→清津峡＝37分21.4km／直行は33分16.7km）なので、金曜でさえなければ7か所目になっていました。<br>
+<strong>みつまたの湯</strong>（道の駅みつまた・三俣1000）――苗場・三国峠方面で、清津峡とは正反対。今回の動線には乗りません。</div>
+</div>
+</section>
+
+<section id="day3" class="dayC">
+<h2><span class="daychip c">DAY3</span>9/25(金)　朝湯2回 → 清津峡（足湯⑥）→ 魚沼展望台 → 新幹線でおにぎり</h2>
+<div class="card">
+<ul class="tl">
+<li><span class="t">08:00<br>–08:40</span><span class="b">🍚 朝食（オーナー自家栽培の南魚沼産コシヒカリ）<small>✅8:00〜</small></span></li>
+<li class="star"><span class="t">08:40</span><span class="b">🍙 <strong>おにぎりを受け取る</strong>✅（依頼済み）<small>💡保冷剤か保冷バッグがあると、14:49の車内まで安心です</small></span></li>
+<li><span class="t">10:00</span><span class="b"><strong>🔵 チェックアウト</strong><small><strong>荷物は預けずに持ち歩き</strong></small></span></li>
+<li><span class="t">10:10<br>–10:50</span><span class="b">🛍 CoCoLo湯沢でひと休み＋買い忘れチェック<small>荷物ありなので、ここは無理に歩き回らない時間帯にしてあります。ベンチに座って、本命のお酒の目星をつけておくくらいがちょうどいい（<strong>買うのは帰りの14:15〜</strong>。荷物を増やさずに済みます）</small></span></li>
+<li><span class="t">10:50<br>–11:00</span><span class="b">カーシェアステーションへ<small>荷物はそのまま車に積む</small></span></li>
+<li class="star"><span class="t">11:00</span><span class="b"><strong>🚗 カーシェア 出発</strong>（予約済み✅）<small>国道17号 → 国道353号（十二峠トンネル）／16.7km・33分</small></span></li>
+<li><span class="t">11:35</span><span class="b">清津峡 駐車場 着<small>第1〜第4で合計約155台・7:00〜18:00開放</small></span></li>
+<li class="star"><span class="t">11:40<br>–12:20</span><span class="b"><strong>🏞 清津峡渓谷トンネル「Tunnel of Light」</strong><small>入坑料 大人¥1,200／<strong>定休日なし</strong>／受付8:30〜16:30（閉坑17:00）<br>✅<strong>9/25は「予約購入の方限定営業日」ではありません</strong>（次回の予約限定日は9/19〜9/23で終了済み。当日、受付脇の券売機で購入OK）<br>全長750mのトンネルを歩き、突き当たりの<strong>パノラマステーション</strong>へ。床の水鏡に柱状節理が映り込みます<br>💡第2見晴所のトイレは作品を兼ねていて順番待ちになりがち。用足しは第1駐車場の公衆トイレが確実</small></span></li>
+<li class="foot"><span class="t">12:20<br>–12:45</span><span class="b"><strong>🦶【足湯⑥】清津峡 エントランス施設2階の足湯</strong><small>無料・9:00〜16:00（4〜11月）・1階はお土産とカフェ<br>💡エントランス前にキッチンカーが出ることも（ともまる商店＝十日町産コシヒカリのおにぎり／清津百貨＝松之山塩のクレープ）</small></span></li>
+<li><span class="t">12:50</span><span class="b">出発<small>国道353号 → 県道560号（魚沼スカイライン）／9.5km・18分</small></span></li>
+<li class="star"><span class="t">13:10<br>–13:35</span><span class="b"><strong>🏔 魚沼スカイライン 魚沼展望台</strong>（十日町市伊達辛・普通車10台）<small>全長約20kmの尾根道の途中。<strong>魚沼平野・越後三山・飯士山</strong>を一望。通行は5月〜11月／大型バス不可<br>💡9月下旬は稲刈り前後。黄金色の田んぼが広がる時期です<br>💡おにぎりをここで食べるという手も。景色の勝負ならこちらが上です</small></span></li>
+<li><span class="t">13:40</span><span class="b">出発<small>県道560号 → 国道353号 → 国道17号／16.3km・24分</small></span></li>
+<li><span class="t">14:05</span><span class="b">越後湯沢駅 着 → 給油してカーシェア返却<small>14:15 返却完了</small></span></li>
+<li class="star"><span class="t">14:15<br>–14:45</span><span class="b"><strong>🛍 ぽんしゅ館「駅の酒蔵」で本命の日本酒＋お土産の総仕上げ</strong><small>重ければその場から宅配</small></span></li>
+<li class="star"><span class="t">14:49</span><span class="b"><strong>越後湯沢 発　上越新幹線 とき68号 東京行</strong><small>✅<strong>予約済み（乗車券込み ¥6,700）</strong>／全車指定席・所要71分の速いタイプ　🍙車内でおにぎりランチ</small></span></li>
+<li><span class="t">16:00</span><span class="b">東京 着（20番線）</span></li>
+<li><span class="t">16:17</span><span class="b">東京 発　JR中央・青梅線快速（当駅始発・青梅行／2番線）→ 16:31 新宿 着（12番線）</span></li>
+<li><span class="t">16:41</span><span class="b">新宿 発　小田急 快速急行（当駅始発・新松田行／5番線）</span></li>
+<li class="star"><span class="t">17:28</span><span class="b"><strong>🏠 本厚木 着</strong></span></li>
+</ul>
+<div class="callout"><span class="t">💡 少しでも早く帰りたいなら</span>新宿16:40発の<strong>特急さがみ59号</strong>（当駅始発・本厚木行／指定席¥650）で<strong>17:20着</strong>。8分早いだけなので、¥650を出すかはお好みで。</div>
+<div class="callout"><span class="t">✅ 復路のとき68号は予約済み</span>¥6,700（乗車券込み）。全車指定席なので、押さえてあるのは正解です。<strong>当日は座席番号だけ確認しておいてください。</strong></div>
+</div>
+</section>
+
+
+<section id="budget">
+<h2>💰 予算内訳（3日分の目安）</h2>
+<details open>
+<summary>合計 約¥70,600〜83,200（うち金額まで確定済み ¥41,886）</summary>
+<div class="scroll"><table>
+<tr><th>日</th><th>項目</th><th>金額</th></tr>
+<tr><td><span class="daychip a">1</span></td><td>本厚木→高崎（小田急¥513＋JR乗車券¥2,090＋あさま自由席¥2,510）</td><td>¥5,113</td></tr>
+<tr><td><span class="daychip a">1</span></td><td><strong>高崎のカーシェア</strong>（約9時間半・約157km・給油込み）✅予約済み／🟡実額は明細待ち</td><td>¥9,000〜11,000</td></tr>
+<tr><td><span class="daychip a">1</span></td><td><strong>食べ歩き（妙義・榛名・赤城の3回）</strong></td><td>¥1,500〜2,500</td></tr>
+<tr><td><span class="daychip a">1</span></td><td><strong>🎁群馬のお土産3種</strong>（焼きまんじゅうセット・味噌漬け・鬼ひも川）＋だるま</td><td>¥2,500〜4,000</td></tr>
+<tr><td><span class="daychip a">1</span></td><td><strong>部屋飲み</strong>（登利平の鳥めし松¥1,000＋群馬いろはのおつまみ＋自分用の焼きまんじゅう）</td><td>¥2,200〜3,300</td></tr>
+<tr><td><span class="daychip a">1</span></td><td><strong>今福の刺身</strong>🟡価格は目安</td><td>¥800〜1,500</td></tr>
+<tr><td><span class="daychip a">1</span></td><td>本町へのバス（片道）</td><td>¥100〜200</td></tr>
+<tr><td><span class="daychip a">1</span></td><td><strong>結人 四合瓶</strong>（大塚酒店・半分は翌日へ持ち越し）</td><td>¥1,600〜2,300</td></tr>
+<tr><td><span class="daychip a">1</span></td><td>入浴剤（分包〜草津の湯の花まで幅あり）</td><td>¥500〜1,500</td></tr>
+<tr><td><span class="daychip a">1</span></td><td><strong>セントラルホテル高崎（ユニットバスのシングル・素泊まり）</strong>✅予約済み</td><td><strong>¥4,950</strong></td></tr>
+<tr><th colspan="2">DAY1 小計</th><th>¥28,263〜36,363</th></tr>
+<tr><td><span class="daychip b">2</span></td><td><strong>9/24朝のカーシェア</strong>（達磨寺・白衣大観音／約2時間）✅予約済み／🟡実額は明細待ち</td><td>¥2,000〜3,000</td></tr>
+<tr><td><span class="daychip b">2</span></td><td>高崎→越後湯沢（たにがわ403号 自由席・乗車券込み）</td><td>¥3,660</td></tr>
+<tr><td><span class="daychip b">2</span></td><td>朝ごはん（高崎駅で調達・素泊まりのため）</td><td>¥500〜800</td></tr>
+<tr><td><span class="daychip b">2</span></td><td>コインロッカー（🟡料金未確認・キャッシュレスのみ）</td><td>¥500〜800</td></tr>
+<tr><td><span class="daychip b">2</span></td><td><strong>湯沢高原ロープウェイ 往復</strong>✅事前予約済み</td><td><strong>¥2,900</strong></td></tr>
+<tr><td><span class="daychip b">2</span></td><td>高原のお茶（kumo cafe）</td><td>¥500〜800</td></tr>
+<tr><td><span class="daychip b">2</span></td><td><strong>昼食・小嶋屋</strong>（へぎそば＋舞茸天ぷら）</td><td>¥1,800〜2,400</td></tr>
+<tr><td><span class="daychip b">2</span></td><td>唎酒番所（お猪口＋コイン5枚）</td><td>¥1,000</td></tr>
+<tr><td><span class="daychip b">2</span></td><td>日本酒 小瓶（足湯で飲む用・お土産枠とは別）</td><td>¥700〜1,200</td></tr>
+<tr><td><span class="daychip b">2</span></td><td><strong>夕食・焼肉さかえや</strong></td><td>¥3,000〜4,500</td></tr>
+<tr><td><span class="daychip b">2</span></td><td><strong>ホテルニューモンド（朝食付¥8,700＋入湯税¥150）</strong>✅予約済み</td><td><strong>¥8,850</strong></td></tr>
+<tr><th colspan="2">DAY2 小計</th><th>¥25,410〜29,910</th></tr>
+<tr><td><span class="daychip c">3</span></td><td><strong>カーシェア</strong>（11:00〜14:15・約43km）✅予約済み</td><td><strong>¥3,000</strong></td></tr>
+<tr><td><span class="daychip c">3</span></td><td>清津峡渓谷トンネル</td><td>¥1,200</td></tr>
+<tr><td><span class="daychip c">3</span></td><td><strong>越後湯沢のお土産枠</strong>（笹団子・柿の種オイル漬け・地酒ほか）</td><td><strong>¥5,000</strong></td></tr>
+<tr><td><span class="daychip c">3</span></td><td><strong>とき68号（乗車券込み）</strong>✅予約済み</td><td><strong>¥6,700</strong></td></tr>
+<tr><td><span class="daychip c">3</span></td><td>新宿→本厚木（小田急・IC）</td><td>¥513</td></tr>
+<tr><th colspan="2">DAY3 小計</th><th>¥16,413</th></tr>
+<tr><td>雑費</td><td>飲み物・お茶ほか</td><td>¥500</td></tr>
+<tr><td>足湯</td><td><strong>6か所すべて</strong></td><td><strong>¥0</strong></td></tr>
+<tr><th colspan="2">合計</th><th>約¥70,600〜83,200</th></tr>
+<tr><td colspan="2">（参考）調整済みのとき303号</td><td>▲¥6,500</td></tr>
+</table></div>
+<p style="font-size:.9rem"><strong>予約で金額まで確定しているのが¥41,886</strong>（交通・ロープウェイ・宿2軒・湯沢カーシェア・清津峡・お土産枠）。<br>v12は<strong>ソーレマン＋焼きまんじゅう（¥3,600〜5,200）→ 部屋飲み＋結人（¥3,800〜5,600）</strong>で<strong>+¥200〜400</strong>、宝物殿（〜¥200）がなくなり、<strong>宿が¥4,950に下がって▲¥550</strong>、<strong>今福の刺身とバスで+¥900〜1,700</strong>。<strong>v11比で+¥1,550〜2,350</strong>。結人の残りをDAY2の足湯酒に回せば<strong>DAY2の小瓶¥700〜1,200が浮きます</strong>。<br><strong>残る幅のいちばん大きい項目は高崎のカーシェア（¥2,000）</strong>で、これは予約済みなので明細を見れば消えます。</p>
+<p style="font-size:.9rem">💡2泊3日でこの額は、<strong>群馬の1日ぶんが実質¥24,000弱で足されている</strong>形。うち¥9,000〜11,000がカーシェアなので、<strong>ここが効くかどうかがこの旅の価格の分かれ目</strong>です。</p>
+</details>
+</section>
+
+<section id="high">
+<h2>✨ ハイライトと削ってよいもの</h2>
+<div class="card">
+<h3>🏆 いちばん感動しそうな瞬間</h3>
+<p style="font-size:.93rem"><strong>清津峡のパノラマステーション。</strong>トンネルの突き当たり、床一面に張られた水の上を歩くと、V字の峡谷と柱状節理が上下対称に映り込みます。あの一枚は写真で見ているのと実際に立つのとでは別物で、しかも<strong>9/25は予約不要日</strong>。混雑のピークを外した平日の午前に、あの空間をかなり静かに味わえるはずです。</p>
+<p style="font-size:.93rem">対抗馬は<strong>榛名神社の御姿岩</strong>。杉木立の参道を700m上がりきった先で、岩そのものに社殿が接して建っている――あれを見上げた瞬間は、清津峡とはまったく別種の効き方をします。<strong>初日と3日目に、質のちがう「圧倒」がひとつずつ置いてある</strong>のが、この2泊3日の形になりました。</p>
+<h3>🥇 ハイライト3選</h3>
+<ol class="plain">
+<li><strong>上毛三山を1日でつなぐ</strong>――妙義の岩、榛名の御姿岩、赤城の湖上の社。同じ「山の神社」でも祀り方が一つずつ違うのを、1日で並べて見られます</li>
+<li><strong>足湯6か所めぐり</strong>――標高855mの雲のデッキから始まって、温泉通りの3連続、夜の駅前、翌日の峡谷。<strong>全部無料</strong>で、これだけで旅のテーマが1本通ります</li>
+<li><strong>清津峡の水鏡</strong>＋<strong>駅前の足湯で日本酒の小瓶</strong>――唎酒番所で見つけた銘柄を、24時間無料の足湯で夜風とともに</li>
+</ol>
+<h3>✂️ 削ってもよい候補（削る順）</h3>
+<div class="scroll"><table>
+<tr><th>候補</th><th>削るとどうなる</th></tr>
+<tr><td><span class="daychip a">1</span><strong>AKAGIフォトスポット</strong></td><td>10分浮く。赤城神社と鳥居峠で大沼は十分に見えます。<strong>遅れたら最初に切るのはここ</strong></td></tr>
+<tr><td><span class="daychip a">1</span>見晴山展望台</td><td>20分浮く。赤城の景色は鳥居峠に任せる</td></tr>
+<tr><td><span class="daychip a">1</span>硯岩を尾根の分岐で引き返す</td><td>15分浮く。岩が濡れている日はこれが正解です</td></tr>
+<tr><td><span class="daychip a">1</span><strong>赤城そのもの</strong></td><td>雨・霧の日はためらわず。<strong>妙義＋榛名の二山</strong>にして高崎へ早戻り、街歩きと酒場を長く。運転が1時間半以上減ります</td></tr>
+<tr><td><span class="daychip b">2</span>アルプの里までの往復</td><td>山頂駅周辺と足湯だけにすれば30分浮く</td></tr>
+<tr><td><span class="daychip c">3</span><strong>魚沼展望台</strong></td><td>40分浮いて駅でのんびりできる。<strong>新幹線は予約済みで便は動かせません</strong>。霧なら迷わず切る</td></tr>
+</table></div>
+</div>
+<details>
+<summary>💰 もっと安くするなら</summary>
+<ul class="plain">
+<li><strong>いちばん効くのはDAY1のカーシェア。</strong>妙義を落として榛名＋赤城の二山にすれば、借りる時間が1時間半ほど短縮できます（▲¥1,500前後🟡）。ただし上毛三山ではなくなります</li>
+<li>✅<strong>高崎の夜は部屋飲みに変更済み</strong>（v12）。結人を四合瓶ではなく、あれば小瓶にすればさらに▲¥800前後</li>
+<li>入浴剤をドラッグストアの<strong>分包</strong>にする（▲¥1,000）</li>
+<li>唎酒番所をやめて「駅の酒蔵」の<strong>蔵元試飲会</strong>（随時開催・無料）に賭ける（▲¥1,000／ただし当日次第）</li>
+<li>お土産枠¥5,000を¥3,000に（▲¥2,000）</li>
+</ul>
+<p style="font-size:.92rem">全部やると<strong>¥55,000前後</strong>まで落ちます。ただ、<strong>削って効くのは全部DAY1側</strong>で、越後湯沢はもう予約済みが多く動かせません。</p>
+</details>
+<details>
+<summary>✨ もっと贅沢にするなら</summary>
+<ul class="plain">
+<li><strong>榛名富士ロープウェイ 往復¥1,200</strong>🟡（のぼり最終16:30）。50分の余裕はありますが、赤城の展望スポットが消えて、下りが日没と競ります</li>
+<li>高崎の宿を<strong>大浴場つき（ドーミーイン高崎など）</strong>にする（＋¥3,000〜5,000🟡）。入浴剤作戦は不要になり、<strong>2泊とも温泉</strong>になります</li>
+<li><strong>ジップラインアドベンチャー ¥3,500</strong>（湯沢高原・9:00〜15:00／最終受付14:30）――谷川連峰に向かって飛ぶやつです</li>
+<li><strong>酒風呂「湯の沢」¥950</strong>をDAY2の夕方に足して、温泉を1回増やす</li>
+<li>帰りの新宿から<strong>特急さがみ59号 ¥650</strong>で座って帰る</li>
+</ul>
+</details>
+</section>
+
+<section id="risk">
+<h2>⚠️ 注意事項とリスク</h2>
+<div class="card">
+<h3>🔴 3日通していちばん気をつけたいところ</h3>
+<ol class="plain">
+<li>🚗<strong>DAY1、飲むのは車を返してから。</strong>昼は湖畔、夜は酒場という並びなので、<strong>昼はノンアルコールで通してください</strong></li>
+<li><strong>DAY1の運転が3時間58分</strong>と、この旅でいちばん体に来る時間です。<strong>榛名湖（硯岩）→赤城（見晴山）の約52km区間で必ず1回休憩</strong>を</li>
+<li><strong>赤城の下りと日没。</strong>9/23の日の入りは17:35頃。<strong>16:20に赤城を出る</strong>のが安全側の線です（v12の予定は15:50発なので30分の余裕／参拝は16:30まで／駐車場は18:00まで）</li>
+<li><strong>硯岩ははしご・ロープのある岩場で、先は絶壁。</strong>9/23は朝方の降水確率が高めなので、<strong>濡れていたら先端まで出ない</strong></li>
+<li>🔴<strong>とき303号（東京07:04発・¥6,500）の払い戻し。</strong>使わない1本です</li>
+<li>🔴<strong>コインロッカー（DAY2）はキャッシュレス決済のみ。</strong>交通系IC・QR・クレカのどれかが必ず必要です</li>
+<li><strong>湯沢高原ロープウェイは気象条件で運休・時間変更あり。</strong>9/24の朝、公式トップの営業情報を必ず確認してください。<strong>山頂の足湯①も雨天休止</strong>です</li>
+<li><strong>24時以降は越後湯沢駅の東西通り抜け不可。</strong>夜の外出は19:45までに切り上げる旅程にしてあります</li>
+<li><strong>魚沼スカイラインは尾根の細い道。</strong>すれ違いに注意し、雨・霧の日は無理をしない</li>
+<li><strong>DAY3のカーシェアは3時間15分と短め。</strong>清津峡で長居しすぎると魚沼展望台が飛びます。<strong>12:50に清津峡を出る</strong>のがこの日の生命線です</li>
+</ol>
+<h3>⚠️ そのほか（DAY1・群馬）</h3>
+<ul class="plain">
+<li>9/23は<strong>秋分の日</strong>。三山とも混みます。駐車場待ちを見込んで各所<strong>10分の余裕</strong>を</li>
+<li>榛名神社は<strong>駐車場から授与所まで最短でも徒歩15分</strong>、参道は片道700mの上り</li>
+<li>妙義神社は石段。<strong>いちばん元気な朝いちに置いてある</strong>のはそのためです</li>
+<li>榛名湖は標高1,100m前後、赤城の大沼は1,300m台。<strong>麓より5〜10℃低い</strong>ので羽織ものを</li>
+<li><strong>啄木鳥（きつつき）橋は通行止め</strong>（赤城神社）</li>
+<li>山道はガソリンスタンドが少ないので、<strong>返却前の給油は高崎市街で</strong></li>
+<li><strong>イーサイト高崎（群馬いろは・登利平）は祝日20:00まで</strong>、登利平のL.O.は19:30。<strong>大塚酒店も20:00閉店</strong>。17:15に買い出し→18:35に酒屋の順なら余裕ですが、<strong>返却が遅れたら酒屋を先に</strong></li>
+<li><strong>9/23の夜は部屋飲みなので席の心配はゼロ。</strong>いっぽう<strong>越後湯沢のさかえやは8席・予約不可</strong>なので、そちらだけは<strong>17:00の開店に並ぶ</strong>のが唯一の作戦です</li>
+<li>群馬いろはは<strong>祝日20:00まで</strong>（通常21:00）。17:10に寄る旅程なので大丈夫です</li>
+</ul>
+<h3>⚠️ そのほか（DAY2・DAY3・越後湯沢）</h3>
+<ul class="plain">
+<li>清津峡の<strong>第3駐車場は閉鎖中</strong>の日があります（公式トップにリアルタイム表示）。当日朝に確認を</li>
+<li>貸切風呂は<strong>入浴中ランプ制</strong>。旅程には時間を入れていないので、空いていたらその都度どうぞ</li>
+<li><strong>旅籠の足湯は「不定休」</strong>。閉まっていても、隣の美白の足湯と駅前の足湯があるので困りません</li>
+<li>越後湯沢駅の一番近いコンビニは<strong>西口すぐのセブンイレブン</strong></li>
+</ul>
+<div class="callout warn"><span class="t">🧳 3日分の荷物をどう持つか</span>この旅は<strong>宿が2か所・預け先が毎日ちがう</strong>のがいちばんの厄介ごとです。<br><strong>DAY1</strong>＝カーシェアの車に積みっぱなし（🔴<strong>返却時の積み残しに注意</strong>。17:10頃の返却時、後部座席と足元を必ず一度見てください）。<br><strong>DAY2</strong>＝越後湯沢駅のコインロッカーへ（8:15〜15:00頃）。<br><strong>DAY3</strong>＝チェックアウト後は<strong>持ち歩き</strong>。清津峡も魚沼展望台も車移動なので、車に置いておけます。<br>💡お土産は<strong>DAY3にまとめて</strong>買う前提にしてあります。群馬で買った入浴剤だけが3日間ついてきます。</div>
+</div>
+
+<details>
+<summary>🌧 雨天時の代替案</summary>
+<h3 style="margin-top:4px"><span class="daychip a">DAY1</span>群馬</h3>
+<div class="scroll"><table>
+<tr><th>状況</th><th>切り替え</th></tr>
+<tr><td>山道が雨・霧で不安</td><td><strong>赤城を落として妙義＋榛名の二山</strong>に。早めに高崎へ戻って市街散歩＋酒場を長めに</td></tr>
+<tr><td>神社が雨</td><td>妙義も榛名も杉木立と石段なので、<strong>雨のほうが荘厳</strong>です。石段が滑る点だけ注意</td></tr>
+<tr><td>1日ずっと雨</td><td>車をキャンセルして<strong>高崎の街と駅ビル</strong>に。<strong>伊香保案（別ファイルのv1）に戻す</strong>という手もあります</td></tr>
+</table></div>
+<h3><span class="daychip b">DAY2</span>越後湯沢</h3>
+<p style="font-size:.93rem"><strong>ロープウェイが動かない／山頂が真っ白なとき</strong>、午前は町側に振り替えます。足湯①も雨天休止なので、そのぶんを町の足湯に回す形です。</p>
+<div class="scroll"><table>
+<tr><th>時間</th><th>代替プラン</th></tr>
+<tr><td>09:00〜10:30</td><td><strong>雪国館（湯沢町歴史民俗資料館）</strong>――川端康成『雪国』の世界と雪国の暮らしの展示。西口徒歩7分／9:00〜17:00（最終16:30）／<strong>水曜休＝9/24は開館</strong>／¥500</td></tr>
+<tr><td>10:30〜11:00</td><td>隣の<strong>足休め かんなっくり</strong>でひと休み（雨でも入れます）</td></tr>
+<tr><td>11:10〜12:20</td><td><strong>酒風呂「湯の沢」</strong>（ぽんしゅ館内）――天然温泉に浴用酒を加えた酒風呂。10:30〜18:30（最終受付18:00）／¥950（入湯税込）／貸しタオル¥200</td></tr>
+<tr><td>12:15〜13:15</td><td>CoCoLo湯沢2Fの<strong>小嶋屋でへぎそば＋舞茸天ぷら</strong>（11:00〜19:30の通し営業なので雨でも時間でも困りません）</td></tr>
+<tr><td>13:40〜15:15</td><td><strong>美白の足湯 → 旅籠の足湯</strong>（どちらも屋根つき）→ 荷物回収 → チェックイン</td></tr>
+</table></div>
+<h3><span class="daychip c">DAY3</span>清津峡</h3>
+<p style="font-size:.93rem">清津峡は屋内なので、雨はむしろ好条件（トンネル内は年間通して約20℃）。<strong>魚沼展望台だけが景色勝負</strong>なので、霧なら深追いせず切り上げて、<strong>塩沢の牧之通り</strong>（雁木の町並み・清津峡から車25分ほど）に振り替えるのが素直です。</p>
+</details>
+</section>
+
+<section id="pack">
+<h2>🎒 持ち物</h2>
+<div class="card">
+<h3>これがないと困るもの</h3>
+<ul class="chk">
+<li><label><input type="checkbox"><span>🧦<strong>ハンドタオル2〜3枚</strong>（足湯6か所用・この旅の生命線）</span></label></li>
+<li><label><input type="checkbox"><span>🧦<strong>替えの靴下1〜2足</strong></span></label></li>
+<li><label><input type="checkbox"><span><strong>運転免許証</strong>とカーシェアの会員証／アプリ（<strong>2日とも運転します</strong>）</span></label></li>
+<li><label><input type="checkbox"><span><strong>交通系ICカードかクレカ</strong>（🔴DAY2のコインロッカーはキャッシュレスのみ）</span></label></li>
+<li><label><input type="checkbox"><span><strong>えきねっとの予約画面</strong>（とき68号の座席番号／ロープウェイのQR）</span></label></li>
+<li><label><input type="checkbox"><span><strong>歩きやすい靴</strong>（妙義の石段165段＋榛名の参道700m＋<strong>硯岩のはしご・岩場</strong>＋温泉通りの坂）。<strong>靴底が滑りにくいもの</strong>で</span></label></li>
+<li><label><input type="checkbox"><span>脱ぎ履きの速い靴だと足湯めぐりが楽（歩く距離との兼ね合いで判断を）</span></label></li>
+<li><label><input type="checkbox"><span><strong>羽織もの</strong>（榛名湖1,100m・赤城大沼1,300m台・湯沢高原855m。いずれも麓より5〜10℃低い）<br><small>9/17時点の予報だと麓が24〜26℃なので、<strong>榛名湖と赤城の大沼は日中15℃前後</strong>の計算。<strong>薄手では寒いくらい</strong>です</small></span></label></li>
+</ul>
+<h3>あると効くもの</h3>
+<ul class="chk">
+<li><label><input type="checkbox"><span>スマホホルダーと充電ケーブル（車内ナビ用）</span></label></li>
+<li><label><input type="checkbox"><span>モバイルバッテリー</span></label></li>
+<li><label><input type="checkbox"><span><strong>☂️ 長傘</strong>（キャリーケースのホルダーに差して持ち運び）<br><small>9/24の越後湯沢は<strong>昼ごろから雨の予報</strong>なので、湯沢高原から降りてくる頃にちょうど役立つ見込み。9/23は小雨程度の予報なので、車の中に置いておけばOK。<strong>硯岩の岩場には持っていかない</strong>（両手を空ける）</small></span></label></li>
+<li><label><input type="checkbox"><span>日焼け止め・帽子（高原は日差しが強い）</span></label></li>
+<li><label><input type="checkbox"><span>現金少々（清津峡のキッチンカー用）</span></label></li>
+<li><label><input type="checkbox"><span>エコバッグ（お土産用）</span></label></li>
+<li><label><input type="checkbox"><span><strong>保冷剤か小さめの保冷バッグ</strong>（DAY3、宿のおにぎりを14:49の車内まで持つため）</span></label></li>
+<li><label><input type="checkbox"><span>おにぎり用の袋・ウェットティッシュ</span></label></li>
+<li><label><input type="checkbox"><span>保険証・常備薬</span></label></li>
+</ul>
+<div class="callout"><span class="t">🧳 2泊3日ぶんを、小さくまとめる</span>DAY2は<strong>コインロッカーに預けられる</strong>ので大きさは許容できますが、<strong>DAY3はチェックアウト後ずっと持ち歩き</strong>です。機内持ち込みサイズのキャリー1つ＋足湯用を入れたデイパック、という形がいちばん素直だと思います。</div>
+</div>
+</section>
+
+<section id="todo">
+<h2>🟡 まだ確認できていないこと</h2>
+<div class="card">
+<h3>🔴 残っている手続き</h3>
+<p style="font-size:.92rem">🎉<strong>予約が必要なものは、すべて手配が済みました。</strong>残っているのは当日の確認だけです。</p>
+<ul class="chk">
+<li><label><input type="checkbox"><span>高崎のカーシェアの<strong>ステーション位置と車種</strong>を予約内容で確認（受取07:50・返却予約17:35／実際は17:10頃に返す見込み）</span></label></li>
+
+
+</ul>
+<h3>🟡 当日までに／当日に確認するもの</h3>
+<ul class="chk">
+<li><label><input type="checkbox"><span>🔴<strong>【台風25号あり】9/22の朝に、山道の通行規制を確認</strong>――21日(月・敬老の日)に台風25号が関東最接近の見込み。<strong>警報級の大雨の翌々日に、県道33号（榛名）と県道4号（赤城）という九十九折りを2本走る</strong>ことになります。落石・倒木・路肩崩れでの通行止めがないか、<a href="https://www.kendobousai-gunma.jp/kisei/RegulationList.htm">群馬県 道路規制情報</a>と<a href="https://www.pref.gunma.jp/page/169688.html">県管理道路の通行規制・ライブカメラ</a>を必ず見てください</span></label></li>
+<li><label><input type="checkbox"><span><strong>前日（9/22）に天気予報を再確認</strong>（ロープウェイ運休・山頂足湯の雨天休止・魚沼スカイラインの霧）<br><small>9/17時点＝3日間とも大きな崩れの予報はなし。<strong>ただしDAY1夜だけ予報が割れている</strong>（tenki.jpは18時から降水確率90%・14mm／ウェザーニュースは終日40%）。<strong>折りたたみ傘は宿に置かず持って出る</strong>のが安全です</small></span></label></li>
+<li><label><input type="checkbox"><span>妙義・榛名・赤城の<strong>駐車場の料金</strong>（無料と見込んでいます）</span></label></li>
+<li><label><input type="checkbox"><span><strong>スタンプラリーのパンフレットを妙義神社で受け取る</strong>――台紙がないと始まりません。応募締切は令和9年1月31日、郵送は当日消印有効（☎027-235-2211 前橋観光コンベンション協会）</span></label></li>
+<li><label><input type="checkbox"><span>道の駅みょうぎ／群馬いろはの<strong>入浴剤の取扱い</strong></span></label></li>
+
+<li><label><input type="checkbox" checked><span>✅<s>ソーレマンの19:00予約をキャンセル</s>（済み）</span></label></li>
+<li><label><input type="checkbox"><span>🐟<strong>鮮魚 今福</strong>は10:00〜20:00・日曜定休（Googleマップ）。<strong>9/23は祝日で「時間変更の可能性」表示</strong>なので、心配なら朝に☎027-322-2417</span></label></li>
+<li><label><input type="checkbox"><span>🍶<strong>9/23朝8時以降、大塚酒店に結人の在庫確認・取り置き</strong>（☎027-322-4321）</span></label></li>
+<li><label><input type="checkbox"><span>越後湯沢駅のコインロッカー料金（大・中・小あり）</span></label></li>
+<li><label><input type="checkbox"><span>🔴<strong>9/24朝のカーシェア予約</strong>（高崎駅・06:00〜08:00の約2時間）――<strong>2台目が必要です</strong></span></label></li>
+<li><label><input type="checkbox"><span>kumo cafe の価格／小嶋屋のへぎそば＋舞茸天の価格（☎025-785-2081）</span></label></li>
+<li><label><input type="checkbox"><span>朝のおにぎりが有料か無料か（当日フロントで）</span></label></li>
+<li><label><input type="checkbox"><span>ニューモンドの源泉・泉質表示（現地の温泉分析書）</span></label></li>
+<li><label><input type="checkbox"><span>旅籠の足湯の営業（不定休／☎025-784-3361）</span></label></li>
+<li><label><input type="checkbox"><span>清津峡のキッチンカー出店日（公式トップの出店カレンダー）</span></label></li>
+<li><label><input type="checkbox"><span>9/24朝、湯沢高原ロープウェイの運行状況（公式トップ）</span></label></li>
+<li><label><input type="checkbox"><span>この2泊3日版の<strong>MD版とJSON</strong>の作成（内容がFIXしてから）</span></label></li>
+</ul>
+</div>
+</section>
+
+<section id="link">
+<h2>🔗 参考リンク</h2>
+<details>
+<summary><span class="daychip a">DAY1</span>群馬・上毛三山</summary>
+<ul class="plain">
+<li><a href="https://www.tomioka-silk.jp/_spot/sightseeing/detail/Myogi-shrine.html">妙義神社（富岡市観光 公式）</a>　／　<a href="https://www.tomioka-silk.jp/_shop/souvenir/detail/Michinoeki-Myogi.html">道の駅みょうぎ（富岡市観光 公式）</a></li>
+<li><a href="https://www.haruna.or.jp/">榛名神社（公式）</a>　／　<a href="https://www.city.takasaki.gunma.jp/site/cultural-assets/4631.html">高崎市 文化財情報（榛名神社）</a></li>
+<li><a href="https://harunavi.jp/category/lake_taberu/">榛名観光協会 榛名湖エリア【食べる】</a></li>
+<li><a href="https://www.maebashi-cvb.com/spot/1053">赤城神社（前橋観光コンベンション協会）</a></li>
+<li><a href="https://www.torihei.co.jp/store_detail29/">登利平 イーサイト高崎店（公式）</a>　／　<a href="https://www.takasakitb.co.jp/e-takasaki/shop">イーサイト高崎 ショップ一覧</a>　／　<a href="https://blog.musubito.net/dealer/">結人 取扱店（大塚酒店あり）</a>　／　<a href="https://www.city.takasaki.gunma.jp/page/1471.html">高崎市 ぐるりん時刻表・路線図</a></li>
+<li><a href="https://rocketnews24.com/2015/12/06/674002/">焼きまんじゅうはレンチンがうまい（ロケットニュース24）</a>　／　<a href="https://tozanguchinavi.com/trailhead/trailhead-4091">硯岩の登山口・榛名湖荘の市営駐車場</a>　／　<a href="https://www.maebashi-cvb.com/feature/76/photomap">すぐ絶景、赤城山撮影スポット（鳥居峠ほか）</a></li>
+<li><a href="https://tabelog.com/gunma/A1001/A100102/10020201/dtlmenu/">上州長屋酒房 一福（お品書き）</a>　／　<a href="https://tabelog.com/gunma/A1001/A100102/10015533/dtlmenu/">Excellent Gunma Food さんず（お品書き）</a>　／　<a href="https://www.hotpepper.jp/strJ000614697/">安兵衛（おでんの大衆酒場・あら町）</a></li>
+<li><a href="https://kusatsu-shokokai.jp/%E6%B9%AF%E3%81%AE%E8%8A%B1%E8%B2%A9%E5%A3%B2%E5%BA%97%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">草津温泉「湯の花」正規販売店（草津町商工会）</a></li>
+</ul>
+</details>
+<details>
+<summary><span class="daychip b">DAY2</span><span class="daychip c">DAY3</span>越後湯沢</summary>
+<ul class="plain">
+<li><a href="https://www.yuzawakogen.com/green/tickets/">湯沢高原パノラマパーク（料金・営業時間）</a>　／　<a href="https://www.yuzawakogen.com/green/">グリーンシーズン</a>　／　<a href="https://www.yuzawakogen.com/tips/kumocafe/">kumo cafe（雲のデッキと足湯）</a></li>
+<li><a href="https://hegisoba.co.jp/">越後十日町 小嶋屋（へぎそば・公式）</a>　／　<a href="https://jenic.jp/cocolo/shop/?sc_name=yuzawa">CoCoLo湯沢 ショップリスト</a></li>
+<li><a href="https://www.ponshukan.com/yuzawa/">ぽんしゅ館 越後湯沢驛店</a></li>
+<li><a href="https://harappa.co.jp/">スパゲッティ専科 はらっぱ（今回は見送り・次回の宿題）</a></li>
+<li><a href="https://nakasato-kiyotsu.com/">日本三大峡谷 清津峡（公式）</a>　／　<a href="https://nakasato-kiyotsu.com/reservation/">予約購入の方限定営業について</a></li>
+<li><a href="https://www.e-yuzawa.gr.jp/sys/hotspring_p/hotspring_p-category/footbath/">湯沢町の足湯 一覧（越後湯沢観光ナビ）</a></li>
+<li><a href="https://ekinavi-net.jp/ja/kotsu/echigo-yuzawa-eki/">越後湯沢駅のコインロッカー・手荷物預かり所</a></li>
+<li><a href="https://niigata-kankou.or.jp/spot/6925">滝沢公園「不動滝」</a>　／　<a href="https://niigata-kankou.or.jp/spot/6911">魚沼スカイライン魚沼展望台</a></li>
+<li><a href="https://www.e-yuzawa.gr.jp/sys/sightseeing_p/yukiguni_kan/">雪国館（湯沢町歴史民俗資料館）</a>　／　<a href="http://www.newmondo.jp/">ホテルニューモンド（公式）</a></li>
+</ul>
+</details>
+</section>
+
+<footer>
+上毛三山と越後湯沢 2泊3日 v13（2026-09-26更新・旅の記録つき）<br>
+v13＝旅から帰ってきて、冒頭に「📝 旅の記録（動画のネタ帳）」を追加。以下は出発前の計画のまま残置。<br>
+v12＝ソーレマンはキャンセル済み。酒屋へはバスで行き、手前の鮮魚 今福で刺身を買う順に。宿は¥4,950に訂正。今福の営業時間（10:00〜20:00・日曜定休）を反映。ホテルのレンジは5・9階。越後湯沢の貸切風呂の時間指定を削除（好きなタイミングで入る）。9/24の雨に備えて長傘（キャリーのホルダー）を持ち物に。／9/23の夜を外食（ソーレマン→CAFE高崎じまん）から部屋飲み（登利平の鳥めし松＋群馬いろは＋大塚酒店の結人、デザートはレンチン焼きまんじゅう）に変更。妙義の宝物殿をやめ、神社の滞在を短縮。榛名湖は硯岩、赤城は見晴山展望台・AKAGIフォトスポット・鳥居峠に。返却は17:10頃の見込み。v11＝もみじの湯・ゆうすげ元湯をキャンセルしてDAY1を約2時間ゆるめ（覚満淵・妙義宝物殿を復活）、温泉は越後湯沢の貸切風呂6回に集約。9/24朝のカーシェアを予約済みに更新。片原饅頭は見送り、群馬2種＋越後湯沢3種のお土産を追加。v10＝上毛三山スタンプラリー参加、もみじの湯＋ゆうすげ元湯の2湯、9/24朝に達磨寺・白衣大観音（09:04発に変更）、お土産の章を追加。v9＝からっ風が9/23休みと判明したため、夕食を炉端Bistro ソーレマン（Google4.5・531件／駅前・年中無休・予約可）に変更。v8＝夜食のはらっぱは見送り。v7＝食のお店を総入れ替え（昼＝三山の食べ歩き／夜＝安兵衛→CAFE高崎じまん→はらっぱ／9/24＝小嶋屋のへぎそば・焼肉さかえや）。v6＝9/17時点の天気を確認し、台風25号（21日関東接近）を受けて山道の通行規制チェックを追加。v5＝旅程は18:10 INのまま、満席時の代替4軒を主役に。巻きの削りどころは折りたたみへ。v4＝夕食を高崎酒場に決定（15:00開店・予約不可を確認済み）。v3＝高崎の夜の候補を5軒に拡張。v2＝新幹線3本・カーシェア2件・宿2軒の予約確定を反映。時刻はYahoo!路線情報で当日ダイヤを確認、車・徒歩の所要はGoogleマップ実測
+</footer>
+
+</div>
+
+<button id="themeBtn">🌙 ダーク</button>
+<script>
+(function(){
+  var b=document.getElementById('themeBtn');
+  var saved=null;
+  try{saved=localStorage.getItem('gy-theme');}catch(e){}
+  function set(t){
+    document.documentElement.setAttribute('data-theme',t);
+    b.textContent = t==='dark' ? '☀️ ライト' : '🌙 ダーク';
+    try{localStorage.setItem('gy-theme',t);}catch(e){}
+  }
+  set(saved==='dark'?'dark':'light');
+  b.addEventListener('click',function(){
+    set(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+  });
+})();
+</script>
+</body>
+</html>

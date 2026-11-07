@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>甲府 昇仙峡と湯村の湯・武田神社｜土曜日帰り v1</title><style>
+:root{--bg:#f5f3ef;--card:#fff;--text:#24221f;--sub:#6b635b;--accent:#2f6b4f;--accent2:#7a5a9e;--border:#e3ddd3;
+--y-bg:#fff3d6;--y-tx:#8a5a00;--g-bg:#e2f5ec;--g-tx:#1f7a52;--r-bg:#fdeaea;--r-tx:#a32a2a;--shadow:0 2px 10px rgba(0,0,0,.06)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15181a;--card:#1e2326;--text:#eef0f2;--sub:#a6aeb4;--accent:#79cfa6;--accent2:#b99be0;--border:#2e363b;
+--y-bg:#4a3a10;--y-tx:#f5cf7a;--g-bg:#173d2e;--g-tx:#7fe0b8;--r-bg:#43201f;--r-tx:#f2a3a0;--shadow:0 2px 14px rgba(0,0,0,.4)}}
+:root[data-theme="dark"]{--bg:#15181a;--card:#1e2326;--text:#eef0f2;--sub:#a6aeb4;--accent:#79cfa6;--accent2:#b99be0;--border:#2e363b;
+--y-bg:#4a3a10;--y-tx:#f5cf7a;--g-bg:#173d2e;--g-tx:#7fe0b8;--r-bg:#43201f;--r-tx:#f2a3a0;--shadow:0 2px 14px rgba(0,0,0,.4)}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding-bottom:60px}
+header{position:sticky;top:0;z-index:100;background:var(--card);border-bottom:1px solid var(--border);padding:10px 16px;display:flex;justify-content:space-between;align-items:center;box-shadow:var(--shadow)}
+header .title{font-size:14px;font-weight:700;color:var(--accent)}header .sub{font-size:11px;color:var(--sub)}
+.theme-btn{background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:6px 12px;font-size:12px;color:var(--text);cursor:pointer}
+nav{position:sticky;top:55px;z-index:99;background:var(--bg);border-bottom:1px solid var(--border);display:flex;gap:6px;overflow-x:auto;padding:8px 12px}
+nav a{flex-shrink:0;font-size:12px;color:var(--sub);text-decoration:none;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:5px 12px}
+main{max-width:720px;margin:0 auto;padding:16px}
+.hero{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border-radius:16px;padding:22px 18px;margin-bottom:16px;box-shadow:var(--shadow)}
+.hero h1{font-size:20px;margin:0 0 6px}.hero p{font-size:13px;margin:0;opacity:.95}
+.kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.kpi div{background:rgba(255,255,255,.18);border-radius:10px;padding:8px;text-align:center;font-size:11px}
+.kpi b{display:block;font-size:17px}
+section{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;margin-bottom:14px;box-shadow:var(--shadow);scroll-margin-top:110px}
+h2{font-size:15px;margin:0 0 10px;color:var(--accent)}h3{font-size:13px;margin:14px 0 6px;color:var(--accent2)}
+p,li{font-size:13px}ul{padding-left:20px;margin:6px 0}
+table{width:100%;border-collapse:collapse;font-size:12.5px;margin:8px 0}
+th,td{border-bottom:1px solid var(--border);text-align:left;padding:7px 6px;vertical-align:top}
+th{color:var(--sub);font-weight:600}td.t{white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:700;color:var(--accent)}
+td.y{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+tr.move td{color:var(--sub)}tr.move td.t{color:var(--sub);font-weight:600}
+.note{display:block;font-size:11.5px;color:var(--sub)}
+pre.route{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:10px;font-size:11.5px;overflow-x:auto;line-height:1.5}
+blockquote{margin:10px 0;padding:10px 12px;border-left:4px solid var(--accent2);background:var(--bg);border-radius:0 10px 10px 0;font-size:12.5px}
+.tag{display:inline-block;font-size:10.5px;border-radius:6px;padding:1px 6px;margin-right:4px;font-weight:700}
+.ok{background:var(--g-bg);color:var(--g-tx)}.warn{background:var(--y-bg);color:var(--y-tx)}.ng{background:var(--r-bg);color:var(--r-tx)}
+details{border:1px solid var(--border);border-radius:10px;padding:8px 12px;margin:8px 0;background:var(--bg)}
+summary{cursor:pointer;font-weight:700;font-size:13px}
+.total{font-weight:700;font-size:14px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.card{border:1px solid var(--border);border-radius:10px;padding:10px;background:var(--bg)}
+.card h3{margin-top:0}
+.hl li{margin-bottom:4px}
+.check label{display:flex;gap:8px;align-items:flex-start;font-size:13px;padding:6px 0;border-bottom:1px dashed var(--border);cursor:pointer}
+.check input{margin-top:4px;accent-color:var(--accent)}.check label.done span{text-decoration:line-through;color:var(--sub)}
+.progress{height:8px;background:var(--bg);border-radius:6px;overflow:hidden;border:1px solid var(--border)}.progress div{height:100%;background:var(--accent);width:0;transition:width .2s}
+a{color:var(--accent)}.small{font-size:11.5px;color:var(--sub)}
+@media (max-width:520px){.grid2{grid-template-columns:1fr}.kpi b{font-size:15px}}
+</style></head>
+<body>
+<header><div><div class="title">🏞 甲府 昇仙峡と湯村の湯・武田神社</div><div class="sub">土曜・早朝出発／予算1万円以内／v1</div></div>
+<button class="theme-btn" id="themeBtn">🌙 ダーク</button></header>
+<nav><a href="#ov">概要</a><a href="#tl">旅程</a><a href="#bud">予算</a><a href="#onsen">温泉</a><a href="#rsv">予約</a><a href="#risk">注意</a><a href="#alt">代替案</a><a href="#bring">持ち物</a><a href="#chk">チェック</a><a href="#src">出典</a></nav>
+<main>
+<div class="hero"><h1>🏞 甲府 昇仙峡と湯村の湯・武田神社</h1><p>普通列車だけで甲府へ。渓谷を歩いて下って、1200年の湯に浸かって、夕方の武田神社で締める欲張り日帰り！</p>
+<div class="kpi"><div>想定予算<b>¥9,952</b></div><div>本厚木 出発→帰着<b>05:24→20:08</b></div><div>おすすめ度<b>★★★★★</b></div></div></div>
+
+<section id="ov"><h2>① 旅の概要</h2>
+<p><b>テーマ：</b>昇仙峡の渓谷歩き＋湯村温泉の源泉かけ流し＋武田神社＋ほうとう＆ワイン</p><p>いちばん「旅してる感」が強い案。中央本線の各停で山を越えて、昇仙峡は滝上から天神森まで約4kmを下り坂で歩けるから、健脚えなみん向き。予算は1万円ギリなので、ワインは“一杯だけ”ルールで。</p>
+<blockquote>🌟 <b>いちばん感動しそうな瞬間</b><br>渓谷を下る途中、覚円峰（かくえんぼう）の岩壁が目の前にドーンと立ち上がる瞬間。バスで素通りしたら絶対に味わえない、歩いた人だけのごほうび景色。</blockquote>
+<h3>✨ ハイライト3選</h3><ol class="hl"><li>昇仙峡・仙娥滝から天神森までの渓谷ウォーク（覚円峰・石門）</li><li>湯村温泉「弘法湯」の源泉かけ流しぬる湯（39℃）で脚をほぐす</li><li>夕方の武田神社で参拝 → 武田通りを歩いて甲府駅へ、ワイン一杯で乾杯</li></ol>
+<h3>🗺 ルート</h3><pre class="route">本厚木 05:24 ─小田急 快速急行→ 町田 05:39/05:56 ─JR横浜線→ 八王子 06:22/06:34
+  ─中央線→ 高尾 06:41/06:43 ─中央本線(各停 松本行)→ 甲府 08:17
+     │ 徒歩 甲府城跡
+  甲府駅BT 09:15 ─山梨交通04系統→ 昇仙峡滝上 10:05
+     │ 渓谷を徒歩で下る 約4km
+  天神森 12:50 ─04系統→ 湯村温泉入口 13:09 → 弘法湯
+  湯村温泉入口 15:09 ─バス→ 甲府駅 15:21/15:30 ─10系統→ 武田神社 15:38
+     │ 武田通りを徒歩27分
+甲府 17:29 ─中央本線(各停)→ 高尾 18:59/19:01 → 八王子 19:07/19:15
+  ─横浜線→ 町田 19:41/19:53 ─小田急→ 本厚木 20:08</pre>
+<p class="small">2026/9/28調べ（Yahoo!路線情報・各公式サイト。ダイヤは2026/10/3(土)で検索）。<b>ベストシーズン：</b>紅葉は例年11月上旬〜中旬 ⚠️。10月第3土曜〜11/30の土日祝は昇仙峡への快速バスも増便</p>
+</section>
+
+<section id="tl"><h2>② 時系列旅程</h2>
+<table><tr><th>時刻</th><th>内容</th></tr>
+<tr class="move"><td class="t">05:24</td><td>本厚木 発（小田急 快速急行）<span class="note">町田 05:56発 JR横浜線 → 八王子 06:34発 中央線 → 高尾 06:43発 松本行</span></td></tr>
+<tr class="move"><td class="t">06:43</td><td>高尾 発 中央本線 各停（当駅始発）<span class="note">相模湖・大月・笹子トンネル…山越えの車窓。ボックス席で朝ごはん🍙</span></td></tr>
+<tr class="move"><td class="t">08:17</td><td><b>甲府 着</b><span class="note">IC ¥2,351（特急なし）</span></td></tr>
+<tr class="spot"><td class="t">08:25</td><td>🏯 舞鶴城公園（甲府城跡）<span class="note">駅南口すぐ・無料。天守台から甲府盆地を一望、晴れたら富士山も</span></td></tr>
+<tr class="move"><td class="t">09:15</td><td>甲府駅バスターミナル 4番のりば → <b>10:05 昇仙峡滝上</b><span class="note">山梨交通04系統 ¥1,090</span></td></tr>
+<tr class="spot"><td class="t">10:10</td><td>💧 <b>仙娥滝</b>・滝上エリア散策<span class="note">日本の滝百選。ロープウェイは予算的にパス</span></td></tr>
+<tr class="food"><td class="t">11:00</td><td>🍲 滝上の食事処で<b>ほうとう</b><span class="note">かぼちゃたっぷりで歩く前のエネルギーチャージ <span class="tag warn">⚠️</span>店の営業は当日確認</span></td></tr>
+<tr class="spot"><td class="t">11:40</td><td>🥾 <b>昇仙峡 渓谷ウォーク</b>（滝上→天神森 約4km）<span class="note">覚円峰・石門・夢の松島…ほぼ下り坂で約1時間</span></td></tr>
+<tr class="move"><td class="t">12:50</td><td>昇仙峡入口・天神森 発 → 13:09 湯村温泉入口<span class="note">04系統 ¥570。逃すと次は13:50</span></td></tr>
+<tr class="spot"><td class="t">13:15</td><td>♨️ <b>旅館 弘法湯</b> で日帰り入浴<span class="note">¥700・10:00〜17:00・不定休 <span class="tag warn">⚠️</span>当日電話確認推奨（055-252-5105）</span></td></tr>
+<tr class="move"><td class="t">15:09</td><td>湯村温泉入口 発 → 15:21 甲府駅BT<span class="note">¥260</span></td></tr>
+<tr class="move"><td class="t">15:30</td><td>甲府駅北口 2番のりば 10系統 → 15:38 武田神社<span class="note">¥230</span></td></tr>
+<tr class="spot"><td class="t">15:40</td><td>⛩ <b>武田神社</b> 参拝<span class="note">信玄公をまつる躑躅ヶ崎館跡。御朱印は早めに <span class="tag warn">⚠️</span>受付時間要確認</span></td></tr>
+<tr class="move"><td class="t">16:25</td><td>武田通りをのんびり下って甲府駅へ（徒歩27分）</td></tr>
+<tr class="food"><td class="t">16:55</td><td>🍷 甲府駅で甲州ワインを一杯＆お土産<span class="note">重いワインボトルはここで最後に買う</span></td></tr>
+<tr class="move"><td class="t">17:29</td><td>甲府 発 中央本線 各停 高尾行<span class="note">高尾 19:01 → 八王子 19:15 横浜線 → 町田 19:53 小田急</span></td></tr>
+<tr class="move"><td class="t">20:08</td><td>本厚木 着 🏠</td></tr>
+</table>
+<blockquote>💡 帰りを特急あずさ44号（17:02発→本厚木19:20着・+¥1,020）にすると早く帰れるけど、予算1万円を超えちゃう。石和温泉駅で途中下車する寄り道もアリ（下の代替案に書いたよ）。</blockquote>
+</section>
+
+<section id="bud"><h2>💰 予算（1万円以内）</h2>
+<details open><summary>内訳を見る（合計 ¥9,952）</summary>
+<table><tr><th>項目</th><th style="text-align:right">金額</th></tr><tr><td>交通：本厚木→甲府（各停）</td><td class="y">¥2,351</td></tr>
+<tr><td>交通：甲府→本厚木（各停）</td><td class="y">¥2,351</td></tr>
+<tr><td>バス：甲府駅→昇仙峡滝上</td><td class="y">¥1,090</td></tr>
+<tr><td>バス：天神森→湯村温泉入口</td><td class="y">¥570</td></tr>
+<tr><td>バス：湯村温泉入口→甲府駅→武田神社<span class="note">¥260＋¥230</span></td><td class="y">¥490</td></tr>
+<tr><td>弘法湯 日帰り入浴<span class="note"><span class="tag warn">⚠️</span>料金変動の可能性あり</span></td><td class="y">¥700</td></tr>
+<tr><td>ほうとう（昼）</td><td class="y">¥1,400</td></tr>
+<tr><td>甲州ワイン グラス1杯</td><td class="y">¥500</td></tr>
+<tr><td>御朱印・おみくじ</td><td class="y">¥500</td></tr>
+
+<tr><td class="total">合計</td><td class="y total">¥9,952</td></tr></table>
+<p class="small">交通費はIC運賃。飲食は目安。お土産代は含めてないよ。予算ギリなので、お土産を買うなら下の節約案を組み合わせてね。</p></details>
+</section>
+
+<section id="onsen"><h2>♨️ 温泉戦略</h2><p><b>湯村温泉 旅館 弘法湯</b>（甲府市湯村3-16-16）</p><ul>
+<li>泉質：塩化物泉、源泉かけ流し。約39℃の<b>ぬる湯</b>で長湯向き。“美肌の湯”として知られる</li>
+<li>雰囲気：弘法大師ゆかりの開湯伝説（808年）をもつ老舗の湯。観光ホテルじゃなく“湯治場っぽさ”が魅力</li>
+<li>おすすめタイミング：<b>渓谷を4km歩いた直後の13時台</b>。ぬる湯で脚の疲れをじんわり抜いて、夕方の参拝に備える</li></ul></section>
+
+<section id="rsv"><h2>③ 予約リスト</h2><ul><li><span class="tag ok">✅</span> 電車・バスは予約不要（全部普通運賃）</li><li><span class="tag warn">⚠️</span> 弘法湯：日帰りは予約不要だが不定休なので、前日か当日朝に電話確認</li><li><span class="tag warn">⚠️</span> 特急あずさを使う場合のみ、えきねっとで指定席</li></ul>
+<h3>🎁 お土産戦略</h3><ul><li>甲州ワイン：瓶は重いので<b>最後の甲府駅</b>で。ハーフボトルなら持ち帰りラク</li><li>信玄餅系：甲府駅で帰り際に</li><li>武田神社のお守り（勝運）は参拝時に</li></ul></section>
+
+<section id="risk"><h2>④ 注意事項・リスク</h2><ul><li><span class="tag warn">⚠️</span> 昇仙峡のバスは1時間に1本程度。<b>天神森 12:50発を逃すと次は13:50</b>→その場合は武田神社を削る</li><li><span class="tag warn">⚠️</span> Yahoo!のバス時刻は「最新情報未対応」の注記あり。山梨交通公式の時刻表で前日に再確認</li><li><span class="tag warn">⚠️</span> 11月の紅葉シーズンの土日は昇仙峡が混雑、県道も渋滞しやすい→バス遅延の可能性</li><li><span class="tag warn">⚠️</span> 渓谷の遊歩道は一部車道と共用。雨の後は足元が滑りやすい</li><li><span class="tag warn">⚠️</span> 帰りの普通列車は約2.5時間。座れないとキツいので甲府始発に乗る（17:29は甲府発）</li></ul></section>
+
+<section id="alt"><h2>🔀 代替案・比較</h2><div class="grid2"><div class="card"><h3>✂️ 削ってもよい候補</h3><ul><li>舞鶴城公園（朝の時間調整なので）</li><li>武田神社（湯村からそのまま甲府駅へ戻ってワインでゆっくり）</li></ul></div><div class="card"><h3>☔ 雨の日</h3><ul><li>昇仙峡を丸ごと削って、甲府駅〜武田神社〜湯村温泉の市内プランに</li><li>石和温泉駅で途中下車して日帰り湯 <span class="tag warn">⚠️</span>施設は要調査</li></ul></div><div class="card"><h3>💸 もっと節約</h3><ul><li>武田神社は甲府駅から往復徒歩（−¥230、ただし時間が必要）</li><li>ワインをやめて駅で地ビール or 何も飲まない（−¥500）</li></ul></div><div class="card"><h3>✨ ちょい贅沢</h3><ul><li>帰りを特急あずさ44号（+¥1,020、19:20着）</li><li>昇仙峡ロープウェイで富士山ビュー（往復料金は要確認）</li></ul></div></div></section>
+
+<section id="bring"><h2>⑤ 持ち物</h2><ul><li>ICカード（残高6,000円以上）</li><li>タオル（弘法湯用）</li><li>トレッキングシューズ or 歩きやすいスニーカー</li><li>御朱印帳</li><li>小銭（バス用予備）</li><li>羽織れる上着（渓谷は涼しい）</li><li>モバイルバッテリー</li></ul></section>
+
+<section id="chk"><h2>✅ 出発前チェックリスト</h2>
+<div class="progress"><div id="bar"></div></div><p class="small" id="cnt"></p>
+<div class="check"><label><input type="checkbox"><span>山梨交通の土曜ダイヤ（04系統・10系統）を公式で確認した</span></label><label><input type="checkbox"><span>弘法湯の営業を確認した</span></label><label><input type="checkbox"><span>05:24発に間に合うアラームをセット</span></label><label><input type="checkbox"><span>ICカードをチャージした</span></label><label><input type="checkbox"><span>タオル・御朱印帳を入れた</span></label><label><input type="checkbox"><span>前日に天気と紅葉情報を確認した</span></label></div></section>
+
+<section id="src"><h2>📚 出典（2026/9/28確認）</h2><ul><li><a href="https://transit.yahoo.co.jp/" target="_blank" rel="noopener">Yahoo!路線情報（本厚木⇔甲府・昇仙峡バス）</a></li><li><a href="https://ykbus.jp/route_bus/route_sp_info/shosenkyo/" target="_blank" rel="noopener">山梨交通 昇仙峡路線案内</a></li><li><a href="https://ykbus.jp/index/route_bus/fare_table/" target="_blank" rel="noopener">山梨交通 路線バス運賃表</a></li><li><a href="https://www.yamanashi-kankou.jp/kankou/stay/p4_1601.html" target="_blank" rel="noopener">弘法湯（山梨県公式観光情報）</a></li><li><a href="https://koubo-yu.com/" target="_blank" rel="noopener">湯村温泉郷 弘法湯 公式</a></li></ul>
+<p class="small">時刻はYahoo!路線情報で2026/10/3(土)ダイヤを検索した結果。バスは「最新情報に未対応」の注記あり→前日に公式で再確認してね。</p></section>
+</main>
+<script>
+(function(){
+ const root=document.documentElement,btn=document.getElementById('themeBtn');
+ function cur(){const t=root.getAttribute('data-theme');if(t)return t;return matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}
+ function label(){btn.textContent=cur()==='dark'?'☀️ ライト':'🌙 ダーク';}
+ btn.addEventListener('click',()=>{root.setAttribute('data-theme',cur()==='dark'?'light':'dark');label();});label();
+ const boxes=[...document.querySelectorAll('.check input')],bar=document.getElementById('bar'),cnt=document.getElementById('cnt');
+ function upd(){const n=boxes.filter(b=>b.checked).length;boxes.forEach(b=>b.parentElement.classList.toggle('done',b.checked));
+  bar.style.width=(boxes.length?n/boxes.length*100:0)+'%';cnt.textContent=n+' / '+boxes.length;}
+ boxes.forEach(b=>b.addEventListener('change',upd));upd();
+})();
+</script>
+</body></html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>裏箱根 紅葉日帰り v2</title>
+<style>
+:root{--bg:#f5f3ef;--card:#fff;--text:#24221f;--sub:#6b635b;--accent:#a3401c;--accent2:#3f6e3a;--border:#e3ddd3;
+--y-bg:#fff3d6;--y-tx:#8a5a00;--g-bg:#e2f5ec;--g-tx:#1f7a52;--r-bg:#fdeaea;--r-tx:#a32a2a;--shadow:0 2px 10px rgba(0,0,0,.06)}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding-bottom:60px}
+header{position:sticky;top:0;z-index:100;background:var(--card);border-bottom:1px solid var(--border);padding:10px 16px;box-shadow:var(--shadow)}
+header .title{font-size:14px;font-weight:700;color:var(--accent)}header .sub{font-size:11px;color:var(--sub)}
+nav{position:sticky;top:55px;z-index:99;background:var(--bg);border-bottom:1px solid var(--border);display:flex;gap:6px;overflow-x:auto;padding:8px 12px}
+nav a{flex-shrink:0;font-size:12px;color:var(--sub);text-decoration:none;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:5px 12px}
+main{max-width:720px;margin:0 auto;padding:16px}
+.hero{background:linear-gradient(135deg,#9c3b1a,#c7782a 50%,#4f6b3a);color:#fff;border-radius:16px;padding:22px 18px;margin-bottom:16px;box-shadow:var(--shadow)}
+.hero h1{font-size:20px;margin:0 0 6px}.hero p{font-size:13px;margin:0;opacity:.95}
+.kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.kpi div{background:rgba(255,255,255,.18);border-radius:10px;padding:8px;text-align:center;font-size:11px}
+.kpi b{display:block;font-size:16px}
+section{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;margin-bottom:14px;box-shadow:var(--shadow);scroll-margin-top:110px}
+h2{font-size:15px;margin:0 0 10px;color:var(--accent)}h3{font-size:13px;margin:14px 0 6px;color:var(--accent2)}
+p,li{font-size:13px}ul,ol{padding-left:20px;margin:6px 0}
+table{width:100%;border-collapse:collapse;font-size:12.5px;margin:8px 0}
+th,td{border-bottom:1px solid var(--border);text-align:left;padding:7px 6px;vertical-align:top}
+th{color:var(--sub);font-weight:600}td.t{white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:700;color:var(--accent)}
+td.y{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+tr.move td{color:var(--sub)}tr.move td.t{color:var(--sub);font-weight:600}
+tr.day td{background:var(--bg);font-weight:700;color:var(--accent2)}
+.note{display:block;font-size:11.5px;color:var(--sub)}
+pre.route{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:10px;font-size:11.5px;overflow-x:auto;line-height:1.5}
+blockquote{margin:10px 0;padding:10px 12px;border-left:4px solid var(--accent2);background:var(--bg);border-radius:0 10px 10px 0;font-size:12.5px}
+.tag{display:inline-block;font-size:10.5px;border-radius:6px;padding:1px 6px;margin-right:4px;font-weight:700}
+.ok{background:var(--g-bg);color:var(--g-tx)}.warn{background:var(--y-bg);color:var(--y-tx)}.ng{background:var(--r-bg);color:var(--r-tx)}
+details{border:1px solid var(--border);border-radius:10px;padding:8px 12px;margin:8px 0;background:var(--bg)}
+summary{cursor:pointer;font-weight:700;font-size:13px}
+.total td{font-weight:700;font-size:13.5px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.card{border:1px solid var(--border);border-radius:10px;padding:10px;background:var(--bg)}
+.card h3{margin-top:0}.card.pick{border:2px solid var(--accent)}
+.check label{display:flex;gap:8px;align-items:flex-start;font-size:13px;padding:6px 0;border-bottom:1px dashed var(--border);cursor:pointer}
+.check input{margin-top:4px;accent-color:var(--accent)}.check label.done span{text-decoration:line-through;color:var(--sub)}
+.progress{height:8px;background:var(--bg);border-radius:6px;overflow:hidden;border:1px solid var(--border)}.progress div{height:100%;background:var(--accent);width:0;transition:width .2s}
+a{color:var(--accent)}.small{font-size:11.5px;color:var(--sub)}
+@media (max-width:520px){.grid2{grid-template-columns:1fr}.kpi b{font-size:14px}}
+</style>
+</head>
+<body>
+<header><div class="title">🍁 裏箱根 登山鉄道途中下車と芦之湯の秘湯</div><div class="sub">2026/11/20(金)・平日日帰り／予算1万円以内／v2</div></header>
+<nav><a href="#ov">概要</a><a href="#tl">旅程</a><a href="#bud">予算</a><a href="#onsen">温泉</a><a href="#rsv">予約</a><a href="#risk">注意</a><a href="#alt">代替案</a><a href="#bring">持ち物</a><a href="#chk">チェック</a><a href="#src">出典</a></nav>
+<main>
+
+<div class="hero"><h1>🍁 裏箱根 登山鉄道途中下車と芦之湯の秘湯</h1>
+<p>ロープウェイも海賊船も大涌谷も、ぜーんぶ使わない箱根！登山鉄道で山を上って、小涌谷の森の滝、強羅の苔庭の紅葉、宮ノ下の渓谷を歩いて、最後は箱根七湯のひとつ・芦之湯で300年続く宿「きのくにや」の自然湧出の硫黄泉へ。<b>平日の金曜</b>だから、紅葉の箱根がいちばん落ち着いてる日だよ。</p>
+<div class="kpi"><div>想定予算<b>約¥9,600</b></div><div>本厚木 出発→帰着<b>06:47→18:28</b></div><div>おすすめ度<b>★★★★★</b></div></div></div>
+
+<section id="ov"><h2>① 旅の概要</h2>
+<p><b>テーマ：</b>箱根フリーパスの定番ルート（ケーブルカー→ロープウェイ→大涌谷→海賊船）を使わない、登山鉄道の各駅で降りて歩く紅葉旅＋箱根の奥座敷・芦之湯の老舗旅館で日帰り入浴</p>
+<blockquote>🍁 <b>紅葉の見込み（2026/10/25確認）</b><br>
+強羅は例年<b>11月中旬</b>、箱根美術館は例年<b>11月上旬〜下旬</b>が見頃（今はまだ青葉）。湯本あたりは例年11月下旬〜12月上旬。標高の高い強羅・小涌谷は見頃、標高の低い宮ノ下の渓谷は色づき始め〜見頃くらいになりそう。</blockquote>
+<blockquote>🌟 <b>いちばん感動しそうな瞬間</b><br>
+箱根美術館の苔庭で、一面の緑の苔の上に200本以上のモミジの赤が重なるところ。<b>2026/10/30にリニューアルしたばかり</b>で、12/9までは普段は見られない「日光殿前庭」も特別公開中。平日の午前なら、静かな苔庭をゆっくり歩けるはず。</blockquote>
+<h3>✨ ハイライト3選</h3>
+<ol class="hl"><li><b>千条の滝</b>：苔むした岩を幾筋もの水がすだれみたいに流れる、森の中の小さな滝（駅から歩いて20分の穴場）</li>
+<li><b>箱根美術館の苔庭</b>：リニューアル直後＋特別公開つきで、紅葉の見頃ど真ん中</li>
+<li><b>堂ヶ島渓谷遊歩道 → 芦之湯 きのくにや</b>：吊り橋のある渓谷を歩いたあと、創業1715年の宿で、敷地から自然に湧く白濁の硫黄泉</li></ol>
+<h3>🗺 ルート</h3>
+<pre class="route">本厚木 06:47 ─小田急 急行→ 小田原 07:26/07:43 ─登山線→ 箱根湯本 07:58
+  /08:00 ─箱根登山鉄道（出山鉄橋・大平台のスイッチバック）→ 小涌谷 08:31
+     │ 🚶 千条の滝 → 蓬莱園（どちらも無料）
+  小涌谷 10:10 ─登山鉄道→ 強羅 10:15
+     │ 🚶 箱根美術館（苔庭・特別公開）
+  強羅 12:08 ─登山鉄道→ 宮ノ下 12:18
+     │ 🍜 ランチ → 宮ノ下の町歩き → 堂ヶ島渓谷遊歩道
+  宮ノ下駅 14:44 ─箱根登山バス→ 芦の湯 14:57
+     │ ♨️ きのくにや（日帰り入浴）・東光庵
+芦の湯 16:45ごろ ─バス（小田原駅東口行）→ 箱根湯本 17:10 → 小田原
+  ─小田急→ 本厚木 18:28</pre>
+<p class="small">2026/10/25調べ。電車はYahoo!路線情報で2026/11/20(金)を指定して検索（私鉄は令和8年10月現在のダイヤ）。バスはYahoo!路線情報の箱根登山バスの時刻（11/20指定）。</p>
+</section>
+
+<section id="tl"><h2>② 時系列旅程</h2>
+<table><tr><th>時刻</th><th>内容</th></tr>
+<tr class="move"><td class="t">06:47</td><td>本厚木 発（小田急 急行 小田原行）→ 07:26 小田原 着<span class="note">登山線のホームまで移動して、07:43発の箱根湯本行（当駅始発）へ</span></td></tr>
+<tr class="move"><td class="t">08:00</td><td>箱根湯本 発 <b>箱根登山鉄道</b>（当駅始発 強羅行）→ <b>08:31 小涌谷 着</b><span class="note">IC合計¥1,182。出山鉄橋を渡るときは右下の早川をのぞいて。大平台では3回のスイッチバック。朝イチの便は座りやすいよ</span></td></tr>
+<tr><td class="t">08:35</td><td>🚶 小涌谷駅から<b>千条の滝</b>へ（約20分）<span class="note">駅から坂道を上がって森の中へ。紅葉の並木が続く静かな道</span></td></tr>
+<tr><td class="t">08:55</td><td>💧 <b>千条の滝</b><span class="note">高さ約3m・幅約20mの岩肌を、細い水が何十本もすだれみたいに流れ落ちる。見学無料。朝は人がほとんどいない</span></td></tr>
+<tr><td class="t">09:20</td><td>🍁 <b>蓬莱園</b>（箱根小涌園）<span class="note">滝から歩いて7〜10分。春のツツジで有名な庭園だけど、秋はモミジがきれい（強羅と同じ11月中旬が見頃）。入園無料</span></td></tr>
+<tr class="move"><td class="t">09:45</td><td>🚶 小涌谷駅へ戻る（約15分）<span class="note">急げば09:55発にも乗れるけど、10:10発でのんびりで大丈夫</span></td></tr>
+<tr class="move"><td class="t">10:10</td><td>小涌谷 発 → <b>10:15 強羅 着</b><span class="note">¥160</span></td></tr>
+<tr><td class="t">10:25</td><td>🍁 <b>箱根美術館</b>（強羅駅から坂道を歩いて約10分）<span class="note">9:30〜16:30。プレオープン期間（10/30〜12/22）は入館¥1,000。苔庭・石楽園・竹庭と、12/9までの<b>日光殿前庭特別公開</b>。茶室「真和亭」で紅葉を見ながら抹茶と和菓子も（<span class="tag warn">⚠️</span>料金未確認）</span></td></tr>
+<tr class="move"><td class="t">12:08</td><td>強羅 発 登山鉄道 → <b>12:18 宮ノ下 着</b><span class="note">¥160。早く出られたら11:53発（→12:03着）</span></td></tr>
+<tr><td class="t">12:25</td><td>🍜 宮ノ下で<b>ランチ</b><span class="note">候補①<b>洗心亭</b>（中華そば・宮ノ下295-11・11:00〜18:30・不定休・〜¥999）／候補②<b>宮ノ下食堂・森メシ</b>（11:30〜14:30・水曜休みで金曜は営業）。<span class="tag warn">⚠️</span>どっちも前日に営業を確認</span></td></tr>
+<tr><td class="t">13:10</td><td>🏛 宮ノ下の町歩き<span class="note">クラシックホテルの富士屋ホテル（外観だけでも十分）と、昔ながらの骨董屋さんが並ぶ坂道。お土産はここで（荷物にならない焼き菓子とか）</span></td></tr>
+<tr><td class="t">13:30</td><td>🌉 <b>堂ヶ島渓谷遊歩道</b>（約1.5km・1時間弱）<span class="note">宮ノ下から早川の谷底へ下りて、吊り橋を渡って戻ってくる「ちょっとした冒険」コース。古い水力発電所や堰堤の滝も。<span class="tag warn">⚠️</span>ときどき通行止めになるので前日に確認。でこぼこ道なので歩きやすい靴で</span></td></tr>
+<tr class="move"><td class="t">14:44</td><td>宮ノ下駅 発 <b>箱根登山バス</b>（箱根町港行）→ <b>14:57 芦の湯</b><span class="note">IC¥610。宮ノ下駅前のバス停まで徒歩2〜3分。車窓は小涌谷・蓬莱園の紅葉を通って、山の上の芦之湯へ。乗り遅れたら次は14:59発（→15:12東芦の湯）</span></td></tr>
+<tr><td class="t">15:00</td><td>♨️ <b>芦之湯温泉 きのくにや</b>（日帰り入浴）<span class="note">創業1715年の老舗旅館。大浴場¥1,500（貸切風呂は30分¥2,000・宿泊者優先）。日帰りの時間は日によって変わる（例：10/23(金)は13:00〜17:00）、終了30分前までに入館、火曜はお休みのことが多い。<span class="tag ng">🔴</span>前日に電話で11/20の時間を確認（☎0460-83-7045）</span></td></tr>
+<tr><td class="t">16:30</td><td>🏯 すぐそばの<b>東光庵</b>（芦之湯の薬師堂）をのぞいてバス停へ<span class="note">江戸時代に湯治客や文人が集った庵。<span class="tag warn">⚠️</span>公開時間は未確認なので外からでも</span></td></tr>
+<tr class="move"><td class="t">16:45</td><td>芦の湯（東芦の湯）発 バス 小田原駅東口行 → <b>17:10 箱根湯本</b> → 小田原 → <b>18:28 本厚木 着</b> 🏠<span class="note">芦之湯→本厚木 合計IC¥1,772（Yahoo!路線情報）。湯本で登山鉄道に乗り換えても、そのままバスで小田原まで出てもOK。のんびりしたいなら17:05発（→18:48着）</span></td></tr>
+</table>
+<p class="small">💡 いつも時間が余りがちだから、余ったら小田原で途中下車して晩ごはん（駅前で地魚と地酒）にするのもアリ。</p>
+</section>
+
+<section id="bud"><h2>💰 予算</h2>
+<details open><summary>合計 約¥9,600（1万円以内）</summary>
+<table>
+<tr><td>交通：本厚木→小涌谷</td><td class="y">¥1,182</td></tr>
+<tr><td>交通：小涌谷→強羅、強羅→宮ノ下</td><td class="y">¥320</td></tr>
+<tr><td>バス：宮ノ下→芦の湯</td><td class="y">¥610</td></tr>
+<tr><td>交通：芦之湯→本厚木（バス＋小田急）</td><td class="y">¥1,772</td></tr>
+<tr><td>箱根美術館（プレオープン料金）</td><td class="y">¥1,000</td></tr>
+<tr><td>ランチ</td><td class="y">¥1,200</td></tr>
+<tr><td>きのくにや 日帰り入浴（大浴場）</td><td class="y">¥1,500</td></tr>
+<tr><td>お土産</td><td class="y">¥1,500</td></tr>
+<tr><td>飲み物・雑費</td><td class="y">¥500</td></tr>
+<tr class="total"><td>合計</td><td class="y">¥9,584</td></tr>
+</table>
+<p class="small">交通はIC運賃。箱根美術館の茶室「真和亭」の抹茶（<span class="tag warn">⚠️</span>料金未確認・¥800前後？）を足すと1万円ちょっと超えるくらい。乗る区間が少ないので、箱根フリーパスを買うよりバラで払うほうが安いよ。</p></details>
+</section>
+
+<section id="onsen"><h2>♨️ 温泉戦略</h2>
+<ul>
+<li><b>芦之湯温泉 きのくにや</b>：箱根七湯のひとつ・芦之湯で1715年から続く宿。明治天皇も立ち寄ったっていう由緒ある湯</li>
+<li><b>泉質</b>：敷地から自然に湧く<b>硫黄泉</b>と、澄んだ<b>重曹泉（炭酸水素塩泉）</b>の2本立て。硫黄泉は湯船によって色や濁り、湯の花の出方が変わる「美肌の湯」。神奈川では珍しい硫化水素を含むお湯なんだって</li>
+<li><b>雰囲気</b>：芦之湯は強羅や湯本みたいな温泉街じゃなくて、山の上に数軒の宿があるだけの静かなところ。旅館のお風呂を借りる形だから、共同浴場より気がラク</li>
+<li><b>入るタイミング</b>：一日歩いたあとの15:00〜16:30。山の上で夕方は冷えるから、上がったら着込んでバス停へ</li>
+<li><span class="tag warn">⚠️</span>湯温はわからないので、熱かったら半身浴や休憩をはさみつつね。タオルは持参が安心</li>
+</ul>
+</section>
+
+<section id="rsv"><h2>③ 予約リスト</h2>
+<ul>
+<li><span class="tag ok">✅</span><b>予約が必要なものはなし！</b>電車もバスも美術館も温泉も、当日そのまま行けばOK（きのくにやだけ時間の確認を）</li>
+<li><span class="tag ng">🔴</span><b>きのくにやの日帰り入浴の時間</b>：日によって変わるので、前日に電話（☎0460-83-7045）。混んでいると日帰りを調整することもあるみたい</li>
+<li><span class="tag warn">⚠️</span>前日に確認すること：ランチのお店の営業、堂ヶ島渓谷遊歩道が通れるか、箱根美術館の開館（休館日は要確認）</li>
+<li>支払い：電車とバスはICでOK。温泉や個人のお店のために現金も持っていこ</li>
+</ul>
+<h3>🎁 お土産戦略</h3>
+<ul>
+<li>宮ノ下の坂道のお店で、軽い焼き菓子やパン系を（<span class="tag warn">⚠️</span>お店は当日見て決めよ）</li>
+<li>重いもの（地酒など）を買うなら、帰りの小田原駅で。乗換のついでに買えて、持ち歩くのは電車の中だけ</li>
+</ul>
+</section>
+
+<section id="risk"><h2>④ 注意事項</h2>
+<ul>
+<li><span class="tag warn">⚠️</span><b>紅葉の進み具合</b>：今はまだ青葉。11月中旬にウォーカープラスなどで強羅・箱根美術館の色づきをチェック</li>
+<li><span class="tag warn">⚠️</span><b>登山鉄道の混雑</b>：平日でも紅葉の時期は昼前後の上り電車が混む。行きは朝イチの便、昼の強羅→宮ノ下は下り方向なので比較的マシ</li>
+<li><span class="tag warn">⚠️</span><b>堂ヶ島渓谷遊歩道</b>：ときどき通行止めになる道。雨のあとは滑りやすい。14:40までに宮ノ下駅に戻ってくる組み方にしてあるよ。時間がおしたら遊歩道は途中で引き返してOK</li>
+<li><span class="tag warn">⚠️</span><b>坂道</b>：小涌谷→千条の滝、強羅→箱根美術館、宮ノ下の渓谷はどれも坂と段差あり。合計で6〜7kmくらい歩くよ</li>
+<li><span class="tag warn">⚠️</span><b>帰りのバス</b>：紅葉の時期は国道1号が渋滞しやすい。平日だから土日ほどじゃないけど、湯本や小田原での乗換はゆとりをもって</li>
+<li><span class="tag ok">✅</span><b>荷物</b>：日帰りだからリュック1つで。お風呂セットがあるので、小さめのタオルにすると軽い</li>
+<li><span class="tag ok">✅</span><b>代替ルート</b>：登山鉄道が止まったら、小田原・箱根湯本〜宮ノ下・小涌谷は路線バス（箱根登山バス・伊豆箱根バス）でも行ける</li>
+</ul>
+</section>
+
+<section id="alt"><h2>🔀 代替案・比較</h2>
+<h3>✂️ 削ってもよい候補</h3>
+<ul><li>蓬莱園（千条の滝だけにして、09:55発で早めに強羅へ）</li><li>真和亭の抹茶</li><li>宮ノ下の町歩き</li></ul>
+<h3>☔ 雨の日</h3>
+<ul><li>千条の滝と堂ヶ島渓谷はやめて、<b>箱根美術館</b>（雨の苔庭は緑がいちばんきれい）→ 宮ノ下でランチ → 早めのバスで芦之湯へ行って、きのくにやに長めに入る</li>
+<li>きのくにやが日帰りお休みだったら：<b>二ノ平温泉「亀の湯」</b>（彫刻の森駅から徒歩5分・源泉かけ流し・¥650・11:00〜19:00・不定休）。<b>1人¥750くらいの貸切風呂</b>があるので、知らない人と入る気まずさなし（<span class="tag warn">⚠️</span>貸切料金は古い情報なので要確認）</li></ul>
+<h3>💸 もっと節約</h3>
+<ul><li>お土産をやめて約¥8,100。帰りを17:05発のバスにして小田原まで乗り通せば、乗換の手間もなし</li></ul>
+<h3>✨ ちょい贅沢</h3>
+<ul><li>帰りは小田原で途中下車して、地魚の寿司か海鮮と地酒で晩ごはん（+¥3,000〜4,000）</li><li>きのくにやの貸切風呂（30分¥2,000・宿泊者優先なので空いていれば）</li><li>箱根美術館の茶室「真和亭」で抹茶と和菓子</li></ul>
+</section>
+
+<section id="bring"><h2>⑤ 持ち物</h2>
+<ul>
+<li>ICカード（残高3,000円以上）＋現金（温泉・個人のお店用）</li>
+<li><b>お風呂セット</b>：フェイスタオル・バスタオル（小さめ）</li>
+<li>歩きやすい靴（渓谷と坂道あり）</li>
+<li>重ね着できる上着（強羅は標高が高くて朝は冷える）</li>
+<li>モバイルバッテリー、折りたたみ傘</li>
+</ul>
+</section>
+
+<section id="chk"><h2>✅ 出発前チェックリスト</h2>
+<div class="progress"><div id="bar"></div></div><p class="small" id="cnt"></p>
+<div class="check">
+<label><input type="checkbox"><span>11月中旬に強羅・箱根美術館の紅葉の色づきを確認した</span></label>
+<label><input type="checkbox"><span>前日：箱根美術館の開館と特別公開を確認した</span></label>
+<label><input type="checkbox"><span>前日：堂ヶ島渓谷遊歩道が通行止めじゃないか確認した</span></label>
+<label><input type="checkbox"><span>前日：ランチのお店（洗心亭／森メシ）の営業を確認した</span></label>
+<label><input type="checkbox"><span>前日：きのくにやに11/20の日帰り入浴の時間を電話で確認した（☎0460-83-7045）</span></label>
+<label><input type="checkbox"><span>前日：天気予報を確認した（雨なら雨の日プランへ）</span></label>
+<label><input type="checkbox"><span>06:47発に間に合うアラームをセットした</span></label>
+<label><input type="checkbox"><span>タオルと現金をカバンに入れた</span></label>
+</div></section>
+
+<section id="src"><h2>📚 出典（2026/10/25確認）</h2>
+<ul class="small">
+<li><a href="https://koyo.walkerplus.com/topics2/hakone_spot/">ウォーカープラス 箱根の紅葉スポット（例年の見頃）</a></li>
+<li><a href="https://koyo.walkerplus.com/detail/ar0314e154535/data.html">ウォーカープラス 箱根美術館の紅葉（時間・料金・特別公開）</a></li>
+<li><a href="http://hakone-kinokuniya.co.jp/">箱根きのくにや旅館 公式（日帰り入浴・泉質）</a></li>
+<li><a href="https://www.hakone.or.jp/">箱根町観光協会（亀の湯・蓬莱園・千条の滝）</a></li>
+<li><a href="https://yuru-to.net/">ゆる〜と（亀の湯の料金・時間）</a></li>
+<li><a href="https://tabelog.com/">食べログ（洗心亭）</a> ／ <a href="https://www.hotpepper.jp/">ホットペッパーグルメ（宮ノ下食堂・森メシ）</a></li>
+<li><a href="https://transit.yahoo.co.jp/">Yahoo!路線情報</a>（11/20で検索）</li>
+</ul>
+</section>
+</main>
+<script>
+(function(){
+ const boxes=[...document.querySelectorAll('.check input')],bar=document.getElementById('bar'),cnt=document.getElementById('cnt');
+ function upd(){const n=boxes.filter(b=>b.checked).length;boxes.forEach(b=>b.parentElement.classList.toggle('done',b.checked));
+  bar.style.width=(boxes.length?n/boxes.length*100:0)+'%';cnt.textContent=n+' / '+boxes.length;}
+ boxes.forEach(b=>b.addEventListener('change',upd));upd();
+})();
+</script>
+</body>
+</html>

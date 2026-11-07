@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>秩父長瀞 紅葉1泊2日 v1</title>
+<style>
+:root{--bg:#f5f3ef;--card:#fff;--text:#24221f;--sub:#6b635b;--accent:#a3401c;--accent2:#3f6e3a;--border:#e3ddd3;
+--y-bg:#fff3d6;--y-tx:#8a5a00;--g-bg:#e2f5ec;--g-tx:#1f7a52;--r-bg:#fdeaea;--r-tx:#a32a2a;--shadow:0 2px 10px rgba(0,0,0,.06)}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding-bottom:60px}
+header{position:sticky;top:0;z-index:100;background:var(--card);border-bottom:1px solid var(--border);padding:10px 16px;box-shadow:var(--shadow)}
+header .title{font-size:14px;font-weight:700;color:var(--accent)}header .sub{font-size:11px;color:var(--sub)}
+nav{position:sticky;top:55px;z-index:99;background:var(--bg);border-bottom:1px solid var(--border);display:flex;gap:6px;overflow-x:auto;padding:8px 12px}
+nav a{flex-shrink:0;font-size:12px;color:var(--sub);text-decoration:none;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:5px 12px}
+main{max-width:720px;margin:0 auto;padding:16px}
+.hero{background:linear-gradient(135deg,#a3401c,#c98a2b 55%,#3f6e3a);color:#fff;border-radius:16px;padding:22px 18px;margin-bottom:16px;box-shadow:var(--shadow)}
+.hero h1{font-size:20px;margin:0 0 6px}.hero p{font-size:13px;margin:0;opacity:.95}
+.kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.kpi div{background:rgba(255,255,255,.18);border-radius:10px;padding:8px;text-align:center;font-size:11px}
+.kpi b{display:block;font-size:16px}
+section{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;margin-bottom:14px;box-shadow:var(--shadow);scroll-margin-top:110px}
+h2{font-size:15px;margin:0 0 10px;color:var(--accent)}h3{font-size:13px;margin:14px 0 6px;color:var(--accent2)}
+p,li{font-size:13px}ul,ol{padding-left:20px;margin:6px 0}
+table{width:100%;border-collapse:collapse;font-size:12.5px;margin:8px 0}
+th,td{border-bottom:1px solid var(--border);text-align:left;padding:7px 6px;vertical-align:top}
+th{color:var(--sub);font-weight:600}td.t{white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:700;color:var(--accent)}
+td.y{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+tr.move td{color:var(--sub)}tr.move td.t{color:var(--sub);font-weight:600}
+tr.day td{background:var(--bg);font-weight:700;color:var(--accent2)}
+.note{display:block;font-size:11.5px;color:var(--sub)}
+pre.route{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:10px;font-size:11.5px;overflow-x:auto;line-height:1.5}
+blockquote{margin:10px 0;padding:10px 12px;border-left:4px solid var(--accent2);background:var(--bg);border-radius:0 10px 10px 0;font-size:12.5px}
+.tag{display:inline-block;font-size:10.5px;border-radius:6px;padding:1px 6px;margin-right:4px;font-weight:700}
+.ok{background:var(--g-bg);color:var(--g-tx)}.warn{background:var(--y-bg);color:var(--y-tx)}.ng{background:var(--r-bg);color:var(--r-tx)}
+details{border:1px solid var(--border);border-radius:10px;padding:8px 12px;margin:8px 0;background:var(--bg)}
+summary{cursor:pointer;font-weight:700;font-size:13px}
+.total td{font-weight:700;font-size:13.5px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.card{border:1px solid var(--border);border-radius:10px;padding:10px;background:var(--bg)}
+.card h3{margin-top:0}.card.pick{border:2px solid var(--accent)}
+.check label{display:flex;gap:8px;align-items:flex-start;font-size:13px;padding:6px 0;border-bottom:1px dashed var(--border);cursor:pointer}
+.check input{margin-top:4px;accent-color:var(--accent)}.check label.done span{text-decoration:line-through;color:var(--sub)}
+.progress{height:8px;background:var(--bg);border-radius:6px;overflow:hidden;border:1px solid var(--border)}.progress div{height:100%;background:var(--accent);width:0;transition:width .2s}
+a{color:var(--accent)}.small{font-size:11.5px;color:var(--sub)}
+@media (max-width:520px){.grid2{grid-template-columns:1fr}.kpi b{font-size:14px}}
+</style>
+</head>
+<body>
+<header><div class="title">🍁 秩父・長瀞 岩畳の紅葉と夜もみじ</div><div class="sub">2026/11/20(金)〜21(土)・1泊2日／予算 約3万円／v1</div></header>
+<nav><a href="#ov">概要</a><a href="#stay">宿</a><a href="#tl">旅程</a><a href="#bud">予算</a><a href="#onsen">温泉</a><a href="#rsv">予約</a><a href="#risk">注意</a><a href="#alt">代替案</a><a href="#bring">持ち物</a><a href="#chk">チェック</a><a href="#src">出典</a></nav>
+<main>
+
+<div class="hero"><h1>🍁 秩父・長瀞 岩畳の紅葉と夜もみじ</h1>
+<p>1日目は長瀞。舟で紅葉の渓谷を下って、宝登山にお参りして山の上から秩父盆地を眺めて、夕方はライトアップされたもみじの中へ。2日目は秩父の街で社殿彫刻・豚みそ丼・地酒・駅前の湯。<b>金曜スタート</b>だから、紅葉シーズンの長瀞をいちばん空いてる日に歩けるよ。</p>
+<div class="kpi"><div>想定予算<b>約¥31,000</b></div><div>本厚木 出発→帰着<b>05:40→19:30</b></div><div>おすすめ度<b>★★★★★</b></div></div></div>
+
+<section id="ov"><h2>① 旅の概要</h2>
+<p><b>テーマ：</b>長瀞の渓谷紅葉（ライン下り・宝登山・月の石もみじ公園の夜もみじ）＋秩父の神社と街歩き＋地酒＋温泉</p>
+<blockquote>🍁 <b>紅葉の見込み（2026/10/24確認）</b><br>
+長瀞の紅葉は例年<b>11月上旬〜下旬</b>が見頃で、10/23時点ではまだ青葉。月の石もみじ公園は例年11月中旬が見頃。<br>
+<b>長瀞紅葉まつり</b>は11/1〜30。<b>月の石もみじ公園のライトアップは11/6(金)〜29(日)の16:00〜21:00</b>（期間中は入園¥500・色づき次第で前後あり）。11/20(金)はちょうどど真ん中だよ。</blockquote>
+<blockquote>🌟 <b>いちばん感動しそうな瞬間</b><br>
+月の石もみじ公園で、日が落ちて空が藍色になったころにもみじが下から照らし出されて、すぐ下を流れる荒川の水面にまで赤が映る瞬間。昼間に舟の上から見上げた同じ渓谷が、夜にはまったく違う顔になるのがこの旅のいちばんのごほうび。</blockquote>
+<h3>✨ ハイライト3選</h3>
+<ol class="hl"><li><b>長瀞ラインくだり</b>：紅葉の崖（秩父赤壁）を見上げながら岩畳に着く20分の舟旅</li>
+<li><b>宝登山神社 → ロープウェイで山頂</b>：火止めの神様にお参りして、山の上から秩父盆地と武甲山をドーン</li>
+<li><b>月の石もみじ公園の夜もみじ</b>（ライトアップ） → 秩父泊</li></ol>
+<h3>🗺 ルート</h3>
+<pre class="route">【DAY1 11/20 金】
+本厚木 05:40 ─小田急 快速急行→ 新宿 06:28/06:39 ─山手線→ 池袋 06:48
+  /07:00 ─東武東上線 快速急行→ 森林公園 07:58/08:00 → 小川町 08:12
+  /08:20 ─東上線→ 寄居 08:37/08:45 ─秩父鉄道→ 長瀞 09:01
+     │ ライン下り → 岩畳 → 宝登山神社 → ロープウェイで山頂 → 昼ごはん
+     │ 岩畳から上長瀞へ歩く → 月の石もみじ公園（昼 → 16:00 点灯）
+  上長瀞 16:18（🅐美やま）or 17:41（🅑ルートイン）─秩父鉄道→ 秩父
+     │ 🅐 秩父駅 17:05 送迎 → ホテル美やま（温泉・夕食）
+     │ 🅑 秩父駅から徒歩6分 ルートインGrand秩父 → 夜は街で地酒
+
+【DAY2 11/21 土】
+秩父神社 → 今宮神社 → 野さか（豚みそ丼）→ 武甲酒造 → 番場通り
+  → 祭の湯（西武秩父駅直結）で湯上がり一杯
+西武秩父 16:38 ─西武秩父線→ 東飯能 17:29/17:38 ─八高線→ 八王子 18:24
+  /18:32 ─横浜線→ 町田 18:58/19:14 ─小田急→ 本厚木 19:30</pre>
+<p class="small">2026/10/24調べ。電車はYahoo!路線情報で2026/11/20(金)・11/21(土)を指定して検索（私鉄は令和8年10月現在のダイヤ）。宿の料金・空きはじゃらんnetで11/20・大人1名を検索した結果。</p>
+</section>
+
+<section id="stay"><h2>🏨 宿は2パターン（ここだけ決めてね）</h2>
+<p>長瀞の駅前で泊まれる温泉宿（長生館）は<b>11/20は満室</b>（じゃらん・10/24時点）。なので秩父泊にして、<b>「温泉旅館でゆっくり」か「夜もみじをしっかり」かで選ぶ</b>形にしたよ。</p>
+<div class="grid2">
+<div class="card pick"><h3>🅐 ホテル美やま（温泉旅館派）</h3>
+<ul>
+<li>秩父市山田・渓流沿い。じゃらん<b>4.5（2,405件）</b>で、接客・料理・清潔感・お風呂ぜんぶ高評価</li>
+<li>露天・内湯・サウナあり（男女とも）、<b>貸切風呂あり</b>（条件あり）</li>
+<li><b>1泊2食 ¥18,810</b>（「訳あり・ツイン」スタンダード会席・<span class="tag warn">⚠️</span>セール料金で予約は10/29まで・残り1室）。和室12畳なら¥24,130</li>
+<li>送迎は予約制で、<b>秩父駅 15:05／16:05／17:05</b>、西武秩父駅 15:00／16:00／17:00</li>
+<li><span class="tag warn">⚠️</span>17:05の送迎に乗るには<b>上長瀞16:18発</b>。だから夜もみじは<b>点灯したての夕暮れだけ</b>になる</li>
+</ul></div>
+<div class="card"><h3>🅑 ルートインGrand秩父（夜もみじ派）</h3>
+<ul>
+<li>秩父駅から徒歩6分。じゃらん<b>4.6（446件）</b>、お風呂と清潔感が高評価</li>
+<li>男女別の大浴場とサウナあり（大滝温泉「三峰神の湯」のお湯を使用）</li>
+<li><b>朝食付 ¥14,150</b>（10日前までの早割）／¥14,850（通常）</li>
+<li>ライトアップを<b>真っ暗になるまで</b>見て、上長瀞17:41発 → 17:59秩父着。夜は秩父の街で地酒とごはん</li>
+<li><span class="tag warn">⚠️</span>残ってるのは<b>「加熱式たばこ専用」ツインだけ</b>（空室わずか）。においが気になるなら公式サイトや電話で禁煙ルームの空きを確認</li>
+</ul></div>
+</div>
+<blockquote>🤔 私なら、紅葉がこの旅の主役だから<b>🅑で夜もみじをしっかり見たい</b>かな。でも「せっかくの1泊は旅館で温泉とごはん」なら🅐もすごくいい。どっちにするか教えてね。</blockquote>
+</section>
+
+<section id="tl"><h2>② 時系列旅程</h2>
+<table><tr><th>時刻</th><th>内容</th></tr>
+<tr class="day"><td colspan="2">DAY1　11/20(金)　長瀞の紅葉</td></tr>
+<tr class="move"><td class="t">05:40</td><td>本厚木 発（小田急 快速急行 新宿行）<span class="note">新宿 06:28着/06:39発 山手線 → 池袋 06:48着</span></td></tr>
+<tr class="move"><td class="t">07:00</td><td>池袋 発 <b>東武東上線 快速急行</b>（当駅始発 森林公園行）<span class="note">始発だから座れる。森林公園 07:58着/08:00発 小川町行 → 08:12着/08:20発 寄居行 → 08:37寄居着</span></td></tr>
+<tr class="move"><td class="t">08:45</td><td>寄居 発 <b>秩父鉄道</b> → <b>09:01 長瀞 着</b><span class="note">IC合計¥2,174。寄居からは荒川沿いのローカル線で、車窓からもう渓谷が見えるよ</span></td></tr>
+<tr><td class="t">09:10</td><td>🚣 <b>長瀞ラインくだり</b> 受付（長瀞駅すぐ）<span class="note">Aコース 約3km・約20分 ¥2,000（繁忙期¥2,200）。受付は9:00頃から・当日券がなくなったら終了。<span class="tag warn">⚠️</span>紅葉の金曜は朝イチが狙い目。乗り場までの移動は受付で案内してもらって</span></td></tr>
+<tr><td class="t">10:00</td><td>🪨 <b>岩畳</b>さんぽ<span class="note">舟が着くのが岩畳。国の名勝・天然記念物の岩の上から、対岸の秩父赤壁の紅葉を眺めて</span></td></tr>
+<tr><td class="t">10:40</td><td>⛩ <b>宝登山神社</b> 参拝<span class="note">長瀞駅から参道をまっすぐ歩いて約15分。火止めの神様で、極彩色の社殿彫刻がきれい。御朱印もここで</span></td></tr>
+<tr><td class="t">11:30</td><td>🚡 <b>宝登山ロープウェイ</b>で山頂へ<span class="note">往復¥1,200。紅葉期は15分おきに運行（9:40〜17:00）。山麓駅は神社から歩いてすぐ</span></td></tr>
+<tr><td class="t">11:40</td><td>🍁 宝登山の山頂さんぽ・奥宮<span class="note">山頂から秩父盆地・武甲山・両神山が見える。奥宮までは山頂駅から歩いて10分くらい</span></td></tr>
+<tr><td class="t">12:40</td><td>🍜 長瀞駅周辺で昼ごはん<span class="note">岩畳通りの商店街で、みそポテトや豚みそ系の食べ歩き。<span class="tag warn">⚠️</span>お店は未確定・当日の気分で</span></td></tr>
+<tr><td class="t">13:40</td><td>🚶 岩畳から<b>上長瀞まで川沿いを歩く</b>（約25分）<span class="note">紅葉の遊歩道。疲れてたら長瀞→上長瀞は秩父鉄道で1駅</span></td></tr>
+<tr><td class="t">14:10</td><td>🍧 寄り道：<b>阿左美冷蔵 金崎本店</b>（任意）<span class="note">天然氷のかき氷は通年。金崎本店は木曜休みなので金曜はOK（10:00〜16:30）。寒ければ埼玉県立自然の博物館（上長瀞駅すぐ）でも</span></td></tr>
+<tr><td class="t">15:10</td><td>🍁 <b>月の石もみじ公園</b>（昼のもみじ）<span class="note">上長瀞駅から徒歩5分。昼間は入園無料。荒川の淵を見下ろすもみじの名所</span></td></tr>
+<tr><td class="t">16:00</td><td>💡 <b>ライトアップ点灯</b>（〜21:00・入園¥500）<span class="note">日の入りは16時半ごろ。🅐はここで少し見て16:18発に乗る／🅑は暗くなりきった17:30ごろまでたっぷり</span></td></tr>
+<tr class="move"><td class="t">16:18</td><td>🅐 上長瀞 発 → 16:36 秩父 着 → <b>17:05 秩父駅から美やまの送迎</b><span class="note">¥500。チェックイン後すぐ温泉 → 夕食</span></td></tr>
+<tr class="move"><td class="t">17:41</td><td>🅑 上長瀞 発 → 17:59 秩父 着 → 徒歩6分でルートイン<span class="note">¥500。荷物を置いて、秩父の街で地酒と夕ごはん → 戻って大浴場</span></td></tr>
+
+<tr class="day"><td colspan="2">DAY2　11/21(土)　秩父の街と湯</td></tr>
+<tr><td class="t">07:00</td><td>♨️ 朝風呂 → 朝食<span class="note">🅐は朝の送迎の時間を前日に確認（<span class="tag warn">⚠️</span>未確認）。🅑は駅まで歩ける</span></td></tr>
+<tr><td class="t">09:30</td><td>⛩ <b>秩父神社</b><span class="note">秩父駅から徒歩3分。本殿をぐるっと一周して「つなぎの龍」「子育ての虎」「北辰の梟」「お元気三猿」を探して。御朱印も</span></td></tr>
+<tr><td class="t">10:15</td><td>⛩ <b>秩父今宮神社</b>（龍神木）<span class="note">秩父神社から徒歩8分ほど。大ケヤキのパワースポット</span></td></tr>
+<tr><td class="t">10:40</td><td>🚶 野さかへ移動して開店待ち<span class="note">土曜は開店前から行列が定番</span></td></tr>
+<tr><td class="t">11:00</td><td>🍚 <b>豚みそ丼本舗 野さか</b><span class="note">11:00〜15:00（豚みそ漬けがなくなり次第終了）・<b>現金のみ</b>。<span class="tag warn">⚠️</span>人手不足で臨時休業の日があるので、11月の休業日を公式サイトで要確認</span></td></tr>
+<tr><td class="t">12:10</td><td>🍶 <b>武甲酒造（柳田総本店）</b><span class="note">秩父駅徒歩3分。蔵の雰囲気と売店で地酒チェック（武甲正宗）。気に入った銘柄をメモして、買うのは帰りに</span></td></tr>
+<tr><td class="t">12:40</td><td>🏮 番場通りのレトロ建築さんぽ → 西武秩父駅へ<span class="note">時間が余ったら羊山公園（駅から坂道20分）で武甲山の展望も</span></td></tr>
+<tr><td class="t">13:30</td><td>♨️ <b>西武秩父駅前温泉 祭の湯</b><span class="note">駅直結。露天の岩風呂・寝ころび湯でのんびり → 館内で地酒とみそポテト</span></td></tr>
+<tr><td class="t">16:00</td><td>🎁 祭の湯のおみやげ売り場で最後に買い物<span class="note">重い地酒はここで買うのが鉄則</span></td></tr>
+<tr class="move"><td class="t">16:38</td><td>西武秩父 発（当駅始発 飯能行）<span class="note">東飯能 17:29着/17:38発 <b>JR八高線</b> → 八王子 18:24着/18:32発 横浜線（当駅始発）→ 町田 18:58着</span></td></tr>
+<tr class="move"><td class="t">19:14</td><td>町田 発 小田急 快速急行 → <b>19:30 本厚木 着</b> 🏠<span class="note">IC¥1,646。町田19:12発のホームウェイ7号（+¥500）にすると19:26着</span></td></tr>
+</table>
+<p class="small">💡 帰りは特急ちちぶを使っても到着は早くならなかったので、八高線ルートにしてるよ（Yahoo!路線情報で11/21・16時台発を検索）。</p>
+</section>
+
+<section id="bud"><h2>💰 予算</h2>
+<details open><summary>🅐 美やまパターン：合計 約¥31,100</summary>
+<table>
+<tr><td>交通：本厚木→長瀞（東上線経由）</td><td class="y">¥2,174</td></tr>
+<tr><td>交通：上長瀞→秩父</td><td class="y">¥500</td></tr>
+<tr><td>交通：西武秩父→本厚木（八高線経由）</td><td class="y">¥1,646</td></tr>
+<tr><td>宿：ホテル美やま 1泊2食（訳ありツイン・セール料金）</td><td class="y">¥18,810</td></tr>
+<tr><td>宝登山ロープウェイ 往復</td><td class="y">¥1,200</td></tr>
+<tr><td>月の石もみじ公園 ライトアップ入園</td><td class="y">¥500</td></tr>
+<tr><td>昼ごはん×2（長瀞の食べ歩き・野さか）</td><td class="y">¥2,600</td></tr>
+<tr><td>御朱印・おみくじ</td><td class="y">¥1,200</td></tr>
+<tr><td>お土産・地酒</td><td class="y">¥2,000</td></tr>
+<tr><td>飲み物・雑費</td><td class="y">¥500</td></tr>
+<tr class="total"><td>合計</td><td class="y">¥31,130</td></tr>
+</table>
+<p class="small">🅐は宿で温泉に入れるので、祭の湯は入れてない（入るなら土日祝料金で+¥1,380くらい・<span class="tag warn">⚠️</span>9月時点の料金）。</p></details>
+<details><summary>🅑 ルートインパターン：合計 約¥31,400</summary>
+<table>
+<tr><td>交通（🅐と同じ）</td><td class="y">¥4,320</td></tr>
+<tr><td>宿：ルートインGrand秩父 朝食付（早割10日前）</td><td class="y">¥14,150</td></tr>
+<tr><td>夜ごはん（秩父の街で地酒と一緒に）</td><td class="y">¥3,500</td></tr>
+<tr><td>宝登山ロープウェイ＋ライトアップ</td><td class="y">¥1,700</td></tr>
+<tr><td>祭の湯（土日祝料金）</td><td class="y">¥1,380</td></tr>
+<tr><td>昼ごはん×2</td><td class="y">¥2,600</td></tr>
+<tr><td>御朱印・お土産・雑費</td><td class="y">¥3,700</td></tr>
+<tr class="total"><td>合計</td><td class="y">¥31,350</td></tr>
+</table></details>
+<blockquote>🚣 <b>ライン下り（¥2,000〜2,200）は上の合計に入れてないよ。</b>乗ると約¥33,000。3万円ぴったりにしたいなら、ここを削るのがいちばん効く（岩畳は歩いても見られるから）。</blockquote>
+</section>
+
+<section id="onsen"><h2>♨️ 温泉戦略</h2>
+<ul>
+<li><b>🅐 ホテル美やま</b>：渓流沿いの露天・内湯・サウナ、貸切風呂あり。おすすめは<b>着いてすぐ（17:30ごろ）の夕食前</b>と<b>朝食前</b>。冷えた夜もみじのあとの湯が最高。<span class="tag warn">⚠️</span>泉質と、循環・加温の有無は未確認なので予約の電話で聞いてみて</li>
+<li><b>🅑 ルートインGrand秩父</b>：大滝温泉「三峰神の湯」を使った大浴場とサウナ。夜ごはんのあと、寝る前にゆっくり</li>
+<li><b>祭の湯</b>（DAY2）：含よう素‐ナトリウム‐塩化物冷鉱泉（弱アルカリ性）。塩の湯なので湯冷めしにくい。<b>13:30〜15:30</b>の土曜でも夕方前の時間に入って、上がったら飲んで電車へ</li>
+</ul>
+<p class="small">正直に言うと、秩父・長瀞あたりは<b>源泉かけ流しの小さい宿がほとんどなくて</b>、運び湯や循環の宿が中心。かけ流し重視なら別の旅（高湯温泉など）で狙うのがいいと思う。</p>
+</section>
+
+<section id="rsv"><h2>③ 予約リスト</h2>
+<ul>
+<li><span class="tag ng">🔴</span><b>宿</b>：🅐なら<b>10/29までに</b>じゃらんで（セール料金・残り1室）＋<b>送迎（秩父駅17:05）を予約</b>／🅑なら早割は11/10まで。11/21からは3連休だから、11/20の金曜でも埋まるのは早いよ</li>
+<li><span class="tag ok">✅</span>ライン下り・ロープウェイ・ライトアップ・神社・野さか・祭の湯は予約不要（野さかは予約できない）</li>
+<li><span class="tag warn">⚠️</span>帰りにホームウェイを使うなら、小田急のe-Romancecarで当日でもOK</li>
+</ul>
+<h3>🎁 お土産戦略</h3>
+<ul>
+<li><b>地酒</b>（武甲正宗・秩父錦など）：重いので<b>2日目の最後に祭の湯の売店で</b>。武甲酒造で味の当たりをつけておく</li>
+<li>豚肉の味噌漬けなど要冷蔵ものも、買うのは帰る直前</li>
+<li>宝登山神社・秩父神社のお守りは参拝のときに（お元気三猿モチーフも）</li>
+</ul>
+</section>
+
+<section id="risk"><h2>④ 注意事項</h2>
+<ul>
+<li><span class="tag warn">⚠️</span><b>紅葉の進み具合</b>：今はまだ青葉。11月に入ったら長瀞町観光協会の紅葉情報をチェック。ライトアップも色づき次第で前後するかも</li>
+<li><span class="tag warn">⚠️</span><b>野さかの臨時休業</b>：10月は土曜にも休みがあった。11月の休業日を公式で要確認。休みならDAY2の昼は秩父駅周辺のわらじかつ・そばに差し替え</li>
+<li><span class="tag warn">⚠️</span><b>乗換</b>：行きは乗換4回（新宿・池袋・森林公園・小川町・寄居）。東上線の乗換は2〜8分なので、遅れたら寄居から次の秩父鉄道に乗ればOK（長瀞の予定は時間に余裕あり）</li>
+<li><span class="tag warn">⚠️</span><b>ライン下りの運休</b>：川が増水・渇水すると運休や「岩畳周遊船」への切り替えあり。当日朝に公式Xで確認</li>
+<li><span class="tag warn">⚠️</span><b>混雑</b>：11/21〜23は3連休。DAY2の秩父は人が増えるので、野さかは早めに並ぶ、祭の湯は夕方前に</li>
+<li><span class="tag warn">⚠️</span><b>夜の冷え込み</b>：11月下旬の長瀞の夜は一桁台まで下がることも。ライトアップは防寒しっかり</li>
+<li><span class="tag ok">✅</span><b>荷物</b>：キャリーケースは長瀞駅のコインロッカーへ（<span class="tag warn">⚠️</span>空き・サイズは未確認）。入らなければ、ライン下り受付のあたりで預かりがないか聞くか、リュック1つで行くのがラク</li>
+</ul>
+</section>
+
+<section id="alt"><h2>🔀 代替案・比較</h2>
+<h3>✂️ 削ってもよい候補</h3>
+<ul><li>ライン下り（−¥2,200。岩畳は歩いて見られる）</li><li>阿左美冷蔵のかき氷</li><li>今宮神社・番場通り</li></ul>
+<h3>☔ 雨の日</h3>
+<ul><li>DAY1：ライン下りをやめて、宝登山神社 → <b>埼玉県立自然の博物館</b>（上長瀞）→ 小雨ならもみじ公園のライトアップは傘で（雨の紅葉は色が濃く見えるよ）</li>
+<li>DAY2：秩父神社 → 野さか → 祭の湯を早めにIN。館内で長居できるから雨でも満足度が落ちにくい</li></ul>
+<h3>💸 もっと節約</h3>
+<ul><li>ライン下りなし＋🅑で祭の湯もなし → 約¥30,000</li><li>宿を素泊まりのビジネスホテル（秩父駅前・¥8,000前後〜）にすると約¥25,000。ただし温泉はなし</li></ul>
+<h3>✨ ちょい贅沢</h3>
+<ul><li>🅐の和室12畳（渓流側・¥24,130）にグレードアップ（+¥5,320）</li><li>帰りは特急ちちぶ＋ロマンスカーで座りっぱなし（到着は少し遅くなる）</li></ul>
+</section>
+
+<section id="bring"><h2>⑤ 持ち物</h2>
+<ul>
+<li>ICカード（残高6,000円以上・野さかは現金なので現金も）</li>
+<li><b>防寒着</b>（ダウンか厚手のフリース・夜のライトアップ用）、手袋</li>
+<li>歩きやすい靴（岩畳はゴツゴツ・遊歩道あり）</li>
+<li>御朱印帳</li>
+<li>モバイルバッテリー（夜もみじの写真で電池が減る）</li>
+<li>エコバッグ（地酒用）、フェイスタオル（祭の湯用）</li>
+</ul>
+</section>
+
+<section id="chk"><h2>✅ 出発前チェックリスト</h2>
+<div class="progress"><div id="bar"></div></div><p class="small" id="cnt"></p>
+<div class="check">
+<label><input type="checkbox"><span>宿を🅐か🅑に決めて予約した（🅐は10/29まで）</span></label>
+<label><input type="checkbox"><span>🅐：美やまの送迎（秩父駅17:05・翌朝の時間）を予約した</span></label>
+<label><input type="checkbox"><span>🅐：温泉の泉質・かけ流しかどうかを電話で聞いた</span></label>
+<label><input type="checkbox"><span>野さかの11月の休業日を公式で確認した</span></label>
+<label><input type="checkbox"><span>11月上旬に長瀞の紅葉の色づき状況を確認した</span></label>
+<label><input type="checkbox"><span>前日にライン下りの運航とライトアップの実施を確認した</span></label>
+<label><input type="checkbox"><span>05:40発に間に合うアラームをセットした</span></label>
+<label><input type="checkbox"><span>ICカードをチャージ＋現金を用意した</span></label>
+<label><input type="checkbox"><span>防寒着・御朱印帳・タオルを入れた</span></label>
+<label><input type="checkbox"><span>前日に天気予報を確認した</span></label>
+</div></section>
+
+<section id="src"><h2>📚 出典（2026/10/24確認）</h2>
+<ul class="small">
+<li><a href="https://www.nagatoro.gr.jp/">長瀞町観光協会（長瀞紅葉まつり 2026）</a></li>
+<li><a href="https://koyo.walkerplus.com/detail/ar0311e13177/data.html">ウォーカープラス 長瀞の紅葉（見頃・ライトアップ）</a></li>
+<li><a href="https://www.chichibu-railway.co.jp/nagatoro/price/">秩父鉄道 長瀞ラインくだり 料金</a></li>
+<li><a href="https://hodosan-ropeway.co.jp/information">宝登山ロープウェイ 営業案内・料金</a></li>
+<li><a href="https://www.jalan.net/yad331731/">じゃらんnet ホテル美やま</a> ／ <a href="https://www.jalan.net/yad376075/">ホテルルートインGrand秩父</a> ／ <a href="https://www.jalan.net/yad329295/">長瀞温泉 長生館</a></li>
+<li><a href="https://www.butamisodon.jp/">豚みそ丼本舗 野さか</a></li>
+<li><a href="https://transit.yahoo.co.jp/">Yahoo!路線情報</a>（11/20・11/21で検索）</li>
+</ul>
+</section>
+</main>
+<script>
+(function(){
+ const boxes=[...document.querySelectorAll('.check input')],bar=document.getElementById('bar'),cnt=document.getElementById('cnt');
+ function upd(){const n=boxes.filter(b=>b.checked).length;boxes.forEach(b=>b.parentElement.classList.toggle('done',b.checked));
+  bar.style.width=(boxes.length?n/boxes.length*100:0)+'%';cnt.textContent=n+' / '+boxes.length;}
+ boxes.forEach(b=>b.addEventListener('change',upd));upd();
+})();
+</script>
+</body>
+</html>

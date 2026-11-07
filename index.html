@@ -11,21 +11,76 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:"Hiragino San
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .wrap{max-width:720px;margin:0 auto;padding-block:32px 48px}
 h1{font-size:26px;margin:0 0 4px}
-p{color:var(--sub);margin:0 0 20px}
+h2{font-size:17px;margin:28px 0 10px;display:flex;align-items:center;gap:8px}
+.n{font-size:12px;color:var(--sub);font-weight:600;background:var(--sheet);border:1px solid var(--line);border-radius:99px;padding:0 8px}
+nav{position:sticky;top:0;background:var(--paper);padding:8px 0;border-bottom:1px solid var(--line);display:flex;gap:14px;font-size:14px;z-index:2}
+nav a{color:var(--shu);text-decoration:none;font-weight:700}
+p{color:var(--sub);margin:0 0 12px}
 ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
-a{display:block;background:var(--sheet);border:1px solid var(--line);border-radius:12px;padding:14px 16px;color:var(--ink);text-decoration:none}
-a:hover,a:focus-visible{border-color:var(--shu);outline:none}
+li{position:relative}
+a.c{display:block;background:var(--sheet);border:1px solid var(--line);border-radius:12px;padding:14px 16px;color:var(--ink);text-decoration:none}
+a.c:hover,a.c:focus-visible{border-color:var(--shu);outline:none}
+a.j{position:absolute;top:12px;right:12px;font-size:11px;color:var(--sub);border:1px solid var(--line);border-radius:6px;padding:0 6px;text-decoration:none;background:var(--paper)}
 .d{font-size:12px;color:var(--shu);font-weight:700;letter-spacing:.06em}
-.t{font-weight:700}
+.t{font-weight:700;padding-right:48px;display:inline-block}
 </style>
 </head>
 <body>
 <div class="wrap">
   <h1>TravelPlan</h1>
   <p>旅程と予算のまとめ</p>
+  <nav><a href="#planned">計画中</a><a href="#undecided">日付未定</a><a href="#done">旅行済み</a></nav>
+  <section id="planned">
+  <h2>🗓️ 計画中<span class="n">14</span></h2>
   <ul>
-    <li><a href="2026-11-21_toyokawa-atsuta/"><span class="d">2026.11.21 土</span><br><span class="t">豊川稲荷と熱田神宮 ／ 御開帳の予算比較</span></a></li>
+    <li><a class="c" href="2026-10-18_tokyo-trend/"><span class="d">2026.10.18 日</span><br><span class="t">東京 ／ 高輪八重洲両国大井町 トレンド旅</span></a> <a class="j" href="2026-10-18_tokyo-trend/plan.json" download>JSON</a></li>
+    <li><a class="c" href="2026-11-14_mitake/"><span class="d">2026.11.14 土</span><br><span class="t">御岳山と御岳渓谷 ／ 紅葉の参道と澤乃井</span></a> <a class="j" href="2026-11-14_mitake/plan.json" download>JSON</a></li>
+    <li><a class="c" href="2026-11-20_chichibu-nagatoro/"><span class="d">2026.11.20 金</span><br><span class="t">秩父長瀞 ／ 紅葉の岩畳と夜もみじ</span></a></li>
+    <li><a class="c" href="2026-11-20_ura-hakone/"><span class="d">2026.11.20 金</span><br><span class="t">裏箱根 ／ 登山鉄道途中下車と芦之湯の秘湯</span></a></li>
+    <li><a class="c" href="2026-11-21_inatori-hosono/"><span class="d">2026.11.21 土</span><br><span class="t">稲取細野高原と一碧湖 ／ すすきと保養所の旅</span></a> <a class="j" href="2026-11-21_inatori-hosono/plan.json" download>JSON</a></li>
+    <li><a class="c" href="2026-11-21_toyokawa-atsuta/"><span class="d">2026.11.21 土</span><br><span class="t">豊川稲荷と熱田神宮 ／ 御開帳の親子旅</span></a></li>
+    <li><a class="c" href="2026-12-17_kashima-katori-oarai/"><span class="d">2026.12.17 木</span><br><span class="t">鹿島香取大洗 ／ 東国三社とあんこう鍋</span></a> <a class="j" href="2026-12-17_kashima-katori-oarai/plan.json" download>JSON</a></li>
+    <li><a class="c" href="2027-01-21_shimonoseki-moji/"><span class="d">2027.01.21 木</span><br><span class="t">下関門司港 ／ ふくと関門海峡の旅</span></a></li>
+    <li><a class="c" href="2027-01-28_suwa/"><span class="d">2027.01.28 木</span><br><span class="t">諏訪 ／ 雪の諏訪大社と五蔵めぐり</span></a></li>
+    <li><a class="c" href="2027-02-11_arima-awaji-naruto/"><span class="d">2027.02.11 木</span><br><span class="t">有馬淡路鳴門 ／ とらふぐと国生みの島</span></a></li>
+    <li><a class="c" href="2027-02-18_ise-toba/"><span class="d">2027.02.18 木</span><br><span class="t">伊勢鳥羽 ／ お伊勢参りと牡蠣の旅</span></a></li>
+    <li><a class="c" href="2027-03-04_kawazu-inatori/"><span class="d">2027.03.04 木</span><br><span class="t">河津稲取 ／ 河津桜と金目鯛の旅</span></a></li>
+    <li><a class="c" href="2027-04-21_shikoku-shimanami/"><span class="d">2027.04.21 水</span><br><span class="t">四国しまなみ海道 ／ 温泉グルメ一人旅</span></a></li>
+    <li><a class="c" href="2027-05-22_nagano-togakushi/"><span class="d">2027.05.22 土</span><br><span class="t">長野 ／ 戸隠と白骨と別所温泉</span></a></li>
   </ul>
+  </section>
+  <section id="undecided">
+  <h2>📝 日付未定<span class="n">8</span></h2>
+  <ul>
+    <li><a class="c" href="undecided_miura-misaki/"><span class="d">日付未定</span><br><span class="t">三浦半島 ／ 三崎朝市と城ヶ島 日曜日帰り</span></a> <a class="j" href="undecided_miura-misaki/plan.json" download>JSON</a></li>
+    <li><a class="c" href="undecided_tanzawako/"><span class="d">日付未定</span><br><span class="t">丹沢湖 ／ 紅葉とぶなの湯 土曜日帰り</span></a> <a class="j" href="undecided_tanzawako/plan.json" download>JSON</a></li>
+    <li><a class="c" href="undecided_yokohama-yamate/"><span class="d">日付未定</span><br><span class="t">横浜 ／ クラシックと山手さんぽ</span></a> <a class="j" href="undecided_yokohama-yamate/plan.json" download>JSON</a></li>
+    <li><a class="c" href="undecided_kofu-shosenkyo/"><span class="d">日付未定</span><br><span class="t">甲府 ／ 昇仙峡と湯村温泉 土曜日帰り</span></a></li>
+    <li><a class="c" href="undecided_akigawa/"><span class="d">日付未定</span><br><span class="t">秋川渓谷 ／ 紅葉と瀬音の湯 土曜日帰り</span></a> <a class="j" href="undecided_akigawa/plan.json" download>JSON</a></li>
+    <li><a class="c" href="undecided_chichibu-mitsumine/"><span class="d">日付未定</span><br><span class="t">秩父 ／ 三峯の紅葉と大滝温泉 日曜日帰り</span></a> <a class="j" href="undecided_chichibu-mitsumine/plan.json" download>JSON</a></li>
+    <li><a class="c" href="undecided_chichibu-chokoku/"><span class="d">日付未定</span><br><span class="t">秩父 ／ 彫刻の社と駅前湯 土曜日帰り</span></a></li>
+    <li><a class="c" href="undecided_shizuoka-suruga/"><span class="d">日付未定</span><br><span class="t">静岡 ／ 駿河の海と参道旅</span></a> <a class="j" href="undecided_shizuoka-suruga/plan.json" download>JSON</a></li>
+  </ul>
+  </section>
+  <section id="done">
+  <h2>✅ 旅行済み<span class="n">14</span></h2>
+  <ul>
+    <li><a class="c" href="2026-11-01_heda/"><span class="d">2026.11.01 日</span><br><span class="t">戸田 ／ さんさんまつりと西伊豆今宵</span></a> <a class="j" href="2026-11-01_heda/plan.json" download>JSON</a></li>
+    <li><a class="c" href="2026-10-22_nikko-shiobara/"><span class="d">2026.10.22 木</span><br><span class="t">日光鬼怒川塩原 ／ 紅葉と陰と陽の旅</span></a> <a class="j" href="2026-10-22_nikko-shiobara/plan.json" download>JSON</a></li>
+    <li><a class="c" href="2026-10-11_katsunuma/"><span class="d">2026.10.11 日</span><br><span class="t">勝沼 ／ ぶどうとトンネルと天空の湯</span></a> <a class="j" href="2026-10-11_katsunuma/plan.json" download>JSON</a></li>
+    <li><a class="c" href="2026-10-10_atsugi-hanabi/"><span class="d">2026.10.10 土</span><br><span class="t">厚木 ／ 鮎まつり花火と大山詣で</span></a> <a class="j" href="2026-10-10_atsugi-hanabi/plan.json" download>JSON</a></li>
+    <li><a class="c" href="2026-10-03_atami/"><span class="d">2026.10.03 土</span><br><span class="t">熱海 ／ 熱海三昧 日帰り</span></a> <a class="j" href="2026-10-03_atami/plan.json" download>JSON</a></li>
+    <li><a class="c" href="2026-09-23_gunma-yuzawa/"><span class="d">2026.09.23 水</span><br><span class="t">群馬と越後湯沢 ／ 2泊3日</span></a> <a class="j" href="2026-09-23_gunma-yuzawa/plan.json" download>JSON</a></li>
+    <li><a class="c" href="2026-09-20_yugawara/"><span class="d">2026.09.20 日</span><br><span class="t">湯河原 ／ 雨の湯めぐりチル旅</span></a> <a class="j" href="2026-09-20_yugawara/plan.json" download>JSON</a></li>
+    <li><a class="c" href="2026-08-30_shimobe-onsen/"><span class="d">2026.08.30 日</span><br><span class="t">下部温泉 ／ 湯治一人旅</span></a> <a class="j" href="2026-08-30_shimobe-onsen/plan.json" download>JSON</a></li>
+    <li><a class="c" href="2026-08-16_shuzenji/"><span class="d">2026.08.16 日</span><br><span class="t">修善寺 ／ 日帰り温泉旅</span></a> <a class="j" href="2026-08-16_shuzenji/plan.json" download>JSON</a></li>
+    <li><a class="c" href="2026-08-09_ito-family/"><span class="d">2026.08.09 日</span><br><span class="t">伊東 ／ 家族旅行</span></a> <a class="j" href="2026-08-09_ito-family/plan.json" download>JSON</a></li>
+    <li><a class="c" href="2026-08-04_tohoku/"><span class="d">2026.08.04 火</span><br><span class="t">東北 ／ 温泉グルメ一人旅</span></a> <a class="j" href="2026-08-04_tohoku/plan.json" download>JSON</a> <a class="j" href="2026-08-04_tohoku/plan_script.json" download>JSON</a></li>
+    <li><a class="c" href="2026-07-31_ito-hanabi/"><span class="d">2026.07.31 金</span><br><span class="t">伊東 ／ 温泉花火一人旅</span></a> <a class="j" href="2026-07-31_ito-hanabi/plan.json" download>JSON</a></li>
+    <li><a class="c" href="2026-07-20_hatake-onsen/"><span class="d">2026.07.20 月</span><br><span class="t">静岡 ／ 畑毛温泉ぬる湯さんぽ</span></a> <a class="j" href="2026-07-20_hatake-onsen/plan.json" download>JSON</a></li>
+    <li><a class="c" href="2026-07-19_tokyo-orchestra/"><span class="d">2026.07.19 日</span><br><span class="t">東京 ／ 微わかる展＆オーケストラ鑑賞</span></a> <a class="j" href="2026-07-19_tokyo-orchestra/plan.json" download>JSON</a></li>
+  </ul>
+  </section>
 </div>
 </body>
 </html>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>雪の諏訪大社と五蔵めぐり｜2泊3日 v3</title>
+<style>
+  :root{
+    --bg:#eef2f6; --card:#ffffff; --text:#1f2430; --sub:#5f6878;
+    --accent:#28466e; --accent2:#a8323e; --border:#d9e0e8;
+    --tag-yellow-bg:#fff3d6; --tag-yellow-text:#8a5a00;
+    --tag-green-bg:#e3f2ef; --tag-green-text:#1d6b5a;
+    --tag-red-bg:#fdeaea; --tag-red-text:#a32a2a;
+    --shadow:0 2px 10px rgba(20,40,70,0.07);
+  }
+  [data-theme="dark"]{
+    --bg:#121722; --card:#1b2230; --text:#eef1f6; --sub:#a3acbb;
+    --accent:#9fc0ec; --accent2:#f0959d; --border:#2c3546;
+    --tag-yellow-bg:#4a3a10; --tag-yellow-text:#f5cf7a;
+    --tag-green-bg:#173d36; --tag-green-text:#86dcc8;
+    --tag-red-bg:#43201f; --tag-red-text:#f2a3a0;
+    --shadow:0 2px 14px rgba(0,0,0,0.45);
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    background:var(--bg); color:var(--text); line-height:1.7; padding-bottom:60px;}
+  header{position:sticky; top:0; z-index:100; background:var(--card); border-bottom:1px solid var(--border);
+    padding:12px 16px; display:flex; justify-content:space-between; align-items:center; gap:10px; box-shadow:var(--shadow);}
+  header .title{font-size:14px; font-weight:700; color:var(--accent);}
+  header .sub{font-size:11px; color:var(--sub);}
+  .theme-btn{background:var(--bg); border:1px solid var(--border); border-radius:20px; padding:6px 12px; font-size:12px; color:var(--text); cursor:pointer; flex-shrink:0;}
+  nav.subnav{position:sticky; top:56px; z-index:99; background:var(--bg); border-bottom:1px solid var(--border);
+    display:flex; gap:6px; overflow-x:auto; padding:8px 12px; -webkit-overflow-scrolling:touch;}
+  nav.subnav a{flex-shrink:0; font-size:12px; color:var(--sub); text-decoration:none; background:var(--card); border:1px solid var(--border); border-radius:16px; padding:6px 12px;}
+  main{max-width:720px; margin:0 auto; padding:16px;}
+  .hero{background:linear-gradient(135deg,#1f3a5f,#5b7fa8 60%,#a8323e); color:#fff; border-radius:16px; padding:22px 18px; margin-bottom:18px; box-shadow:var(--shadow);}
+  .hero h1{font-size:19px; margin:0 0 6px;}
+  .hero p{font-size:13px; margin:0; opacity:.95;}
+  .hero .chips{display:flex; flex-wrap:wrap; gap:6px; margin-top:10px;}
+  .hero .chips span{background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.35); border-radius:12px; padding:2px 10px; font-size:11.5px;}
+  section{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:16px; margin-bottom:14px; box-shadow:var(--shadow); scroll-margin-top:110px;}
+  h2{font-size:15px; margin:0 0 10px; color:var(--accent);}
+  h3{font-size:13px; margin:14px 0 6px; color:var(--accent2);}
+  p{font-size:13px; margin:6px 0;}
+  .tablewrap{overflow-x:auto;}
+  table{width:100%; border-collapse:collapse; font-size:12.5px; margin:8px 0;}
+  th,td{border-bottom:1px solid var(--border); text-align:left; padding:7px 6px; vertical-align:top;}
+  th{color:var(--sub); font-weight:600;}
+  td.t{white-space:nowrap; font-variant-numeric:tabular-nums; color:var(--accent); font-weight:700;}
+  td.num{text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums;}
+  tr.opt td{color:var(--sub);}
+  tr.total td{font-weight:700;}
+  .route{background:var(--bg); border:1px dashed var(--border); border-radius:10px; padding:12px; font-size:11px; white-space:pre; font-family:"SFMono-Regular",Consolas,monospace; line-height:1.8; color:var(--sub); overflow-x:auto;}
+  .tip{border-left:3px solid var(--accent); background:var(--tag-green-bg); color:var(--tag-green-text); padding:10px 12px; border-radius:0 8px 8px 0; font-size:12.5px; margin:10px 0;}
+  .warn{border-left:3px solid #d05a52; background:var(--tag-red-bg); color:var(--tag-red-text); padding:10px 12px; border-radius:0 8px 8px 0; font-size:12.5px; margin:10px 0;}
+  .flag-y{background:var(--tag-yellow-bg); color:var(--tag-yellow-text); border-radius:6px; padding:1px 6px; font-size:11px; font-weight:700; white-space:nowrap;}
+  .flag-g{background:var(--tag-green-bg); color:var(--tag-green-text); border-radius:6px; padding:1px 6px; font-size:11px; font-weight:700; white-space:nowrap;}
+  details{background:var(--bg); border:1px solid var(--border); border-radius:10px; padding:10px 12px; margin:8px 0;}
+  summary{cursor:pointer; font-size:13px; font-weight:600; color:var(--accent);}
+  ul{margin:6px 0; padding-left:18px; font-size:13px;}
+  li{margin-bottom:4px;}
+  a{color:var(--accent);}
+  .checklist label{display:flex; align-items:center; gap:8px; font-size:13px; padding:6px 0; border-bottom:1px dashed var(--border);}
+  .checklist input{width:16px; height:16px; accent-color:var(--accent); flex-shrink:0;}
+  .checklist label.done span{text-decoration:line-through; color:var(--sub);}
+  .hl{display:flex; gap:10px; align-items:flex-start; background:var(--bg); border-radius:10px; padding:10px 12px; font-size:13px; margin-bottom:8px;}
+  .hl b{background:var(--accent); color:var(--card); border-radius:50%; width:22px; height:22px; display:flex; align-items:center; justify-content:center; font-size:12px; flex-shrink:0;}
+  .cards{display:grid; grid-template-columns:1fr; gap:10px;}
+  .inn{border:1px solid var(--border); border-radius:12px; padding:12px; background:var(--bg);}
+  .inn h4{margin:0 0 4px; font-size:14px; color:var(--accent);}
+  .inn .badge{font-size:11px; color:var(--accent2); font-weight:700;}
+  .inn ul{font-size:12.5px;}
+  .moment{background:linear-gradient(135deg,#e9eff7,#f6eef0); border-radius:12px; padding:14px; font-size:13.5px;}
+  [data-theme="dark"] .moment{background:linear-gradient(135deg,#1f2a3c,#2e2129);}
+  #inn td:first-child{min-width:92px;}
+  #inn td:nth-child(2){min-width:150px;} #inn td:nth-child(3){min-width:72px;} #inn td:nth-child(4){white-space:nowrap;}
+  @media (min-width:640px){ .cards{grid-template-columns:1fr 1fr 1fr;} }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <div class="title">❄️ 雪の諏訪大社と五蔵めぐり</div>
+    <div class="sub">2泊3日 v3｜2027/1/28(木)〜1/30(土) ✅確定</div>
+  </div>
+  <button class="theme-btn" id="themeBtn" type="button">🌙 ダーク</button>
+</header>
+<nav class="subnav">
+  <a href="#about">概要</a><a href="#dates">日程</a><a href="#d1">Day1</a><a href="#d2">Day2</a><a href="#d3">Day3</a><a href="#inn">宿</a><a href="#onsen">温泉</a><a href="#book">予約</a><a href="#gift">お土産</a><a href="#risk">注意</a><a href="#alt">代替案</a><a href="#budget">予算</a><a href="#bring">持ち物</a><a href="#todo">ToDo</a>
+</nav>
+<main>
+
+<div class="hero">
+  <h1>凍てつく諏訪で、四社の御柱と新酒としみる湯</h1>
+  <p>上社（本宮・前宮）＋下社（春宮・秋宮）の四社まいり × 上諏訪の諏訪五蔵で新酒飲み比べ × 湖畔の温泉宿と下諏訪の宿場町の宿、2軒に泊まる案</p>
+  <div class="chips"><span>一人旅</span><span>本厚木発着</span><span>予算 約7.8万円〜</span><span>おすすめ度 ★★★★★</span></div>
+</div>
+
+<section id="about">
+  <h2>① 旅の概要</h2>
+  <p>四社はぜんぶ「御柱」が立つ特別な神社。上諏訪の甲州街道わずか500mに酒蔵が5軒並んでて、冬は新酒（しぼりたて）の季節。凍る諏訪湖をながめるかけ流しの湯でしめる、えなみんの好き全部入りの旅だよ。</p>
+  <p class="sub" style="font-size:11.5px;color:var(--sub)">✅ 時刻・営業時間は2026/10/8時点で確認（JRはYahoo!路線情報＝JR時刻表2026年10月号）。1月は3月改正前なので基本このままのはずだけど、出発1か月前に再チェック。</p>
+  <div class="route">本厚木 ─小田急─ 町田 ─横浜線─ 八王子 ═あずさ3号═ 上諏訪
+                                           │
+  Day1 上諏訪：片倉館 → 高島城 → 諏訪五蔵 → 湖畔の宿
+  Day2 上社：  🚌バス → 本宮 → 守矢史料館 → 前宮 → 🚌上諏訪
+  Day3 下社：  🚃下諏訪 → 春宮 → 万治の石仏 → 秋宮 → 旦過の湯 → うなぎ
+                                           │
+本厚木 ─小田急─ 町田 ─横浜線─ 八王子 ═あずさ38号═ 上諏訪</div>
+  <h3>✨ いちばん感動しそうな瞬間</h3>
+  <div class="moment"><b>Day2、雪の古道を歩いてたどり着く上社前宮。</b>観光客の少ない坂道の上、4本の御柱と境内を流れる清流の音だけが響く時間。諏訪信仰の「はじまりの場所」にひとりで立つ感じ、たぶん忘れられないと思う。</div>
+  <h3>🏆 ハイライト3選</h3>
+  <div class="hl"><b>1</b><div>🍶 <strong>新酒の季節の諏訪五蔵</strong>：500mに5蔵、20〜25種類を飲み比べ</div></div>
+  <div class="hl"><b>2</b><div>⛩️ <strong>四社の御柱を全部見る</strong>：本宮の布橋、前宮の清流、春宮の結びの杉、秋宮の大注連縄</div></div>
+  <div class="hl"><b>3</b><div>♨️ <strong>凍る諏訪湖をながめる湯</strong>：朝のけあらしと湯けむり</div></div>
+</section>
+
+<section id="dates">
+  <h2>📅 日程：1/28(木)〜1/30(土) ✅確定</h2>
+  <p>定休日をぜんぶよけられる並び（木＝五蔵、金＝上社、土＝下社）。</p>
+  <div class="tablewrap"><table>
+    <tr><th>定休日</th><th>お店・施設</th></tr>
+    <tr><td>水</td><td>🍶 真澄（五蔵）／🍡 新鶴本店（塩羊羹）</td></tr>
+    <tr><td>日</td><td>🍶 麗人（五蔵）／本金は日曜は月2〜3日のみ営業</td></tr>
+    <tr><td>木</td><td>🍜 やまさや／🐟 しもすわうなぎ小林（月・木休）</td></tr>
+    <tr><td>第2・4火</td><td>♨️ 片倉館</td></tr>
+    <tr><td>月</td><td>🏛️ 神長官守矢史料館</td></tr>
+  </table></div>
+</section>
+
+<section id="d1">
+  <h2>Day1｜1/28(木) 上諏訪の街と諏訪五蔵 🍶</h2>
+  <div class="tablewrap"><table>
+    <tr><td class="t">06:59</td><td>🚃 本厚木 発（小田急 快速急行 新宿行）</td></tr>
+    <tr><td class="t">07:15</td><td>町田 着 → <strong>07:26</strong> JR横浜線（八王子行）</td></tr>
+    <tr><td class="t">07:53</td><td>八王子 着 → <strong>08:03 特急あずさ3号</strong>（松本行）<span class="flag-g">✅確認済</span></td></tr>
+    <tr><td class="t">09:57</td><td>上諏訪 着</td></tr>
+    <tr><td class="t">10:00</td><td>🚕 タクシーで宿へ（約5分）→ <strong>荷物だけ預ける</strong></td></tr>
+    <tr><td class="t">10:20</td><td>🚶 湖畔の遊歩道を南へ約1km。凍った湖面と八ヶ岳を眺めながら</td></tr>
+    <tr><td class="t">10:40</td><td>♨️ <strong>片倉館 千人風呂</strong>（昭和3年の洋館・国の重要文化財。深さ1.1mの立ち湯）¥850</td></tr>
+    <tr><td class="t">11:40</td><td>🏯 <strong>高島城</strong>（徒歩約10分）雪なら「諏訪の浮城」が最高 ¥310</td></tr>
+    <tr><td class="t">12:20</td><td>🍤 <strong>いずみ屋</strong>（上諏訪駅前）わかさぎ・川えびの天ぷら、信州みそ天丼</td></tr>
+    <tr><td class="t">13:20</td><td>🍶 <strong>諏訪五蔵めぐり</strong>（ごくらくセット¥4,000・現金のみ）<br>舞姫 → 麗人 → 本金 → 横笛 → 真澄</td></tr>
+    <tr><td class="t">〜16:30</td><td>最後の「セラ真澄」でお土産選び → <strong>まとめて宅配</strong></td></tr>
+    <tr><td class="t">16:45</td><td>🚕 タクシーで宿へ（約10分）</td></tr>
+    <tr><td class="t">17:00</td><td>🏨 チェックイン → ひと休み（お酒が抜けるまでお風呂はガマン🙅‍♀️）</td></tr>
+    <tr><td class="t">18:00</td><td>🍽️ 宿の夕食＋地酒もう一杯</td></tr>
+    <tr><td class="t">21:00〜</td><td>♨️ 諏訪湖を眺める展望風呂</td></tr>
+  </table></div>
+  <div class="tip">🍶 各蔵4〜5種×約20ccの試飲。全部で約1時間半。<strong>試飲受付は閉店30分前（16:30）まで</strong>。木曜は5軒とも営業 ✅<br>舞姫 9:30〜17:00／麗人 9:00〜17:00／本金 平日9:00〜17:00／横笛 平日8:30〜17:00／真澄 10:00〜17:00<br>💡 ごくらくセットは有効期限なし。飲みきれなければ翌日以降でもOK（カップ酒交換も可）。</div>
+</section>
+
+<section id="d2">
+  <h2>Day2｜1/29(金) 上社 本宮・前宮と雪の古道 ⛩️</h2>
+  <div class="tablewrap"><table>
+    <tr class="opt"><td class="t">(06:10)</td><td>🧊 <strong>気合い枠</strong>：タクシーで舟渡川河口へ → <strong>06:30〜 八剱神社の御神渡り観察</strong>を見学 → 宿へ戻る</td></tr>
+    <tr><td class="t">07:30</td><td>♨️ 朝風呂 → 🍚 朝食</td></tr>
+    <tr><td class="t">09:15</td><td>🚶 上諏訪駅へ（徒歩約15分 or タクシー）</td></tr>
+    <tr><td class="t">09:45</td><td>🚌 <strong>かりんちゃんバス④西方線</strong>（上諏訪駅 諏訪湖口〔西口〕）¥150 現金のみ <span class="flag-g">✅</span></td></tr>
+    <tr><td class="t">10:21</td><td>「上社」バス停 着</td></tr>
+    <tr><td class="t">10:25</td><td>⛩️ <strong>上社 本宮</strong>：布橋（回廊）、四隅の御柱、雪の幣拝殿。宝物殿も</td></tr>
+    <tr><td class="t">11:25</td><td>🍜 <strong>やまさや</strong>（本宮すぐ）信州みそ天丼・おそば（金曜営業 ✅ 11:00〜）</td></tr>
+    <tr><td class="t">12:25</td><td>🚶 古道を歩いて<strong>神長官守矢史料館</strong>へ（約15分）藤森照信建築＆畑の中の茶室「高過庵」 ¥200前後</td></tr>
+    <tr><td class="t">13:15</td><td>🚶 <strong>上社 前宮</strong>へ（約15分）諏訪信仰の原点。境内を流れる「水眼」の清流と坂道の御柱</td></tr>
+    <tr><td class="t">14:11</td><td>🚌 「前宮前」から<strong>かりんちゃんバス④</strong> <span class="flag-g">✅</span></td></tr>
+    <tr><td class="t">14:57</td><td>上諏訪駅 着 → 宿でお昼寝＆温泉♨️</td></tr>
+    <tr><td class="t">17:30</td><td>🍺 <strong>宴屋とんぼ</strong>（駅徒歩7分）五蔵飲み比べセット＋もつ鍋／または駅前いずみ屋の五蔵5種飲み比べ</td></tr>
+    <tr><td class="t">21:00</td><td>🚕 宿へ → 寝る前にもうひと風呂（お酒が抜けてから）</td></tr>
+  </table></div>
+  <div class="tip">🚌 乗り遅れたら：前宮前 14:58（③東方線）→ 上諏訪駅 15:41。本宮側なら上社北参道 14:22（④）でもOK。<br>🚕 アルピコタクシー 0266-71-1181／第一交通 0266-52-5151／諏訪交通 0266-52-1190</div>
+</section>
+
+<section id="d3">
+  <h2>Day3｜1/30(土) 下社 春宮・秋宮と中山道 🛤️</h2>
+  <div class="tablewrap"><table>
+    <tr><td class="t">06:45</td><td>♨️ 朝風呂 → 🌅 湖畔さんぽ（日の出は7時ごろ。湖から湯気が立つ「けあらし」が見られるかも）</td></tr>
+    <tr><td class="t">08:00</td><td>🍚 朝食</td></tr>
+    <tr><td class="t">09:15</td><td>チェックアウト → 🚕 上諏訪駅へ</td></tr>
+    <tr><td class="t">09:34</td><td>🚃 上諏訪 → <strong>09:38 下諏訪</strong>（JR普通）→ 駅のロッカーに荷物</td></tr>
+    <tr><td class="t">10:05</td><td>⛩️ <strong>下社 春宮</strong>（駅から徒歩約20分）結びの杉、川の中州の浮島社</td></tr>
+    <tr><td class="t">10:30</td><td>🗿 <strong>万治の石仏</strong>（徒歩5分）「よろずおさまりますように」と唱えて3周</td></tr>
+    <tr><td class="t">10:45</td><td>🚶 旧中山道の宿場町を歩いて秋宮へ（約20分）</td></tr>
+    <tr><td class="t">11:05</td><td>⛩️ <strong>下社 秋宮</strong>：神楽殿の大注連縄、雪の御柱。横の<strong>新鶴本店で塩羊羹</strong>（現金のみ）</td></tr>
+    <tr><td class="t">11:45</td><td>♨️ <strong>旦過の湯</strong>（秋宮から数分）¥300。熱めのかけ流し、サクッと15分</td></tr>
+    <tr><td class="t">12:30</td><td>🐟 <strong>しもすわ うなぎ小林</strong>（旦過の湯から徒歩約15分）旅の〆（L.O.14:00）</td></tr>
+    <tr><td class="t">13:40</td><td>🚶 下諏訪駅へ（約15分）→ 荷物ピックアップ</td></tr>
+    <tr><td class="t">14:50</td><td>🚃 下諏訪 → 14:55 上諏訪</td></tr>
+    <tr><td class="t">15:12</td><td>🚄 <strong>特急あずさ38号</strong>（新宿行）<span class="flag-g">✅</span></td></tr>
+    <tr><td class="t">16:49</td><td>八王子 着 → 17:01 横浜線</td></tr>
+    <tr><td class="t">17:27</td><td>町田 着 → 17:45 小田急 急行</td></tr>
+    <tr><td class="t">17:59</td><td>本厚木 着 🏠</td></tr>
+  </table></div>
+  <div class="tip">🔁 もっとゆっくりしたい日：下諏訪 <strong>16:10 あずさ44号</strong>（乗換なしで八王子へ）→ 本厚木 19:12着（平日検索。土曜は19:30着）</div>
+</section>
+
+<section id="inn">
+  <h2>🏨 宿えらび（1泊目と2泊目で別の宿に）</h2>
+  <p>条件：<strong>温泉の質／こじんまり／清潔感</strong>。1泊目は<strong>湖畔</strong>、2泊目は「湖畔をもう1軒」か「下諏訪の宿場町」。</p>
+  <p style="font-size:11.5px;color:var(--sub)">✅ 2026/10/8にじゃらんで1/28・1/29の1名1室を検索。湖泉荘・渋の湯・ラルバは2027年1月分がまだ販売前。</p>
+  <h3>🌙 1泊目 1/28(木)｜上諏訪・湖畔</h3>
+  <div class="tablewrap"><table>
+    <tr><th>宿</th><th>温泉・特徴</th><th>1名目安</th><th>空室</th></tr>
+    <tr><td><strong>湖泉荘</strong><br>（本命・17室）</td><td>源泉かけ流し（加水）、湖を眺める展望大浴場。清潔感4.8。1名は山側和室・バスなし</td><td>2食¥16,500〜</td><td><span class="flag-y">販売前</span></td></tr>
+    <tr><td><strong>ラルバ諏訪湖</strong><br>（6室）</td><td><strong>源泉100%かけ流し</strong>、玄関を出たら湖畔。建物古め・素泊まり中心</td><td>要確認</td><td><span class="flag-y">販売前</span></td></tr>
+    <tr><td><strong>渋の湯</strong><br>（26室）</td><td><strong>自家源泉100%かけ流し</strong>。駅徒歩7分で五蔵に近い。湖の真ん前ではない</td><td>¥14,228〜</td><td><span class="flag-y">販売前</span></td></tr>
+    <tr><td>🆕 <strong>しんゆ</strong><br>（39室）</td><td>自家源泉（循環）の<strong>湖一望の畳風呂</strong>。2024年リニューアル・総合4.7。<strong>四社めぐり無料参拝バス</strong>あり。こじんまりではない</td><td>¥21,780〜</td><td><span class="flag-g">空室あり</span></td></tr>
+    <tr><td>🆕 すわ湖苑<br>（22室）</td><td>湖畔・湖が見える部屋。温泉は循環ろ過。<strong>コスパ最強</strong></td><td>¥8,800〜</td><td><span class="flag-g">空室あり</span></td></tr>
+  </table></div>
+  <h3>🌙 2泊目 1/29(金)｜下諏訪の宿場町</h3>
+  <div class="tablewrap"><table>
+    <tr><th>宿</th><th>温泉・特徴</th><th>1名目安</th><th>空室</th></tr>
+    <tr><td>🆕 <strong>みなとや旅館</strong><br>（5室・実質1日3組）</td><td>名物「綿の湯」を<strong>加水・加温なし</strong>（庭風呂が評判）。江戸期からの老舗、<strong>桜鍋</strong>。秋宮まで徒歩6分。<strong>電話予約のみ</strong>・CI16:00</td><td>2食¥30,150</td><td><span class="flag-y">☎️確認</span></td></tr>
+    <tr><td><strong>鉄鉱泉本館</strong><br>（6室）</td><td>旦過の湯と同じ源泉を<strong>100%かけ流し</strong>（熱め）。じゃらん4.9。<strong>1/25〜31だけ×</strong>（休館？満室？）</td><td>¥13,200〜</td><td><span class="flag-y">☎️確認</span></td></tr>
+    <tr><td>🆕 <strong>ぎん月</strong><br>（13室）</td><td>大浴場は循環、<strong>数寄屋造りの貸切風呂は源泉かけ流し</strong>。清潔感・食事の評価高め。秋宮すぐ</td><td>¥15,400〜</td><td><span class="flag-g">空室あり</span></td></tr>
+    <tr><td>🆕 毒沢鉱泉 神の湯<br>（14室）</td><td>鉄分とミョウバンの<strong>橙色の濃い鉱泉</strong>。風呂評価5.0の秘湯一軒宿。清潔感3.7、山の中で駅から車（送迎要確認）</td><td>¥16,230〜</td><td><span class="flag-g">空室あり</span></td></tr>
+    <tr><td>🆕 梅月</td><td>かけ流しの貸切露天、夕食ランキング入賞経験・部屋食</td><td>¥27,500〜</td><td><span class="flag-g">空室あり</span></td></tr>
+  </table></div>
+  <div class="tip">💬 <strong>おすすめの組み合わせ</strong><br>
+  ① <strong>湖泉荘 → みなとや旅館</strong>：湖を眺める湯＋5室だけの老舗で加水なしの綿の湯と桜鍋。湯もこじんまり感もいちばん（鉄鉱泉案より約¥17,000高い）<br>
+  ② <strong>湖泉荘 → 鉄鉱泉本館</strong>：コスパと湯の濃さのバランス型（1月末の営業を電話確認）<br>
+  ③ <strong>ラルバ → 神の湯</strong>：湯の濃さ全振り。ただ2泊とも清潔感はちょい心配<br>
+  🛟 湖泉荘が取れなかったら<strong>しんゆ</strong>。2泊とも湖畔なら「湖泉荘 → ラルバ」もアリ。</div>
+  <details>
+    <summary>🔁 2泊目を下諏訪にしたときのDay2夕方〜Day3</summary>
+    <div class="tablewrap"><table>
+      <tr><td class="t">D2 09:15</td><td>1泊目をチェックアウト → 上諏訪駅のロッカーに荷物 → 09:45のバスで上社（同じ）</td></tr>
+      <tr><td class="t">D2 14:57</td><td>上諏訪駅着 → 荷物を出す → <strong>15:23 上諏訪 → 15:28 下諏訪</strong></td></tr>
+      <tr><td class="t">D2 16:00</td><td>チェックイン → 夕暮れの宿場町さんぽ、元気なら旦過の湯</td></tr>
+      <tr><td class="t">D2 18:00</td><td>宿の夕食（みなとやなら桜鍋）</td></tr>
+      <tr><td class="t">D3 07:00</td><td>☃️ <strong>朝イチの秋宮</strong>：誰もいない雪の境内を独り占め</td></tr>
+      <tr><td class="t">D3 08:00</td><td>朝食 → チェックアウト（荷物は宿に預ける）</td></tr>
+      <tr><td class="t">D3 09:30〜</td><td>春宮 → 万治の石仏 → 中山道 → 新鶴本店 → 宿で荷物を受け取る</td></tr>
+      <tr><td class="t">D3 12:00</td><td>うなぎ小林 → 下諏訪 14:50 → 上諏訪 <strong>15:12 あずさ38号</strong>（同じ）</td></tr>
+    </table></div>
+    <p>この場合Day2夜の「宴屋とんぼ」はなくなるので、地酒ディナーはDay1の夜に（1泊目を朝食付きにして外食）。</p>
+  </details>
+</section>
+
+<section id="onsen">
+  <h2>♨️ 温泉戦略</h2>
+  <div class="tablewrap"><table>
+    <tr><th>お湯</th><th>泉質・特徴</th><th>タイミング</th></tr>
+    <tr><td>片倉館 千人風呂</td><td>上諏訪温泉。ステンドグラスの浴場、底は玉砂利、深さ1.1mの立ち湯</td><td>Day1到着直後（お酒の前！）</td></tr>
+    <tr><td>宿の湯</td><td>上諏訪温泉のやわらかい湯。冬の湖を見ながら</td><td>Day1夜、Day2朝夕、Day3朝</td></tr>
+    <tr><td>旦過の湯</td><td>ナトリウム・カルシウム-硫酸塩・塩化物泉、源泉56℃。<strong>かなり熱め</strong></td><td>Day3昼前にサクッと</td></tr>
+  </table></div>
+  <div class="warn">⚠️ <strong>飲酒直後の入浴は絶対NG</strong>（五蔵のあとは2〜3時間あける）。冬は脱衣所との温度差も大きいので、かけ湯しっかり。</div>
+</section>
+
+<section id="book">
+  <h2>③ 予約リスト</h2>
+  <div class="tablewrap"><table>
+    <tr><th>項目</th><th>区分</th><th>方法</th><th>状態</th></tr>
+    <tr><td>🏨 1泊目（1/28）</td><td><strong>必須</strong></td><td>じゃらん／楽天／公式</td><td><span class="flag-y">⚠️ 宿決め（湖泉荘など販売待ち）</span></td></tr>
+    <tr><td>🏨 2泊目（1/29）</td><td><strong>必須</strong></td><td>みなとや・鉄鉱泉は電話、ほかはじゃらん等</td><td><span class="flag-y">⚠️ 宿決め</span></td></tr>
+    <tr><td>🚄 あずさ3号・38号</td><td><strong>必須</strong></td><td>えきねっと（乗車1か月前の10:00〜、トクだ値あり）</td><td><span class="flag-y">⚠️ 12/28ごろ発売</span></td></tr>
+    <tr><td>🍶 ごくらくセット</td><td>当日</td><td>五蔵のどこか or 諏訪市観光案内所（現金¥4,000）</td><td>—</td></tr>
+    <tr><td>🍽️ 宴屋とんぼ</td><td>推奨</td><td><a href="https://tonbo55.com/access" target="_blank" rel="noopener">公式</a> or 0266-53-4800</td><td><span class="flag-y">⚠️</span></td></tr>
+    <tr><td>🚕 Day2早朝タクシー</td><td>任意</td><td>前日に宿でお願い</td><td><span class="flag-y">⚠️</span></td></tr>
+  </table></div>
+</section>
+
+<section id="gift">
+  <h2>🎁 お土産戦略</h2>
+  <div class="tablewrap"><table>
+    <tr><th>どこで</th><th>なにを</th><th>ポイント</th></tr>
+    <tr><td>🍶 五蔵（Day1）</td><td><strong>新酒しぼりたて</strong>・蔵の限定品</td><td>重い瓶は<strong>その場で宅配</strong>。最後の真澄でまとめるとラク</td></tr>
+    <tr><td>🍡 新鶴本店（Day3）</td><td>塩羊羹</td><td>小さめサイズあり・日持ちする。現金のみ・水曜休</td></tr>
+    <tr><td>🏯 高島城</td><td>御城印</td><td>続100名城スタンプも</td></tr>
+    <tr><td>⛩️ 四社</td><td>御朱印・四社まいり記念品</td><td>四社ぜんぶお参りで記念品 <span class="flag-y">⚠️内容は現地で</span></td></tr>
+  </table></div>
+</section>
+
+<section id="risk">
+  <h2>④ 注意事項</h2>
+  <ul>
+    <li>❄️ <strong>寒さ</strong>：1月下旬の諏訪は朝-8℃前後、日中0〜3℃くらい。湖畔は風が冷たい</li>
+    <li>❄️ <strong>雪は「運」</strong>：諏訪盆地は雪がそこまで多くないので、境内が真っ白かはその週次第。凍った湖面・霜・けあらしはほぼ確実</li>
+    <li>🧊 <strong>御神渡り</strong>：2018年を最後に8季連続で出てない（2026年も「明けの海」）。観察風景を見るのが目的くらいで</li>
+    <li>🚃 <strong>大雪であずさ遅延</strong>：前日夜に運行情報チェック</li>
+    <li>🚌 <strong>かりんちゃんバスは現金のみ</strong>（IC不可）。小銭を用意</li>
+    <li>🚶 <strong>凍結路面</strong>：古道（本宮→前宮）は日陰が凍ってることあり</li>
+    <li>🍶 五蔵：「まちあるき呑みあるき」当日は酒蔵めぐり不可（今年は10/3開催済み）</li>
+  </ul>
+</section>
+
+<section id="alt">
+  <h2>🔀 代替案いろいろ</h2>
+  <h3>✂️ 削ってもよい候補</h3>
+  <ul>
+    <li>神長官守矢史料館（押したら外から高過庵だけ眺める）</li>
+    <li>旦過の湯（宿のお湯で十分なら）</li>
+    <li>御神渡り観察（早起きがしんどければ）</li>
+    <li>高島城（片倉館とどっちか1つでもOK）</li>
+  </ul>
+  <h3>🌨️ 吹雪・大雪のとき</h3>
+  <ul>
+    <li>Day2はバス→<strong>タクシー</strong>に切り替え。古道ウォークはやめて本宮・前宮をタクシーで</li>
+    <li>屋内なら：<strong>諏訪市博物館</strong>（本宮の隣・諏訪信仰の展示）、<strong>北澤美術館</strong>（ガレのガラス）、片倉館で長風呂</li>
+    <li>下社は駅から近いので吹雪でもなんとか。春宮⇄秋宮はタクシーで</li>
+  </ul>
+  <h3>💸 安くするなら</h3>
+  <ul>
+    <li>あずさを<strong>えきねっとトクだ値</strong>で</li>
+    <li>宿を2泊とも朝食付きにして夜は居酒屋へ（湖泉荘なら1泊¥9,000〜）</li>
+    <li>1泊目を<strong>すわ湖苑</strong>（湖畔・¥8,800〜）に</li>
+    <li>2泊目は駅前ビジホ＋温泉は片倉館</li>
+  </ul>
+  <h3>👑 ちょっと贅沢するなら</h3>
+  <ul>
+    <li>湖泉荘の<strong>レイクビュースイート</strong>（和モダン55㎡・湖一望）に1泊だけ</li>
+    <li>2泊目を<strong>みなとや旅館</strong>（5室・綿の湯・桜鍋）に</li>
+    <li>湖泉荘の<strong>貸切半露天</strong>（45分¥2,200）を予約</li>
+  </ul>
+</section>
+
+<section id="budget">
+  <h2>💰 予算（目安）</h2>
+  <details>
+    <summary>合計 約¥78,100（タップで内訳）</summary>
+    <div class="tablewrap"><table>
+      <tr><td>🚄 本厚木⇄上諏訪（あずさ指定席・往復）</td><td class="num">¥11,382</td></tr>
+      <tr><td>🚃🚌🚕 現地移動（JR・バス・タクシー3〜4回）</td><td class="num">約¥4,000</td></tr>
+      <tr><td>🏨 湖泉荘 2食＋鉄鉱泉本館 2食（宿泊税込み）</td><td class="num">約¥30,000</td></tr>
+      <tr><td>🍶 ごくらくセット</td><td class="num">¥4,000</td></tr>
+      <tr><td>♨️🏯 片倉館・高島城・守矢史料館・旦過の湯</td><td class="num">約¥1,700</td></tr>
+      <tr><td>🍽️ 食事（昼×3・夜×1・カフェ）</td><td class="num">約¥15,000</td></tr>
+      <tr><td>🎁 お土産＋宅配</td><td class="num">約¥12,000</td></tr>
+      <tr class="total"><td>合計</td><td class="num">約¥78,100</td></tr>
+      <tr><td>👑 2泊目をみなとやにした場合</td><td class="num">約¥95,000</td></tr>
+    </table></div>
+  </details>
+</section>
+
+<section id="bring">
+  <h2>⑤ 持ち物</h2>
+  <ul>
+    <li>🧥 ダウン＋ヒートテック上下、手袋、ニット帽、マフラー、カイロ</li>
+    <li>👟 <strong>滑りにくい防水ブーツ</strong>、替えの靴下</li>
+    <li>💴 <strong>現金多め＋小銭</strong>（ごくらくセット・バス・新鶴は現金のみ）</li>
+    <li>📿 御朱印帳</li>
+    <li>🔋 モバイルバッテリー（寒いと減りが早い）</li>
+    <li>🧴 保湿クリーム・リップ</li>
+    <li>💊 胃腸薬（飲み比べのお供）</li>
+  </ul>
+</section>
+
+<section id="todo">
+  <h2>✅ これから決めること</h2>
+  <div class="checklist" id="checklist">
+    <label><input type="checkbox" data-k="date3" checked><span>📅 日程：1/28(木)〜1/30(土)</span></label>
+    <label><input type="checkbox" data-k="inn1"><span>🏨 1泊目：湖泉荘 ／ ラルバ ／ 渋の湯 ／ しんゆ</span></label>
+    <label><input type="checkbox" data-k="inn2"><span>🏨 2泊目：みなとや ／ 鉄鉱泉本館 ／ ぎん月 ／ 神の湯</span></label>
+    <label><input type="checkbox" data-k="tel"><span>☎️ みなとや・鉄鉱泉本館に1/29の空きを電話確認</span></label>
+    <label><input type="checkbox" data-k="dinner"><span>🍽️ 夕食を宿にするか外にするか</span></label>
+    <label><input type="checkbox" data-k="omiwatari"><span>🧊 Day2早朝の御神渡り観察に行くか</span></label>
+    <label><input type="checkbox" data-k="azusa"><span>🚄 えきねっとであずさ予約（1か月前10:00〜）</span></label>
+    <label><input type="checkbox" data-k="json"><span>📱 宿が決まったらHTML更新＋ぽけたびJSON作成</span></label>
+  </div>
+</section>
+
+<section>
+  <h2>🔗 参考（2026/10/8確認）</h2>
+  <ul>
+    <li><a href="https://nomiaruki.com/tour/" target="_blank" rel="noopener">諏訪五蔵 酒蔵めぐり</a></li>
+    <li><a href="https://www.suwakanko.jp/wp_v2/wp-content/uploads/2026/04/a3c0c9cb45477858912b55583a1e17c1.pdf" target="_blank" rel="noopener">かりんちゃんバス 上社行き時刻表（2026/4/1改正）</a></li>
+    <li><a href="https://suwataisha.or.jp/events" target="_blank" rel="noopener">諏訪大社 神事・行事</a></li>
+    <li><a href="http://www.katakurakan.or.jp/natural_hot_spring" target="_blank" rel="noopener">片倉館 千人風呂</a></li>
+    <li><a href="https://unagikobayashi.com/tenpo.html" target="_blank" rel="noopener">しもすわ うなぎ小林</a></li>
+    <li><a href="https://www.jalan.net/yad343784/" target="_blank" rel="noopener">湖泉荘（じゃらん）</a>／<a href="https://www.jalan.net/yad374960/" target="_blank" rel="noopener">渋の湯（じゃらん）</a>／<a href="https://lalba-h.com/suwako-hotel" target="_blank" rel="noopener">ラルバ諏訪湖ホテル</a></li>
+    <li><a href="https://www.jalan.net/yad303381/" target="_blank" rel="noopener">しんゆ</a>／<a href="https://www.jalan.net/yad336219/" target="_blank" rel="noopener">すわ湖苑</a>／<a href="https://suwa-minatoya.com/charge/" target="_blank" rel="noopener">みなとや旅館 料金</a>／<a href="https://www.tekkosen.com/" target="_blank" rel="noopener">鉄鉱泉本館</a>／<a href="https://www.jalan.net/yad349122/" target="_blank" rel="noopener">ぎん月</a>／<a href="https://www.jalan.net/yad337134/" target="_blank" rel="noopener">毒沢鉱泉 神の湯</a>／<a href="https://www.jalan.net/yad335444/" target="_blank" rel="noopener">梅月</a></li>
+    <li><a href="https://www.city.chino.lg.jp/soshiki/bunkazai/1639.html" target="_blank" rel="noopener">神長官守矢史料館（茅野市）</a></li>
+    <li><a href="https://tonbo55.com/access" target="_blank" rel="noopener">宴屋とんぼ</a></li>
+  </ul>
+</section>
+
+</main>
+<script>
+(function(){
+  var root=document.documentElement, btn=document.getElementById('themeBtn');
+  function apply(t){ root.setAttribute('data-theme',t); btn.textContent = t==='dark' ? '☀️ ライト' : '🌙 ダーク'; }
+  var saved=null; try{ saved=localStorage.getItem('suwa-theme'); }catch(e){}
+  apply(saved==='dark' ? 'dark' : 'light');
+  btn.addEventListener('click',function(){
+    var t = root.getAttribute('data-theme')==='dark' ? 'light' : 'dark';
+    apply(t); try{ localStorage.setItem('suwa-theme',t); }catch(e){}
+  });
+  var KEY='suwa-v3-check', state={};
+  try{ state=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){ state={}; }
+  document.querySelectorAll('#checklist input').forEach(function(cb){
+    var k=cb.getAttribute('data-k');
+    cb.checked=(k in state)?!!state[k]:cb.defaultChecked; cb.parentElement.classList.toggle('done',cb.checked);
+    cb.addEventListener('change',function(){
+      state[k]=cb.checked; cb.parentElement.classList.toggle('done',cb.checked);
+      try{ localStorage.setItem(KEY,JSON.stringify(state)); }catch(e){}
+    });
+  });
+})();
+</script>
+</body>
+</html>

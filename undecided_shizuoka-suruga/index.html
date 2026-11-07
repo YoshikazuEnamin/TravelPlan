@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>駿河 山と海 週末版 ― 久能山・梅ヶ島温泉・三保の松原</title>
+<style>
+:root{
+  --bg:#f6f4ef; --card:#ffffff; --ink:#1d2a24; --sub:#5d6f66; --line:#e0dccf;
+  --accent:#2f6b4f; --accent2:#1b4f6b; --warm:#c25b2e; --gold:#b08423;
+  --chip:#eef3ee; --shadow:0 1px 3px rgba(0,0,0,.06),0 8px 24px rgba(0,0,0,.05);
+}
+html[data-theme="dark"]{
+  --bg:#121714; --card:#1a221e; --ink:#e7eee9; --sub:#9db0a6; --line:#2c3832;
+  --accent:#6fc79b; --accent2:#6fb6d8; --warm:#e8895c; --gold:#d9ab4b;
+  --chip:#222d27; --shadow:0 1px 3px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3);
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP","Yu Gothic",sans-serif;
+  line-height:1.75; font-size:15px; -webkit-text-size-adjust:100%;
+}
+.wrap{max-width:880px;margin:0 auto;padding:0 16px 80px}
+header.hero{
+  background:linear-gradient(160deg,#2f6b4f 0%,#1b4f6b 100%);
+  color:#fff;padding:38px 16px 30px;text-align:center;
+}
+html[data-theme="dark"] header.hero{background:linear-gradient(160deg,#1d4432 0%,#123646 100%)}
+header.hero .kicker{font-size:.78rem;letter-spacing:.15em;opacity:.85;margin:0 0 6px}
+header.hero h1{margin:0 0 6px;font-size:1.55rem;letter-spacing:.02em}
+header.hero .sub{opacity:.9;font-size:.92rem;margin:0}
+header.hero .meta{margin-top:14px;font-size:.82rem;opacity:.85}
+nav.sticky{
+  position:sticky;top:0;z-index:50;background:var(--card);border-bottom:1px solid var(--line);
+  overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;box-shadow:0 2px 8px rgba(0,0,0,.04);
+}
+nav.sticky .inner{display:inline-flex;gap:4px;padding:8px 12px}
+nav.sticky a{
+  color:var(--sub);text-decoration:none;font-size:.82rem;padding:6px 11px;border-radius:999px;
+  background:var(--chip);flex:0 0 auto;
+}
+nav.sticky a:hover{color:var(--accent)}
+#themeBtn{
+  position:fixed;right:14px;bottom:14px;z-index:60;border:1px solid var(--line);
+  background:var(--card);color:var(--ink);border-radius:999px;padding:9px 15px;
+  font-size:.8rem;cursor:pointer;box-shadow:var(--shadow);
+}
+section{margin:30px 0}
+h2{
+  font-size:1.18rem;margin:0 0 14px;padding-bottom:8px;border-bottom:2px solid var(--accent);
+  display:flex;align-items:center;gap:8px;
+}
+h3{font-size:1.02rem;margin:22px 0 8px;color:var(--accent)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;box-shadow:var(--shadow);margin:12px 0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+table{width:100%;border-collapse:collapse;font-size:.88rem;margin:10px 0}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+th,td{border-bottom:1px solid var(--line);padding:8px 9px;text-align:left;vertical-align:top}
+th{background:var(--chip);font-weight:600;white-space:nowrap;font-size:.83rem}
+td.t{white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:600;color:var(--accent);width:1%}
+blockquote{
+  margin:12px 0;padding:11px 14px;background:var(--chip);border-left:4px solid var(--accent2);
+  border-radius:0 8px 8px 0;font-size:.89rem;color:var(--sub)
+}
+blockquote strong{color:var(--ink)}
+pre.route{
+  background:var(--chip);border:1px solid var(--line);border-radius:10px;padding:14px;
+  overflow-x:auto;font-size:.78rem;line-height:1.6;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  color:var(--ink)
+}
+.badge{display:inline-block;font-size:.72rem;padding:2px 8px;border-radius:999px;background:var(--chip);color:var(--sub);margin-left:6px;vertical-align:middle}
+.ok{color:var(--accent);font-weight:600}
+.warn{color:var(--warm);font-weight:600}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:0;margin:12px 0;box-shadow:var(--shadow)}
+details>summary{padding:13px 16px;cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:10px}
+details>summary::-webkit-details-marker{display:none}
+details>summary::after{content:"\25BE";color:var(--sub);transition:transform .2s;flex:0 0 auto}
+details[open]>summary::after{transform:rotate(180deg)}
+details .body{padding:0 16px 16px}
+ul.check{list-style:none;padding:0;margin:8px 0}
+ul.check li{padding:5px 0;display:flex;gap:9px;align-items:flex-start;font-size:.9rem}
+ul.check input{margin-top:5px;flex:0 0 auto;width:16px;height:16px;accent-color:var(--accent)}
+ul.check input:checked + span{opacity:.45;text-decoration:line-through}
+.hl{background:linear-gradient(transparent 62%,rgba(176,132,35,.3) 62%);font-weight:600}
+.day{border-left:3px solid var(--accent);padding-left:14px;margin:18px 0}
+.dayhead{font-weight:700;font-size:1.05rem;color:var(--accent);margin-bottom:2px}
+.daysub{font-size:.83rem;color:var(--sub);margin-bottom:10px}
+footer{text-align:center;color:var(--sub);font-size:.78rem;margin-top:40px;padding-top:18px;border-top:1px solid var(--line)}
+a{color:var(--accent)}
+.pill{display:inline-block;background:var(--chip);border-radius:6px;padding:1px 7px;font-size:.78rem;margin:2px 3px 2px 0;color:var(--sub)}
+.lifeline{background:linear-gradient(90deg,rgba(194,91,46,.14),transparent);border-left:4px solid var(--warm);padding:10px 14px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.89rem}
+.eat{display:inline-block;background:var(--gold);color:#fff;font-size:.68rem;padding:1px 7px;border-radius:999px;margin-left:6px;vertical-align:middle;font-weight:700}
+
+.tl td.t{white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--accent);font-weight:600;width:1%}
+.tl td .m{display:block;color:var(--sub);font-size:.84rem;margin-top:2px}
+.tl tr.mv td{background:rgba(27,79,107,.05)}
+.tl tr.red td:first-child{border-left:4px solid var(--warm)}
+.cost{white-space:nowrap;color:var(--sub);font-size:.82rem;text-align:right}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <p class="kicker">1泊2日・週末版 v4</p>
+  <h1>駿河 山と海</h1>
+  <p class="sub">1,159段を下って山の湯へ ／ 翌日は水上バスで海へ</p>
+  <div class="meta">2026年10月17日(土) 〜 10月18日(日)　|　本厚木発　|　v4（2026-09-27）</div>
+</header>
+
+<nav class="sticky"><div class="inner">
+  <a href="#gaiyo">概要</a><a href="#v4">v4の変更点</a><a href="#route">ルート</a>
+  <a href="#day1">DAY1</a><a href="#day2">DAY2</a><a href="#yado">宿・温泉</a>
+  <a href="#yoyaku">予約</a><a href="#risk">注意事項</a><a href="#alt">代替案</a>
+  <a href="#budget">予算</a><a href="#mochimono">持ち物</a><a href="#flag">フラグ</a>
+</div></nav>
+
+<div class="wrap">
+
+<section id="gaiyo">
+<h2>🗾 旅の概要</h2>
+<div class="card">
+<h3 style="margin-top:0">今回のテーマ</h3>
+<p style="margin:0"><span class="hl">海を見下ろす国宝から、安倍川の源流の湯へ。翌日また海へ降りてくる。</span><br>
+土曜の朝は日本平から富士山と駿河湾を見下ろして、ロープウェイで久能山東照宮へ。参拝したら<strong>1,159段を海に向かって下り</strong>、昼過ぎには1日2本のバスで安倍川を遡って<strong>梅ヶ島の源泉かけ流し</strong>へ。日曜は山を下りて三保の松原を歩き、最後は<strong>水上バス</strong>で清水港を渡って帰ります。</p>
+</div>
+<div class="grid2">
+  <div class="card"><h3 style="margin-top:0">📍 旅の骨格</h3><p style="margin:0;font-size:.9rem">
+  <span class="pill">日本平夢テラス</span><span class="pill">日本平ロープウェイ</span><span class="pill">久能山東照宮（国宝）</span><span class="pill">表参道1,159段</span><span class="pill">安倍線バス旅</span><span class="pill">梅ヶ島温泉 源泉かけ流し</span><span class="pill">安倍の大滝</span><span class="pill">アマゴの塩焼き</span><span class="pill">羽衣の松・神の道</span><span class="pill">御穂神社</span><span class="pill">あべ川もち</span><span class="pill">水上バス</span><span class="pill">清水すし横丁</span></p></div>
+  <div class="card"><h3 style="margin-top:0">💰 想定予算</h3>
+  <p style="margin:0 0 6px;font-size:1.3rem;font-weight:700;color:var(--accent)">約 ¥33,064</p>
+  <p style="margin:0;font-size:.85rem;color:var(--sub)">交通・宿・拝観・食事・お土産込み。宿が1泊2食11,000円なので、1泊旅としてはかなり軽め。</p></div>
+</div>
+<div class="card">
+<h3 style="margin-top:0">✨ この旅で最も感動しそうな瞬間</h3>
+<p style="margin:0"><span class="hl">DAY2の16:35、三保のりばを出た水上バスから三保松原越しに富士山が見える瞬間。</span><br>
+前日の朝に日本平から見下ろした富士山と駿河湾を、今度は海面すれすれの目線で見上げて旅が終わります。</p>
+</div>
+<div class="card">
+<h3 style="margin-top:0">🏆 ハイライト3選</h3>
+<table>
+<tr><td class="t">01</td><td><strong>久能山東照宮 ＋ 表参道1,159段</strong><br><span style="color:var(--sub);font-size:.86rem">ロープウェイで上から入って国宝の御社殿に参ったら、帰りは九十九折の石段を駿河湾に向かって下ります。ずっと海を正面に見ながら歩けるのは下りならでは。</span></td></tr>
+<tr><td class="t">02</td><td><strong>梅ヶ島温泉の源泉かけ流しを家族風呂で</strong><br><span style="color:var(--sub);font-size:.86rem">加水なしのアルカリ性単純硫黄泉。2024年温泉総選挙の美肌部門で全国5位。全5室の小さな宿で、日帰り入浴もないから静か。</span></td></tr>
+<tr><td class="t">03</td><td><strong>三保の松原を歩いて水上バスで清水港へ</strong><br><span style="color:var(--sub);font-size:.86rem">羽衣の松 → 神の道 → 御穂神社と歩いて、最後は船。土休日だけの組み立てです。</span></td></tr>
+</table>
+</div>
+<blockquote><strong>おすすめ度：★★★★★</strong><br>平日版の良さはそのままで、週末ダイヤのおかげで<strong>DAY2のお昼前がのんびりできる</strong>のと、<strong>水上バスで締められる</strong>のがプラス。代わりにバス1日2本の縛りは平日と同じです。</blockquote>
+</section>
+
+<section id="v4">
+<h2>🆕 v3（平日版）から変えたこと</h2>
+<div class="card"><ul style="margin:0;padding-left:1.2em;font-size:.92rem">
+<li><strong>梅ヶ島行き</strong>：平日12:42発 → <strong>土休日12:53発</strong>（1日2本の最終）。帰りは10:41 → <strong>11:31発</strong></li>
+<li><strong>久能山の回り方を逆に</strong>：土曜の朝は久能山下行きのバスが遅い（静岡駅南口09:00発が最初）ので、<strong>08:23のバスで日本平へ → ロープウェイで下りて参拝 → 石段で海へ</strong></li>
+<li><strong>宿はスペシャルプラン</strong>：チェックアウト11:00に延長できて、11:31のバスにちょうど合う</li>
+<li><strong>DAY2の締めは水上バス</strong>：三保16:35発の最終便で清水港を渡り、ドリプラで早めの夕食</li>
+<li>土休日は三保のバスが<strong>「世界遺産三保松原」</strong>まで入るので、行きは歩かなくていい</li>
+</ul></div>
+</section>
+
+<section id="route">
+<h2>🗺️ ルート</h2>
+<pre class="route">本厚木 05:25 ─小田急─ 小田原 ─JR─ 熱海 ─JR─ 静岡 08:03
+  └ 08:23 バス → 日本平 09:07（夢テラス）─🚡→ 久能山東照宮
+       └ 1,159段を海へ下る → 久能山下 11:39 バス → 静岡 12:25
+            └ 🔴12:53 安倍線 → 安倍大滝入口 14:33 ＝ 湯の華（泊）
+
+湯の華 ─🔴11:31 安倍線→ 静岡 13:15 ─JR→ 清水 ─バス→ 三保松原 14:22
+  └ みほしるべ・羽衣の松・中村園・神の道・御穂神社 ─徒歩→ 三保のりば
+       └ ⛴️16:35 → 日の出（ドリプラ・すし横丁）─徒歩→ 清水 18:08 → 本厚木 20:34</pre>
+<div class="lifeline">🔴 <strong>生命線</strong>：静岡駅前 12:53発（行き）と 安倍大滝入口 11:31発（帰り）。どちらも土休日1日2本しかない安倍線です。</div>
+</section>
+
+<section id="day1">
+<h2>☀️ DAY1　10/17(土)　日本平・久能山 → 梅ヶ島温泉</h2>
+<div class="day"><div class="daysub">海抜300mの日本平 → 国宝 → 海抜0m → 標高約800mの山の湯</div>
+<div class="scroll"><table class="tl">
+<tr class="mv"><td class="t">05:25<br>06:08</td><td><strong>🚃 本厚木→小田原（小田急 各停 小田原行）</strong><span class="m">2番線発→小田原10番線着。乗換14分。出発地：神奈川県厚木市泉町1-1（本厚木駅）／到着地：神奈川県小田原市城山1-1-1（小田原駅）。</span></td><td class="cost">¥472</td></tr>
+<tr class="mv"><td class="t">06:22<br>06:45</td><td><strong>🚃 小田原→熱海（JR東海道線 熱海行）</strong><span class="m">3番線発→熱海2番線着。熱海での乗換は3分なので、降りたらすぐ向かいのホームへ。運賃は静岡までの通しで次の区間に計上。到着地：静岡県熱海市田原本町11-11（熱海駅）。</span></td><td class="cost"></td></tr>
+<tr class="mv"><td class="t">06:48<br>08:03</td><td><strong>🚃 熱海→静岡（JR東海道線 当駅始発 浜松行）</strong><span class="m">熱海3番線発の当駅始発なので座れる。静岡4番線着。JR小田原→静岡はIC1,710円。到着地：静岡県静岡市葵区黒金町（静岡駅）。</span></td><td class="cost">¥1,710</td></tr>
+<tr class="mv"><td class="t">08:23<br>09:07</td><td><strong>🚌 静岡駅前→日本平ロープウェイ（しずてつ 日本平線）</strong><span class="m">⚠️のりば番号は要確認（北口バスターミナル）。静岡駅着08:03から20分あるので、改札を出たらまずのりばを確認→トイレ・朝の飲み物。土休日の日本平ロープウェイ行。IC710円。到着地：静岡県静岡市清水区草薙597-8（日本平ロープウェイ 日本平駅）。</span></td><td class="cost">¥710</td></tr>
+<tr class=""><td class="t">09:08<br>09:26</td><td><strong>🗻 日本平夢テラス（朝の富士山と駿河湾）</strong><span class="m">無料・土曜は9:00〜21:00。展望回廊は終日入れる。朝のほうが富士山が見えやすい。ロープウェイ駅から徒歩数分なので、見たら9:30の便に戻る。長居したくなるけど今日は15分勝負。</span><span class="m">📍 静岡県静岡市清水区草薙600-1</span><span class="m">🕘 9:00〜17:00（土曜〜21:00）・第2火曜休</span><span class="m">☎ 054-340-1172</span><span class="m">🔗 <a href="https://nihondaira-yume-terrace.jp/" target="_blank" rel="noopener">公式</a></span></td><td class="cost"></td></tr>
+<tr class="mv"><td class="t">09:30<br>09:35</td><td><strong>🚡 日本平ロープウェイ（日本平→久能山・片道）</strong><span class="m">日本平駅発 9:10／9:30／9:45…（9時台は3本）。片道700円（往復1,250円）。現金・カード・QR・電子マネー可。全長1,065mで、屏風谷の絶壁と久能海岸を見下ろす5分。12/1〜12/21は設備更新で運休だが10月は通常運行。</span></td><td class="cost">¥700</td></tr>
+<tr class=""><td class="t">09:35<br>11:00</td><td><strong>⛩️ 久能山東照宮 参拝（国宝 御社殿）</strong><span class="m">拝観9:00〜17:00（受付は10分前まで）。社殿700円／博物館600円／共通1,200円。徳川家康公を祀る全国東照宮の創祀。ロープウェイ駅から御社殿まで約80段、御社殿から神廟まで約5分。御朱印は社務所で9:00〜。博物館も見るなら共通券にして+500円。</span><span class="m">📍 静岡県静岡市駿河区根古屋390</span><span class="m">🕘 9:00〜17:00・年中無休</span><span class="m">☎ 054-237-2438</span><span class="m">🔗 <a href="https://www.toshogu.or.jp/" target="_blank" rel="noopener">公式</a></span></td><td class="cost">¥700</td></tr>
+<tr class=""><td class="t">11:00<br>11:32</td><td><strong>🪜 表参道1,159段を下る（駿河湾に向かって）</strong><span class="m">※ピンは石段下（久能山下バス停）の座標を流用。一ノ門から久能山下まで1,159段、公式の目安は登り約30分。九十九折の石段で、目の前がずっと駿河湾。下りは膝にくるので手すり側をゆっくり。降りた先が「いちご海岸通り」（石垣いちごは12月〜なので今回はお店の外観だけ）。</span></td><td class="cost"></td></tr>
+<tr class="mv"><td class="t">11:39<br>12:25</td><td><strong>🚌 久能山下→静岡（しずてつ 石田街道線）</strong><span class="m">東大谷行に乗って静岡駅方面へ（東大谷で乗換）。IC650円。🟡早く降りられたら10:51発（静岡11:37着）でもOK。11:22発の山原梅蔭寺線（810円・静岡12:09着）もある。どれに乗っても12:53の梅ヶ島行きには間に合う。</span></td><td class="cost">¥650</td></tr>
+<tr class=""><td class="t">12:25<br>12:48</td><td><strong>🍱 昼ごはん調達（駅弁・静岡おでん・地酒300ml）</strong><span class="m">バスは1時間40分。車中で食べる駅弁か、パルシェの静岡おでん・黒はんぺんフライ。今夜の宿で飲む地酒の小瓶（磯自慢・正雪・臥龍梅など）もここで。宿のまわりにコンビニ・商店はほぼ無いので、飲み物もここで確保。</span></td><td class="cost">¥1,500</td></tr>
+<tr class="mv red"><td class="t">12:53<br>14:33</td><td><strong>🚌 <span class="warn">🔴</span>静岡駅前→安倍大滝入口（しずてつ 安倍線 梅ヶ島温泉行）</strong><span class="m"><span class="warn">🔴</span>土休日は1日2本（08:33／12:53）の最終便。これを逃すと宿に行く公共交通がなくなる。北口9番のりば。IC1,950円・1時間40分。安倍川を遡って茶畑と杉の谷へ入っていく、この旅いちばんの旅情区間。終点の1つ手前で下車。到着地：静岡県静岡市葵区梅ヶ島（安倍大滝入口バス停）。</span></td><td class="cost">¥1,950</td></tr>
+<tr class=""><td class="t">14:36<br>14:55</td><td><strong>🏮 民宿 湯の華 チェックイン（スペシャルプラン）</strong><span class="m">バス停から徒歩3分・全5室。スペシャルプラン1泊2食11,000円＝アマゴの塩焼き（or梅ヶ島紅茶のお土産）＋ウェルカムドリンク1本＋チェックアウト11:00延長。帰りのバスが11:31なのでCO延長がぴったり。⚠️チェックイン時刻・入湯税・カード可否は予約時に確認。日帰り入浴なし（宿泊者だけの湯）。予約は電話・メールフォーム・LINE。</span><span class="m">📍 静岡県静岡市葵区梅ヶ島5276-2</span><span class="m">☎ 054-269-2253</span><span class="m">🔗 <a href="https://umegashima.site/" target="_blank" rel="noopener">公式</a></span></td><td class="cost">¥11,000</td></tr>
+<tr class=""><td class="t">15:00<br>16:30</td><td><strong>🏞️ 安倍の大滝ハイキング（日本の滝百選）</strong><span class="m">落差約80m。遊歩道は2025年1月に復旧して通行可。宿から滝まで直線約1km・標高差約170mの沢沿いの道で、吊り橋を渡る。⚠️所要は往復1時間半の見込み（宿で当日の道の状態を聞く）。🐻近隣でツキノワグマ目撃情報あり→熊鈴必携、16時半には宿に戻る（10月中旬の日の入りは17時過ぎ、谷はもっと早く暗くなる）。雨なら削る。</span></td><td class="cost"></td></tr>
+<tr class=""><td class="t">16:45<br>17:30</td><td><strong>♨️ 【1回目】家族風呂（源泉かけ流し）</strong><span class="m">アルカリ性単純硫黄泉・加水なしの源泉かけ流し。1,159段と滝歩きのあとの脚に。つるつる・たまご臭のする美肌の湯（2024年温泉総選挙 美肌部門 全国5位）。貸切の家族風呂は1つだけなので、使い方は到着時に確認。</span></td><td class="cost"></td></tr>
+<tr class=""><td class="t">18:00<br>19:15</td><td><strong>🐟 夕食（湯の華定食＋アマゴの塩焼き）</strong><span class="m">天ぷら・小鉢・煮物・茶碗蒸し・しいたけのバター焼きなどの田舎料理にアマゴの塩焼き。ウェルカムドリンクを地酒にして、静岡で買った小瓶と飲み比べ。⚠️夕食時刻は予約時に確認。宿泊料金に含む。</span></td><td class="cost"></td></tr>
+<tr class=""><td class="t">20:30<br>21:00</td><td><strong>🌙 【2回目】寝る前の湯＋星空</strong><span class="m">山あいで街明かりがないので、晴れたら外に出て星を見る。湯冷めしやすいので上着を。</span></td><td class="cost"></td></tr>
+</table></div>
+</div>
+</section>
+
+<section id="day2">
+<h2>🌊 DAY2　10/18(日)　梅ヶ島 → 三保の松原 → 水上バス → 清水</h2>
+<div class="day"><div class="daysub">朝はのんびり、午後は松原と船</div>
+<div class="scroll"><table class="tl">
+<tr class=""><td class="t">06:30<br>07:15</td><td><strong>🌅 【3回目】朝湯</strong><span class="m">谷に朝日が差し込む時間。いちばん空いている。</span></td><td class="cost"></td></tr>
+<tr class=""><td class="t">07:30<br>08:15</td><td><strong>🍚 朝食</strong><span class="m">⚠️朝食時刻は予約時に確認。宿泊料金に含む。</span></td><td class="cost"></td></tr>
+<tr class=""><td class="t">08:30<br>10:45</td><td><strong>🍂 梅ヶ島温泉郷さんぽ／宿でゆっくり</strong><span class="m">チェックアウトが11:00なので朝はのんびり。温泉街（バス終点の梅ヶ島温泉方面）まで川沿いを歩くか、部屋でごろごろ。🟡もう一度お風呂に入れるかは宿に確認。昨日の大滝を雨で削った場合はここで行ってもいい（往復1時間半）。</span></td><td class="cost"></td></tr>
+<tr class=""><td class="t">10:45<br>11:00</td><td><strong>🧳 チェックアウト</strong><span class="m">スペシャルプランならCO11:00。バス停まで徒歩3分。</span></td><td class="cost"></td></tr>
+<tr class="mv red"><td class="t">11:31<br>13:15</td><td><strong>🚌 <span class="warn">🔴</span>安倍大滝入口→静岡駅前（しずてつ 安倍線）</strong><span class="m"><span class="warn">🔴</span>土休日の帰りは11:31と15:32の2本だけ。15:32だと三保が消えるので必ずこれ。IC1,950円・1時間44分。</span></td><td class="cost">¥1,950</td></tr>
+<tr class=""><td class="t">13:15<br>13:30</td><td><strong>🍢 静岡駅で軽く昼（静岡おでん串 or おにぎり）</strong><span class="m">乗換18分なので立ち食い・テイクアウトで。朝食が早いので三保でおやつ（あべ川もち）まではこれでつなぐ。</span></td><td class="cost">¥800</td></tr>
+<tr class="mv"><td class="t">13:33<br>13:44</td><td><strong>🚃 静岡→清水（JR東海道線 興津行）</strong><span class="m">1番線発。IC240円。1本後の13:38発（熱海行・清水13:49着）でも次のバスに間に合う。到着地：静岡県静岡市清水区真砂町1-1（清水駅）。</span></td><td class="cost">¥240</td></tr>
+<tr class="mv"><td class="t">13:55<br>14:22</td><td><strong>🚌 清水駅→世界遺産三保松原（しずてつ 三保山の手線）</strong><span class="m">世界遺産三保松原行。IC470円。土休日は松原の目の前「世界遺産三保松原」バス停まで入る（平日は三保松原入口止まりで徒歩15分）。1時間に1本なので乗り遅れ注意。</span></td><td class="cost">¥470</td></tr>
+<tr class=""><td class="t">14:25<br>14:45</td><td><strong>🌲 みほしるべ（三保松原文化創造センター）</strong><span class="m">年中無休9:00〜16:30。三保松原と羽衣伝説の予習ができる。ミュージアムショップの三保松原コーヒーはお土産候補。</span><span class="m">📍 静岡県静岡市清水区三保1338-45</span><span class="m">🕘 9:00〜16:30・年中無休</span><span class="m">☎ 054-340-2100</span><span class="m">🔗 <a href="https://miho-no-matsubara.jp/center" target="_blank" rel="noopener">公式</a></span></td><td class="cost"></td></tr>
+<tr class=""><td class="t">14:48<br>15:03</td><td><strong>🪶 羽衣の松（三代目）と松原の浜</strong><span class="m">天女が羽衣をかけたと伝わる松。浜に出ると晴れていれば松原越しの富士山。</span></td><td class="cost"></td></tr>
+<tr class=""><td class="t">15:05<br>15:25</td><td><strong>🍡 三保羽衣 茶中村園（あべ川もち＆羽衣ほうじ茶）</strong><span class="m">昨日遡った安倍川の名物・あべ川もちで山と海がつながる。⚠️営業時間は10:00〜16:00（静岡新聞アットエス掲載）と10:00〜16:30の情報があり、電話番号も054-376-6656（アットエス）で旧情報と異なる→前日に確認。値段は未確認。</span><span class="m">📍 静岡県静岡市清水区三保1338-41</span><span class="m">🕘 10:00〜16:00（要確認）・定休日なし</span><span class="m">☎ 054-376-6656</span></td><td class="cost">¥700</td></tr>
+<tr class=""><td class="t">15:25<br>15:35</td><td><strong>🌳 神の道（約500mの松並木の木道）</strong><span class="m">※ピンは御穂神社の座標を流用。羽衣の松に降りた神を御穂神社へお迎えする道。樹齢数百年の松のトンネル。</span></td><td class="cost"></td></tr>
+<tr class=""><td class="t">15:35<br>15:55</td><td><strong>⛩️ 御穂神社 参拝</strong><span class="m">駿河国三之宮。羽衣伝説ゆかりの神社。社務所・御朱印は9:00〜16:00なので、着いたら先に御朱印をお願いする。</span><span class="m">📍 静岡県静岡市清水区三保1073</span><span class="m">🕘 社務所9:00〜16:00</span><span class="m">☎ 054-334-0828</span><span class="m">🔗 <a href="https://miho-jinja.jp/" target="_blank" rel="noopener">公式</a></span></td><td class="cost"></td></tr>
+<tr class="mv"><td class="t">15:55<br>16:25</td><td><strong>🚶 御穂神社→水上バス 三保のりば（徒歩）</strong><span class="m">直線約1.8km・徒歩約25〜30分。海に長く延びる桟橋はSNSで人気の撮影スポット。🟡歩くのがしんどい／間に合わない時は、御穂神社近くの「三保松原入口」から16:16発のバス（清水駅16:46着・440円）に切り替え。到着地：静岡県静岡市清水区三保2729（三保のりば）。</span></td><td class="cost"></td></tr>
+<tr class="mv"><td class="t">16:35<br>16:50</td><td><strong>⛴️ 水上バス 三保→日の出（三保羽衣ライン）</strong><span class="m">三保発16:35は最終便（日の出・江尻で下船のみ可）。大人1,000円・船内で現金払いのみ。三保のりばを出た直後、三保松原越しの富士山が海抜0mの目線で見える。欠航時は上のバスに切り替え。到着地：静岡県静岡市清水区港町1丁目（日の出のりば・ドリプラ徒歩2分）。</span></td><td class="cost">¥1,000</td></tr>
+<tr class=""><td class="t">16:52<br>17:10</td><td><strong>🥫 エスパルスドリームプラザでお土産</strong><span class="m">清水かんづめ市場（ツナ缶発祥の地・清水のレア缶詰）と駿河みやげ横丁。重い瓶ものはここで宅配にするか、昨日静岡で買った小瓶で済ませる。</span><span class="m">📍 静岡県静岡市清水区入船町13-15</span><span class="m">🔗 <a href="https://www.dream-plaza.co.jp/" target="_blank" rel="noopener">公式</a></span></td><td class="cost">¥3,000</td></tr>
+<tr class=""><td class="t">17:10<br>17:45</td><td><strong>🍣 清水すし横丁で早めの夕食</strong><span class="m">10月は11:00〜20:00（L.O.20:00）。回転寿司のぶちゃん・鮨 川澄・入船鮨・お食事処 大漁市場など6店。帰りの電車があるので回転寿司かお食事処でサクッと。マグロの町・清水の本マグロとしらす。</span><span class="m">📍 静岡県静岡市清水区入船町13-15</span><span class="m">🕘 11:00〜20:00</span><span class="m">🔗 <a href="https://www.dream-plaza.co.jp/shimizu-sushi-yokocho/" target="_blank" rel="noopener">公式</a></span></td><td class="cost">¥3,000</td></tr>
+<tr class="mv"><td class="t">17:45<br>18:05</td><td><strong>🚶 ドリプラ→清水駅（徒歩）</strong><span class="m">約1.4km・徒歩約20分。🟡間に合わなければ18:20発（本厚木20:54着）に落とせばいい。</span></td><td class="cost"></td></tr>
+<tr class="mv"><td class="t">18:08<br>19:15</td><td><strong>🚃 清水→熱海（JR東海道線 熱海行）</strong><span class="m">1番線発→熱海3番線着。JR清水→小田原はIC1,540円。</span></td><td class="cost">¥1,540</td></tr>
+<tr class="mv"><td class="t">19:26<br>19:47</td><td><strong>🚃 熱海→小田原（JR 上野東京ライン 当駅始発 宇都宮行）</strong><span class="m">熱海5番線発の当駅始発なので座れる。</span></td><td class="cost"></td></tr>
+<tr class="mv"><td class="t">19:55<br>20:34</td><td><strong>🚃 小田原→本厚木（小田急 快速急行 新宿行）</strong><span class="m">小田原9番線発の当駅始発。本厚木3番線着。</span></td><td class="cost">¥472</td></tr>
+</table></div>
+</div>
+</section>
+
+<section id="yado">
+<h2>🏮 宿・温泉戦略</h2>
+<div class="card">
+<h3 style="margin-top:0">民宿 湯の華（梅ヶ島温泉）</h3>
+<p style="margin:0;font-size:.9rem">📍 静岡市葵区梅ヶ島5276-2 ／ ☎ 054-269-2253 ／ <a href="https://umegashima.site/" target="_blank" rel="noopener">公式サイト</a><br>
+全5室・安倍大滝入口バス停から徒歩3分・日帰り入浴なし・予約は電話／フォーム／LINE</p>
+<table>
+<tr><th>プラン</th><th>料金</th><th>内容</th></tr>
+<tr><td><strong>スペシャル（おすすめ）</strong></td><td>11,000円</td><td>湯の華定食＋アマゴの塩焼き（or梅ヶ島紅茶のお土産）＋ウェルカムドリンク1本＋<strong>CO 11:00</strong></td></tr>
+<tr><td>アマゴ付</td><td>10,600円</td><td>CO 10:00（バスまで30分待ち）</td></tr>
+<tr><td>スタンダード</td><td>10,000円</td><td>湯の華定食（天ぷら・小鉢・煮物・茶碗蒸し・しいたけのバター焼きなど）</td></tr>
+</table>
+</div>
+<div class="grid2">
+<div class="card"><h3 style="margin-top:0">♨️ 泉質</h3><p style="margin:0;font-size:.9rem">アルカリ性単純硫黄泉・加水なしの源泉かけ流し。ぬるっとした肌ざわりとたまご臭。2017年国民保養温泉地指定、2024年温泉総選挙 美肌部門で中部1位・全国5位。武田信玄の隠し湯とも。</p></div>
+<div class="card"><h3 style="margin-top:0">🕐 おすすめの入浴タイミング</h3><p style="margin:0;font-size:.9rem">① 16:45 大滝から戻ってすぐ（石段と沢道で使った脚に）<br>② 20:30 寝る前（晴れたら星空とセット）<br>③ 6:30 朝湯（谷に朝日が差す時間・いちばん空いている）</p></div>
+</div>
+</section>
+
+<section id="yoyaku">
+<h2>📝 予約リスト</h2>
+<div class="scroll"><table>
+<tr><th>区分</th><th>内容</th><th>方法</th></tr>
+<tr><td class="warn">必須</td><td>民宿 湯の華 スペシャルプラン（10/17・1名・アマゴ）</td><td>☎054-269-2253／フォーム／LINE。<strong>全5室の週末なので最優先</strong></td></tr>
+<tr><td>不要</td><td>JR・小田急・しずてつバス（安倍線含む）</td><td>交通系ICでOK</td></tr>
+<tr><td>不要</td><td>日本平ロープウェイ</td><td>当日窓口（現金・カード・QR・電子マネー）</td></tr>
+<tr><td>不要</td><td>水上バス 三保→日の出</td><td>船内で現金1,000円</td></tr>
+<tr><td>任意</td><td>清水すし横丁</td><td>予約なしでOK</td></tr>
+</table></div>
+</section>
+
+<section id="risk">
+<h2>⚠️ 注意事項</h2>
+<div class="lifeline"><strong>① 静岡駅前12:53発</strong>（北口9番・土休日の最終）　<strong>② 安倍大滝入口11:31発</strong>（次は15:32で三保が消える）　<strong>③ 清水駅13:55発</strong>（三保行きは1時間に1本）</div>
+<div class="card"><h3 style="margin-top:0">乗換リスク</h3><ul style="margin:0;padding-left:1.2em;font-size:.9rem">
+<li>熱海は3分乗換（06:45着 → 06:48発）。向かいのホームへすぐ移動</li>
+<li>静岡着08:03 → バス08:23。<strong>日本平線ののりば番号は未確認</strong>なので、着いたらまずのりばへ</li>
+<li>久能山下の帰りのバスは10:51／11:22／11:39の3本。どれでも12:53に間に合う</li>
+</ul></div>
+<div class="card"><h3 style="margin-top:0">混雑リスク</h3><ul style="margin:0;padding-left:1.2em;font-size:.9rem">
+<li>10月の土曜の久能山・日本平はそこそこ混む。朝イチなので影響は小さい</li>
+<li>日曜午後の三保の松原は観光バスあり。神の道で写真待ちが出ることも</li>
+</ul></div>
+<div class="card"><h3 style="margin-top:0">天候リスク</h3><ul style="margin:0;padding-left:1.2em;font-size:.9rem">
+<li><strong>山のバスは大雨で運休することがある</strong>。前日の夕方にしずてつジャストライン（☎054-252-0505）の運行情報を確認</li>
+<li>雨の石段は滑る → 久能山は<strong>ロープウェイ往復</strong>（+550円）にして、日本平11:30発のバス（静岡12:19着）で戻る</li>
+<li>水上バスは強風で欠航あり → 三保松原入口16:16発のバス（清水駅16:46着・440円）</li>
+</ul></div>
+<div class="card"><h3 style="margin-top:0">🐻 クマ</h3><p style="margin:0;font-size:.9rem">宿の公式サイトで近隣のツキノワグマ目撃情報が出ています。大滝ハイキングは<strong>熊鈴必携・16:30までに戻る</strong>。宿で当日の状況を聞いてから行ってください。</p></div>
+</section>
+
+<section id="alt">
+<h2>🔁 選べる代替案</h2>
+<div class="scroll"><table>
+<tr><th>観点</th><th>案</th></tr>
+<tr><td>削ってもよい</td><td>日本平夢テラス／安倍の大滝／みほしるべ</td></tr>
+<tr><td>雨天時</td><td>久能山はロープウェイ往復・大滝は削って宿でのんびり・三保はみほしるべ中心、帰りはバスで清水へ</td></tr>
+<tr><td>予算を抑える</td><td>湯の華スタンダード（10,000円）で−1,000円。夕食は回転寿司で</td></tr>
+<tr><td>贅沢にする</td><td>大野木荘（コンヤ温泉・貸切風呂4つ・静岡駅から無料送迎）※1名料金は要確認。夕食を鮨 川澄や入船鮨の江戸前に</td></tr>
+<tr><td>水上バスをやめる</td><td>バスで清水駅へ → 徒歩5分の河岸の市（いちば館9:30〜17:30・水曜休）でお土産。ただし食事処は16時前後に閉まる店が多い</td></tr>
+</table></div>
+</section>
+
+<section id="budget">
+<h2>💰 予算</h2>
+<details open><summary>合計 約 ¥33,064</summary><div class="body">
+<table><tr><td>交通費（IC運賃）</td><td style='text-align:right'>¥11,864</td></tr><tr><td>宿（湯の華 スペシャルプラン 1泊2食）</td><td style='text-align:right'>¥11,000</td></tr><tr><td>拝観（久能山東照宮 社殿）</td><td style='text-align:right'>¥700</td></tr><tr><td>食事（昼2回・あべ川もち・夕食）</td><td style='text-align:right'>¥6,000</td></tr><tr><td>お土産</td><td style='text-align:right'>¥3,000</td></tr><tr><td>雑費（入湯税・飲み物など）</td><td style='text-align:right'>¥500</td></tr><tr><th>合計</th><th style="text-align:right">¥33,064</th></tr></table>
+</div></details>
+<details><summary>交通費の内訳（計 ¥11,864）</summary><div class="body"><table><tr><td>小田急 本厚木→小田原</td><td style='text-align:right'>¥472</td></tr><tr><td>JR 小田原→静岡</td><td style='text-align:right'>¥1,710</td></tr><tr><td>バス 静岡駅前→日本平RW</td><td style='text-align:right'>¥710</td></tr><tr><td>ロープウェイ 片道</td><td style='text-align:right'>¥700</td></tr><tr><td>バス 久能山下→静岡</td><td style='text-align:right'>¥650</td></tr><tr><td>バス 静岡駅前→安倍大滝入口</td><td style='text-align:right'>¥1,950</td></tr><tr><td>バス 安倍大滝入口→静岡駅前</td><td style='text-align:right'>¥1,950</td></tr><tr><td>JR 静岡→清水</td><td style='text-align:right'>¥240</td></tr><tr><td>バス 清水駅→世界遺産三保松原</td><td style='text-align:right'>¥470</td></tr><tr><td>水上バス 三保→日の出</td><td style='text-align:right'>¥1,000</td></tr><tr><td>JR 清水→小田原</td><td style='text-align:right'>¥1,540</td></tr><tr><td>小田急 小田原→本厚木</td><td style='text-align:right'>¥472</td></tr></table></div></details>
+</section>
+
+<section id="mochimono">
+<h2>🎒 持ち物</h2>
+<div class="card"><ul class="check"><li><input type="checkbox"><span>歩きやすいスニーカー（石段1,159段＋滝の沢道＋三保で約3km）</span></li><li><input type="checkbox"><span>熊鈴</span></li><li><input type="checkbox"><span>薄手のダウンかフリース（梅ヶ島は標高約800m。10月中旬の朝晩はかなり冷える）</span></li><li><input type="checkbox"><span>折りたたみ傘</span></li><li><input type="checkbox"><span>現金2,000円以上（水上バスは現金のみ）</span></li><li><input type="checkbox"><span>交通系ICカード（バス代だけで約5,000円）</span></li><li><input type="checkbox"><span>御朱印帳（久能山東照宮・御穂神社）</span></li><li><input type="checkbox"><span>モバイルバッテリー</span></li></ul></div>
+</section>
+
+<section id="flag">
+<h2>🚩 フラグ</h2>
+<div class="card"><h3 style="margin-top:0">✅ 確認済み（2026-09-27）</h3><ul style="margin:0;padding-left:1.2em;font-size:.88rem">
+<li>土休日の安倍線：静岡駅前 08:33・12:53発／安倍大滝入口 11:31・15:32発</li>
+<li>本厚木05:25 → 静岡08:03（10/17）、清水18:08 → 本厚木20:34（10/18）</li>
+<li>静岡駅前08:23 → 日本平ロープウェイ09:07（土休日）</li>
+<li>日本平ロープウェイ：9:10／9:30／9:45発…・片道700円・12月の運休は10月に関係なし</li>
+<li>久能山東照宮 9:00〜17:00・社殿700円／共通1,200円</li>
+<li>水上バス 三保16:35発（最終・日の出／江尻で下船のみ）・1,000円現金</li>
+<li>安倍の大滝遊歩道は2025年1月に復旧・通行可</li>
+</ul></div>
+<div class="card"><h3 style="margin-top:0">⚠️ 未確認</h3><ul class="check"><li><input type="checkbox"><span>湯の華の空室・チェックイン時刻・食事時刻・入湯税・カード可否</span></li><li><input type="checkbox"><span>静岡駅前の日本平線ののりば番号</span></li><li><input type="checkbox"><span>茶中村園の営業時間（16:00か16:30か）と値段</span></li><li><input type="checkbox"><span>安倍の大滝の往復所要（宿で確認）</span></li><li><input type="checkbox"><span>10月中のダイヤ改正の有無（出発1週間前に再確認）</span></li></ul></div>
+<div class="card"><h3 style="margin-top:0">✅ 出発前チェックリスト</h3><ul class="check"><li><input type="checkbox"><span>湯の華を予約（スペシャルプラン・アマゴ）</span></li><li><input type="checkbox"><span>1週間前：天気・しずてつバスのダイヤ再確認</span></li><li><input type="checkbox"><span>前日：中村園に営業時間を確認、安倍線の運行情報を確認</span></li><li><input type="checkbox"><span>ICカードにチャージ</span></li><li><input type="checkbox"><span>ぽけたびにJSONを読み込む</span></li></ul></div>
+</section>
+
+<footer>駿河 山と海 週末版 v4 ／ 作成 2026-09-27 ／ ダイヤはYahoo!路線情報（JR 令和8年10月号・私鉄 令和8年9月現在）と各公式サイトで確認</footer>
+</div>
+<button id="themeBtn">🌙 ダーク</button>
+<script>
+(function(){
+  var b=document.getElementById('themeBtn');
+  var r=document.documentElement;
+  function set(t){
+    r.setAttribute('data-theme',t);
+    b.textContent = t==='dark' ? '☀️ ライト' : '🌙 ダーク';
+  }
+  set('light');
+  b.addEventListener('click',function(){
+    set(r.getAttribute('data-theme')==='dark'?'light':'dark');
+  });
+  document.querySelectorAll('nav.sticky a').forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      var el=document.querySelector(a.getAttribute('href'));
+      if(el){ window.scrollTo({top:el.getBoundingClientRect().top+window.pageYOffset-56,behavior:'smooth'}); }
+    });
+  });
+})();
+</script>
+</body>
+</html>

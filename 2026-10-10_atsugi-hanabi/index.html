@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>厚木 鮎まつり花火と大山詣で｜2026/10/10(土) v3</title>
+<style>
+  :root{
+    --bg:#f2f1f5; --card:#ffffff; --text:#22212a; --sub:#67637a;
+    --accent:#2c3a78; --accent2:#c8642a; --border:#dedbe8;
+    --tag-yellow-bg:#fff3d6; --tag-yellow-text:#8a5a00;
+    --tag-green-bg:#e2f5ec; --tag-green-text:#1f7a52;
+    --tag-red-bg:#fdeaea; --tag-red-text:#a32a2a;
+    --shadow:0 2px 10px rgba(0,0,0,0.06);
+  }
+  [data-theme="dark"]{
+    --bg:#13141c; --card:#1d1f2a; --text:#eeeef4; --sub:#a6a5b8;
+    --accent:#9fb0f0; --accent2:#f0a874; --border:#30324a;
+    --tag-yellow-bg:#4a3a10; --tag-yellow-text:#f5cf7a;
+    --tag-green-bg:#173d2e; --tag-green-text:#7fe0b8;
+    --tag-red-bg:#43201f; --tag-red-text:#f2a3a0;
+    --shadow:0 2px 14px rgba(0,0,0,0.4);
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    background:var(--bg); color:var(--text); line-height:1.7; padding-bottom:60px;}
+  header{position:sticky; top:0; z-index:100; background:var(--card); border-bottom:1px solid var(--border);
+    padding:12px 16px; display:flex; justify-content:space-between; align-items:center; gap:10px; box-shadow:var(--shadow);}
+  header .title{font-size:14px; font-weight:700; color:var(--accent);}
+  header .sub{font-size:11px; color:var(--sub);}
+  .theme-btn{background:var(--bg); border:1px solid var(--border); border-radius:20px; padding:6px 12px; font-size:12px; color:var(--text); cursor:pointer; flex-shrink:0;}
+  nav.subnav{position:sticky; top:56px; z-index:99; background:var(--bg); border-bottom:1px solid var(--border);
+    display:flex; gap:6px; overflow-x:auto; padding:8px 12px; -webkit-overflow-scrolling:touch;}
+  nav.subnav a{flex-shrink:0; font-size:12px; color:var(--sub); text-decoration:none; background:var(--card); border:1px solid var(--border); border-radius:16px; padding:6px 12px;}
+  main{max-width:720px; margin:0 auto; padding:16px;}
+  .hero{background:linear-gradient(135deg,#1e2a5e,#c8642a); color:#fff; border-radius:16px; padding:22px 18px; margin-bottom:18px; box-shadow:var(--shadow);}
+  .hero h1{font-size:19px; margin:0 0 6px;}
+  .hero p{font-size:13px; margin:0; opacity:.95;}
+  section{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:16px; margin-bottom:14px; box-shadow:var(--shadow); scroll-margin-top:110px;}
+  h2{font-size:15px; margin:0 0 10px; color:var(--accent);}
+  h3{font-size:13px; margin:14px 0 6px; color:var(--accent2);}
+  p{font-size:13px; margin:6px 0;}
+  .tablewrap{overflow-x:auto;}
+  table{width:100%; border-collapse:collapse; font-size:12.5px; margin:8px 0;}
+  th,td{border-bottom:1px solid var(--border); text-align:left; padding:7px 6px; vertical-align:top;}
+  th{color:var(--sub); font-weight:600;}
+  td.t{white-space:nowrap; font-variant-numeric:tabular-nums; color:var(--accent); font-weight:700;}
+  td.num{text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums;}
+  tr.area td{background:var(--bg); font-weight:700; color:var(--accent2); font-size:12px;}
+  tr.total td{font-weight:700;}
+  .route{background:var(--bg); border:1px dashed var(--border); border-radius:10px; padding:12px; font-size:11px; white-space:pre; font-family:"SFMono-Regular",Consolas,monospace; line-height:1.8; color:var(--sub); overflow-x:auto;}
+  .tip{border-left:3px solid var(--accent2); background:var(--tag-green-bg); color:var(--tag-green-text); padding:10px 12px; border-radius:0 8px 8px 0; font-size:12.5px; margin:10px 0;}
+  .warn{border-left:3px solid #d05a52; background:var(--tag-red-bg); color:var(--tag-red-text); padding:10px 12px; border-radius:0 8px 8px 0; font-size:12.5px; margin:10px 0;}
+  .flag-y{background:var(--tag-yellow-bg); color:var(--tag-yellow-text); border-radius:6px; padding:1px 6px; font-size:11px; font-weight:700; white-space:nowrap;}
+  .flag-g{background:var(--tag-green-bg); color:var(--tag-green-text); border-radius:6px; padding:1px 6px; font-size:11px; font-weight:700; white-space:nowrap;}
+  details{background:var(--bg); border:1px solid var(--border); border-radius:10px; padding:10px 12px; margin:8px 0;}
+  summary{cursor:pointer; font-size:13px; font-weight:600; color:var(--accent);}
+  ul{margin:6px 0; padding-left:18px; font-size:13px;}
+  li{margin-bottom:4px;}
+  a{color:var(--accent);}
+  .checklist label{display:flex; align-items:center; gap:8px; font-size:13px; padding:6px 0; border-bottom:1px dashed var(--border);}
+  .checklist input{width:16px; height:16px; accent-color:var(--accent); flex-shrink:0;}
+  .checklist label.done span{text-decoration:line-through; color:var(--sub);}
+  .hl{display:flex; gap:10px; align-items:flex-start; background:var(--bg); border-radius:10px; padding:10px 12px; font-size:13px; margin-bottom:8px;}
+  .hl b{background:var(--accent); color:var(--card); border-radius:50%; width:22px; height:22px; display:flex; align-items:center; justify-content:center; font-size:12px; flex-shrink:0;}
+  footer{max-width:720px; margin:0 auto; padding:0 16px; font-size:11px; color:var(--sub);}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <div class="title">🎆 厚木 鮎まつり花火と大山詣で</div>
+    <div class="sub">2026/10/10(土) 日帰り・v3（10/10実施・思い出を追記）</div>
+  </div>
+  <button class="theme-btn" id="themeBtn">🌙 ダーク</button>
+</header>
+<nav class="subnav">
+  <a href="#memo">📝 旅の記録</a><a href="#overview">概要</a><a href="#route">ルート</a><a href="#timeline">時系列</a><a href="#budget">予算</a>
+  <a href="#todo">事前確認</a><a href="#risk">注意</a><a href="#alt">代替案</a><a href="#items">持ち物</a><a href="#check">チェック</a>
+</nav>
+<main>
+  <div class="hero">
+    <h1>朝6時にシートを敷いて、山と湯と肉と酒をめぐって、夜は花火</h1>
+    <p>場所取り → 大山阿夫利神社 下社 → 参道で味噌おでんの朝ごはん → 鶴巻温泉 → 焼肉の田口 → 望月商店で地酒 → 屋台でつまみ → 17:40 第80回記念の花火</p>
+  </div>
+
+  <section id="memo">
+    <h2>📝 旅の記録（2026/10/10 実施）</h2>
+    <p><strong>実施済み。</strong>朝6時の場所取りから大山、鶴巻温泉、焼肉、花火まで回りきった一日。以下、えなみんのメモを場面順に整理したもの。</p>
+
+    <h3>🔁 予定と実際のちがい</h3>
+    <table>
+      <tr><th>場面</th><th>予定</th><th>実際</th></tr>
+      <tr><td>大山の朝ごはん</td><td>下山後にこま参道の塚本みやげ店で味噌おでん＋山かけどうふ</td><td>豆腐屋さんは<strong>時間が早すぎてやってなかった</strong></td></tr>
+      <tr><td>夕方</td><td>望月商店 → 屋台</td><td><strong>イオン</strong>にも寄った</td></tr>
+      <tr><td>鮎</td><td>（鮎まつりなので）</td><td>会場で食べるのを忘れて、<strong>家に帰ってから食べた</strong></td></tr>
+    </table>
+
+    <h3>⛩️ 大山</h3>
+    <ul>
+      <li>阿夫利神社まで登ると<strong>けっこう涼しかった</strong></li>
+      <li>登りのケーブルカーとバスが<strong>めっちゃ混んでた</strong>…<strong>早起きして来てほんとに良かった</strong></li>
+      <li>豆腐屋さんは時間が早すぎてやってなかった…<strong>上で食べればよかった</strong></li>
+    </ul>
+
+    <h3>♨️ 鶴巻温泉 弘法の里湯</h3>
+    <ul>
+      <li><strong>しっとりとしたお湯</strong>だった</li>
+      <li>ぬるめ好きとしては<strong>少し熱かった</strong></li>
+      <li>湯あたりする人が多いみたいで、長湯すると確かに具合が悪くなりそう</li>
+      <li>午前中だったので<strong>とても空いていて快適</strong>だった</li>
+      <li>ジビエを探したけど売ってなくて残念…この時点で<strong>お腹ペコペコ</strong></li>
+    </ul>
+
+    <h3>🍖 焼肉の田口</h3>
+    <ul>
+      <li><strong>醤油だれより味噌だれ</strong>が好みだった</li>
+      <li>食べ終わったあとに露店で売っているのを見たら<strong>すごく高かった</strong>ので、先に食べておいて良かった</li>
+      <li>豆腐とジビエは食べられなかったけど、結果<strong>お腹がすいていたぶん美味しく食べられた</strong></li>
+    </ul>
+
+    <h3>🛒 イオン</h3>
+    <ul>
+      <li><strong>店内で交通整理されるくらい混んでいた</strong>。こんなに混んでるイオンは初めて見た</li>
+    </ul>
+
+    <h3>🎆 花火</h3>
+    <ul>
+      <li>場所取りした席から見ると<strong>木がちょっと邪魔</strong>だった</li>
+      <li>カメラの設定を<strong>オート</strong>にしていたので、なんだか変な写りになって残念だった</li>
+      <li>鮎を食べるのを忘れていたので、家に帰ってから食べた</li>
+    </ul>
+
+    <h3>📝 次に行くときの学び</h3>
+    <ul>
+      <li>大山の参道のお店は朝早いと開いていない。<strong>朝ごはんは下社の上で</strong>食べるほうが確実</li>
+      <li>大山の登りのケーブルカーとバスはめっちゃ混む。<strong>早起きして正解</strong></li>
+      <li>弘法の里湯は<strong>午前中が空いていて快適</strong>。お湯は熱めなので長湯しない</li>
+      <li>鮎まつりの<strong>露店は高め</strong>。ごはんは先にお店で済ませておくと安心</li>
+      <li>当日の本厚木周辺は<strong>イオンも大混雑</strong>。買い出しは早めか別の場所で</li>
+      <li>花火の場所取りは<strong>木の位置</strong>も見て選ぶ。カメラは花火向けに設定してから行く</li>
+      <li>鮎まつりでは<strong>鮎を食べ忘れない</strong></li>
+    </ul>
+    <p style="color:var(--sub);font-size:12px;">※ 望月商店（日本酒）、塚本みやげ店、屋台のつまみについてはメモに記載がなかったので書いていません。素材があれば追記します。</p>
+  </section>
+
+  <section id="overview">
+    <h2>🗺 旅の概要</h2>
+    <ul>
+      <li><b>テーマ</b>：花火の日に、大山詣でと鶴巻のカルシウム泉、厚木のホルモンと地酒</li>
+      <li><b>想定予算</b>：約10,600円（交通・ケーブル・温泉・食事・お酒・つまみ。お酒とつまみ、焼肉は目安）</li>
+      <li><b>歩き</b>：大山の女坂（標高約400m→約700m）がメイン。夕方は田口→望月→会場で合計3km強</li>
+      <li><b>天気</b>：10/8時点の予報は晴れ・降水20%、日中15〜26℃、夕方18〜21℃、風弱め（ウェザーニュース）</li>
+    </ul>
+    <div class="tip">🎆 場所取りは<b>当日10/10の朝6:00から</b>（公式）。前日からの場所取りや通路上は予告なく撤去。打ち上げは<b>17:40〜19:00</b>、中止の場合も延期なし。</div>
+    <h3>いちばん感動しそうな瞬間</h3>
+    <p>標高696mの下社から、相模平野と夜に花火を見る厚木の方を見下ろす朝。そして11時間後、その河川敷で地酒を開ける瞬間。</p>
+    <h3>ハイライト3選</h3>
+    <div class="hl"><b>1</b><div>大山阿夫利神社 下社：女坂を歩いて登る朝の参拝</div></div>
+    <div class="hl"><b>2</b><div>鶴巻温泉 弘法の里湯：カルシウム含有量が世界有数の湯で山歩きの汗を流す</div></div>
+    <div class="hl"><b>3</b><div>焼肉の田口のとん漬けとシロ → 望月商店の地酒で花火</div></div>
+  </section>
+
+  <section id="route">
+    <h2>🧭 ルート</h2>
+<div class="route">本厚木駅 ──徒歩20分──▶ 🎆会場（三川合流点） 6:00 場所取り
+   ▲                                       │ 徒歩20分
+   │                                    本厚木駅 ─(小田急 6分)─ 伊勢原
+   │                                                              │ 🚌伊10 22分
+   │                                                       大山ケーブル(バス停)
+   │                                                              │ こま参道
+   │                                                       大山ケーブル駅
+   │                                                              │ 🥾女坂
+   │                                                   大山寺 ── 阿夫利神社 下社
+   │                                                              │ 🚡ケーブル 6分
+   │                                            塚本みやげ店（朝ごはん）
+   │                                                              │ こま参道 → 🚌伊10
+   │                                                           伊勢原
+   │                                                              │ 🚃小田急 3分
+   │                                         鶴巻温泉駅 ── ♨️弘法の里湯
+   │                                                              │ 🚃小田急 10分
+   └─ 🎆会場 ◀─(屋台)─ 🍶望月商店 ◀── 🍖焼肉の田口 ◀── 本厚木駅</div>
+  </section>
+
+  <section id="timeline">
+    <h2>🕐 時系列旅程</h2>
+    <div class="tablewrap">
+    <table>
+      <tr><th>時刻</th><th>内容</th><th>状態</th></tr>
+      <tr class="area"><td colspan="3">🎆 場所取り</td></tr>
+      <tr><td class="t">05:40〜06:00</td><td>本厚木駅北口 → 会場（第1会場・相模川河川敷 三川合流点）徒歩約20分</td><td><span class="flag-g">✅</span></td></tr>
+      <tr><td class="t">06:00〜06:15</td><td><b>場所取り</b>（自由観覧席）。重し＋名前の紙</td><td><span class="flag-g">✅公式</span></td></tr>
+      <tr><td class="t">06:15〜06:35</td><td>本厚木駅へ戻る。コンビニで飲み物と小さいおにぎり（保険）</td><td><span class="flag-y">⚠️目安</span></td></tr>
+      <tr class="area"><td colspan="3">⛩ 大山詣で</td></tr>
+      <tr><td class="t">06:38→06:44</td><td>🚃 本厚木 → 伊勢原（小田急 各停 伊勢原行・2番線・199円）</td><td><span class="flag-g">✅</span></td></tr>
+      <tr><td class="t">07:05→07:27</td><td>🚌 伊勢原駅北口4番のりば → 大山ケーブル（伊10・当駅始発・410円）</td><td><span class="flag-g">✅</span></td></tr>
+      <tr><td class="t">07:27〜07:50</td><td>こま参道を上って大山ケーブル駅へ（石段の参道）</td><td><span class="flag-y">⚠️目安</span></td></tr>
+      <tr><td class="t">07:50〜08:30</td><td>🥾 女坂（ケーブルは9:00始発なので朝は歩き）</td><td><span class="flag-y">⚠️目安</span></td></tr>
+      <tr><td class="t">08:30〜08:45</td><td><b>大山寺</b>（関東三大不動）</td><td><span class="flag-g">✅</span></td></tr>
+      <tr><td class="t">08:45〜09:05</td><td>🥾 女坂の続き → 下社</td><td><span class="flag-y">⚠️目安</span></td></tr>
+      <tr><td class="t">09:05〜09:18</td><td><b>大山阿夫利神社 下社</b>（標高696m）で参拝と眺め</td><td><span class="flag-g">✅</span></td></tr>
+      <tr><td class="t">09:20→09:26</td><td>🚡 大山ケーブル 阿夫利神社 → 大山ケーブル（640円・20分おき）</td><td><span class="flag-g">✅</span></td></tr>
+      <tr><td class="t">09:30〜10:00</td><td>🍢 <b>塚本みやげ店</b>で朝ごはん：味噌おでん500円＋山かけどうふ500円（ケーブル駅のすぐ下・徒歩2分）</td><td><span class="flag-y">⚠️9時開店はえなみん確認</span></td></tr>
+      <tr><td class="t">10:00〜10:20</td><td>こま参道を下ってバス停へ</td><td><span class="flag-y">⚠️目安</span></td></tr>
+      <tr><td class="t">10:22→10:45</td><td>🚌 大山ケーブル → 伊勢原駅北口（伊10・410円）</td><td><span class="flag-g">✅</span></td></tr>
+      <tr class="area"><td colspan="3">♨️ 鶴巻温泉</td></tr>
+      <tr><td class="t">10:56→10:59</td><td>🚃 伊勢原 → 鶴巻温泉（小田急・167円）。10:48の急行はバスから3分なので無理しない</td><td><span class="flag-g">✅</span></td></tr>
+      <tr><td class="t">11:00〜11:05</td><td>駅から徒歩2分（150m）。駅前に手湯「千の泉」</td><td><span class="flag-g">✅</span></td></tr>
+      <tr><td class="t">11:05〜13:05</td><td><b>弘法の里湯</b>（土日祝 2時間1,000円・延長1時間+200円）。山湯／里湯とも露天とサウナ付き。焼肉のためにお腹は空けておく</td><td><span class="flag-g">✅公式</span></td></tr>
+      <tr><td class="t">13:23→13:33</td><td>🚃 鶴巻温泉 → 本厚木（小田急・230円）。6〜12分おきなので延長したら後の電車で</td><td><span class="flag-g">✅</span></td></tr>
+      <tr class="area"><td colspan="3">🍖 焼肉と地酒</td></tr>
+      <tr><td class="t">13:35〜13:50</td><td>本厚木駅北口 → 焼肉の田口 徒歩約15分（1.1km）</td><td><span class="flag-g">✅</span></td></tr>
+      <tr><td class="t">13:50〜15:00</td><td>🍖 <b>焼肉の田口 厚木恩名店</b>：とん漬、シロ、恵水ポーク（予約なしでOK・土日祝は11:00〜22:00通し）</td><td><span class="flag-g">✅</span></td></tr>
+      <tr><td class="t">15:00〜15:25</td><td>徒歩 約1.4km</td><td><span class="flag-y">⚠️目安</span></td></tr>
+      <tr><td class="t">15:25〜15:45</td><td>🍶 <b>望月商店</b>で花火用の日本酒の小瓶（土日祝9:30〜19:00）</td><td><span class="flag-y">⚠️小瓶は店頭で相談</span></td></tr>
+      <tr class="area"><td colspan="3">🎆 花火</td></tr>
+      <tr><td class="t">15:45〜17:00</td><td>🏮 お祭りの様子を見ながら屋台でつまみを買って会場の席へ</td><td><span class="flag-y">⚠️目安</span></td></tr>
+      <tr><td class="t">17:40〜19:00</td><td>🎆 <b>あつぎ鮎まつり 大花火大会</b>（第80回記念）</td><td><span class="flag-g">✅公式</span></td></tr>
+      <tr><td class="t">19:30〜</td><td>30分ほど席でゆっくりしてから本厚木駅へ</td><td><span class="flag-y">⚠️混雑</span></td></tr>
+    </table>
+    </div>
+    <details>
+      <summary>バス・電車・ケーブルの前後の便</summary>
+      <ul>
+        <li>本厚木→伊勢原：<b>06:38→06:44</b>／06:52→06:58（急行）／07:02→07:08</li>
+        <li>伊勢原駅北口→大山ケーブル：<b>07:05→07:27</b>／07:25→07:49</li>
+        <li>大山ケーブル（阿夫利神社発・土休日）：9:00／<b>9:20</b>／9:40／10:00</li>
+        <li>大山ケーブル→伊勢原駅北口：10:02→10:25／<b>10:22→10:45</b>／10:42発</li>
+        <li>伊勢原→鶴巻温泉：10:48→10:51／<b>10:56→10:59</b>／11:04→11:07</li>
+        <li>鶴巻温泉→本厚木：<b>13:23→13:33</b>／13:36→13:46／13:42→13:54</li>
+      </ul>
+    </details>
+  </section>
+
+  <section id="budget">
+    <h2>💰 予算</h2>
+    <details open>
+      <summary>内訳（合計 約10,600円）</summary>
+      <table>
+        <tr><td>小田急 本厚木→伊勢原（IC）</td><td class="num">199円</td></tr>
+        <tr><td>バス 伊勢原→大山ケーブル</td><td class="num">410円</td></tr>
+        <tr><td>大山ケーブル 片道（下り）</td><td class="num">640円</td></tr>
+        <tr><td>塚本みやげ店 味噌おでん＋山かけどうふ</td><td class="num">1,000円</td></tr>
+        <tr><td>バス 大山ケーブル→伊勢原</td><td class="num">410円</td></tr>
+        <tr><td>小田急 伊勢原→鶴巻温泉（IC）</td><td class="num">167円</td></tr>
+        <tr><td>弘法の里湯（土日祝・2時間）</td><td class="num">1,000円</td></tr>
+        <tr><td>小田急 鶴巻温泉→本厚木（IC）</td><td class="num">230円</td></tr>
+        <tr><td>焼肉の田口（目安）</td><td class="num">3,500円</td></tr>
+        <tr><td>望月商店 日本酒の小瓶（目安）</td><td class="num">1,500円</td></tr>
+        <tr><td>屋台のつまみ（目安）</td><td class="num">1,500円</td></tr>
+        <tr class="total"><td>合計</td><td class="num">10,556円</td></tr>
+      </table>
+      <p>里湯を延長する場合は1時間ごとに+200円。タオルを現地で買う場合は別。</p>
+    </details>
+  </section>
+
+  <section id="todo">
+    <h2>📞 事前に確認しておくこと</h2>
+    <p>予約が必要なものはなし（田口も予約なしで入れる）。</p>
+    <ul>
+      <li><b>望月商店</b>：花火用の小瓶（300mlなど）があるか。なければ720mlを持ち帰り用に</li>
+      <li><b>花火</b>：前日夜と当日朝に公式で開催の告知を確認</li>
+    </ul>
+    <h3>公式リンク</h3>
+    <ul>
+      <li><a href="https://www.atsugi-kankou.jp/site/ayu-festival/">あつぎ鮎まつり（あつぎ観光なび）</a>／<a href="https://www.atsugi-kankou.jp/site/ayu-festival/ayufestival-hanabi.html">大花火大会</a>／<a href="https://www.atsugi-kankou.jp/site/ayu-festival/ayufestival-access.html">会場・交通規制案内</a></li>
+      <li><a href="https://www.ooyama-cable.co.jp/timetable/">大山ケーブル 時刻表・運賃</a></li>
+      <li><a href="https://www.afuri.or.jp/">大山阿夫利神社</a></li>
+      <li><a href="https://www.city.hadano.kanagawa.jp/kanko/onsen/2674.html">弘法の里湯（秦野市）</a></li>
+      <li><a href="https://www.nikunotaguchi.com/store/onna/">焼肉の田口 恩名店</a></li>
+      <li><a href="https://motimoti.com/">望月商店</a></li>
+    </ul>
+  </section>
+
+  <section id="risk">
+    <h2>⚠️ 注意事項</h2>
+    <div class="warn">いちばん大事なのは朝の<b>7:05のバス</b>と、大山からの<b>10:22のバス</b>。午後は電車なので、乗り遅れても6〜12分待てば次が来る。</div>
+    <ul>
+      <li><b>シートの置きっぱなし（約11時間）</b>：2Lペットボトルなどの重し、名前を書いた紙。杭やテープは使わない。貴重品は絶対に置かない。通路にはみ出すと撤去される</li>
+      <li><b>女坂の所要は目安</b>：区間ごとの実測ではない。下社着が9:20を過ぎたら9:40のケーブルにして、朝ごはんを短めに</li>
+      <li><b>10:42のバスになったら</b>：伊勢原着は11:05頃。そのまま小田急で鶴巻温泉へ行けばOK（里湯の時間が少し短くなるだけ）</li>
+      <li><b>花火の日の交通規制</b>：公式が「大変な渋滞」を予告。午後は電車移動なので影響は小さい</li>
+      <li><b>夕方の歩き</b>：田口→望月が約1.4km、望月→会場が直線約1.7km。時間に余裕はあるので、お祭りを見ながらのんびり</li>
+      <li><b>瓶の持ち込み</b>：会場ルールを公式で確認できず。紙コップを持っていく</li>
+      <li><b>帰り</b>：終了直後は駅も道も大混雑。30分ほど席でゆっくりしてから動く</li>
+    </ul>
+  </section>
+
+  <section id="alt">
+    <h2>🔄 代替案</h2>
+    <h3>削ってもよい候補</h3>
+    <ul>
+      <li>大山寺への寄り道を短くする（女坂の途中なので素通りでもOK）</li>
+      <li>望月商店 → 屋台をやめて、コンビニのお酒とつまみにする（夕方に余裕ができる）</li>
+    </ul>
+    <h3>雨の日</h3>
+    <ul>
+      <li>大山は女坂が滑りやすいので、ケーブル駅から9:00のケーブルで上がって下社だけお参り</li>
+      <li>弘法の里湯を延長してゆっくり（1時間+200円）。花火は中止でも延期なしなので、公式の発表を確認</li>
+    </ul>
+    <h3>予算を抑える</h3>
+    <ul>
+      <li>ケーブルを使わずに男坂か女坂で歩いて下りる（−640円。そのぶん時間がかかる）</li>
+      <li>田口は単品でシロととん漬だけにする</li>
+    </ul>
+    <h3>より贅沢に</h3>
+    <ul>
+      <li>弘法の里湯の貸切浴室「鶴の湯」（1時間1,000円・1日9組限定）</li>
+      <li>田口で厳選の雌牛も追加</li>
+    </ul>
+  </section>
+
+  <section id="items">
+    <h2>🎒 持ち物</h2>
+    <ul>
+      <li>レジャーシート、重し（2Lペットボトルなど）、名前を書いた紙</li>
+      <li>歩きやすい靴（女坂の石段）、汗ふきタオル</li>
+      <li>温泉用のタオル</li>
+      <li>薄手の上着（夜は18℃前後）、座布団かクッション</li>
+      <li>紙コップ、ごみ袋、ウェットティッシュ</li>
+      <li>現金（屋台・参道のお店・バス）、交通系IC、モバイルバッテリー</li>
+    </ul>
+  </section>
+
+  <section id="check">
+    <h2>✅ 最終チェックリスト</h2>
+    <div class="checklist" id="checklist">
+      <label><input type="checkbox"><span>前日：花火の開催告知と天気を確認</span></label>
+      <label><input type="checkbox"><span>当日：5:40 本厚木駅 → 6:00 場所取り</span></label>
+      <label><input type="checkbox"><span>当日：06:38 本厚木発 → 07:05 伊勢原駅北口4番のりば</span></label>
+      <label><input type="checkbox"><span>当日：9:20（遅くても9:40）のケーブルで下りる</span></label>
+      <label><input type="checkbox"><span>当日：10:22 のバス → 10:56 の小田急で鶴巻温泉へ</span></label>
+      <label><input type="checkbox"><span>当日：13:05 に里湯を出て 13:23 の電車で本厚木へ</span></label>
+      <label><input type="checkbox"><span>当日：15:00 に田口を出て望月商店へ</span></label>
+      <label><input type="checkbox"><span>当日：17:00 までに席に戻る</span></label>
+    </div>
+  </section>
+</main>
+<footer>v3（2026/10/10実施・思い出を追記）｜計画部分の時刻・料金・営業時間は2026/10/8時点の確認内容。小田急とバスの時刻はYahoo!路線情報・ジョルダン（10/10土曜ダイヤ）、ケーブルは大山観光電鉄公式、弘法の里湯は秦野市公式（2026/9/12更新）。塚本みやげ店の営業時間とメニューはえなみん提供の情報。</footer>
+<script>
+  (function(){
+    var root=document.documentElement, btn=document.getElementById('themeBtn');
+    function get(k){try{return localStorage.getItem(k);}catch(e){return null;}}
+    function set(k,v){try{localStorage.setItem(k,v);}catch(e){}}
+    function apply(t){root.setAttribute('data-theme',t); btn.textContent=t==='dark'?'☀️ ライト':'🌙 ダーク';}
+    var saved=get('atsugi-hanabi-theme');
+    apply(saved||'light');
+    btn.addEventListener('click',function(){var t=root.getAttribute('data-theme')==='dark'?'light':'dark'; apply(t); set('atsugi-hanabi-theme',t);});
+    var boxes=document.querySelectorAll('#checklist input');
+    var state={}; try{state=JSON.parse(get('atsugi-hanabi-check')||'{}');}catch(e){}
+    boxes.forEach(function(b,i){
+      if(state[i]){b.checked=true; b.parentNode.classList.add('done');}
+      b.addEventListener('change',function(){b.parentNode.classList.toggle('done',b.checked); state[i]=b.checked; set('atsugi-hanabi-check',JSON.stringify(state));});
+    });
+  })();
+</script>
+</body>
+</html>

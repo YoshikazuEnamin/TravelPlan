@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>横浜 山手さんぽ｜晴れの週末リベンジ版 v3</title>
+<style>
+  :root{
+    --bg:#f5f2ec; --card:#ffffff; --text:#262220; --sub:#6a6058;
+    --accent:#2f6f8f; --accent2:#7a6a3a; --border:#e0d9cd;
+    --tag-yellow-bg:#fff3d6; --tag-yellow-text:#8a5a00;
+    --tag-green-bg:#e2f5ec; --tag-green-text:#1f7a52;
+    --tag-red-bg:#fdeaea; --tag-red-text:#a32a2a;
+    --shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  [data-theme="dark"]{
+    --bg:#16191c; --card:#1f2428; --text:#eef0f2; --sub:#a8b0b6;
+    --accent:#6bb6d6; --accent2:#cbb673; --border:#2f373d;
+    --tag-yellow-bg:#4a3a10; --tag-yellow-text:#f5cf7a;
+    --tag-green-bg:#173d2e; --tag-green-text:#7fe0b8;
+    --tag-red-bg:#43201f; --tag-red-text:#f2a3a0;
+    --shadow: 0 2px 14px rgba(0,0,0,0.4);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; font-family:-apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+    background:var(--bg); color:var(--text); line-height:1.7; padding-bottom:60px;
+    transition: background .2s, color .2s;
+  }
+  header{
+    position:sticky; top:0; z-index:100; background:var(--card); border-bottom:1px solid var(--border);
+    padding:12px 16px; display:flex; justify-content:space-between; align-items:center; box-shadow:var(--shadow);
+  }
+  header .title{font-size:14px; font-weight:700; color:var(--accent);}
+  header .sub{font-size:11px; color:var(--sub);}
+  .theme-btn{background:var(--bg); border:1px solid var(--border); border-radius:20px; padding:6px 12px; font-size:12px; color:var(--text); cursor:pointer;}
+  nav.subnav{
+    position:sticky; top:52px; z-index:99; background:var(--bg); border-bottom:1px solid var(--border);
+    display:flex; gap:6px; overflow-x:auto; padding:8px 12px; -webkit-overflow-scrolling:touch;
+  }
+  nav.subnav a{flex-shrink:0; font-size:12px; color:var(--sub); text-decoration:none; background:var(--card); border:1px solid var(--border); border-radius:16px; padding:6px 12px;}
+  main{max-width:720px; margin:0 auto; padding:16px;}
+  .hero{background:linear-gradient(135deg, var(--accent), var(--accent2)); color:#fff; border-radius:16px; padding:22px 18px; margin-bottom:18px; box-shadow:var(--shadow);}
+  .hero h1{font-size:19px; margin:0 0 6px;}
+  .hero p{font-size:13px; margin:0; opacity:.92;}
+  section{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:16px; margin-bottom:14px; box-shadow:var(--shadow); scroll-margin-top:100px;}
+  h2{font-size:15px; margin:0 0 10px; color:var(--accent);}
+  h3{font-size:13px; margin:14px 0 6px; color:var(--accent2);}
+  p{font-size:13px;}
+  table{width:100%; border-collapse:collapse; font-size:12.5px; margin:8px 0;}
+  th,td{border-bottom:1px solid var(--border); text-align:left; padding:7px 6px; vertical-align:top;}
+  th{color:var(--sub); font-weight:600;}
+  td.t{white-space:nowrap; font-variant-numeric:tabular-nums; color:var(--accent); font-weight:700;}
+  td.num{text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums;}
+  .route{background:var(--bg); border:1px dashed var(--border); border-radius:10px; padding:12px; font-size:11px; white-space:pre-wrap; font-family:"SFMono-Regular",Consolas,monospace; line-height:1.85; color:var(--sub); overflow-x:auto;}
+  .tip{border-left:3px solid var(--accent2); background:var(--tag-green-bg); color:var(--tag-green-text); padding:10px 12px; border-radius:0 8px 8px 0; font-size:12.5px; margin:10px 0;}
+  .warn{border-left:3px solid #d05a52; background:var(--tag-red-bg); color:var(--tag-red-text); padding:10px 12px; border-radius:0 8px 8px 0; font-size:12.5px; margin:10px 0;}
+  .flag-y{background:var(--tag-yellow-bg); color:var(--tag-yellow-text); border-radius:6px; padding:1px 6px; font-size:11px; font-weight:700;}
+  .flag-g{background:var(--tag-green-bg); color:var(--tag-green-text); border-radius:6px; padding:1px 6px; font-size:11px; font-weight:700;}
+  .flag-r{background:var(--tag-red-bg); color:var(--tag-red-text); border-radius:6px; padding:1px 6px; font-size:11px; font-weight:700;}
+  details{background:var(--bg); border:1px solid var(--border); border-radius:10px; padding:10px 12px; margin:8px 0;}
+  summary{cursor:pointer; font-size:13px; font-weight:600; color:var(--accent);}
+  ul{margin:6px 0; padding-left:18px; font-size:13px;}
+  li{margin-bottom:4px;}
+  a{color:var(--accent);}
+  .checklist label{display:flex; align-items:center; gap:8px; font-size:13px; padding:6px 0; border-bottom:1px dashed var(--border);}
+  .checklist input{width:16px; height:16px; accent-color:var(--accent);}
+  .checklist label.done span{text-decoration:line-through; color:var(--sub);}
+  .highlight-grid{display:flex; flex-direction:column; gap:8px;}
+  .highlight-item{display:flex; gap:10px; align-items:flex-start; background:var(--bg); border-radius:10px; padding:10px 12px; font-size:13px;}
+  .highlight-num{background:var(--accent); color:#fff; font-weight:700; font-size:12px; border-radius:50%; width:22px; height:22px; display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .total-row td{font-weight:700; color:var(--accent); border-top:2px solid var(--border);}
+  .card-inn{background:var(--bg); border:1px solid var(--border); border-radius:12px; padding:12px; margin:10px 0;}
+  .card-inn h4{margin:0 0 6px; font-size:14px; color:var(--accent);}
+  .pay{background:var(--tag-yellow-bg); color:var(--tag-yellow-text); border-radius:6px; padding:1px 6px; font-size:11px; font-weight:700;}
+  footer{text-align:center; font-size:11px; color:var(--sub); padding:20px 0;}
+</style>
+</head>
+<body data-theme="light">
+
+<header>
+  <div>
+    <div class="title">🎻 横浜 クラシックと山手さんぽ</div>
+    <div class="sub">日帰り・一人・晴れの週末に実行／v3</div>
+  </div>
+  <button class="theme-btn" onclick="toggleTheme()">🌙 ダーク</button>
+</header>
+
+<nav class="subnav">
+  <a href="#kekka">まず押さえる</a>
+  <a href="#route">ルート</a>
+  <a href="#gaiyo">概要</a>
+  <a href="#am">午前</a>
+  <a href="#pm">午後</a>
+  <a href="#pay">有料スポット</a>
+  <a href="#spot">スポット情報</a>
+  <a href="#meal">食べる・飲む</a>
+  <a href="#budget">予算</a>
+  <a href="#highlight">ハイライト</a>
+  <a href="#alt">雨天・調整</a>
+  <a href="#notice">注意</a>
+  <a href="#pack">持ち物</a>
+  <a href="#check">チェック</a>
+</nav>
+
+<main>
+
+  <div class="hero">
+    <h1>朝の丘で2つの小さな館、昼にクラシック、夕方は御朱印とバスとワイン</h1>
+    <p>横浜駅8:30着の日帰り。入館料は合わせて500円。山手の丘 → 山下公園 → 中華街 → 音楽堂 → 御朱印 → あかいくつ → 夜ごはん、という一日です。2026/9/12は雨天で観光を中止したため、晴れた週末に日付を差し替えて実行します。</p>
+  </div>
+
+  <section id="kekka">
+    <h2>🔴 まず押さえておきたいこと</h2>
+
+    <h3>有料スポットは「午前しか入れない」ので朝を早めに</h3>
+    <p>今回入れた<strong>氷川丸（300円）は入館16:30まで</strong>、<strong>大佛次郎記念館（200円）は10:00開館</strong>。終演15:30からでは間に合わないので、<strong>両方とも午前に組んであります</strong>。そのため横浜駅8:30着が前提です。</p>
+
+    <h3>成田山横浜別院の御朱印は16:00まで</h3>
+    <p>終演15:30 → 音楽堂から徒歩7分（下り）で<strong>15:42着、締切まで18分</strong>。退場後まっすぐ向かえば問題ありませんが、寄り道はしないこと。伊勢山皇大神宮の授与所は19時までなので後回しで大丈夫です。</p>
+
+    <h3>あかいくつは「午後」に乗ります</h3>
+    <p>周遊便は<strong>土曜10:02が始発</strong>で、朝の山手行きには間に合いません（9時台の09:48はハンマーヘッド行きの部分便で丘に行かない）。なので<strong>御朱印のあと、桜木町16:27発</strong>で乗ります。歩き疲れた時間帯にちょうど座れる形になりました。</p>
+
+    <h3>中華街は12:40に出る</h3>
+    <p>この日で唯一の実質的な締切です。ここを守れば音楽堂の開場に余裕を持って入れます。</p>
+
+    <h3>晴れた日は「大さん橋の日没」を旅程に戻す</h3>
+    <p>当初の9/12版は曇天予報だったため外していましたが、<strong>晴れるなら大さん橋の屋上広場「くじらのせなか」（無料・24時間開放）</strong>を夕方に組み込みます。赤レンガから象の鼻を抜けて徒歩7分。日の入り時刻は当日のものを確認してください（9月中旬で17:50前後、10月下旬なら16:50前後と、ひと月違うと1時間変わります）。</p>
+
+    <h3>夜ごはんは3案から当日の気分で</h3>
+    <p>会社の同僚との会食がなくなったので、夜は自由枠です。<strong>A=横浜駅で締める（帰りが最短）／B=馬車道の老舗（夕景からそのまま歩ける）／C=みなとみらいで温泉と夜景</strong>の3案を「食べる・飲む」に用意しました。予約は不要ですが、Cだけは入館3,500円と値が張ります。</p>
+
+    <div class="warn">日の入り時刻・施設の営業時間・休館情報は、<strong>実行する日が決まったら必ず取り直してください</strong>。このしおりの数字は2026年9月上旬に確認したものです。特に神奈川県立歴史博物館は2026年10月16日で休館が明けるので、それ以降なら馬車道の選択肢が増えます。</div>
+  </section>
+
+  <section id="route">
+    <h2>🗺 ルート図</h2>
+    <div class="route">横浜 08:30着
+   ↓ JR根岸線 7分／199円
+石川町 08:40 ── 元町商店街（開店前の静かな朝）
+   ↓ 谷戸坂 徒歩15分（この日唯一の本格的な上り）
+港の見える丘公園 09:10 ── 朝の展望台・ローズガーデン
+   ↓ 徒歩すぐ
+横浜市イギリス館 09:35（無料）
+山手111番館 10:00（無料）
+【￥】大佛次郎記念館 10:20 ── 200円
+   ↓ フランス山を下る 徒歩10分
+山下公園 11:05
+【￥】日本郵船氷川丸 11:10 ── 300円・現金のみ
+   ↓ 徒歩7分
+中華街 11:55 ── 昼食（〜12:40）
+   ↓ 徒歩8分＋JR根岸線 4分／150円
+桜木町 12:57
+   ↓ 紅葉坂 徒歩12分
+神奈川県立音楽堂 13:10 ── 13:30開演／15:30終演
+   ↓ 徒歩7分（下り）
+成田山横浜別院 15:42 ── 御朱印【16:00締切】
+   ↓ 徒歩5分（上り）
+伊勢山皇大神宮 16:00 ── 参拝・御朱印
+   ↓ 紅葉坂を下る 徒歩12分
+桜木町駅東口4番のりば 16:20
+   ↓ あかいくつ 16:27発／220円
+赤レンガ倉庫 16:42 ── 象の鼻を抜ける
+   ↓ 徒歩7分
+大さん橋「くじらのせなか」── 日没を見る（晴れた日のみ・無料）
+   ↓ 徒歩12分
+日本大通り（横浜三塔）── 馬車道へ
+   ↓
+夜ごはん 3案から選ぶ
+   A 横浜駅（はなたれ／PIER AK）  ← 帰りが最短
+   B 馬車道（勝烈庵／十番館）      ← 夕景からそのまま歩ける
+   C みなとみらい（万葉倶楽部）    ← 温泉と夜景で締める
+   ※ 野毛のムー／hanasaku で軽く一杯 → そのまま夕食、でも可</div>
+  </section>
+
+  <section id="gaiyo">
+    <h2>① 旅の概要</h2>
+    <table>
+      <tr><th>テーマ</th><td>朝の丘の小さな館 → 港 → 音楽 → 御朱印 → 一杯</td></tr>
+      <tr><th>スタイル</th><td>日帰り・荷物なし・一人旅。夜ごはんまで自由</td></tr>
+      <tr><th>想定予算</th><td>約4,900円＋夜ごはん代（うち入館料500円）</td></tr>
+      <tr><th>歩く距離</th><td>およそ9〜10km。上り坂は朝の谷戸坂と紅葉坂×2回のみ</td></tr>
+      <tr><th>日の入り</th><td>17:55（ただし曇天予報のため夕景は期待薄）</td></tr>
+      <tr><th>おすすめ度</th><td>★★★★★</td></tr>
+    </table>
+    <div class="tip"><strong>8:00着にできるなら</strong>、山手本通りを奥まで歩いて<strong>ベーリック・ホール／エリスマン邸</strong>（どちらも無料・9:30〜17:00）を足せます。外国人墓地の前を通る道が気持ちいい区間です。</div>
+  </section>
+
+  <section id="am">
+    <h2>② 時系列旅程｜午前</h2>
+    <table>
+      <tr><th style="width:58px">時刻</th><th>行動</th></tr>
+      <tr><td class="t">08:30</td><td>横浜駅着。荷物がないのでロッカー不要、そのまま移動</td></tr>
+      <tr><td class="t">08:33</td><td>JR根岸線で<strong>石川町</strong>へ（7分／199円）</td></tr>
+      <tr><td class="t">08:45</td><td><strong>元町商店街</strong>を抜ける。多くの店は10時開店なので、朝は通り抜けだけ</td></tr>
+      <tr><td class="t">08:55</td><td><strong>谷戸坂</strong>を上る（徒歩15分）。この日で唯一の本格的な上り</td></tr>
+      <tr><td class="t">09:10</td><td><strong>港の見える丘公園</strong>。朝の展望台からベイブリッジと横浜港<br><span class="flag-y">秋バラは10月中旬〜11月上旬</span>なので、今回は眺めの公園として</td></tr>
+      <tr><td class="t">09:35</td><td><strong>横浜市イギリス館</strong>（9:30〜17:00・無料）</td></tr>
+      <tr><td class="t">10:00</td><td><strong>山手111番館</strong>（9:30〜17:00・無料）</td></tr>
+      <tr><td class="t">10:20</td><td><span class="pay">￥200</span> ★<strong>大佛次郎記念館</strong>（10:00〜17:30）<br>公園の敷地内なので移動ゼロ。『鞍馬天狗』『霧笛』の作家の書斎が再現され、猫の蒐集品も見られます</td></tr>
+      <tr><td class="t">10:55</td><td>フランス山の階段を下って山下公園へ（徒歩10分・下り）</td></tr>
+      <tr><td class="t">11:05</td><td><strong>山下公園</strong>着</td></tr>
+      <tr><td class="t">11:10</td><td><span class="pay">￥300</span> ★<strong>日本郵船氷川丸</strong>（10:00〜17:00・入館16:30まで・<strong>現金のみ</strong>）<br>1930年就航の貨客船。一等客室や機関室まで入れます。海が好きならここは外せません</td></tr>
+      <tr><td class="t">11:50</td><td><strong>中華街</strong>へ（徒歩7分）</td></tr>
+      <tr><td class="t">11:55</td><td>昼食</td></tr>
+      <tr><td class="t">12:40</td><td>🔴<strong>店を出る</strong>。西門通りから石川町駅へ（徒歩8分）</td></tr>
+      <tr><td class="t">12:50</td><td>JR根岸線 石川町 → <strong>桜木町</strong>（4分／150円）</td></tr>
+      <tr><td class="t">13:00</td><td>紅葉坂を上って音楽堂へ（徒歩12分）</td></tr>
+      <tr><td class="t">13:10</td><td><strong>神奈川県立音楽堂</strong>着（西区紅葉ケ丘9-2）</td></tr>
+      <tr><td class="t">13:30</td><td>開演 〜 15:30 終演</td></tr>
+    </table>
+  </section>
+
+  <section id="pm">
+    <h2>③ 時系列旅程｜午後</h2>
+    <table>
+      <tr><th style="width:58px">時刻</th><th>行動</th></tr>
+      <tr><td class="t">15:30</td><td>終演。退場したらまっすぐ坂を下る</td></tr>
+      <tr><td class="t">15:42</td><td>🔴<strong>成田山横浜別院 延命院（野毛山不動尊）</strong>で御朱印<br>西区宮崎町30／受付8:30〜16:00／音楽堂から徒歩7分</td></tr>
+      <tr><td class="t">16:00</td><td><strong>伊勢山皇大神宮</strong>（徒歩5分・上り）参拝・御朱印<br>西区宮崎町64／開門6:00〜19:00・授与所9:00〜19:00</td></tr>
+      <tr><td class="t">16:20</td><td>紅葉坂を下って<strong>桜木町駅 東口バスターミナル4番のりば</strong>へ</td></tr>
+      <tr><td class="t">16:27</td><td>★<strong>あかいくつ</strong>乗車（220円・ICカード可）<br>土曜16時台は16:07／16:27／16:47</td></tr>
+      <tr><td class="t">16:42</td><td><strong>赤レンガ倉庫</strong>下車。館内をひと回り<br><span class="flag-y">疲れていたら</span> 降りずに<strong>そのまま一周（約65分）</strong>して17:32に桜木町へ戻る手もあります。座ったまま横浜を一周でき、雨の日にも有効</td></tr>
+      <tr><td class="t">17:10</td><td>象の鼻パークを抜けて<strong>大さん橋「くじらのせなか」</strong>へ（徒歩7分）<br>無料・24時間開放。★<strong>晴れた日はここで日没</strong>。時刻は実行日に要確認（9月中旬は17:50前後、10月下旬は16:50前後）</td></tr>
+      <tr><td class="t">17:50</td><td>日没。みなとみらいに灯りが入る時間</td></tr>
+      <tr><td class="t">18:10</td><td>日本大通りへ戻る。★<strong>横浜三塔</strong><br>ジャック＝横浜市開港記念会館／クイーン＝横浜税関／キング＝神奈川県庁本庁舎<br><span class="flag-y">開港記念会館の館内見学は16:00まで</span>なので外観のみ</td></tr>
+      <tr><td class="t">18:25</td><td>馬車道のガス灯の通りへ（徒歩10分）。<strong>ここで夜ごはんの行き先を決める</strong></td></tr>
+      <tr><td class="t">18:40</td><td>★<strong>夜ごはん</strong>（下記A〜Cから選ぶ）<br><strong>A</strong> 馬車道から関内→横浜へ電車10分／<strong>B</strong> そのまま馬車道で／<strong>C</strong> 馬車道駅からみなとみらい駅へ2分</td></tr>
+      <tr><td class="t">〜21:00</td><td>横浜駅へ出て、小田急で本厚木へ<br><span class="flag-y">野毛で飲みたい日は</span> 日本大通りから桜木町へ出て、ムー／hanasaku で一杯 → そのまま野毛で夕食でも</td></tr>
+    </table>
+  </section>
+
+  <section id="pay">
+    <h2>💴 有料スポット（合計500円）</h2>
+
+    <div class="card-inn">
+      <h4>大佛次郎記念館 ｜ 200円</h4>
+      <p style="margin:0">中区山手町113（港の見える丘公園内）／10:00〜17:30／月曜休／☎045-622-5002<br>
+      『鞍馬天狗』『霧笛』『パリ燃ゆ』の作家・大佛次郎の記念館。<strong>公園の敷地の中にあるので移動距離ゼロ</strong>で入れます。書斎の再現展示と、猫好きだった本人の蒐集品が見どころ。赤い煉瓦の建物自体も港の見える丘公園の風景の一部です。<br>
+      <span class="flag-y">10:00開館</span>なので、イギリス館・山手111番館（9:30開館）を先に回る順番にしてあります。</p>
+    </div>
+
+    <div class="card-inn">
+      <h4>日本郵船氷川丸 ｜ 300円</h4>
+      <p style="margin:0">中区山下町 山下公園地先／10:00〜17:00（<strong>入館16:30まで</strong>）／月曜休／<strong>現金のみ</strong><br>
+      1930年就航、シアトル航路で活躍した貨客船が山下公園に係留されています。一等客室・食堂・操舵室・機関室まで入れて、当時のアール・デコの内装がそのまま残っています。<strong>入館できるのは16:30まで</strong>なので、この日に入るなら午前しかありません。</p>
+    </div>
+
+    <details>
+      <summary>差し替え候補（どれも数百円）</summary>
+      <ul>
+        <li><strong>横浜人形の家</strong>（400円）中区山下町18／9:30〜17:00（入館16:30）／月曜休 — 山下公園の道路を挟んだ向かい。氷川丸の代わりに。世界の人形コレクション</li>
+        <li><strong>横浜開港資料館</strong>（一般300円前後）中区日本大通3／9:30〜17:00（入館16:30）／月曜休 — 開港期の横浜。ただし午後の動線では時間的に入れません</li>
+        <li><strong>シルク博物館</strong>（500円前後）中区山下町1 — 山下公園から中華街への途中。生糸貿易で栄えた横浜らしいテーマ</li>
+      </ul>
+    </details>
+  </section>
+
+  <section id="spot">
+    <h2>④ スポット情報</h2>
+    <table>
+      <tr><th>スポット</th><th>住所・時間・料金</th></tr>
+      <tr><td><strong>港の見える丘公園</strong></td><td>中区山手町114／24時間開放・無料</td></tr>
+      <tr><td><strong>横浜市イギリス館</strong></td><td>中区山手町115-3／9:30〜17:00／無料／第4水曜休</td></tr>
+      <tr><td><strong>山手111番館</strong></td><td>中区山手町111／9:30〜17:00／無料／第2水曜休</td></tr>
+      <tr><td><strong>大佛次郎記念館</strong></td><td>中区山手町113／10:00〜17:30／<strong>200円</strong>／月曜休</td></tr>
+      <tr><td><strong>ベーリック・ホール／エリスマン邸</strong></td><td>山手本通り沿い／9:30〜17:00／無料 ※8:00着なら追加可</td></tr>
+      <tr><td><strong>山下公園・氷川丸</strong></td><td>公園は24時間無料／氷川丸 10:00〜17:00（入館16:30）・<strong>300円</strong>・現金のみ・月曜休</td></tr>
+      <tr><td><strong>あかいくつ</strong></td><td>桜木町駅東口4番のりば／220円・IC可／土曜16時台は16:07・16:27・16:47<br>一周約65分。周遊便の始発は10:02</td></tr>
+      <tr><td><strong>神奈川県立音楽堂</strong></td><td>西区紅葉ケ丘9-2／桜木町駅から徒歩10〜12分（紅葉坂）</td></tr>
+      <tr><td><strong>成田山横浜別院 延命院</strong></td><td>西区宮崎町30／御朱印8:30〜16:00／☎045-231-4935</td></tr>
+      <tr><td><strong>伊勢山皇大神宮</strong></td><td>西区宮崎町64／開門6:00〜19:00・授与所9:00〜19:00</td></tr>
+      <tr><td><strong>横浜市開港記念会館</strong></td><td>中区本町1-6／館内見学9:00〜16:00・無料 ※今回は外観のみ</td></tr>
+    </table>
+  </section>
+
+  <section id="meal">
+    <h2>⑤ 食べる・飲む</h2>
+
+    <h3>昼｜中華街（11:55〜12:40）</h3>
+    <div class="card-inn">
+      <h4>★本命：双囍 上海本帮麺（そうき）</h4>
+      <p style="margin:0">中区山下町218-10 1F／11:00〜22:00／火曜定休／10席／☎045-900-0408<br>
+      看板は<strong>干しエビと葱油のまぜ麺（980円）</strong>。カウンター中心の小さな店で一人客が普通に食べています。麺一杯なので15分で食べ終われるうえ、<strong>西門通り寄り＝石川町駅へ抜ける方向</strong>にあるのが今日の動線に合っています。<br>
+      <span class="flag-y">10席なので土曜12時台は数組待つ可能性あり</span></p>
+    </div>
+    <div class="card-inn">
+      <h4>混雑を避けるなら：萬珍樓點心舗</h4>
+      <p style="margin:0">中区山下町156／11:00〜15:00<br>老舗の点心専門店。<strong>白粥セット1,700円</strong>。席数があるので待ちにくく、粥なら夜に完璧に余力を残せます。</p>
+    </div>
+    <div class="card-inn">
+      <h4>老舗の空気なら：慶華飯店</h4>
+      <p style="margin:0">中区山下町150／11:30〜15:00LO<br><strong>海老ワンタン880円</strong>の小さな老舗。中華街らしさは随一ですが、待ち時間は読めません。</p>
+    </div>
+
+    <h3>夜｜夜ごはん 3案（当日の気分で選ぶ・予約不要）</h3>
+
+    <div class="card-inn">
+      <h4>A｜横浜駅で締める — 帰りが最短</h4>
+      <p style="margin:0">本厚木へ帰ることを考えると、これが一番ラクです。馬車道から関内経由で電車10分。<br><br>
+      <strong>魚と酒 はなたれ 横浜東口店</strong>（西区高島2-10-13／横浜駅東口 徒歩4分／水〜土 17:00〜23:00、月火日は22:00まで）<br>
+      横浜本場市場から毎朝仕入れる鮮魚に、<strong>日本酒が全品500円均一</strong>。一人客が普通にいて、値段も張りません。<strong>今回の本命。</strong><br><br>
+      <strong>PIER AK</strong>（西区南幸1-10-16／横浜駅相鉄口 徒歩1分／土日祝 14:00〜22:00）<br>
+      約70種の日本酒を<strong>45ml・全品390円</strong>で。飲み比べたい日はこちら。閉店22時なので早めに。</p>
+    </div>
+
+    <div class="card-inn">
+      <h4>B｜馬車道の老舗 — 夕景からそのまま歩ける</h4>
+      <p style="margin:0"><strong>勝烈庵 馬車道総本店</strong>（中区常盤町5-58-2／地下鉄関内駅9番出口 徒歩1分・JR関内駅北口 徒歩5分／11:00〜21:30・LO21:00／☎045-681-4411）<br>
+      昭和2年創業のかつれつの老舗。<strong>勝烈定食2,200円</strong>、筑波山もち豚定食2,750円。一人でも気負わずに入れて、「横浜で食べた」という手応えが残る一軒です。<br><br>
+      <strong>馬車道十番館</strong>（中区常盤町5-67／土日祝 11:00〜21:00 通し営業／1階喫茶室は10:00〜21:00）<br>
+      名物は文明開化ステーキ。勝烈庵より少し改まった雰囲気で、明治の洋館を模した建物自体が馬車道の名物です。</p>
+    </div>
+
+    <div class="card-inn">
+      <h4>C｜みなとみらいで温泉と夜景 — ご褒美にしたい日</h4>
+      <p style="margin:0"><strong>横浜みなとみらい万葉倶楽部</strong>（みなとみらい駅から徒歩5分／24時間営業／入館3,500円＋入湯税100円・前売3,200円／館内「万葉庵」17:00〜23:00）<br>
+      <span class="flag-y">値は張ります</span>が、8階の展望足湯庭園からみなとみらいの夜景が360度見渡せます。歩き回った一日の最後に湯に入って、足湯で夜景を見て帰る——この締め方は他では作れません。横浜駅西口から無料シャトルバスあり。</p>
+    </div>
+
+    <h3>野毛で飲みたい日はこちら（夕食もここで）</h3>
+    <div class="card-inn">
+      <h4>ワインのお店 ムー ／ 日本酒とおばんざい hanasaku</h4>
+      <p style="margin:0"><strong>ムー</strong>：中区野毛町3-133-1 ベイサイドレジデンス桜木町1F／桜木町駅 徒歩3分／土曜15:00〜23:00／火曜定休／☎045-250-5373／自然派ワイン グラス750円〜<br>
+      <strong>hanasaku</strong>：中区花咲町2-60／桜木町駅 徒歩2分／17:00〜23:30（LO22:30）／不定休／☎045-325-9215／日本酒20種ほどを半合から<br>
+      どちらも一人客が普通にいる店。日本大通りから桜木町へ出れば、そのまま夕食まで居座れます。個人店なので、狙うなら前日に営業確認の電話を。</p>
+    </div>
+  </section>
+
+  <section id="budget">
+    <h2>⑥ 予算</h2>
+    <table>
+      <tr><th>項目</th><th class="num">金額</th></tr>
+      <tr><td>JR 横浜 → 石川町</td><td class="num">199円</td></tr>
+      <tr><td>💴 大佛次郎記念館</td><td class="num">200円</td></tr>
+      <tr><td>💴 日本郵船氷川丸（現金のみ）</td><td class="num">300円</td></tr>
+      <tr><td>中華街ランチ（双囍 葱油まぜ麺）</td><td class="num">980円</td></tr>
+      <tr><td>JR 石川町 → 桜木町</td><td class="num">150円</td></tr>
+      <tr><td>御朱印 ×2（成田山・伊勢山）</td><td class="num">1,000円</td></tr>
+      <tr><td>あかいくつ</td><td class="num">220円</td></tr>
+      <tr><td>夜ごはん A はなたれ（鮮魚＋日本酒数杯）</td><td class="num">3,000〜4,000円</td></tr>
+      <tr><td>夜ごはん B 勝烈庵（勝烈定食）</td><td class="num">2,200円</td></tr>
+      <tr><td>夜ごはん C 万葉倶楽部（入館＋入湯税＋食事）</td><td class="num">6,000円〜</td></tr>
+      <tr class="total-row"><td>合計（夜ごはんAの場合）</td><td class="num">約6,000円</td></tr>
+    </table>
+    <div class="tip">入館料は2館合わせて500円。横浜は無料で入れる西洋館が多いので、お金を出すのは「そこにしかないもの」に絞りました。</div>
+  </section>
+
+  <section id="highlight">
+    <h2>⑦ ハイライト</h2>
+    <div class="highlight-grid">
+      <div class="highlight-item"><div class="highlight-num">1</div><div><strong>朝の港の見える丘公園</strong><br>観光客が動き出す前の丘の上から、港がしんと見えます。午前でないと味わえない景色です。</div></div>
+      <div class="highlight-item"><div class="highlight-num">2</div><div><strong>氷川丸の船内</strong><br>1930年のアール・デコの客室に入れます。曇りの日でも、船の中は天気に左右されません。</div></div>
+      <div class="highlight-item"><div class="highlight-num">3</div><div><strong>御朱印のあとのあかいくつ</strong><br>坂を2回上り下りしたあと、座って横浜を眺める15分。この順番だからありがたい時間です。</div></div>
+    </div>
+    <div class="tip"><strong>最も感動しそうな瞬間</strong>：大佛次郎記念館を出て、港の見える丘公園からフランス山を下りはじめるところ。丘の上の静かな時間から、いきなり港が開けます。</div>
+  </section>
+
+  <section id="alt">
+    <h2>⑧ 雨天時・調整</h2>
+
+    <h3>雨が強い場合</h3>
+    <ul>
+      <li>午前はむしろ雨向きです。<strong>山手西洋館・大佛次郎記念館・氷川丸はすべて屋内</strong>。谷戸坂だけ気をつけて。</li>
+      <li>フランス山の階段が不安なら、元町側へ回って平坦な道で山下公園へ</li>
+      <li>午後は<strong>あかいくつを降りずに一周（約65分・220円）</strong>。16:27発→17:32桜木町着で、濡れずに横浜を一周できます</li>
+      <li>それでも時間が余ったら、桜木町から動く歩道（屋根つき）でランドマークプラザ、ドックヤードガーデン（無料）へ</li>
+    </ul>
+
+    <h3>削ってもよい候補</h3>
+    <ul>
+      <li>山手111番館（20分）</li>
+      <li>赤レンガ倉庫での途中下車（→ バス一周に切り替え）</li>
+      <li>大さん橋（曇りや雨で夕景が見込めない日は、赤レンガから馬車道へ直行して早めに夜ごはんへ）</li>
+    </ul>
+
+    <h3>足すなら（8:00着にした場合）</h3>
+    <ul>
+      <li><strong>ベーリック・ホール／エリスマン邸</strong>（無料）— 山手本通りを奥まで。外国人墓地の前を通る道が気持ちいい</li>
+      <li><strong>横浜人形の家</strong>（400円）— 山下公園の向かい。氷川丸と両方入るなら＋40分</li>
+    </ul>
+  </section>
+
+  <section id="notice">
+    <h2>⑨ 注意事項</h2>
+    <ul>
+      <li><span class="flag-r">締切</span> 成田山の御朱印 16:00／中華街の出発 12:40／氷川丸の入館 16:30</li>
+      <li><span class="flag-y">現金</span> 氷川丸は<strong>現金のみ</strong>。御朱印用の小銭も忘れずに</li>
+      <li><span class="flag-y">開館</span> 大佛次郎記念館は10:00開館。イギリス館・山手111番館（9:30）より後に回ること</li>
+      <li><span class="flag-y">バス</span> あかいくつ周遊便の始発は10:02。朝は使えない</li>
+      <li><span class="flag-y">休館</span> 神奈川県立歴史博物館は2026年10月16日まで休館中</li>
+      <li><span class="flag-y">休止</span> ランドマークタワー69階スカイガーデンは2025/12/31で一時休止（2028年以降再開予定）。横浜ロイヤルパークホテルも2025年3月末から休館中。高層展望は今の横浜では使えません</li>
+      <li><span class="flag-y">日没</span> 大さん橋で日没を見るなら、実行日の日の入り時刻を必ず確認（9月中旬17:50頃／10月下旬16:50頃／12月16:30頃と大きく動く）</li>
+      <li><span class="flag-y">閉店</span> 夜ごはんA案のPIER AKは22時、B案の勝烈庵はLO21:00。遅くなる日はAのはなたれ（土曜23時まで）が安全</li>
+      <li><span class="flag-y">天気</span> 予報は前日に再確認</li>
+    </ul>
+  </section>
+
+  <section id="pack">
+    <h2>⑩ 持ち物</h2>
+    <ul>
+      <li>折りたたみ傘（必携）</li>
+      <li>御朱印帳と小銭（500円玉を数枚）</li>
+      <li><strong>現金（氷川丸はカード不可）</strong></li>
+      <li>歩き慣れた靴（谷戸坂の上り、紅葉坂の上り下り2回、山手は石畳）</li>
+      <li>羽織りもの（ホールの冷房、曇天の海沿いは思ったより涼しい）</li>
+      <li>モバイルバッテリー</li>
+    </ul>
+  </section>
+
+  <section id="check">
+    <h2>✅ 当日チェック</h2>
+    <div class="checklist">
+      <label><input type="checkbox"><span>前日：天気予報を再確認</span></label>
+      <label><input type="checkbox"><span>実行日の日の入り時刻と各施設の営業時間を取り直した</span></label>
+      <label><input type="checkbox"><span>御朱印帳・小銭・現金（氷川丸用）を入れた</span></label>
+      <label><input type="checkbox"><span>08:33 のJRで石川町へ</span></label>
+      <label><input type="checkbox"><span>10:20 大佛次郎記念館（200円）</span></label>
+      <label><input type="checkbox"><span>11:10 氷川丸（300円・現金）</span></label>
+      <label><input type="checkbox"><span>12:40 中華街を出た</span></label>
+      <label><input type="checkbox"><span>15:42 成田山横浜別院に到着（16時締切）</span></label>
+      <label><input type="checkbox"><span>16:27 あかいくつ乗車（桜木町駅東口4番のりば）</span></label>
+      <label><input type="checkbox"><span>日没を大さん橋で見た（晴れた日）</span></label>
+      <label><input type="checkbox"><span>夜ごはんの行き先を決めた（A横浜駅／B馬車道／Cみなとみらい）</span></label>
+    </div>
+  </section>
+
+  <section id="link">
+    <h2>🔗 参考リンク</h2>
+    <ul>
+      <li><a href="https://www.welcome.city.yokohama.jp/spot/details.php?bbid=132" target="_blank">大佛次郎記念館（横浜市観光情報サイト）</a></li>
+      <li><a href="https://hikawamaru.nyk.com/user_guide.html" target="_blank">日本郵船氷川丸 ご利用案内</a></li>
+      <li><a href="https://www.doll-museum.jp/guide" target="_blank">横浜人形の家 ご利用案内</a></li>
+      <li><a href="https://www.welcome.city.yokohama.jp/transit/akaikutsu/" target="_blank">観光スポット周遊バス「あかいくつ」</a></li>
+      <li><a href="https://navi.hamabus.city.yokohama.lg.jp/koutuu/pc/diagram/BusDiagram?orvCode=00090408&amp;course=0001601325&amp;stopNo=1" target="_blank">あかいくつ 桜木町駅前 時刻表（横浜市交通局）</a></li>
+      <li><a href="https://www.hama-midorinokyokai.or.jp/yamate-seiyoukan/" target="_blank">横浜山手西洋館 公式サイト</a></li>
+      <li><a href="https://www.iseyama.jp/" target="_blank">伊勢山皇大神宮</a></li>
+      <li><a href="https://www.kanagawa-ongakudo.com/" target="_blank">神奈川県立音楽堂</a></li>
+      <li><a href="https://r.gnavi.co.jp/781gupam0000/" target="_blank">ワインのお店 ムー（ぐるなび）</a></li>
+      <li><a href="https://kulakula.info/hanasaku/" target="_blank">日本酒とおばんざい hanasaku</a></li>
+      <li><a href="https://tenki.jp/forecast/3/17/4610/14100/10days.html" target="_blank">横浜市の2週間天気（tenki.jp）</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    v3（2026-09-14）／2026/9/12は雨天で観光を中止。晴れた週末に日付を差し替えて実行する前提に改訂し、大さん橋の日没を復活、会社の会食が消えた夜枠に夜ごはん3案を追加。バス時刻は横浜市交通局の2026年9月ダイヤ、施設情報は各公式サイトで2026年9月上旬に確認。<strong>実行日が決まったら日の入り時刻・営業時間・休館情報を取り直してください。</strong>
+  </footer>
+
+</main>
+
+<script>
+function toggleTheme(){
+  const b=document.body;
+  const next=b.getAttribute('data-theme')==='light'?'dark':'light';
+  b.setAttribute('data-theme',next);
+  document.querySelector('.theme-btn').textContent = next==='light' ? '🌙 ダーク' : '☀️ ライト';
+}
+document.querySelectorAll('.checklist input').forEach(function(cb){
+  cb.addEventListener('change',function(){ this.closest('label').classList.toggle('done', this.checked); });
+});
+</script>
+</body>
+</html>

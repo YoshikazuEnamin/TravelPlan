@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌊 東北 温泉＆グルメ一人旅 v30</title>
+<style>
+  :root{
+    --bg:#f6f4ee; --card:#fffdf8; --card2:#f0ece2; --ink:#23252b; --sub:#5c5f6a;
+    --line:#e2ddd0; --accent:#1f6f8b; --accent2:#b8443c; --gold:#b8893b;
+    --ok:#2f8f5b; --okbg:#e4f3ea; --warn:#b8860b; --warnbg:#fbf2da; --note:#5a6b86; --notebg:#eaeef6;
+    --pill:#eef5f7; --shadow:0 1px 3px rgba(0,0,0,.06),0 6px 18px rgba(0,0,0,.05);
+  }
+  :root[data-theme="dark"]{
+    --bg:#14161b; --card:#1c1f27; --card2:#232733; --ink:#e9e8e3; --sub:#a3a7b3;
+    --line:#2c3140; --accent:#5fb3cf; --accent2:#e2776e; --gold:#d9ab5c;
+    --ok:#5cc98a; --okbg:#16321f; --warn:#e0b84e; --warnbg:#332a12; --note:#9db2d6; --notebg:#1b2333;
+    --pill:#222a33; --shadow:0 1px 3px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",Meiryo,sans-serif;
+    line-height:1.7;font-size:15px;-webkit-text-size-adjust:100%;
+  }
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:880px;margin:0 auto;padding:0 16px 80px}
+
+  /* header */
+  header.hero{
+    background:linear-gradient(135deg,var(--accent),#2a4d6e);color:#fff;
+    padding:30px 16px 26px;text-align:center;position:relative;overflow:hidden;
+  }
+  :root[data-theme="dark"] header.hero{background:linear-gradient(135deg,#163a4a,#1a2740)}
+  header.hero h1{margin:0 0 6px;font-size:23px;letter-spacing:.5px}
+  header.hero .sub{opacity:.92;font-size:14px}
+  header.hero .ver{display:inline-block;margin-top:10px;background:rgba(255,255,255,.18);
+    padding:3px 12px;border-radius:999px;font-size:12px}
+
+  /* sticky nav */
+  nav.bar{position:sticky;top:0;z-index:50;background:var(--card);border-bottom:1px solid var(--line);
+    box-shadow:var(--shadow)}
+  nav.bar .inner{max-width:880px;margin:0 auto;display:flex;gap:6px;overflow-x:auto;
+    padding:8px 12px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+  nav.bar a{flex:0 0 auto;font-size:13px;color:var(--sub);background:var(--pill);
+    padding:6px 12px;border-radius:999px;white-space:nowrap;font-weight:600}
+  nav.bar a:hover{color:var(--accent);text-decoration:none}
+  .themebtn{flex:0 0 auto;border:1px solid var(--line);background:var(--card2);color:var(--ink);
+    border-radius:999px;padding:6px 12px;font-size:13px;cursor:pointer;font-weight:600}
+
+  section{margin-top:30px}
+  h2.day{font-size:19px;margin:0 0 4px;display:flex;align-items:center;gap:8px;
+    border-left:5px solid var(--accent2);padding-left:10px}
+  h2.sec{font-size:18px;margin:0 0 12px;border-bottom:2px solid var(--line);padding-bottom:6px}
+  h3{font-size:15.5px;margin:20px 0 8px;color:var(--accent)}
+  .daymeta{color:var(--sub);font-size:13px;margin:0 0 14px;padding-left:15px}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:14px 16px;box-shadow:var(--shadow);margin-bottom:14px}
+
+  pre.route{background:var(--card2);border:1px solid var(--line);border-radius:12px;
+    padding:14px;overflow-x:auto;font-size:12.5px;line-height:1.6;color:var(--ink);
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+
+  /* summary cards */
+  .days{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+  .dcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;box-shadow:var(--shadow)}
+  .dcard .tag{font-size:12px;font-weight:700;color:var(--accent2)}
+  .dcard .stay{font-size:12.5px;color:var(--sub);margin-top:6px}
+  .dcard .price{font-size:12.5px;color:var(--gold);font-weight:700;margin-top:2px}
+
+  table{width:100%;border-collapse:collapse;font-size:13.5px;margin:6px 0}
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  th,td{text-align:left;padding:8px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:var(--card2);color:var(--sub);font-weight:700;white-space:nowrap;font-size:12.5px}
+  td .t{font-weight:800;color:var(--accent);white-space:nowrap}
+  tr:last-child td{border-bottom:none}
+
+  .callout{border-radius:10px;padding:10px 13px;margin:10px 0;font-size:13.5px;border:1px solid}
+  .c-tip{background:var(--notebg);border-color:transparent;color:var(--ink)}
+  .c-warn{background:var(--warnbg);border-color:transparent}
+  .c-ok{background:var(--okbg);border-color:transparent}
+
+  .badge{display:inline-block;font-size:11px;font-weight:700;padding:2px 7px;border-radius:6px;white-space:nowrap}
+  .b-ok{background:var(--okbg);color:var(--ok)}
+  .b-warn{background:var(--warnbg);color:var(--warn)}
+  .b-note{background:var(--notebg);color:var(--note)}
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
+
+  details.budget{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    box-shadow:var(--shadow);margin-bottom:14px;overflow:hidden}
+  details.budget>summary{cursor:pointer;padding:14px 16px;font-weight:700;font-size:15px;
+    list-style:none;display:flex;justify-content:space-between;align-items:center}
+  details.budget>summary::-webkit-details-marker{display:none}
+  details.budget>summary .chev{transition:transform .2s;color:var(--sub)}
+  details.budget[open]>summary .chev{transform:rotate(180deg)}
+  details.budget .body{padding:0 16px 14px}
+  .total{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:10px}
+  .total .box{flex:1 1 120px;background:var(--card2);border-radius:10px;padding:10px;text-align:center}
+  .total .box b{display:block;font-size:18px;color:var(--accent2);margin-top:3px}
+
+  /* checklist */
+  .check{list-style:none;padding:0;margin:0}
+  .check li{display:flex;gap:10px;align-items:flex-start;padding:9px 12px;border:1px solid var(--line);
+    border-radius:10px;margin-bottom:8px;background:var(--card);cursor:pointer;transition:.15s}
+  .check li:hover{border-color:var(--accent)}
+  .check input{margin-top:3px;width:18px;height:18px;accent-color:var(--ok);flex:0 0 auto}
+  .check li.done{opacity:.55}
+  .check li.done .lbl{text-decoration:line-through}
+  .lbl{font-size:13.5px}
+  .resetbtn{background:var(--card2);border:1px solid var(--line);color:var(--sub);border-radius:8px;
+    padding:5px 12px;font-size:12px;cursor:pointer;margin-top:4px}
+
+  .pillrow{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+  .pillrow span{background:var(--pill);border-radius:999px;padding:4px 11px;font-size:12.5px;color:var(--sub)}
+
+  ul.clean{margin:6px 0;padding-left:20px}
+  ul.clean li{margin:3px 0;font-size:13.5px}
+  .must{color:var(--accent2);font-weight:700}
+  hr{border:none;border-top:1px dashed var(--line);margin:26px 0}
+  footer{margin-top:30px;color:var(--sub);font-size:12px;text-align:center;line-height:1.8}
+  .em{font-weight:700}
+  @media(max-width:520px){ header.hero h1{font-size:19px} body{font-size:14.5px} }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>🌊 東北 温泉＆グルメ 一人旅</h1>
+  <div class="sub">8/4（火）〜 8/7（金）｜本厚木発・新青森帰り 3泊4日</div>
+  <span class="ver">v30 ｜ DAY1を羽黒山＋湯殿山じっくりに再編</span>
+</header>
+
+<nav class="bar"><div class="inner">
+  <button class="themebtn" id="themebtn">🌙 ダーク</button>
+  <a href="#overview">概要</a>
+  <a href="#day1">DAY1</a>
+  <a href="#day2">DAY2</a>
+  <a href="#day3">DAY3</a>
+  <a href="#day4">DAY4</a>
+  <a href="#check">総点検</a>
+  <a href="#budget">予算</a>
+  <a href="#todo">予約</a>
+  <a href="#pack">持ち物</a>
+  <a href="#links">リンク</a>
+  <a href="#geo">📍座標検証</a>
+</div></nav>
+
+<div class="wrap">
+
+<!-- ============ OVERVIEW ============ -->
+<section id="overview">
+  <h2 class="sec">🗺️ ルート全体像</h2>
+  <pre class="route">本厚木 →（リムジンバス）→ 羽田 →（ANA）→ 庄内空港
+  → 鶴岡【🚗カーシェア(DAY1のみ)】→⛩️羽黒山 石段フル→🍡二の坂茶屋(力餅)
+        →🍢仙人沢でゆったり食べ歩き→⛩️湯殿山神社本宮(裸足参拝)
+        →🛍️ふるさと本舗(麦きり・楯野川)→鶴岡 → あつみ温泉 泊①
+  → あつみ温泉→羽後本荘(荷物預け)→🚄秋田：⛩️三吉神社→🛍️お土産→🍗比内地鶏→🏮竿燈 → 羽後本荘 泊②
+  → 秋田→🚃リゾートしらかみ1号→🌲十二湖（キョロロ荷物預け）
+    →🚃しらかみ3号→ウェスパ椿山→🌊不老ふ死温泉 泊③
+  → 🚃リゾートしらかみ→🍎みちのくりんご店→新青森（🛍️お土産＆🍱駅弁）→ 帰宅</pre>
+
+  <div class="callout c-tip">🆕 <span class="em">v30の変更点（DAY1を羽黒山＋湯殿山の2ヶ所にじっくり集中・2026-08-03）</span>：本人希望により<span class="em">田麦俣 多層民家「旧遠藤家住宅」（Googleマップ評価3.8）と七ツ滝への寄り道を取りやめ</span>、羽黒山と湯殿山の2ヶ所にじっくり滞在する構成に変更。「七ツ滝の評価がそこまで高くない」「評価4以上の場所を巡りたい」という指摘がきっかけ。代替の注連寺（4.4）は拝観10:00〜14:00・要事前予約で動線と合わず、大日坊（4.1）は仙人沢から片道25分で時間的に厳しく見送り。月山（弥陀ヶ原）も湯殿山から車で69分かかり道路がつながっていないため次回送りに。<br>🆕代わりに<span class="em">仙人沢での滞在をゆったり延長</span>（13:15〜13:30→13:15〜13:50）、<span class="em">湯殿山本宮の参拝も余裕を持たせ</span>（13:40〜14:20→14:00〜14:35）、<span class="em">鶴岡へ戻る道中に「庄内観光物産館 ふるさと本舗」への立ち寄りを追加</span>（鶴岡ICすぐ隣・お土産施設14年連続TOP10）。仙人沢から鶴岡駅へ直行しても46〜48分・ふるさと本舗経由でも48分と実測でほぼロスなし。目当ては<span class="em">大山麦きり</span>（すがわら製麺・¥310）と<span class="em">楯野川</span>（純米大吟醸・楯の川酒造）。鶴岡駅着は16:10頃で、16:22発いなほ12号まで余裕を持って間に合う。</div>
+
+  <div class="callout c-warn">📍 <span class="em">v29の変更点（住所と座標の全件再確定・2026-07-26）</span>：ぽけたび用JSONの<span class="em">全67アイテムに住所と緯度経度を入れ直しました</span>。手順は「公式情報で住所を番地まで確定 → 国土地理院のジオコーディングAPI → 返り値を照合 → 疑わしいものは標高APIと既知の所要時間で検算」。<br>🔴<span class="em">旧v28の座標に明確な誤りが4件</span>＝<span class="em">多層民家「旧遠藤家住宅」4.0km・七ツ滝4.0km・湯殿山 仙人沢1.3km・鶴岡駅1.9km</span>のずれ。標高で検算すると多層民家935m・七ツ滝790m・仙人沢1368mを指しており、田麦俣集落（358m）や本宮（公称1100m）と噛み合いませんでした。<br>🔴<span class="em">住所の訂正3件</span>＝①多層民家は<span class="em">田麦俣字七ツ滝139</span>（旧135は誤り）②萬国屋は<span class="em">湯温海丁1</span>③本荘グランドホテルは<span class="em">由利本荘市岩渕下254</span>（駅前の西梵天ではない）。<br>⚠️手直しをお願いしたい箇所は末尾の「📍 座標の検証記録」に。</div>
+
+  <div class="callout c-warn">🆕 <span class="em">v28の変更点（全アイテム総点検）</span>：8/4が火曜定休で組み直しになった反省から、<span class="em">全4日分のアイテムを1件ずつ公式情報で再検証</span>しました（2026-07-23実施）。<br>🔴<span class="em">訂正3件</span>：①DAY1の鶴岡→あつみ温泉は「16:23発 いなほ10号」ではなく<span class="em">「16:22発 いなほ12号」</span>（1分早い・料金¥1,780は一致＝予約自体は正しい列車）。②DAY2のあつみ温泉→羽後本荘は「09:50発」ではなく<span class="em">「09:51発」</span>。③DAY3の弘南バスは「10:32発→10:47着」ではなく<span class="em">「10:30発→10:45着」</span>（公式2026/4/1改正）。<br>🔴<span class="em">新たに判明した最大のリスク</span>：湯殿山の<span class="em">本宮参拝バスは平日「約40〜50分間隔の随時運行」</span>で、13:35ちょうどに乗れる保証がありません。待ちが出たら多層民家か七ツ滝のどちらかを落としてください。<br>💡<span class="em">改善1件</span>：DAY4の帰路は、新宿19:40発のロマンスカーより<span class="em">19:01発の快速急行（当駅始発）→本厚木19:52着</span>のほうが37分早く特急料金も不要。<br>✅<span class="em">確認できたもの</span>：秋田竿燈まつりは2026年は8/3〜8/6開催で<span class="em">8/5は該当日</span>（演技19:15〜20:35）、リゾートしらかみ1号・3号は<span class="em">8月は全日運転</span>、比内地鶏や（11:00〜20:00・無休）、はやぶさ60号、羽越本線の各普通列車、赤沼線バス、二の坂茶屋、多層民家、湯殿山有料道路の営業期間。</div>
+
+  <div class="callout c-tip">🆕 <span class="em">v27の変更点</span>：<span class="em">DAY1のランチを「腰を据えた食事」から「食べ歩き」に変更</span>。18:30からの萬国屋の会席にお腹を空かせておきたい、という本人希望によるもの。<span class="em">①二の坂茶屋の力餅＆抹茶（石段の中間・庄内平野の絶景）＋②仙人沢の湯殿山レストハウス店頭で玉こんにゃく・焼き団子</span>の2段構えで合計¥1,000前後。<br>これにより浮いた時間で寄り道が2か所入り、しかも<span class="em">予約済みのいなほ12号（16:23）に間に合います</span>＝<span class="em">③田麦俣 多層民家「旧遠藤家住宅」</span>（兜造り三層茅葺・¥300・月曜休なので火曜はOK）と<span class="em">④七ツ滝</span>（日本の滝百選・落差90mの段瀑）。<br>🔴なお<span class="em">8/4（火）はこの区間の蕎麦の名店が全滅</span>でした＝そば処 大梵字（火曜定休）・そば処 ななかまど亭（火曜定休）・そば処 福湊庵（火水定休）・食事処いしい（2024年11月から休業中）。手向の宿坊の精進料理も4〜5名様からで一人旅は不可、大日坊の昼食も5名以上。食べ歩きへの切り替えは、この火曜問題への最適解でもあります。麦きり（寝覚屋半兵ヱ・水曜定休）は方角が合わず次回の庄内旅で。<br>【全体】比内地鶏や20:00閉店のため<span class="em">出羽三山はDAY1にカーシェア1回で両取り</span>→あつみ16:43着。DAY2は三吉神社・秋田午後フルの元構成。</div>
+
+  <div class="legend">
+    <span class="badge b-ok">✅2026 公式ダイヤで分単位確認</span>
+    <span class="badge b-note">⏱️目安 運転・徒歩など時刻表なし</span>
+    <span class="badge b-warn">🟡 各自で最終確認</span>
+  </div>
+
+  <div class="days" style="margin-top:14px">
+    <div class="dcard"><div class="tag">DAY1 ｜ 8/4 火</div>✈️→🚗⛩️羽黒山 石段フル→🍢食べ歩き→⛩️湯殿山本宮→🛍️ふるさと本舗→♨️あつみ温泉<div class="stay">🏨 あつみ温泉 萬国屋（露天付き客室）🔥</div><div class="price">¥18,000〜25,000</div></div>
+    <div class="dcard"><div class="tag">DAY2 ｜ 8/5 水</div>⛩️あつみさんぽ→🚄秋田→⛩️三吉神社→🛍️お土産→🍗比内地鶏→🪷千秋公園→🏮竿燈<div class="stay">🏨 本荘グランドホテル 💤</div><div class="price">¥8,100</div></div>
+    <div class="dcard"><div class="tag">DAY3 ｜ 8/6 木</div>🌲十二湖→🚃五能線→🌊海の秘湯<div class="stay">🏨 黄金崎不老ふ死温泉</div><div class="price">¥12,570〜</div></div>
+    <div class="dcard"><div class="tag">DAY4 ｜ 8/7 金</div>🍎りんごジュース→🛍️お土産＆🍱駅弁→帰宅<div class="stay">— 帰路 —</div><div class="price">はやぶさ60号</div></div>
+  </div>
+</section>
+
+<!-- ============ DAY 1 ============ -->
+<section id="day1">
+  <h2 class="day">📅 DAY 1（8/4・火）</h2>
+  <div class="daymeta">羽田 → 庄内 → 🚗出羽三山巡り（羽黒山 石段フル＋湯殿山本宮）→ あつみ温泉</div>
+
+  <div class="card">
+    <h3>✈️ 移動（本厚木 → 羽田 → 庄内）</h3>
+    <div class="scroll"><table>
+      <tr><th>時刻</th><th>区間</th><th>手段</th><th>料金</th><th>備考</th></tr>
+      <tr><td class="t">04:45</td><td>本厚木駅 発</td><td>神奈中リムジンバス（羽田行）</td><td>¥1,800</td><td><span class="badge b-ok">✅予約済み</span> 始発便（次便は05:30）</td></tr>
+      <tr><td class="t">05:52</td><td>羽田空港 第2ターミナル着</td><td>—</td><td>—</td><td><span class="badge b-ok">✅</span> ダイヤ確認済</td></tr>
+      <tr><td class="t">05:55〜07:00</td><td>☕ POWER LOUNGE</td><td>Oliveゴールドで無料</td><td>—</td><td>早朝のまったりタイム</td></tr>
+      <tr><td class="t">07:15</td><td>羽田 発</td><td>ANA393 庄内行 ✅予約済み</td><td>¥13,700</td><td></td></tr>
+      <tr><td class="t">08:15</td><td>庄内空港 着</td><td>—</td><td>—</td><td><span class="badge b-ok">✅</span> ANA393到着</td></tr>
+      <tr><td class="t">08:25頃</td><td>庄内空港 発</td><td>空港連絡バス（ANA393接続）</td><td>¥1,000</td><td><span class="badge b-note">⏱️固定時刻なし</span> 到着の約10分後・手荷物受取後に発車（公式明記）</td></tr>
+      <tr><td class="t">08:55頃</td><td>鶴岡駅前 着（所要約30分）</td><td>—</td><td>—</td><td>飛行機接続のため時刻は前後する</td></tr>
+    </table></div>
+    <div class="callout c-tip">💳 Oliveゴールドカードは三井住友カードゴールドと同等。<span class="em">国内主要空港カードラウンジが無料</span>（ANAラウンジは対象外）。</div>
+  </div>
+
+  <div class="card">
+    <h3>🚗 鶴岡駅でカーシェア（キャリーは車内へ＝ロッカー不要）</h3>
+    <div class="scroll"><table>
+      <tr><th>時刻</th><th>行動</th><th>料金</th><th>備考</th></tr>
+      <tr><td class="t">08:55</td><td>鶴岡駅前 着</td><td>—</td><td></td></tr>
+      <tr><td class="t">09:00〜09:20</td><td>🚗 カーシェア手続き・出発</td><td>目安¥6,000〜9,000</td><td>キャリーは車に積みっぱでOK・ロッカー不要</td></tr>
+      <tr><td class="t">09:20頃</td><td>鶴岡 発 → 県道経由</td><td>—</td><td>羽黒山随神門まで約30分</td></tr>
+    </table></div>
+    <div class="callout c-warn">⚠️ <span class="em">カーシェア／レンタカーは事前予約を！</span> 鶴岡駅前ステーション有無は要確認（タイムズカー等）。無ければ駅前レンタカーで代替。<span class="em">カーシェアはDAY1の1回だけ</span>（約6〜8時間・羽黒＋湯殿の周回ぶん）。</div>
+    <div class="callout c-tip">💡 8/4(火)は平日で「出羽観光しゃとるバス」運休のため、湯殿山まで足を伸ばすにはカーシェアが現実解。<span class="em">車なら羽黒山＋湯殿山を1日で両取り</span>。</div>
+  </div>
+
+  <div class="card">
+    <h3>⛩️ 羽黒山参拝（石段2,446段フル制覇）</h3>
+    <div class="scroll"><table>
+      <tr><th>時刻</th><th>内容</th><th>備考</th></tr>
+      <tr><td class="t">09:50頃</td><td>羽黒山 随神門前 駐車場 着</td><td>約30分</td></tr>
+      <tr><td class="t">09:55〜</td><td>石段2,446段を登る🥾</td><td>随神門→国宝五重塔→一の坂・二の坂・三の坂→山頂 約1.5〜2時間</td></tr>
+      <tr><td class="t">〜11:30頃</td><td>二の坂茶屋 で力餅＆抹茶 🍡<span class="em">（ランチ代わり①）</span></td><td>¥500〜800／営業9:00〜15:00・☎0235-62-4287・🟡不定休。きなこ＆あんこの力餅とお抹茶のミックスセットが名物。眼下に庄内平野、晴れれば日本海の飛島まで。踏破認定証もここで（無料）</td></tr>
+      <tr><td class="t">11:30頃</td><td>山頂 三神合祭殿 参拝</td><td>⭐御縁年記念品「生胡麻豆腐」×4個を購入！</td></tr>
+      <tr><td class="t">〜12:15頃</td><td>下山 → 車へ</td><td>脚を温存するなら山頂12:00発バスで随神門12:14（庄内交通2026ダイヤ確定）片道¥510</td></tr>
+      <tr><td class="t">12:20頃</td><td>随神門 発 → R112経由 湯殿山 仙人沢へ</td><td>約55分（運転のため目安）</td></tr>
+
+    </table></div>
+    <div class="callout c-ok">⛩️ <span class="em">2026年は12年に一度の「午歳御縁年」！</span> 参拝すると12年分のご利益。羽黒・湯殿を両方踏めるのは巡礼的にも大きい。苔むした石段の杉並木は那智大社の参道と瓜二つ。</div>
+    <div class="callout c-tip">💡 下りは石段を歩いてもOKだけど、このあと湯殿山も巡るので<span class="em">山頂12:00発の路線バスで随神門（車のところ）まで</span>降りて脚を温存するのがおすすめ。<br>🔗 出羽三山神社（羽黒山）公式：<a href="http://www.dewasanzan.jp/" target="_blank" rel="noopener">dewasanzan.jp</a></div>
+  </div>
+
+  <div class="card">
+    <h3>🍢 仙人沢でゆったり食べ歩き → ⛩️湯殿山神社本宮 → 🛍️ふるさと本舗</h3>
+    <div class="scroll"><table>
+      <tr><th>時刻</th><th>区間</th><th>料金</th><th>備考</th></tr>
+      <tr><td class="t">13:15頃</td><td>🚗 随神門 → 田麦俣 湯殿山 仙人沢 駐車場 着</td><td>湯殿山有料道路 往復¥400</td><td>約55分（運転・目安）。駐車場150台・無料</td></tr>
+      <tr><td class="t">13:15〜13:50</td><td>🍢 湯殿山レストハウスでゆったり食べ歩き＆休憩 <span class="em">（ランチ代わり②）</span></td><td>¥300〜600</td><td>玉こんにゃく¥150（口コミ）・味噌だれの焼き団子・ソフトクリーム。地酒や銘菓も並ぶので気になれば覗いてもOK。営業9:00〜16:00</td></tr>
+      <tr><td class="t">13:50発</td><td>🚌 仙人沢 → 本宮参拝バス</td><td>往復¥400</td><td>随時運行（約40〜50分間隔）のため多少前後する想定。徒歩なら片道20〜30分の急坂</td></tr>
+      <tr><td class="t">14:00〜14:35</td><td>⛩️ 湯殿山神社本宮 裸足参拝</td><td>御祓料¥500</td><td>ご神体は熱湯湧く茶褐色の巨岩。撮影禁止・語るなかれ</td></tr>
+      <tr><td class="t">14:40発</td><td>仙人沢 → 庄内観光物産館 ふるさと本舗へ</td><td>—</td><td>約48分（運転・目安）。田麦俣は経由せず直接向かうルートで、寄り道なしの直行とほぼ同じ所要時間</td></tr>
+      <tr><td class="t">15:28〜15:55</td><td>🛍️ 庄内観光物産館 ふるさと本舗 でお土産</td><td>—</td><td>大山麦きり・楯野川（純米大吟醸）が目当て。鶴岡ICすぐ隣・年中無休9:00〜18:00</td></tr>
+      <tr><td class="t">15:55発</td><td>ふるさと本舗 → 鶴岡駅（運転・カーシェア返却）</td><td>—</td><td>約15分。返却と給油は手早く</td></tr>
+      <tr><td class="t">16:10頃</td><td>鶴岡駅 着・カーシェア返却完了</td><td>—</td><td>周回お疲れさま！<b>16:22発</b>に余裕を持って間に合う配分</td></tr>
+    </table></div>
+    <div class="callout c-tip">🍢 <span class="em">DAY1は「腰を据えたランチ」を取りません</span>。18:30からの萬国屋の会席にお腹を空かせておくため、<span class="em">二の坂茶屋の力餅＆抹茶（①）＋仙人沢の玉こんにゃく・焼き団子（②）</span>の食べ歩きで通します。合計¥1,000前後。茅葺きの茶屋で庄内平野を見下ろしながらの力餅と、霊場の入口で頬張る玉こんにゃく。腰を据えた食事より、むしろこちらのほうが旅の絵になります。</div>
+    <div class="callout c-tip">🍴 <span class="em">湯殿山レストハウス</span>（鶴岡市田麦俣字六十里山7・仙人沢／本宮の参拝バス発着所）。<span class="em">営業9:00〜16:00</span>・2026年度は6/1から営業（公式で2026-07-22確認）。しっかり食べたくなった日は山菜そば・かきあげそば・湯殿山カレー・ラーメンもあります（¥1,000前後）。庄内の地酒・銘菓・参拝グッズ・ここでしか買えない菓子も。現金／クレジットカード／電子マネー可（※参拝バスは現金のみ）。☎0235-54-6219</div>
+    <div class="callout c-warn">🔴 <span class="em">8/4（火）はこの区間の蕎麦の名店が全滅です</span>（すべて2026-07-22に公式で確認）。そば処 大梵字＝火曜定休／そば処 ななかまど亭（田麦俣・湯殿山ICすぐ）＝火曜定休／そば処 福湊庵（羽黒町川代）＝火曜・水曜定休／食事処いしい（随神門前）＝2024年11月から休業中。手向の宿坊の精進料理は<span class="em">4〜5名様より</span>で一人旅は受けてもらえず、大日坊の昼食も5名以上・1週間前予約。食べ歩きへの切り替えは、この火曜問題への最適解でもあります。</div>
+    <div class="callout c-warn">⛩️ 芭蕉も「語られぬ湯殿にぬらす袂かな」と詠んだ秘所。<span class="em">本宮は6/1〜11/3の開山期間のみ</span>。有料道路 営業8:15〜16:40（夏季ゲート閉鎖16:20）。夏季（令和8年7/18〜8/23）は<span class="em">本宮発の最終が17:05に延長</span>、<span class="em">有料道路の入口ゲート閉鎖も16:20に延長</span>。</div>
+    <div class="callout c-tip">🛍️ <span class="em">庄内観光物産館 ふるさと本舗</span>（鶴岡市布目字中通80-1・鶴岡ICすぐ隣・火の見櫓が目印・☎0235-25-5111）。プロが選ぶお土産施設ランキングで14年連続TOP10、鶴岡のショッピング満足度1位。<span class="em">大山麦きり</span>（すがわら製麺・乾麺・¥310）と<span class="em">楯野川</span>（山形唯一の全量純米大吟醸蔵・楯の川酒造）が今回の目当て。年中無休9:00〜18:00（GW・夏季延長あり）。<br>🔗 出羽三山神社（湯殿山本宮）：<a href="http://www.dewasanzan.jp/" target="_blank" rel="noopener">dewasanzan.jp</a> ／ 湯殿山有料道路・本宮参拝バス：<a href="https://www.shonaikotsu.jp/tourism/toll_yudono.html" target="_blank" rel="noopener">toll_yudono</a> ／ 庄内観光物産館 ふるさと本舗：<a href="https://www.shoko-corpo.jp/bussan/" target="_blank" rel="noopener">shoko-corpo.jp</a></div>
+  </div>
+
+  <div class="card">
+    <h3>🚉 鶴岡 → あつみ温泉</h3>
+    <div class="scroll"><table>
+      <tr><th>時刻</th><th>区間</th><th>手段</th><th>料金</th><th>備考</th></tr>
+      <tr><td class="t">16:22</td><td>鶴岡 発</td><td>特急 いなほ12号（新潟行）</td><td>¥1,780</td><td><span class="badge b-ok">✅予約済み</span> 🔴v28で訂正（旧「16:23発 いなほ10号」）。乗車券¥530＋指定席¥1,250</td></tr>
+      <tr><td class="t">16:43</td><td>あつみ温泉 着 → チェックイン ✅</td><td>—</td><td>—</td><td><span class="badge b-ok">✅</span> 萬国屋の送迎（連絡済み）。客室露天＆夕食まで温泉</td></tr>
+    </table></div>
+    <div class="callout c-tip">💡 <span class="em">鶴岡16:22発（いなほ12号）→あつみ温泉16:43着</span>（✅2026年8月号で再確認）。押した場合の保険は<span class="em">16:45発 普通（村上行）→17:20着</span>（¥530）、その次が18:08発→18:38着。前倒しできる日は15:22発 普通も。萬国屋CIは15:00〜なので慌てなくてOK。<br>⏱️ 注：随神門〜仙人沢〜湯殿山〜ふるさと本舗〜返却の「頃」は運転・参拝の<span class="em">所要目安</span>。乗る電車（16:22）から逆算した配分です。</div>
+  </div>
+
+  <div class="card">
+    <h3>🏨 泊①：あつみ温泉 萬国屋（露天付き客室・予約済み✅）</h3>
+    <div class="pillrow"><span>📍 🔴山形県鶴岡市湯温海丁1（旧「湯温海1番地」から訂正・v29）</span><span>☎ 0570-008-598</span><span>IN 15:00〜</span><span>OUT 09:30（早出確認済✅）</span><span>1泊2食 ¥18,000〜25,000</span></div>
+    <ul class="clean">
+      <li>創業350年・プロが選ぶ旅館100選の常連</li>
+      <li><span class="em">客室に源泉かけ流し露天風呂付き</span>（24時間入浴可）</li>
+      <li>夕食：のどぐろ・岩牡蠣・山形牛の会席</li>
+      <li>🔗 公式：<a href="https://www.bankokuya.jp/" target="_blank" rel="noopener">bankokuya.jp</a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ DAY 2 ============ -->
+<section id="day2">
+  <h2 class="day">📅 DAY 2（8/5・水）</h2>
+  <div class="daymeta">あつみ温泉さんぽ → 秋田：三吉神社→買い物→比内地鶏→竿燈 → 本荘泊</div>
+
+  <div class="card">
+    <h3>⛩️ 朝：あつみ温泉さんぽ＋温泉神社（チェックアウト前）</h3>
+    <div class="callout c-tip">早起きできたら、浴衣＋下駄で温泉街をひと巡り。朝市は近年やや縮小気味なので<span class="em">温泉神社の参拝メイン</span>で、朝市広場や温海川沿いをのんびり散策する感じで◎</div>
+    <div class="scroll"><table>
+      <tr><th>時刻</th><th>内容</th><th>備考</th></tr>
+      <tr><td class="t">06:45頃</td><td>起床 → 朝の露天でひとっ風呂🛁</td><td>朝いちの貸切感がいい</td></tr>
+      <tr><td class="t">07:00〜07:45</td><td>浴衣で温泉街さんぽ → ⛩️温泉神社 礼拝所参拝 → 朝市広場 → 温海川沿い・足湯</td><td>朝市は5:30〜8:30（規模は縮小気味）</td></tr>
+      <tr><td class="t">08:00</td><td>宿で朝食</td><td>—</td></tr>
+      <tr><td class="t">09:30</td><td>チェックアウト ✅</td><td>この後 <b>09:51発</b>のいなほ1号に乗車</td></tr>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <h3>🚉 移動（あつみ温泉 → 羽後本荘 → 秋田）</h3>
+    <div class="scroll"><table>
+      <tr><th>時刻</th><th>区間</th><th>手段</th><th>料金</th><th>備考</th></tr>
+      <tr><td class="t">09:30</td><td>萬国屋 チェックアウト ✅</td><td>—</td><td>—</td><td>送迎で駅へ</td></tr>
+      <tr><td class="t">09:51</td><td>あつみ温泉 発</td><td>特急 いなほ1号 秋田行</td><td>¥4,180</td><td><span class="badge b-ok">✅予約済み</span> 🔴v28で訂正（旧「09:50発」）。乗車券¥2,090＋指定席¥2,090</td></tr>
+      <tr><td class="t">11:24</td><td>羽後本荘 着</td><td>—</td><td>—</td><td><span class="badge b-ok">✅</span> いなほ1号 羽後本荘着</td></tr>
+      <tr><td class="t">11:30頃</td><td>本荘グランドホテルに荷物預け</td><td>—</td><td>—</td><td>徒歩すぐ（IN前でも荷物だけ預けOK）</td></tr>
+      <tr><td class="t">12:42</td><td>羽後本荘 発</td><td>羽越本線 秋田行（3番線）</td><td>¥810</td><td><span class="badge b-warn">🟡</span> v17記載・当日時刻は要再確認</td></tr>
+      <tr><td class="t">13:32</td><td>秋田 着</td><td>—</td><td>—</td><td><span class="badge b-warn">🟡</span> 同上</td></tr>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <h3>⛩️ 太平山三吉神社 参拝（13:50〜15:04）※赤沼線344系統・2026平日ダイヤ</h3>
+    <div class="scroll"><table>
+      <tr><th>時刻</th><th>行動</th><th>手段</th><th>料金</th></tr>
+      <tr><td class="t">13:50</td><td>秋田駅東口 発（2番線）</td><td>バス 赤沼線344系統 約12分</td><td>¥270</td></tr>
+      <tr><td class="t">14:02</td><td>三吉神社入口 着 → 徒歩2分</td><td>—</td><td>—</td></tr>
+      <tr><td class="t">14:04〜14:45</td><td>⛩️ 太平山三吉神社総本宮 参拝</td><td>—</td><td>無料</td></tr>
+      <tr><td class="t">14:47</td><td>三吉神社入口 発 → 秋田駅へ</td><td>バス 赤沼線 約17分</td><td>¥270</td></tr>
+      <tr><td class="t">15:04</td><td>秋田駅東口 着</td><td>—</td><td>—</td></tr>
+    </table></div>
+    <div class="callout c-ok">⛩️ 673年・役の行者小角創建。羽黒山と同じ修験道の聖地。勝利成功・事業繁栄の守護神。参拝8:30〜17:00（無休）<br>🔗 太平山三吉神社総本宮 公式：<a href="http://www.miyoshi.or.jp/" target="_blank" rel="noopener">miyoshi.or.jp</a></div>
+  </div>
+
+  <div class="card">
+    <h3>🛍️ お土産・買い物（15:10〜16:00頃）</h3>
+    <div class="scroll"><table>
+      <tr><th>時刻</th><th>お店</th><th>買うもの</th><th>場所</th></tr>
+      <tr><td class="t">15:10〜</td><td>和モダン六花</td><td><span class="must">🔴 ちいかわのキーホルダー</span></td><td>トピコ内</td></tr>
+      <tr><td></td><td>佐藤養助 秋田店</td><td><span class="must">🔴 稲庭うどん</span>（お土産用）</td><td>駅前周辺</td></tr>
+      <tr><td></td><td>秋田県産品プラザ「あきたの」</td><td><span class="must">🔴 いぶりがっこ 一本漬け</span>・温泉入浴剤（本荘グランドホテルで使う用）</td><td>駅前</td></tr>
+      <tr><td></td><td>トピコ全般</td><td>バター餅・きりたんぽセット・地酒など</td><td>駅ビル</td></tr>
+      <tr><td class="t">16:00頃</td><td>🧳 秋田駅コインロッカーに買い物袋を預ける</td><td>¥300〜</td><td>身軽になってから蓮池・祭りへ！</td></tr>
+    </table></div>
+    <div class="callout c-tip">🔗 佐藤養助（トピコ店・稲庭うどん）：<a href="https://www.sato-yoske.co.jp/shop/topico/" target="_blank" rel="noopener">sato-yoske.co.jp</a> ／ 秋田駅ビル トピコ：<a href="https://www.caoca.net/" target="_blank" rel="noopener">caoca.net</a></div>
+  </div>
+
+  <div class="card">
+    <h3>🍗 夕食前の一席：秋田比内地鶏や（16:15〜17:30頃）</h3>
+    <div class="pillrow"><span>📍 秋田駅ビル・トピコ3F（改札からすぐ）</span><span>おすすめ：秋田まるごとコース</span></div>
+    <div class="callout c-warn">⚠️ <span class="em">比内地鶏や（トピコ店）は20:00閉店</span>。だから16:15〜の早め夕食でちょうど良い。<br>🔗 秋田比内地鶏や（トピコ店）：<a href="https://www.caoca.net/shop/98/" target="_blank" rel="noopener">caoca.net</a></div>
+    <ul class="clean">
+      <li>比内地鶏 究極の親子丼（肉も卵も比内地鶏・曲げわっぱ器）</li>
+      <li>稲庭うどん・きりたんぽ汁・いぶりがっこ など秋田名物をまとめて</li>
+      <li>秋田の地酒も注文可🍶（ここでゆっくり飲み比べ＝今回の“地酒枠”はここに集約）</li>
+    </ul>
+    <div class="callout c-tip">🍶 竿燈の前なので、飲みすぎ注意でほどほどに🏮</div>
+  </div>
+
+  <div class="card">
+    <h3>🪷 千秋公園 蓮鑑賞（17:30〜19:00頃）</h3>
+    <ul class="clean">
+      <li>7月下旬〜9月上旬が見頃・ど真ん中！</li>
+      <li>19:00〜22:00はライトアップ</li>
+      <li>竿燈大通りと徒歩圏内</li>
+      <li>🔗 千秋公園 蓮まつり：<a href="https://www.akitacci.or.jp/local/night_tourism/sensyuhasumatsuri/" target="_blank" rel="noopener">akitacci.or.jp</a></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>🏮 竿燈まつり（19:15〜20:15で切り上げ）</h3>
+    <div class="pillrow"><span>✅観覧席予約済み：92ブロック・B席（全席指定）</span></div>
+    <div class="callout c-tip">92ブロックは竿燈大通りの川反通り〜赤れんが館通り付近（日本銀行秋田支店・赤れんが郷土館の向かい側）。</div>
+    <div class="scroll"><table>
+      <tr><th>時刻</th><th>行動</th></tr>
+      <tr><td class="t">18:15</td><td>交通規制開始</td></tr>
+      <tr><td class="t">18:50</td><td>竿燈入場</td></tr>
+      <tr><td class="t">19:15〜</td><td>🏮 竿燈演技スタート（〜20:35）</td></tr>
+      <tr><td class="t">〜20:15</td><td>出店でつまみ食い🍢＆演技鑑賞（腹減ったらここで補給！）</td></tr>
+      <tr><td class="t">20:15</td><td>✅ 早めに竿燈大通りを出発（群衆が本格化する前に！）</td></tr>
+      <tr><td class="t">20:25頃</td><td>🧳 秋田駅ロッカーから荷物回収</td></tr>
+      <tr><td class="t">20:48</td><td>秋田 発 羽越本線（普通）¥810 <span class="badge b-ok">✅2026</span> →羽後本荘21:33</td></tr>
+      <tr><td class="t">21:33</td><td>羽後本荘 着 → ホテルへ（徒歩すぐ）</td></tr>
+      <tr><td class="t">（参考）20:35〜20:50</td><td>ふれあい竿燈（会場滞在の場合）</td></tr>
+      <tr><td class="t">（参考）20:50</td><td>竿燈退場</td></tr>
+      <tr><td class="t">（参考）21:00</td><td>終了</td></tr>
+      <tr><td class="t">（参考）21:30</td><td>交通規制解除</td></tr>
+    </table></div>
+    <div class="callout c-tip">💡 <span class="em">指定席でも20:15切り上げが安全策です。</span> 92ブロックから秋田駅までは徒歩15〜20分ほどかかり、演技終了(20:35)や退場(20:50)まで残ると20:48発には物理的に間に合いません。<span class="em">羽越本線の秋田発は20:48の次が22:35（羽後本荘行き）まで無く</span>、最後まで見た場合は本荘着が23時過ぎになり、DAY3早朝の06:51発にも響きます。ふれあい竿燈（20:35〜20:50・竿燈に実際に触れられる体験コーナー）も体験したい場合は、この時間ロスを踏まえてご判断ください。</div>
+    <div class="callout c-warn">⚠️ 座席は<span class="em">入場アナウンスがあるまで着席不可</span>。雨天中止の場合でも払い戻しはありません。<br>🔗 秋田竿燈まつり 公式：<a href="https://www.kantou.gr.jp/" target="_blank" rel="noopener">kantou.gr.jp</a></div>
+  </div>
+
+  <div class="card">
+    <h3>🏨 泊②：本荘グランドホテル（素泊まり ¥8,100・予約済み✅）</h3>
+  </div>
+</section>
+
+<!-- ============ DAY 3 ============ -->
+<section id="day3">
+  <h2 class="day">📅 DAY 3（8/6・木）</h2>
+  <div class="daymeta">十二湖 → リゾートしらかみ → 不老ふ死温泉</div>
+
+  <div class="card">
+    <h3>🌅 朝の移動（羽後本荘 → 秋田）</h3>
+    <div class="scroll"><table>
+      <tr><th>時刻</th><th>区間</th><th>手段</th><th>料金</th></tr>
+      <tr><td class="t">06:51</td><td>羽後本荘 発</td><td>羽越本線 秋田行（3番線）</td><td>¥580</td></tr>
+      <tr><td class="t">07:36</td><td>秋田 着</td><td>—</td><td>—</td></tr>
+      <tr><td class="t">07:36〜08:19</td><td>🪷 朝ごはん・千秋公園で朝の蓮（43分）</td><td>—</td><td></td></tr>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <h3>🚃 リゾートしらかみ1号 乗車</h3>
+    <div class="scroll"><table>
+      <tr><th>時刻</th><th>区間</th><th>備考</th></tr>
+      <tr><td class="t">08:19</td><td>秋田 発（2番線）</td><td>リゾートしらかみ1号 青森行 指定席券¥840別途</td></tr>
+      <tr><td class="t">車窓</td><td>東能代から日本海沿いの絶景区間へ🌊</td><td>※1号は千畳敷の15分停車ナシ（車窓から楽しむ）</td></tr>
+      <tr><td class="t">10:24</td><td>十二湖駅 下車</td><td></td></tr>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <h3>🌲 十二湖・白神山地</h3>
+    <div class="scroll"><table>
+      <tr><th>時刻</th><th>行動</th><th>料金</th><th>備考</th></tr>
+      <tr><td class="t">10:24着</td><td>十二湖駅 下車 → バスへ荷物持ち込み乗車</td><td>—</td><td>1号到着に接続するバス</td></tr>
+      <tr><td class="t">10:30</td><td>十二湖駅前 発</td><td>弘南バス 十二湖線 ¥700（片道）</td><td><span class="badge b-ok">✅2026/4/1改正</span> 🔴v28で訂正（旧「10:32発」）。しらかみ1号 10:24着から乗継6分</td></tr>
+      <tr><td class="t">10:45</td><td>奥十二湖駐車場（森の物産館キョロロ）着</td><td></td><td>バスの終点。運行期間は4/16〜11/30</td></tr>
+      <tr><td class="t">10:45〜10:55</td><td>🧳 キョロロのコインロッカーに荷物</td><td>¥300〜500</td><td>到着後ゆっくり預けられる✅</td></tr>
+      <tr><td class="t">10:55〜12:30頃</td><td>🌿 青池・ブナ自然林トレイル散策（約1時間40分）</td><td></td><td>青池まで徒歩10分・神秘のコバルトブルー</td></tr>
+      <tr><td class="t">12:30頃</td><td>キョロロで荷物回収・深浦にんじんジュース🍹</td><td></td><td></td></tr>
+      <tr><td class="t">12:35</td><td>奥十二湖 発（バス）</td><td></td><td>✅ 公式：奥十二湖12:35→十二湖駅12:50</td></tr>
+      <tr><td class="t">12:50</td><td>十二湖駅前 着 → <b>13:04発</b>の3号を待つ</td><td></td><td>待ち14分でちょうどいい ✅公式時刻で確認</td></tr>
+    </table></div>
+    <div class="callout c-warn">⚠️ バス時刻は<span class="em">弘南バス公式（夏季ダイヤ）で最終確認を</span>。乗換アプリは抜粋・季節違いがあるので公式が正！<br>🔗 森の物産館キョロロ／十二湖：<a href="https://shirakami-jyuniko.jp/kyororo/" target="_blank" rel="noopener">shirakami-jyuniko</a> ／ 弘南バス：<a href="https://www.konanbus.com/" target="_blank" rel="noopener">konanbus.com</a></div>
+  </div>
+
+  <div class="card">
+    <h3>🚃 リゾートしらかみ3号 → 不老ふ死温泉</h3>
+    <div class="scroll"><table>
+      <tr><th>時刻</th><th>区間</th><th>備考</th></tr>
+      <tr><td class="t">13:04</td><td>十二湖 発</td><td>リゾートしらかみ3号（指定席¥840）<span class="badge b-ok">✅2026</span>（13:03着・13:04発）</td></tr>
+      <tr><td class="t">13:17</td><td>ウェスパ椿山 下車</td><td><span class="badge b-ok">✅</span> しらかみ3号 ウェスパ椿山着 確認済</td></tr>
+      <tr><td class="t">13:20頃</td><td>無料送迎バス → 不老ふ死温泉 着 ✅</td><td>送迎は宿の便（時刻は宿に確認）・IN前でも荷物預け＆温泉OK</td></tr>
+    </table></div>
+    <div class="callout c-ok">✅ リゾートしらかみ1号・3号 8/6（木）運転日確認済み（2026年度ダイヤ）！</div>
+  </div>
+
+  <div class="card">
+    <h3>🏨 泊③：黄金崎不老ふ死温泉（予約済み✅）</h3>
+    <div class="pillrow"><span>📍 青森県西津軽郡深浦町舮作下清滝15-1</span><span>☎ 0173-74-3500</span><span>IN 14:00〜</span><span>OUT 10:00</span><span>1泊2食 ¥12,570〜</span><span><a href="https://www.furofushi.com/" target="_blank" rel="noopener">公式サイト</a></span></div>
+    <ul class="clean">
+      <li>日本海の波打ち際に突き出た<span class="em">ひょうたん型の露天風呂</span>🌊</li>
+      <li><span class="em">夕日が沈む時間帯の露天が最高体験</span>🌅（混浴＋女性専用あり）</li>
+      <li>宿が<span class="em">網元直営</span>！獲れたての日本海海鮮の夕食</li>
+    </ul>
+    <div class="callout c-warn">⚠️ 8月は虫（アブ・蚊）多め → <span class="em">虫除けスプレー必携！</span> 売店で買える <span class="em">オリジナル入浴剤・手ぬぐい</span> は宿でしか買えない。</div>
+  </div>
+</section>
+
+<!-- ============ DAY 4 ============ -->
+<section id="day4">
+  <h2 class="day">📅 DAY 4（8/7・金）</h2>
+  <div class="daymeta">みちのくりんご店 → 新青森お土産＆駅弁 → 帰宅</div>
+
+  <div class="card">
+    <h3>🌅 朝の不老ふ死温泉</h3>
+    <div class="scroll"><table>
+      <tr><th>時刻</th><th>行動</th></tr>
+      <tr><td class="t">日の出頃</td><td>朝の海辺露天風呂（朝日と日本海！最後の一風呂🌅）</td></tr>
+      <tr><td class="t">07:00頃</td><td>朝食（海鮮朝食をしっかり食べる）</td></tr>
+      <tr><td class="t">10:00</td><td>チェックアウト</td></tr>
+      <tr><td class="t">10:10頃</td><td>送迎バスでウェスパ椿山駅へ（無料）</td></tr>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <h3>🚃 移動（ウェスパ椿山 → 青森 → 新青森）</h3>
+    <div class="scroll"><table>
+      <tr><th>時刻</th><th>区間</th><th>手段</th><th>料金</th><th>備考</th></tr>
+      <tr><td class="t">10:38</td><td>ウェスパ椿山 発</td><td>リゾートしらかみ1号（青森行き）</td><td>—</td><td>指定席券¥840別途・<span class="badge b-ok">✅2026</span>運転日確認</td></tr>
+      <tr><td class="t">車窓</td><td>千畳敷を通過🌊</td><td>—</td><td>—</td><td>徐行運転で奇岩の絶景を車窓から！</td></tr>
+      <tr><td class="t">13:34</td><td>青森 着</td><td>—</td><td>—</td><td><span class="badge b-ok">✅</span> しらかみ1号 青森着</td></tr>
+      <tr><td class="t">13:34〜14:00</td><td>🔴 みちのくりんご店 立ち寄り</td><td>—</td><td>—</td><td>青森駅前ロータリー・徒歩1分！</td></tr>
+      <tr><td class="t">14:01</td><td>青森 発</td><td>奥羽本線（普通）</td><td>¥190</td><td><span class="badge b-ok">✅2026</span>（次は14:45発）</td></tr>
+      <tr><td class="t">14:05</td><td>新青森 着</td><td>—</td><td>—</td><td><span class="badge b-ok">✅</span> 所要4分・お土産タイム開始🛍️</td></tr>
+    </table></div>
+    <div class="callout c-warn">🍎 みちのくりんご店：<span class="must">🔴 一升瓶のりんごジュース</span> 購入！一升瓶は重いのでキャリーに入れて新幹線へ。</div>
+  </div>
+
+  <div class="card">
+    <h3>🛍️ 新青森駅でお土産（14:05〜14:55頃／はやぶさ60号15:17発まで）</h3>
+    <div class="pillrow"><span>📍 あおもり旬味館（新青森駅改札外）</span></div>
+    <ul class="clean">
+      <li>青森シードル（試飲できる・辛口〜甘口各種）／ほたて煎餅・ほたてカレー（ばらまき用）</li>
+      <li>青森ヒバ雑貨（まな板・抗菌効果）／にんにく加工品（生産量日本一）／いかめんち・南部せんべい</li>
+      <li>🔗 あおもり旬味館（新青森駅）：<a href="https://syunmikan-abc.com/" target="_blank" rel="noopener">syunmikan-abc.com</a></li>
+    </ul>
+    <h3>🍱 駅弁を買って新幹線へ</h3>
+    <div class="scroll"><table>
+      <tr><th>駅弁</th><th>内容</th><th>料金目安</th></tr>
+      <tr><td>うにとホタテの弁当</td><td>陸奥湾の恵み2種盛り</td><td>¥1,500〜</td></tr>
+      <tr><td>海峡漬け丼弁当</td><td>マグロ・いくら・うに</td><td>¥1,500〜</td></tr>
+      <tr><td>いかめし</td><td>青森の定番・いか飯</td><td>¥900〜</td></tr>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <h3>🚅 帰路（新青森 → 本厚木）</h3>
+    <div class="scroll"><table>
+      <tr><th>時刻</th><th>区間</th><th>手段</th><th>料金</th><th>備考</th></tr>
+      <tr><td class="t">15:17</td><td>新青森 発（13番線）</td><td>はやぶさ60号 東京行</td><td>¥17,000〜20,000</td><td><span class="badge b-ok">✅JR公式2026</span>（8/7運転）・車内で駅弁🍱</td></tr>
+      <tr><td class="t">18:07</td><td>大宮 着</td><td>—</td><td>—</td><td><span class="badge b-ok">✅</span> 東京は18:32</td></tr>
+      <tr><td class="t">18:19</td><td>大宮 発（4番線）</td><td>JR湘南新宿ライン 逗子行 🟢グリーン車</td><td>¥528＋G料金</td><td><span class="badge b-ok">✅2026</span> 大宮18:07着→12分の乗継</td></tr>
+      <tr><td class="t">18:49</td><td>新宿 着（1番線）</td><td>—</td><td>—</td><td>小田急へ徒歩8〜10分</td></tr>
+      <tr><td class="t">19:01</td><td>新宿 発（5番線）</td><td>小田急 快速急行 新松田行（当駅始発）</td><td>¥513</td><td><span class="badge b-ok">✅2026</span> <b>当駅始発なので座れる可能性大・特急料金不要</b></td></tr>
+      <tr><td class="t">19:52</td><td>本厚木 着 🏠</td><td>—</td><td>—</td><td>お疲れさま！合計¥1,041（乗換1回）</td></tr>
+    </table></div>
+    <div class="callout c-tip">🆕 <span class="em">v28で帰路を見直しました。ロマンスカーより快速急行のほうが早くて安いです。</span> 新宿19:01発の快速急行（新松田行）は<span class="em">当駅始発</span>なので、12分の余裕をもって並べば座れる可能性が高く、<span class="em">本厚木19:52着</span>。ロマンスカー19:40発（20:29着）より37分早く、特急券も不要です。<br>🟢 それでも確実に着席して眠りたい日は、ロマンスカーも残しておいてください（新宿→本厚木は19:00発／19:40発の2択・全席指定・特急券は小田急アプリで事前購入）。荷物が重い帰り道なので、そこはお好みで。</div>
+  </div>
+</section>
+
+<!-- ============ 総点検 ============ -->
+<section id="check">
+  <h2 class="sec">✅ 総点検：全乗り継ぎチェック（v28・2026-07-23に全件再検証）</h2>
+  <div class="legend">
+    <span class="badge b-ok">✅2026 分単位確認済</span>
+    <span class="badge b-warn">🟡 要確認</span>
+    <span class="badge b-note">⏱️目安 時刻表なし</span>
+  </div>
+  <div class="card"><div class="scroll"><table>
+    <tr><th>DAY</th><th>区間</th><th>時刻</th><th>判定</th></tr>
+    <tr><td>DAY1</td><td>本厚木→羽田（リムジン）</td><td>04:45発→05:52着</td><td><span class="badge b-ok">✅2026</span> 神奈中・予約制</td></tr>
+    <tr><td>DAY1</td><td>羽田→庄内（ANA393）✅予約済</td><td>07:15発→08:15着</td><td><span class="badge b-ok">✅</span></td></tr>
+    <tr><td>DAY1</td><td>庄内空港→鶴岡（連絡バス）</td><td>08:15着→約08:25発→約08:55着</td><td><span class="badge b-note">⏱️固定時刻なし</span></td></tr>
+    <tr><td>DAY1</td><td>鶴岡→羽黒山フル→湯殿山→ふるさと本舗→返却</td><td>約09:20〜16:10</td><td><span class="badge b-note">⏱️目安</span> 電車から逆算</td></tr>
+    <tr><td>DAY1</td><td>鶴岡→あつみ温泉（<b>いなほ12号</b>）</td><td><b>16:22発</b>→16:43着</td><td><span class="badge b-ok">✅2026 8月号</span> v28訂正</td></tr>
+    <tr><td>DAY2</td><td>CO→いなほ1号→羽後本荘</td><td>09:30→<b>09:51発</b>→11:24着</td><td><span class="badge b-ok">✅2026 8月号</span> v28訂正</td></tr>
+    <tr><td>DAY2</td><td>羽後本荘→秋田（普通）</td><td>12:42発→13:32着</td><td><span class="badge b-warn">🟡</span> v17記載・要再確認</td></tr>
+    <tr><td>DAY2</td><td>秋田着→三吉神社バス（赤沼線）</td><td>13:32着→13:50発（18分・戻り14:47発）</td><td><span class="badge b-ok">✅2026</span> 赤沼線バス時刻確認済み</td></tr>
+    <tr><td>DAY2</td><td>竿燈20:15→ロッカー→電車</td><td>20:15→20:48発→21:33着</td><td><span class="badge b-ok">✅2026</span> 秋田→羽後本荘</td></tr>
+    <tr><td>DAY3</td><td>羽後本荘→秋田→しらかみ1号</td><td>06:51発→07:36着→08:19発</td><td><span class="badge b-ok">✅2026</span> 8/6運転</td></tr>
+    <tr><td>DAY3</td><td>十二湖着→弘南バス→奥十二湖</td><td>10:24着→<b>10:30バス</b>→10:45着</td><td><span class="badge b-ok">✅公式2026/4/1改正</span> 乗継6分</td></tr>
+    <tr><td>DAY3</td><td>奥十二湖→十二湖駅→しらかみ3号</td><td>12:35バス→12:50着→<b>13:04発</b></td><td><span class="badge b-ok">✅公式</span> 運行4/16〜11/30</td></tr>
+    <tr><td>DAY4</td><td>ウェスパ椿山→青森（しらかみ1号）</td><td>10:38発→13:34着</td><td><span class="badge b-ok">✅2026</span></td></tr>
+    <tr><td>DAY4</td><td>青森→新青森（奥羽本線）</td><td>14:01発→14:05着</td><td><span class="badge b-ok">✅2026</span> 所要4分</td></tr>
+    <tr><td>DAY4</td><td>新青森→大宮（はやぶさ60号）</td><td>15:17発→18:07着</td><td><span class="badge b-ok">✅JR公式</span> 8/7運転</td></tr>
+    <tr><td>DAY4</td><td>大宮→新宿→本厚木（在来線・小田急）</td><td>18:19→18:49／<b>19:01→19:52</b></td><td><span class="badge b-ok">✅2026</span> v28で快速急行に変更・要確認</td></tr>
+  </table></div></div>
+</section>
+
+<!-- ============ 予算 ============ -->
+<section id="budget">
+  <h2 class="sec">💰 予算総まとめ</h2>
+
+  <div class="total">
+    <div class="box">交通費<b>¥56,220〜59,220</b></div>
+    <div class="box">宿泊費<b>¥38,670〜45,670</b></div>
+    <div class="box">その他<b>¥16,000〜29,000</b></div>
+    <div class="box" style="background:linear-gradient(135deg,var(--accent),#2a4d6e);color:#fff">総合計<b style="color:#ffe6a8">¥110,890〜133,890</b></div>
+  </div>
+
+  <details class="budget" style="margin-top:14px">
+    <summary>🚆 交通費の内訳（タップで開く）<span class="chev">▾</span></summary>
+    <div class="body"><div class="scroll"><table>
+      <tr><th>区間</th><th>料金目安</th></tr>
+      <tr><td>本厚木→羽田（リムジンバス・DAY1）✅予約済み</td><td><b>¥1,800</b></td></tr>
+      <tr><td>羽田→庄内（ANA・DAY1）✅予約済み</td><td><b>¥13,700</b></td></tr>
+      <tr><td>庄内空港→鶴岡（連絡バス・DAY1）</td><td>¥1,000</td></tr>
+      <tr><td>🚗カーシェア（DAY1・約6〜8時間）</td><td><b>¥6,000〜9,000</b></td></tr>
+      <tr><td>羽黒山 随神門 駐車場（DAY1）</td><td>¥0〜500</td></tr>
+      <tr><td>羽黒山 下山バス（山頂→随神門・DAY1）</td><td>¥510</td></tr>
+      <tr><td>湯殿山有料道路（往復・DAY1）</td><td>¥400</td></tr>
+      <tr><td>湯殿山 本宮参拝バス（往復・DAY1）</td><td>¥400</td></tr>
+      <tr><td>鶴岡→あつみ温泉（いなほ12号・DAY1）✅予約済み</td><td><b>¥1,780</b></td></tr>
+      <tr><td>あつみ温泉→羽後本荘（いなほ1号・DAY2）✅予約済み</td><td><b>¥4,180</b></td></tr>
+      <tr><td>羽後本荘⇔秋田（DAY2 往復）</td><td>¥1,620</td></tr>
+      <tr><td>秋田市内バス（三吉神社往復・DAY2）</td><td>¥540（270×2）</td></tr>
+      <tr><td>羽後本荘→秋田（DAY3 早朝）</td><td>¥580</td></tr>
+      <tr><td>リゾートしらかみ指定席×3回（DAY3・DAY4）</td><td>¥2,520</td></tr>
+      <tr><td>十二湖バス往復（DAY3）</td><td>¥460</td></tr>
+      <tr><td>キョロロ荷物預かり（DAY3）</td><td>¥300〜500</td></tr>
+      <tr><td>青森→新青森（奥羽本線・DAY4）</td><td>¥190</td></tr>
+      <tr><td>新青森→大宮（はやぶさ60号・DAY4）</td><td>¥17,000</td></tr>
+      <tr><td>大宮→新宿（湘南新宿・グリーン車・DAY4）</td><td>¥1,500</td></tr>
+      <tr><td>新宿→本厚木（ホームウェイ・DAY4）</td><td>¥1,280</td></tr>
+      <tr><td><b>交通費 合計</b></td><td><b>約 ¥56,220〜59,220</b></td></tr>
+    </table></div></div>
+  </details>
+
+  <details class="budget">
+    <summary>🏨 宿泊費＋食費・観光費の内訳<span class="chev">▾</span></summary>
+    <div class="body">
+      <div class="scroll"><table>
+        <tr><th>宿</th><th>料金</th></tr>
+        <tr><td>泊①：あつみ温泉 萬国屋（露天付き・1泊2食・DAY1泊）✅</td><td>¥18,000〜25,000</td></tr>
+        <tr><td>泊②：本荘グランドホテル（素泊まり・DAY2泊）✅</td><td><b>¥8,100</b></td></tr>
+        <tr><td>泊③：不老ふ死温泉（1泊2食・DAY3泊）✅</td><td>¥12,570〜</td></tr>
+        <tr><td><b>宿泊費 合計</b></td><td><b>¥38,670〜45,670</b></td></tr>
+      </table></div>
+      <div class="scroll" style="margin-top:10px"><table>
+        <tr><th>食費・観光費</th><th>料金</th></tr>
+        <tr><td>二の坂茶屋 力餅（DAY1）</td><td>¥500〜800</td></tr>
+        <tr><td>仙人沢 玉こんにゃく・焼き団子（DAY1）</td><td>¥300〜600</td></tr>
+        <tr><td>湯殿山 御祓料（DAY1）</td><td>¥500</td></tr>
+        <tr><td>比内地鶏や 早め夕食（DAY2）</td><td>¥2,000〜3,000</td></tr>
+        <tr><td>竿燈 出店つまみ（DAY2）</td><td>¥500〜1,000</td></tr>
+        <tr><td>新幹線駅弁（DAY4）</td><td>¥1,500〜2,000</td></tr>
+        <tr><td>お土産費（4日間合計・ふるさと本舗の麦きり＆楯野川含む）</td><td>¥10,000〜20,000</td></tr>
+        <tr><td><b>その他 合計</b></td><td><b>約¥16,000〜29,000</b></td></tr>
+      </table></div>
+    </div>
+  </details>
+</section>
+
+<!-- ============ 予約・チェックリスト ============ -->
+<section id="todo">
+  <h2 class="sec">📝 予約・買い物チェックリスト</h2>
+  <p style="font-size:13px;color:var(--sub);margin:0 0 8px">タップで完了に。チェック状態はこの端末に保存されます。</p>
+  <ul class="check" id="checklist">
+    <li data-k="r0"><input type="checkbox"><span class="lbl">✅ 神奈中リムジンバス 本厚木→羽田 04:45発（DAY1・¥1,800 予約済み）</span></li>
+    <li data-k="r1"><input type="checkbox"><span class="lbl">✅ ANA 羽田→庄内 07:15発（DAY1・¥13,700 予約済み）</span></li>
+    <li data-k="r7a"><input type="checkbox"><span class="lbl">✅ 特急いなほ12号 鶴岡→あつみ温泉 <b>16:22発</b>（DAY1・¥1,780 予約済み）🔴v28で号数・時刻を訂正</span></li>
+    <li data-k="r7b"><input type="checkbox"><span class="lbl">✅ 特急いなほ1号 あつみ温泉→羽後本荘 <b>09:51発</b>（DAY2・¥4,180 予約済み）🔴v28で時刻を訂正</span></li>
+    <li data-k="r2"><input type="checkbox"><span class="lbl">✅ 本荘グランドホテル（DAY2泊・¥8,100 予約済み）</span></li>
+    <li data-k="r3"><input type="checkbox"><span class="lbl">✅ 不老ふ死温泉（DAY3泊） 予約済み</span></li>
+    <li data-k="r4"><input type="checkbox"><span class="lbl">✅ あつみ温泉 萬国屋（DAY1泊・露天付き・CO9:30）予約済み</span></li>
+    <li data-k="r4b"><input type="checkbox"><span class="lbl">✅ 秋田竿燈まつり 観覧席（92ブロック・B席・全席指定）予約済み</span></li>
+    <li data-k="r5"><input type="checkbox"><span class="lbl">🔴 DAY1カーシェア（鶴岡駅・約6〜8時間）→ 羽黒山＋湯殿山周回用。7月に予約。運転免許＆会員登録の事前確認を！無ければレンタカー</span></li>
+    <li data-k="r6"><input type="checkbox"><span class="lbl">🟡 湯殿山神社本宮の開山確認（6/1〜11/3）＆当日の有料道路・本宮参拝バス運行（0235-54-6730）</span></li>
+    <li data-k="r8"><input type="checkbox"><span class="lbl">🟡 DAY2 羽後本荘⇔秋田の普通 ＆ 弘南バス十二湖線（夏ダイヤ）＆ DAY4 大宮→新宿→本厚木の在来線・ロマンスカー → 各公式で最終確認</span></li>
+    <li data-k="r9"><input type="checkbox"><span class="lbl">🔴 リゾートしらかみ 指定席×3（DAY3:1号＋3号／DAY4:1号）→ えきねっと or 秋田駅で事前に！十二湖・ウェスパ椿山駅では買えない</span></li>
+    <li data-k="r10"><input type="checkbox"><span class="lbl">🔴 はやぶさ60号（8/7・新青森15:17発）→ えきねっと</span></li>
+    <li data-k="r11"><input type="checkbox"><span class="lbl">🔴 小田急ホームウェイ（8/7・新宿19:40発）→ 小田急アプリ or 券売機</span></li>
+  </ul>
+  <button class="resetbtn" id="resetbtn">チェックをリセット</button>
+
+  <h3>🔴 必ず買うもの（忘れたら後悔リスト）</h3>
+  <div class="card"><div class="scroll"><table>
+    <tr><th>DAY</th><th>場所</th><th>もの</th></tr>
+    <tr><td>DAY1</td><td>羽黒山頂 授与所</td><td class="must">御縁年記念品「生胡麻豆腐」×4個</td></tr>
+    <tr><td>DAY1</td><td>庄内観光物産館 ふるさと本舗</td><td class="must">大山麦きり・楯野川（純米大吟醸）</td></tr>
+    <tr><td>DAY2</td><td>和モダン六花（トピコ内）</td><td class="must">ちいかわのキーホルダー</td></tr>
+    <tr><td>DAY2</td><td>佐藤養助 秋田店</td><td class="must">稲庭うどん（お土産用）</td></tr>
+    <tr><td>DAY2</td><td>秋田県産品プラザ「あきたの」</td><td class="must">いぶりがっこ 一本漬け・温泉入浴剤</td></tr>
+    <tr><td>DAY4</td><td>みちのくりんご店（青森駅前）</td><td class="must">一升瓶のりんごジュース</td></tr>
+  </table></div></div>
+</section>
+
+<!-- ============ 持ち物 ============ -->
+<section id="pack">
+  <h2 class="sec">☀️ 服装・持ち物</h2>
+  <div class="card">
+    <div class="pillrow">
+      <span>庄内(羽黒山頂) 23〜26℃</span><span>あつみ温泉 26〜29℃</span>
+      <span>由利本荘・秋田 26〜30℃</span><span>深浦(不老ふ死) 24〜27℃</span><span>青森・新青森 24〜27℃</span>
+    </div>
+    <ul class="clean">
+      <li>👟 トレッキングシューズ（羽黒山2,446段＋十二湖トレイル → 必須！）</li>
+      <li>🪪 <span class="em">運転免許証＋カーシェア会員証/アプリ</span>（DAY1の羽黒山＋湯殿山周回用）</li>
+      <li>🧦 <span class="em">脱ぎ履きしやすい靴下</span>（湯殿山本宮は裸足参拝→足裏を拭く小タオルもあると◎）</li>
+      <li>🦟 虫除けスプレー（不老ふ死温泉・十二湖は虫多め）</li>
+      <li>🧥 薄手の上着（羽黒山頂用）／☂️ 折り畳み傘（東北の夏は午後スコール多め）</li>
+      <li>📴 モバイルバッテリー／💳 Oliveゴールドカード（羽田ラウンジ無料）</li>
+      <li>💰 <span class="em">100円玉多め</span>（鶴岡・秋田のコインロッカー用）／🌸 湯あみ着（不老ふ死の混浴露天用）</li>
+    </ul>
+  </div>
+
+  <h3>🛍️ お土産 購入場所まとめ</h3>
+  <div class="card"><div class="scroll"><table>
+    <tr><th>DAY</th><th>購入スポット</th><th>主なお土産</th></tr>
+    <tr><td>DAY1</td><td>羽黒山頂 授与所 / 庄内観光物産館ふるさと本舗 / 萬国屋ロビー売店</td><td>🔴生胡麻豆腐×4・🔴大山麦きり・🔴楯野川（純米大吟醸）・だだちゃ豆・古鏡・民田茄子漬・地酒（初孫）</td></tr>
+    <tr><td>DAY2</td><td>和モダン六花 / 佐藤養助 / あきたの / トピコ</td><td>🔴ちいかわキーホルダー・稲庭うどん・いぶりがっこ一本漬け・温泉入浴剤・地酒</td></tr>
+    <tr><td>DAY3</td><td>不老ふ死温泉ロビー / キョロロ</td><td>不老ふ死オリジナル品・深浦にんじんジュース・白神ラスク</td></tr>
+    <tr><td>DAY4</td><td>みちのくりんご店 / あおもり旬味館（新青森）</td><td>🔴一升瓶りんごジュース・シードル・ほたて煎餅・ヒバ雑貨・駅弁</td></tr>
+  </table></div></div>
+</section>
+
+<!-- ============ リンク ============ -->
+<section id="links">
+  <h2 class="sec">🔗 予約・参考リンク</h2>
+  <div class="card"><div class="scroll"><table>
+    <tr><td>あつみ温泉 萬国屋</td><td><a href="https://www.bankokuya.jp/" target="_blank" rel="noopener">bankokuya.jp</a></td></tr>
+    <tr><td>不老ふ死温泉（公式）</td><td><a href="https://www.furofushi.com/" target="_blank" rel="noopener">furofushi.com</a></td></tr>
+    <tr><td>えきねっと（JR東日本）</td><td><a href="https://www.eki-net.com/" target="_blank" rel="noopener">eki-net.com</a></td></tr>
+    <tr><td>庄内交通バス（羽黒山・空港）</td><td><a href="https://www.shonaikotsu.jp/" target="_blank" rel="noopener">shonaikotsu.jp</a></td></tr>
+    <tr><td>湯殿山有料道路・本宮参拝バス</td><td><a href="https://www.shonaikotsu.jp/tourism/toll_yudono.html" target="_blank" rel="noopener">toll_yudono</a></td></tr>
+    <tr><td>出羽観光しゃとるバス（参考・運休日注意）</td><td><a href="https://hagurokanko.jp/n20260625-1/" target="_blank" rel="noopener">hagurokanko.jp</a></td></tr>
+    <tr><td>🍡二の坂茶屋（DAY1ランチ代わり①／9:00〜15:00・☎0235-62-4287・🟡不定休）</td><td><a href="https://hagurokanko.jp/facility/ninosakachaya/" target="_blank" rel="noopener">羽黒町観光協会</a></td></tr>
+    <tr><td>🍢湯殿山レストハウス（仙人沢・DAY1ランチ代わり②／9:00〜16:00）</td><td><a href="https://www.shoko-travel.jp/yudonosan_sanrousyo/rest-house/" target="_blank" rel="noopener">湯殿山参籠所</a></td></tr>
+    <tr><td>🛍️庄内観光物産館 ふるさと本舗（DAY1／麦きり・楯野川／9:00〜18:00・年中無休）</td><td><a href="https://www.shoko-corpo.jp/bussan/" target="_blank" rel="noopener">shoko-corpo.jp</a></td></tr>
+    <tr><td>🍜山の売店 六十里（保険／きのこそば¥880・🟡営業日非公開・☎0235-54-6533）</td><td><a href="https://tabelog.com/yamagata/A0603/A060302/6007250/" target="_blank" rel="noopener">食べログ</a></td></tr>
+    <tr><td>🍴そば処 大梵字（❌8/4は火曜定休・次回の庄内旅用）</td><td><a href="http://www.gassanasahi-hakubutsumura.co.jp/daibonji/tenpo.html" target="_blank" rel="noopener">公式（店舗紹介）</a></td></tr>
+    <tr><td>🍜そば処 ななかまど亭（❌8/4は火曜定休・次回の庄内旅用）</td><td><a href="https://nanakamado-tsuruoka.com/open/" target="_blank" rel="noopener">公式（営業時間）</a></td></tr>
+    <tr><td>🍜そば処 福湊庵（❌8/4は火水定休・次回の庄内旅用）</td><td><a href="https://www.haguro-n.com/chokubaijo-oshokujidokoro/" target="_blank" rel="noopener">公式</a></td></tr>
+    <tr><td>🍜麦きり 寝覚屋半兵ヱ（次回の庄内旅用・火曜要確認）</td><td><a href="https://tabelog.com/yamagata/A0603/A060302/6000078/" target="_blank" rel="noopener">tabelog</a></td></tr>
+    <tr><td>太平山三吉神社（公式）</td><td><a href="http://www.miyoshi.or.jp/" target="_blank" rel="noopener">miyoshi.or.jp</a></td></tr>
+    <tr><td>出羽三山神社（羽黒山・湯殿山）</td><td><a href="http://www.dewasanzan.jp/" target="_blank" rel="noopener">dewasanzan.jp</a></td></tr>
+    <tr><td>秋田竿燈まつり（公式）</td><td><a href="https://www.kantou.gr.jp/" target="_blank" rel="noopener">kantou.gr.jp</a></td></tr>
+    <tr><td>森の物産館キョロロ</td><td><a href="https://shirakami-jyuniko.jp/kyororo/" target="_blank" rel="noopener">shirakami-jyuniko</a></td></tr>
+    <tr><td>秋田比内地鶏や（トピコ）</td><td><a href="https://www.caoca.net/shop/98/" target="_blank" rel="noopener">caoca.net</a></td></tr>
+    <tr><td>小田急特急予約</td><td><a href="https://www.odakyu.jp/romancecar/" target="_blank" rel="noopener">odakyu.jp</a></td></tr>
+  </table></div></div>
+
+  <div class="callout c-warn" style="margin-top:14px">
+    📌 <span class="em">秋田行き直通いなほは鶴岡発10:13と16:40のみ</span>（昼〜午後イチに鶴岡→秋田の直通なし）。だから湯殿山はDAY1に集約。<br>
+    📌 湯殿山は有料道路ゲート閉鎖16:20・本宮参拝バス平日12〜13時運休に注意（午後イチ参拝なら問題なし）。<br>
+    📌 ANA393が運休すると庄内空港連絡バスも運休。当日は航空便の運航を確認！<br>
+    📌 🔴必買い：生胡麻豆腐×4・大山麦きり・楯野川（純米大吟醸）・ちいかわキーホルダー・稲庭うどん・いぶりがっこ一本漬け・一升瓶りんごジュース
+  </div>
+</section>
+
+
+<section id="geo">
+  <h2 class="sec">📍 座標の検証記録（v29・2026-07-26）</h2>
+  <p>ぽけたびのピンがずれると「台本以前に行き先が違う」事故になるため、<b>全67アイテムの住所を公式情報で取り直し、国土地理院のジオコーディングAPIで座標を引き直しました</b>。旧v28は座標がほぼ空（4件だけ）で、その4件のうち3件が誤りでした。</p>
+
+  <h3>手順</h3>
+  <ol>
+    <li>公式サイト・自治体サイト・県神社庁などで住所を<b>番地まで</b>確定</li>
+    <li>国土地理院 AddressSearch API でジオコーディング（施設名でも引ける「地名情報」も併用）</li>
+    <li>返り値の住所を投げた住所と照合 → 番地一致＝◎／枝番落ち・町名のみ＝△／市区町村のみ＝✕</li>
+    <li>△は<b>国土地理院の標高API</b>と、既知の所要時間・道のり距離で検算</li>
+  </ol>
+
+  <h3>🔴 旧v28の座標が誤っていた4件</h3>
+  <table>
+    <tr><th>地点</th><th>ずれ</th><th>判定根拠</th></tr>
+    <tr><td><b>多層民家「旧遠藤家住宅」</b></td><td><b>4.0km</b></td><td>旧座標の標高<b>935m</b>。田麦俣集落は標高358mなので600m高すぎる</td></tr>
+    <tr><td><b>七ツ滝</b></td><td><b>4.0km</b></td><td>旧座標の標高<b>790m</b>。同様に過大</td></tr>
+    <tr><td><b>湯殿山 仙人沢</b></td><td><b>1.3km</b></td><td>旧座標の標高<b>1368m</b>。本宮の公称標高1100mより高い（仙人沢は本宮の手前＝より低いはず）</td></tr>
+    <tr><td><b>鶴岡駅</b></td><td><b>1.9km</b></td><td>国土地理院の地名情報「鶴岡駅」と照合</td></tr>
+  </table>
+  <div class="callout c-tip">二の坂茶屋も491m動きました（標高226m→参道上の代表点へ）。</div>
+
+  <h3>✅ 検算が通った区間</h3>
+  <table>
+    <tr><th>区間</th><th>直線距離</th><th>既知の情報</th></tr>
+    <tr><td>鶴岡駅 → 羽黒山参道</td><td>12.4km</td><td>カーシェア約30分 ✅</td></tr>
+    <tr><td>随神門 → 三神合祭殿</td><td>1.23km</td><td>石段1.7km・標高差280m ✅</td></tr>
+    <tr><td>あつみ温泉駅 → 萬国屋</td><td>1.94km</td><td>車約6分 ✅</td></tr>
+    <tr><td>羽後本荘駅 → 本荘グランドホテル</td><td>0.93km</td><td>徒歩15〜20分 ✅</td></tr>
+    <tr><td>秋田駅 → 太平山三吉神社</td><td>1.60km</td><td>赤沼線バス12分 ✅</td></tr>
+    <tr><td>秋田駅 → 千秋公園</td><td>0.88km</td><td>徒歩圏 ✅</td></tr>
+    <tr><td>秋田駅 → 竿燈大通り</td><td>1.31km</td><td>徒歩15分 ✅</td></tr>
+    <tr><td>十二湖駅 → 青池・キョロロ</td><td>3.76km</td><td>弘南バス15分 ✅</td></tr>
+    <tr><td>ウェスパ椿山駅 → 不老ふ死温泉</td><td>2.68km</td><td>送迎バス約5分 ✅</td></tr>
+    <tr><td>青森駅 → みちのくりんご店</td><td>0.17km</td><td>徒歩2分・140m ✅</td></tr>
+  </table>
+  <div class="callout c-tip"><b>太平山三吉神社</b>は住所検索と地名情報が135m差で一致し、標高9.8m＝里宮として妥当。独立した2ソースが揃ったので確定値として扱えます。</div>
+
+  <h3>⚠️ ぽけたびで手直しをお願いしたい箇所</h3>
+  <p>番地のある住所が存在しない、または地番型で枝番が解決できない地点です。<b>近隣の確実な点を流用し、memoの冒頭に「※ピン位置は概略（要確認）」を入れてあります</b>（全67件中38件）。</p>
+  <table>
+    <tr><th>エリア</th><th>状況</th><th>流用した座標</th></tr>
+    <tr><td><b>羽黒山</b>（随神門・石段・二の坂茶屋・三神合祭殿）</td><td>住所が「羽黒町手向」の大字までしか解決できない。大字代表点は集落中心で参道入口から1.4km離れる</td><td>随神門＝地名情報「羽黒山の爺スギ」／石段・二の坂茶屋＝「羽黒山のスギ並木」／合祭殿＝地名情報「出羽三山神社」</td></tr>
+    <tr><td><b>湯殿山</b>（仙人沢・レストハウス・本宮）</td><td>「田麦俣六十里山7」は大字までしか解決不能。本宮は地名情報で取得（標高1204m＝公称1100mと整合）</td><td>仙人沢は本宮と同座標を共用（<b>実際は本宮の約1km手前</b>・参拝バス5分）</td></tr>
+    <tr><td><b>田麦俣</b>（多層民家・七ツ滝）</td><td>地番型住所で枝番が解決不能</td><td>大字「田麦俣」の代表点を共用（標高358mで集落として妥当）。七ツ滝は集落の500m上流</td></tr>
+    <tr><td><b>森の物産館キョロロ</b></td><td>「松神」の大字までしか解決不能・施設名も地名情報に未登録</td><td><b>青池</b>と同座標（キョロロは奥十二湖駐車場の真ん前・青池まで徒歩5〜10分）</td></tr>
+    <tr><td><b>黄金崎不老ふ死温泉</b></td><td>「舮作」の大字までしか解決不能・施設名も未登録</td><td>地名情報「<b>黄金崎</b>」（標高0.3m＝海辺の露天風呂として整合）</td></tr>
+    <tr><td><b>竿燈大通り</b></td><td>山王十字路〜二丁目橋の約850mの線状会場</td><td>大町二丁目の町名代表点。観覧場所を決めたらピンを寄せると便利</td></tr>
+    <tr><td><b>三神合祭殿</b></td><td>標高APIは298.8mを返すが羽黒山は414m</td><td>同じ山頂台地上で400〜500m以内の差。方角・距離は矛盾なしだが番地レベルでは未確定</td></tr>
+  </table>
+  <div class="callout c-tip"><b>秋田駅とトピコ</b>は住所の番代表点が実位置と300〜500mずれていたため、いずれも地名情報側（秋田駅／秋田駅トピコ郵便局）を採用。トピコ内の和モダン六花・佐藤養助・あきたの・比内地鶏やは同座標を共用しています。</div>
+
+  <h3>🆕 v30追加：庄内観光物産館 ふるさと本舗（2026-08-03実施）</h3>
+  <p>住所「山形県鶴岡市布目字中通80-1」を国土地理院APIで照合したところ、枝番（-1）が落ちて「布目中通80番地」として解決（座標38.73856, 139.797577）。△判定のため、独立情報源（マピオン電話帳）の施設固有座標（38.73841864, 139.79734446）と比較検算したところ、差は約26m（緯度15.7m・経度21.2m）で同一施設内の誤差範囲と判断できたため、マピオン側の座標を採用しました。</p>
+  <table>
+    <tr><th>項目</th><th>値</th></tr>
+    <tr><td>採用座標</td><td>lat 38.738419／lng 139.797344</td></tr>
+    <tr><td>判定</td><td>△→検算で解決（2ソース間26m差・許容範囲）</td></tr>
+    <tr><td>根拠</td><td>国土地理院API（地番型住所で枝番落ち）＋マピオン電話帳（施設固有点）の2ソース照合</td></tr>
+  </table>
+</section>
+
+<footer>
+  作成：2026年6月 ｜ <b>v30（2026-08-03にDAY1を羽黒山＋湯殿山の2ヶ所じっくり構成に再編。田麦俣 多層民家・七ツ滝への寄り道を取りやめ、代わりに仙人沢の滞在延長と「庄内観光物産館 ふるさと本舗」でのお土産タイム（大山麦きり・楯野川）を追加。本人希望＝Googleマップ評価4以上のスポットを優先したい、とのことから）</b>／v29（2026-07-26に全67アイテムの住所と座標を再確定。訂正＝多層民家の住所を田麦俣字七ツ滝139に／萬国屋を湯温海丁1に／本荘グランドホテルを由利本荘市岩渕下254に。座標の誤り4件＝多層民家4.0km・七ツ滝4.0km・仙人沢1.3km・鶴岡駅1.9kmを標高APIで検出して差し替え）</b>／v28（2026-07-23に全4日分の全アイテムを公式情報で総点検。訂正＝いなほ12号16:22発／いなほ1号09:51発／弘南バス10:30発→10:45着／しらかみ3号13:04発。追記＝本宮参拝バスは平日40〜50分間隔の随時運行というリスク。改善＝DAY4帰路を新宿19:01発の快速急行に。確認＝竿燈8/3〜8/6で8/5該当・しらかみ8月全日運転・比内地鶏や無休・はやぶさ60号・赤沼線バス／v27：DAY1のランチを食べ歩きに変更＝二の坂茶屋の力餅＆抹茶＋仙人沢の玉こんにゃく・焼き団子（18:30の萬国屋会席にお腹を空かせておくため・本人希望）。浮いた時間で田麦俣 多層民家「旧遠藤家住宅」（¥300・月曜休）と七ツ滝を追加し、予約済みのいなほ12号（16:23）は据え置き。8/4(火)はこの区間の蕎麦の名店が全滅（大梵字・ななかまど亭＝火曜定休／福湊庵＝火水定休／いしい＝休業中）であることも確認済み／v26：DAY1ランチを湯殿山レストハウス（仙人沢）に変更。そば処 大梵字が公式サイトで「4月〜11月／毎週火曜日」定休と確定し8/4(火)は営業していないため＝2026-07-22確認。DAY1午後の時刻を再計算：随神門12:20発→仙人沢13:15着→ランチ13:20〜14:00→参拝バス14:05→本宮14:10〜15:00→15:05発→鶴岡16:05着／v25：リムジンバス¥1,800・いなほ12号¥1,780・いなほ1号¥4,180を予約確定に更新。予算表はDAYタグ付与・合計再計算／v24：DAY1ランチ＝そば処 大梵字。🟡火曜定休情報あり8/4は要電話確認・休みなら湯殿山レストハウスが保険／麦きりは次回に。出羽三山はDAY1集約・乗り物時刻は分単位検証ずみ）<br>
+  時刻・料金は目安。✅2026は2026年公式ダイヤ確認済、🟡は各自で最終確認を。出発前にJR・バス公式で最新情報をご確認ください。
+</footer>
+
+</div><!-- /wrap -->
+
+<script>
+(function(){
+  var root=document.documentElement, btn=document.getElementById('themebtn');
+  var KEY='tohoku_v22_theme', CKEY='tohoku_v22_checks';
+  function store(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+  function load(k){try{return localStorage.getItem(k)}catch(e){return null}}
+
+  // theme — default LIGHT（OSがダークでも自動でダークにしない）。手動切替のみ記憶
+  var saved=load(KEY);
+  root.setAttribute('data-theme', saved==='dark' ? 'dark' : 'light');
+  function syncBtn(){var d=root.getAttribute('data-theme')==='dark';btn.textContent=d?'☀️ ライト':'🌙 ダーク';}
+  syncBtn();
+  btn.addEventListener('click',function(){
+    var d=root.getAttribute('data-theme')==='dark';
+    root.setAttribute('data-theme',d?'light':'dark');store(KEY,d?'light':'dark');syncBtn();
+  });
+
+  // checklist
+  var list=document.getElementById('checklist');
+  var state={};
+  try{state=JSON.parse(load(CKEY)||'{}')}catch(e){state={}}
+  function apply(li){var k=li.getAttribute('data-k');var cb=li.querySelector('input');
+    cb.checked=!!state[k];li.classList.toggle('done',cb.checked);}
+  Array.prototype.forEach.call(list.querySelectorAll('li'),function(li){
+    apply(li);
+    li.addEventListener('click',function(e){
+      if(e.target.tagName!=='INPUT'){var cb=li.querySelector('input');cb.checked=!cb.checked;}
+      var k=li.getAttribute('data-k');state[k]=li.querySelector('input').checked;
+      li.classList.toggle('done',state[k]);store(CKEY,JSON.stringify(state));
+    });
+  });
+  document.getElementById('resetbtn').addEventListener('click',function(){
+    state={};store(CKEY,'{}');
+    Array.prototype.forEach.call(list.querySelectorAll('li'),function(li){
+      li.querySelector('input').checked=false;li.classList.remove('done');});
+  });
+})();
+</script>
+</body>
+</html>

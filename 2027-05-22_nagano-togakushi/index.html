@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>長野 戸隠・白骨・別所温泉｜2027/5/22(土)〜25(火) v3</title>
+<style>
+  :root{
+    --bg:#f5f1ec; --card:#ffffff; --text:#25211d; --sub:#6d635a;
+    --accent:#2f6b45; --accent2:#8a6a24; --border:#e5ddd2;
+    --tag-yellow-bg:#fff3d6; --tag-yellow-text:#8a5a00;
+    --tag-green-bg:#e6f3ea; --tag-green-text:#256b45;
+    --tag-red-bg:#fdeaea; --tag-red-text:#a32a2a;
+    --milk:#f3f4f1;
+    --shadow:0 2px 10px rgba(0,0,0,0.06);
+  }
+  [data-theme="dark"]{
+    --bg:#16130f; --card:#211d18; --text:#f1ece6; --sub:#aea397;
+    --accent:#8fd4a6; --accent2:#e0c27a; --border:#3a332b;
+    --tag-yellow-bg:#4a3a10; --tag-yellow-text:#f5cf7a;
+    --tag-green-bg:#173d2a; --tag-green-text:#8fdcb0;
+    --tag-red-bg:#43201f; --tag-red-text:#f2a3a0;
+    --milk:#2a2723;
+    --shadow:0 2px 14px rgba(0,0,0,0.4);
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    background:var(--bg); color:var(--text); line-height:1.7; padding-bottom:60px;}
+  header{position:sticky; top:0; z-index:100; background:var(--card); border-bottom:1px solid var(--border);
+    padding:12px 16px; display:flex; justify-content:space-between; align-items:center; gap:10px; box-shadow:var(--shadow);}
+  header .title{font-size:14px; font-weight:700; color:var(--accent);}
+  header .sub{font-size:11px; color:var(--sub);}
+  .theme-btn{background:var(--bg); border:1px solid var(--border); border-radius:20px; padding:6px 12px; font-size:12px; color:var(--text); cursor:pointer; flex-shrink:0;}
+  nav.subnav{position:sticky; top:56px; z-index:99; background:var(--bg); border-bottom:1px solid var(--border);
+    display:flex; gap:6px; overflow-x:auto; padding:8px 12px; -webkit-overflow-scrolling:touch;}
+  nav.subnav a{flex-shrink:0; font-size:12px; color:var(--sub); text-decoration:none; background:var(--card); border:1px solid var(--border); border-radius:16px; padding:6px 12px;}
+  main{max-width:720px; margin:0 auto; padding:16px;}
+  .hero{background:linear-gradient(135deg,#2f6b45,#5f8f4a 55%,#9a8a4a); color:#fff; border-radius:16px; padding:22px 18px; margin-bottom:18px; box-shadow:var(--shadow);}
+  .hero h1{font-size:19px; margin:0 0 6px;}
+  .hero p{font-size:13px; margin:0; opacity:.95;}
+  .hero .pill{display:inline-block; background:rgba(255,255,255,.18); border-radius:12px; padding:2px 10px; font-size:11px; margin:8px 6px 0 0;}
+  section{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:16px; margin-bottom:14px; box-shadow:var(--shadow); scroll-margin-top:110px;}
+  h2{font-size:15px; margin:0 0 10px; color:var(--accent);}
+  h3{font-size:13px; margin:16px 0 6px; color:var(--accent2);}
+  p{font-size:13px; margin:6px 0;}
+  .daybadge{display:inline-block; background:var(--accent); color:var(--card); border-radius:8px; padding:1px 8px; font-size:11px; margin-right:6px; vertical-align:middle;}
+  .tablewrap{overflow-x:auto;}
+  table{width:100%; border-collapse:collapse; font-size:12.5px; margin:8px 0;}
+  th,td{border-bottom:1px solid var(--border); text-align:left; padding:7px 6px; vertical-align:top;}
+  th{color:var(--sub); font-weight:600;}
+  td.t{white-space:nowrap; font-variant-numeric:tabular-nums; color:var(--accent); font-weight:700;}
+  td.num{text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums;}
+  td .memo{display:block; color:var(--sub); font-size:11.5px;}
+  tr.total td{font-weight:700;}
+  .route{background:var(--bg); border:1px dashed var(--border); border-radius:10px; padding:12px; font-size:11px; white-space:pre; font-family:"SFMono-Regular",Consolas,monospace; line-height:1.8; color:var(--sub); overflow-x:auto;}
+  .tip{border-left:3px solid var(--accent2); background:var(--tag-green-bg); color:var(--tag-green-text); padding:10px 12px; border-radius:0 8px 8px 0; font-size:12.5px; margin:10px 0;}
+  .warn{border-left:3px solid #d05a52; background:var(--tag-red-bg); color:var(--tag-red-text); padding:10px 12px; border-radius:0 8px 8px 0; font-size:12.5px; margin:10px 0;}
+  .note{border-left:3px solid #c99a2e; background:var(--tag-yellow-bg); color:var(--tag-yellow-text); padding:10px 12px; border-radius:0 8px 8px 0; font-size:12.5px; margin:10px 0;}
+  .flag-y{background:var(--tag-yellow-bg); color:var(--tag-yellow-text); border-radius:6px; padding:1px 6px; font-size:11px; font-weight:700; white-space:nowrap;}
+  .flag-r{background:var(--tag-red-bg); color:var(--tag-red-text); border-radius:6px; padding:1px 6px; font-size:11px; font-weight:700; white-space:nowrap;}
+  .flag-g{background:var(--tag-green-bg); color:var(--tag-green-text); border-radius:6px; padding:1px 6px; font-size:11px; font-weight:700; white-space:nowrap;}
+  details{background:var(--bg); border:1px solid var(--border); border-radius:10px; padding:10px 12px; margin:8px 0;}
+  summary{cursor:pointer; font-size:13px; font-weight:600; color:var(--accent);}
+  ul{margin:6px 0; padding-left:18px; font-size:13px;}
+  li{margin-bottom:4px;}
+  a{color:var(--accent);}
+  .card2{display:grid; grid-template-columns:1fr; gap:8px; margin:8px 0;}
+  @media(min-width:560px){.card2{grid-template-columns:1fr 1fr;}}
+  .opt{background:var(--bg); border:1px solid var(--border); border-radius:10px; padding:10px 12px; font-size:12.5px;}
+  .opt b{color:var(--accent); font-size:13px;}
+  .milk{background:var(--milk); border:1px solid var(--border); border-radius:12px; padding:12px; margin:10px 0; font-size:13px;}
+  .checklist label{display:flex; align-items:center; gap:8px; font-size:13px; padding:6px 0; border-bottom:1px dashed var(--border);}
+  .checklist input{width:16px; height:16px; accent-color:var(--accent); flex-shrink:0;}
+  .checklist label.done span{text-decoration:line-through; color:var(--sub);}
+  .hl{display:flex; gap:10px; align-items:flex-start; background:var(--bg); border-radius:10px; padding:10px 12px; font-size:13px; margin-bottom:8px;}
+  .hl b{background:var(--accent); color:var(--card); border-radius:50%; width:22px; height:22px; display:flex; align-items:center; justify-content:center; font-size:12px; flex-shrink:0;}
+  footer{max-width:720px; margin:0 auto; padding:0 16px; font-size:11px; color:var(--sub);}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <div class="title">🌿 長野 戸隠・白骨・別所温泉</div>
+    <div class="sub">2027/5/22(土)〜25(火)・v3（時刻仮組み）</div>
+  </div>
+  <button class="theme-btn" id="themeBtn">🌙 ダーク</button>
+</header>
+<nav class="subnav">
+  <a href="#overview">概要</a><a href="#route">ルート</a><a href="#d1">1日目</a><a href="#d2">2日目</a><a href="#d3">3日目</a><a href="#d4">4日目</a>
+  <a href="#highlight">ハイライト</a><a href="#alt">代替案</a><a href="#todo">やること</a><a href="#items">持ち物</a><a href="#budget">予算</a>
+</nav>
+<main>
+  <div class="hero">
+    <h1>GW明けの信州、新緑の参道と三つの湯へ</h1>
+    <p>戸隠の杉並木と残雪の山 → 白骨の乳白色の秘湯 → 「信州の鎌倉」別所温泉の国宝の塔と外湯。空いてる時期にゆったりめぐる一人旅。</p>
+    <span class="pill">3泊4日（休み：月・火）</span><span class="pill">おすすめ度 ★★★★★</span><span class="pill">総額 約88,000円</span>
+  </div>
+
+  <section id="overview">
+    <h2>🌿 旅の概要</h2>
+    <p><b>テーマ</b>：GW明けの静かな信州。杉並木の参道と残雪の山、乳白色の秘湯、国宝の塔と外湯を新緑のなかで味わう。</p>
+    <p><b>おすすめ度</b>：★★★★★ ── GW明けで空いてて、宿泊は日・月が中心だから宿代も落ち着く。</p>
+    <div class="note">⚠️ 時刻は<b>2026年10月時点のダイヤ（同じ曜日）で仮組み</b>。2027年3月のダイヤ改正後、出発1ヶ月前に全部組み直す前提。白骨行きバスは2026年夏ダイヤ（4/17〜11/15）の時刻。</div>
+    <h3>🆕 v3の変更点（10/8）</h3>
+    <ul>
+      <li>日程を<b>2027/5/22(土)〜25(火)</b>に変更（紅葉期の混雑と宿代を避けて新緑シーズンへ）</li>
+      <li>3か所目の温泉地を<b>別所温泉（上田）</b>に決定</li>
+      <li>時刻を最新ダイヤで組み直し（長野へは大宮から「かがやき」、白骨は新島々14:10発のバス）</li>
+    </ul>
+  </section>
+
+  <section id="route">
+    <h2>🗺️ ルート</h2>
+<div class="route">Day1 5/22(土)  本厚木 ─小田急─ 新宿 ─湘南新宿ライン─ 大宮
+               大宮 ═かがやき═ 長野 ─🚗─ 戸隠 ─🚗─ 長野【泊：ビジホ】
+
+Day2 5/23(日)  長野 ═特急しなの═ 松本（さんぽ＆ランチ）
+               松本 ─上高地線─ 新島々 ─🚌─ さわんどBT ─🚌─ 白骨【泊】♨️
+
+Day3 5/24(月)  白骨 ─🚌─ さわんどBT ─🚌─ 新島々 ─上高地線─ 松本
+               松本 ─篠ノ井線─ 篠ノ井 ─しなの鉄道─ 上田
+               上田 ─別所線─ 別所温泉【泊】♨️
+
+Day4 5/25(火)  別所温泉（寺めぐり）─別所線─ 上田（ランチ）
+               上田 ═あさま═ 大宮 ─湘南新宿ライン─ 新宿 ─小田急─ 本厚木</div>
+  </section>
+
+  <!-- DAY 1 -->
+  <section id="d1">
+    <h2><span class="daybadge">Day1</span>5/22(土) 長野・戸隠</h2>
+    <h3>🚃 移動</h3>
+    <div class="tablewrap"><table>
+      <tr><td class="t">05:53</td><td>本厚木発 → 小田急急行（我孫子行）</td></tr>
+      <tr><td class="t">06:40</td><td>代々木上原で快速急行（新宿行）に乗換 → 06:45 新宿着</td></tr>
+      <tr><td class="t">06:58</td><td>新宿発 → JR湘南新宿ライン快速（高崎行）→ 07:29 大宮着</td></tr>
+      <tr><td class="t">07:43</td><td>大宮発 → 北陸新幹線 <b>かがやき503号</b><span class="memo">全車指定席</span></td></tr>
+      <tr><td class="t">08:37</td><td>長野着</td></tr>
+    </table></div>
+    <div class="tip">🍙 大宮で14分あるから、エキナカで朝ごはん調達。</div>
+
+    <h3>🌲 戸隠エリア（車で巡る）</h3>
+    <div class="tablewrap"><table>
+      <tr><td class="t">08:37〜09:00</td><td>🏨 ホテルに荷物預け</td></tr>
+      <tr><td class="t">09:00〜09:15</td><td>🚗 カーシェア受け取り（長野駅前）</td></tr>
+      <tr><td class="t">10:00着</td><td>戸隠エリア到着<span class="memo">車で約50分</span></td></tr>
+      <tr><td class="t">10:00〜10:45</td><td>⛩️ <a href="https://www.google.com/maps/search/?api=1&query=戸隠神社+宝光社" target="_blank" rel="noopener">戸隠神社 宝光社</a><span class="memo">南から巡るのが正式ルート。270段の石段</span></td></tr>
+      <tr><td class="t">10:45〜11:15</td><td>⛩️ <a href="https://www.google.com/maps/search/?api=1&query=戸隠神社+火之御子社" target="_blank" rel="noopener">火之御子社</a><span class="memo">時間なければ省略可</span></td></tr>
+      <tr><td class="t">11:15〜12:00</td><td>⛩️ <a href="https://www.google.com/maps/search/?api=1&query=戸隠神社+中社" target="_blank" rel="noopener">戸隠神社 中社</a><span class="memo">境内の大杉3本</span></td></tr>
+      <tr><td class="t">12:00〜13:30</td><td>🍜 昼ごはん：戸隠そば</td></tr>
+      <tr><td class="t">13:30〜15:00</td><td>🌲 <a href="https://www.google.com/maps/search/?api=1&query=戸隠神社+奥社" target="_blank" rel="noopener">奥社・九頭龍社</a>ハイク<span class="memo">往復約2km。新緑の杉並木</span></td></tr>
+      <tr><td class="t">15:00〜15:20</td><td>🪞 <a href="https://www.google.com/maps/search/?api=1&query=鏡池+戸隠" target="_blank" rel="noopener">鏡池</a><span class="memo">新緑と、残雪の戸隠連峰が水面に映る</span></td></tr>
+    </table></div>
+    <details open>
+      <summary>🍜 戸隠そば</summary>
+      <ul>
+        <li><b><a href="https://www.google.com/maps/search/?api=1&query=うずら家+戸隠" target="_blank" rel="noopener">うずら家</a></b>（そば百名店）：ぼっち盛り＋天ぷら。開店10:30、整理券制。<span class="flag-y">土曜は早めに</span></li>
+        <li><b><a href="https://www.google.com/maps/search/?api=1&query=そばの実+戸隠" target="_blank" rel="noopener">そばの実</a></b>（同百名店）：木金定休なので土曜はOK</li>
+      </ul>
+    </details>
+    <div class="tip">🌱 戸隠森林植物園の水芭蕉は例年5月上旬〜中旬が見頃。5/22だと終盤かも。奥社参道の脇から寄り道できるよ。</div>
+    <div class="warn">⚠️ 5月でも奥社参道の日陰に<b>残雪</b>があることも。直前に戸隠観光情報センター（026-254-2888）で確認を。</div>
+
+    <h3>🌆 長野市内</h3>
+    <div class="tablewrap"><table>
+      <tr><td class="t">15:20〜16:10</td><td>戸隠 → 長野市内（車50分）</td></tr>
+      <tr><td class="t">16:10〜16:20</td><td>🚗 カーシェア返却</td></tr>
+      <tr><td class="t">16:20〜</td><td>🏨 チェックイン・ひと休み</td></tr>
+      <tr><td class="t">17:00〜18:00</td><td>🙏 <a href="https://www.google.com/maps/search/?api=1&query=善光寺+長野市" target="_blank" rel="noopener">善光寺</a> 散歩<span class="memo">5月は日没18:50頃なので明るいうちにゆっくり。本堂内陣の参拝時間は要確認</span></td></tr>
+    </table></div>
+    <h3>🌙 夜：長野グルメ</h3>
+    <ul>
+      <li>🐎 <b><a href="https://www.google.com/maps/search/?api=1&query=バニクマン+長野駅" target="_blank" rel="noopener">バニクマン</a></b>（長野駅徒歩2分）：馬刺し五点盛り・おたぐり・野沢菜天ぷら。<span class="flag-r">土曜なので要予約</span></li>
+      <li>🍶 <b><a href="https://www.google.com/maps/search/?api=1&query=もみじ茶屋+長野駅" target="_blank" rel="noopener">もみじ茶屋</a></b>（長野駅近）：信州サーモン・馬刺しが揃う蕎麦居酒屋</li>
+      <li>予算：3,000〜5,000円</li>
+    </ul>
+    <h3>🏨 宿泊：長野駅前のビジホ</h3>
+    <p>候補：東横INN長野駅善光寺口など／予算8,000〜10,000円（素泊まり・土曜泊）</p>
+  </section>
+
+  <!-- DAY 2 -->
+  <section id="d2">
+    <h2><span class="daybadge">Day2</span>5/23(日) 松本さんぽ → 白骨温泉♨️</h2>
+    <div class="tablewrap"><table>
+      <tr><td class="t">〜09:45</td><td>チェックアウト</td></tr>
+      <tr><td class="t">10:00</td><td>長野発 → <b>特急しなの8号</b>（指定席）</td></tr>
+      <tr><td class="t">10:50</td><td>松本着 → 荷物はコインロッカーへ</td></tr>
+      <tr><td class="t">10:50〜13:20</td><td>🏯 松本さんぽ＆ランチ</td></tr>
+      <tr><td class="t">13:29</td><td>松本発 → アルピコ上高地線 → 13:59 新島々着</td></tr>
+      <tr><td class="t">14:10</td><td>新島々発 → バス（乗鞍高原行）→ 14:48 さわんどBT着</td></tr>
+      <tr><td class="t">14:55</td><td>さわんどBT発 → 白骨温泉線</td></tr>
+      <tr><td class="t">15:10</td><td>白骨温泉着🎉<span class="memo">泡の湯は15:15着</span></td></tr>
+    </table></div>
+    <div class="tip">🚃 <b>絶景列車オプション</b>：<b>快速リゾートビューふるさと</b>（長野10:04発→松本11:29着・指定席840円）が走ってれば、日本三大車窓の<b>姨捨（おばすて）</b>を通るからおすすめ。<span class="flag-y">運転日要確認</span></div>
+    <h3>🏯 松本さんぽ（2時間半）</h3>
+    <ul>
+      <li>国宝 <a href="https://www.google.com/maps/search/?api=1&query=松本城" target="_blank" rel="noopener">松本城</a>（駅から徒歩20分）→ 縄手通り・中町通りの蔵の街並み</li>
+      <li>🍗 ランチ：<b>松本からあげセンター</b>（駅ビル内）の山賊焼き定食。1,000〜1,500円</li>
+      <li>⚠️ 白骨周辺にコンビニなし。おやつ・飲み物は松本で🍡</li>
+    </ul>
+    <h3>🤍 白骨温泉</h3>
+    <div class="tablewrap"><table>
+      <tr><td class="t">15:15〜</td><td>チェックイン → 乳白色の温泉三昧🤍♨️<span class="memo">芽吹きの山と湯けむり</span></td></tr>
+      <tr><td class="t">18:00〜</td><td>夕食（宿の山の幸会席・山菜）</td></tr>
+      <tr><td class="t">食後〜</td><td>もう一回温泉</td></tr>
+    </table></div>
+    <h3>🏨 宿泊：白骨温泉（⭐ハイライト）</h3>
+    <div class="card2">
+      <div class="opt"><b>候補① 泡の湯旅館</b><br>大露天風呂で有名な秘湯系<br>予算 15,000〜20,000円（2食付）</div>
+      <div class="opt"><b>候補② かつらの湯 丸永旅館</b><br>こぢんまり、一人旅向け<br>予算 15,900〜19,800円（2食付）</div>
+    </div>
+    <div class="warn">🔴 日曜泊で取りやすいはずだけど、秘湯は部屋数が少ないから早めの予約を。料金は11月版からの引き継ぎで要確認。</div>
+  </section>
+
+  <!-- DAY 3 -->
+  <section id="d3">
+    <h2><span class="daybadge">Day3</span>5/24(月) 白骨 → 別所温泉♨️</h2>
+    <div class="tablewrap"><table>
+      <tr><td class="t">朝〜</td><td>朝風呂＆朝ごはん🥢♨️</td></tr>
+      <tr><td class="t">09:30</td><td>白骨温泉発 → バス<span class="memo">泡の湯は09:25発</span></td></tr>
+      <tr><td class="t">09:51</td><td>さわんどBT発 → バス（新島々行）→ 10:31 新島々着</td></tr>
+      <tr><td class="t">10:53</td><td>新島々発 → 上高地線 → 11:22 松本着</td></tr>
+      <tr><td class="t">11:22〜13:25</td><td>🍽️ 松本でランチ<span class="memo">2日目に食べなかった方（そば or 山賊焼き）</span></td></tr>
+      <tr><td class="t">13:30</td><td>松本発 → JR篠ノ井線（長野行）→ 14:34 篠ノ井着</td></tr>
+      <tr><td class="t">14:39</td><td>篠ノ井発 → しなの鉄道（小諸行）→ 15:10 上田着</td></tr>
+      <tr><td class="t">15:30</td><td>上田発 → <b>上田電鉄別所線</b>🚃 のどかなローカル線</td></tr>
+      <tr><td class="t">16:00</td><td>別所温泉着</td></tr>
+    </table></div>
+    <div class="tip">♨️ <b>白骨でもっとゆっくりしたい派</b>：白骨温泉11:05発（泡の湯11:00発）→ 松本13:17着でも、13:30の篠ノ井線に間に合う（乗換13分）。ランチは車内で駅弁かパンに。</div>
+    <h3>♨️ 別所温泉 夕方〜夜</h3>
+    <div class="tablewrap"><table>
+      <tr><td class="t">16:15〜</td><td>宿にチェックイン</td></tr>
+      <tr><td class="t">17:00〜</td><td>外湯：<b>石湯</b>（真田幸村ゆかりと伝わる湯）<span class="memo">月曜は営業日</span></td></tr>
+      <tr><td class="t">18:30〜</td><td>宿の夕食</td></tr>
+    </table></div>
+    <div class="milk"><b>泉質</b>：単純硫黄温泉（低張性アルカリ性高温泉・51.3℃）。ほんのり硫黄の香りの透明なお湯で、白骨の乳白色とかぶらない。<br><b>外湯</b>（各300円）：石湯 6:30〜21:30（火曜休）／大師湯 6:00〜21:00（木曜休）／大湯 6:30〜21:30（水曜休）</div>
+    <h3>🏨 宿泊：別所温泉</h3>
+    <div class="card2">
+      <div class="opt"><b>候補① <a href="https://www.jalan.net/yad318066/" target="_blank" rel="noopener">旅宿 上松や</a></b><br>「一人旅いつでも歓迎」・源泉かけ流し・露天＆貸切風呂・駅徒歩10分・口コミ4.6<br><span class="flag-y">1名料金は要確認</span></div>
+      <div class="opt"><b>候補② <a href="https://travel.yahoo.co.jp/00001994" target="_blank" rel="noopener">旅館 花屋</a></b>（贅沢版）<br>大正6年創業・登録有形文化財の大正ロマンな宿・駅徒歩5分以内・露天あり<br><span class="flag-y">1名だとかなり高め</span></div>
+    </div>
+    <p>予算目安：15,000〜20,000円（2食付・仮置き）</p>
+  </section>
+
+  <!-- DAY 4 -->
+  <section id="d4">
+    <h2><span class="daybadge">Day4</span>5/25(火) 別所の寺めぐり → 帰宅</h2>
+    <div class="tablewrap"><table>
+      <tr><td class="t">朝〜</td><td>朝風呂＆朝ごはん🥢♨️</td></tr>
+      <tr><td class="t">09:00〜11:30</td><td>⛩️ 寺めぐり（荷物は宿に預けて）<span class="memo"><a href="https://www.google.com/maps/search/?api=1&query=北向観音+上田市" target="_blank" rel="noopener">北向観音</a> → 国宝 <a href="https://www.google.com/maps/search/?api=1&query=安楽寺+八角三重塔" target="_blank" rel="noopener">安楽寺 八角三重塔</a>（駅徒歩15分）→ <a href="https://www.google.com/maps/search/?api=1&query=常楽寺+別所温泉" target="_blank" rel="noopener">常楽寺</a>（美術館9:00〜16:00）。足湯「ななくり」（無料）でひと休み</span></td></tr>
+      <tr><td class="t">11:46</td><td>別所温泉発 → 別所線 → 12:16 上田着</td></tr>
+      <tr><td class="t">12:16〜14:05</td><td>🍜 上田でランチ：<a href="https://rurubu.jp/andmore/spot/80018859" target="_blank" rel="noopener">刀屋</a><span class="memo">駅徒歩10分・11時〜売り切れ次第・日曜定休。名物の真田そば</span></td></tr>
+      <tr><td class="t">14:15</td><td>上田発 → 北陸新幹線 <b>あさま642号</b>（指定席）→ 15:15 大宮着</td></tr>
+      <tr><td class="t">15:28</td><td>大宮発 → 湘南新宿ライン特別快速 → 15:59 新宿着</td></tr>
+      <tr><td class="t">16:21</td><td>新宿発 → 小田急快速急行</td></tr>
+      <tr><td class="t">17:08</td><td>🎉 本厚木着！</td></tr>
+    </table></div>
+    <div class="tip">🏯 時間が余ったら上田駅から歩ける上田城跡も。🎁 お土産は上田駅で、最終日にまとめて。</div>
+    <div class="warn">⚠️ 石湯は<b>火曜定休</b>。朝に外湯へ行くなら大湯か大師湯で。</div>
+  </section>
+
+  <section id="highlight">
+    <h2>✨ ハイライト＆参謀メモ</h2>
+    <div class="milk">🤍 <b>いちばん感動しそうな瞬間</b><br>白骨の乳白色の露天で、芽吹いたばかりのやわらかい新緑と湯けむりに包まれる瞬間。</div>
+    <h3>ハイライト3選</h3>
+    <div class="hl"><b>1</b><div>♨️ 白骨・乳白色の湯（秘湯感MAX）</div></div>
+    <div class="hl"><b>2</b><div>⛩️ 戸隠 奥社の杉並木＋残雪の山が映る鏡池</div></div>
+    <div class="hl"><b>3</b><div>🏯 別所温泉 国宝の八角三重塔＆外湯めぐり</div></div>
+    <p>🍜 グルメMVP：戸隠そば／次点：上田 刀屋の真田そば</p>
+    <h3>削ってもいい候補</h3>
+    <ul>
+      <li>戸隠 火之御子社</li>
+      <li>2日目の松本城（中町さんぽだけでも十分）</li>
+      <li>4日目の常楽寺</li>
+    </ul>
+  </section>
+
+  <section id="alt">
+    <h2>🌧️ もしもの代替案</h2>
+    <details open><summary>☔ 雨天</summary>
+      <p>奥社ハイクはやめて宝光社・中社＋そば＋おみくじに。松本は中町の蔵カフェでのんびり。別所は外湯をはしご＋常楽寺美術館。温泉は雨でも無敵。</p>
+    </details>
+    <details><summary>💴 節約版</summary>
+      <p>長野→松本を快速リゾートビューふるさとに（特急より約1,000円安くて絶景）／戸隠は長野駅からの路線バスで（本数注意）／別所は素泊まり＋外湯。</p>
+    </details>
+    <details><summary>✨ 贅沢版</summary>
+      <p>別所を旅館 花屋（文化財の大正ロマン宿）に、白骨を泡の湯の良い部屋に格上げ。</p>
+    </details>
+  </section>
+
+  <section id="todo">
+    <h2>✅ やることリスト</h2>
+    <div class="checklist" id="checklist">
+      <label><input type="checkbox"><span><span class="flag-r">最優先</span> 白骨温泉の宿 予約</span></label>
+      <label><input type="checkbox"><span><span class="flag-r">最優先</span> 別所温泉の宿 予約（上松やの1名料金を確認）</span></label>
+      <label><input type="checkbox"><span><span class="flag-y">中</span> 長野駅前のビジホ 予約</span></label>
+      <label><input type="checkbox"><span><span class="flag-y">中</span> 2027年3月のダイヤ改正後に全時刻を組み直し</span></label>
+      <label><input type="checkbox"><span><span class="flag-y">中</span> かがやき503号 予約（4/22ごろ10時〜・えきねっと）</span></label>
+      <label><input type="checkbox"><span><span class="flag-y">中</span> しなの8号・あさま642号 予約</span></label>
+      <label><input type="checkbox"><span><span class="flag-g">低</span> 長野駅カーシェア 予約</span></label>
+      <label><input type="checkbox"><span><span class="flag-g">低</span> バニクマン 予約（土曜夜）</span></label>
+      <label><input type="checkbox"><span><span class="flag-g">低</span> リゾートビューふるさとの運転日 確認</span></label>
+      <label><input type="checkbox"><span><span class="flag-g">低</span> 白骨の往復チケットの有無・料金 確認</span></label>
+      <label><input type="checkbox"><span>📝 前週に戸隠の残雪状況を確認</span></label>
+    </div>
+  </section>
+
+  <section id="items">
+    <h2>🎒 持ち物（5月下旬・新緑仕様）</h2>
+    <ul>
+      <li>羽織れる上着（戸隠・白骨は標高1,200〜1,400m。朝晩は10℃前後まで冷えることも）</li>
+      <li>歩きやすい靴（奥社参道・松本・別所の寺めぐり）</li>
+      <li>折りたたみ傘、日焼け止め（5月の高原は紫外線が強い）</li>
+      <li>温泉セット（外湯用の小さいタオル）</li>
+      <li>現金（外湯・バス・個人店用）</li>
+      <li>お土産用エコバッグ、モバイルバッテリー</li>
+    </ul>
+  </section>
+
+  <section id="budget">
+    <h2>💰 予算（目安）</h2>
+    <details>
+      <summary>🚃 交通費の内訳（約28,000円・2026年10月時点の運賃）</summary>
+      <div class="tablewrap"><table>
+        <tr><th>区間</th><th>手段</th><th class="num">料金</th></tr>
+        <tr><td>本厚木 → 長野</td><td>小田急＋湘南新宿ライン＋かがやき</td><td class="num">7,863円</td></tr>
+        <tr><td>長野駅 ↔ 戸隠</td><td>カーシェア</td><td class="num">約2,000〜3,000円</td></tr>
+        <tr><td>長野 → 松本</td><td>特急しなの8号</td><td class="num">3,151円</td></tr>
+        <tr><td>松本 ↔ 白骨温泉</td><td>往復チケット <span class="flag-y">要確認</span></td><td class="num">4,520円</td></tr>
+        <tr><td>松本 → 別所温泉</td><td>篠ノ井線＋しなの鉄道＋別所線</td><td class="num">2,207円</td></tr>
+        <tr><td>別所温泉 → 上田</td><td>別所線</td><td class="num">590円</td></tr>
+        <tr><td>上田 → 本厚木</td><td>あさま＋湘南新宿ライン＋小田急</td><td class="num">7,203円</td></tr>
+        <tr class="total"><td colspan="2">合計</td><td class="num">約28,000円</td></tr>
+      </table></div>
+    </details>
+    <div class="tablewrap"><table>
+      <tr><th>カテゴリ</th><th class="num">目安</th></tr>
+      <tr><td>交通費（全区間・カーシェア込み）</td><td class="num">約28,000円</td></tr>
+      <tr><td>宿泊：長野ビジホ（土曜素泊まり）</td><td class="num">約10,000円</td></tr>
+      <tr><td>宿泊：白骨温泉 2食付</td><td class="num">約18,000円</td></tr>
+      <tr><td>宿泊：別所温泉 2食付 <span class="flag-y">仮置き</span></td><td class="num">約18,000円</td></tr>
+      <tr><td>食費（宿以外）</td><td class="num">約9,000円</td></tr>
+      <tr><td>外湯・拝観・お土産・雑費</td><td class="num">約5,000円</td></tr>
+      <tr class="total"><td>合計</td><td class="num">約88,000円</td></tr>
+    </table></div>
+    <div class="note">📝 白骨の往復チケット（4,520円）は11月版からの引き継ぎで、アルピコ公式では確認できてない。なければ片道ずつ払う形に。</div>
+  </section>
+</main>
+<footer>時刻・運賃は2026/10/8に確認（Yahoo!路線情報：JR 2026年10月・私鉄9月のダイヤ／<a href="https://www.alpico.co.jp/traffic/local/kamikochi/shirahone/" target="_blank" rel="noopener">アルピコ交通 白骨温泉線</a> 2026年夏ダイヤ）。別所温泉の泉質・外湯は<a href="https://www.bessho-spa.jp/" target="_blank" rel="noopener">別所温泉観光協会</a>。2027年のダイヤで要再確認。</footer>
+<script>
+  (function(){
+    var root=document.documentElement, btn=document.getElementById('themeBtn');
+    function get(k){try{return localStorage.getItem(k);}catch(e){return null;}}
+    function set(k,v){try{localStorage.setItem(k,v);}catch(e){}}
+    function apply(t){root.setAttribute('data-theme',t); btn.textContent=t==='dark'?'☀️ ライト':'🌙 ダーク';}
+    var saved=get('nagano2705-theme');
+    apply(saved||'light');
+    btn.addEventListener('click',function(){var t=root.getAttribute('data-theme')==='dark'?'light':'dark'; apply(t); set('nagano2705-theme',t);});
+    var boxes=document.querySelectorAll('#checklist input');
+    var state={}; try{state=JSON.parse(get('nagano2705-check')||'{}');}catch(e){}
+    boxes.forEach(function(b,i){
+      if(state[i]){b.checked=true; b.parentNode.classList.add('done');}
+      b.addEventListener('change',function(){b.parentNode.classList.toggle('done',b.checked); state[i]=b.checked; set('nagano2705-check',JSON.stringify(state));});
+    });
+  })();
+</script>
+</body>
+</html>

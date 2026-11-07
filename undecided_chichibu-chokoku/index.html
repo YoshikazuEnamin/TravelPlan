@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>秩父 彫刻の社と駅前湯さんぽ｜土曜日帰り v1</title><style>
+:root{--bg:#f5f3ef;--card:#fff;--text:#24221f;--sub:#6b635b;--accent:#8a3b2e;--accent2:#c07a2a;--border:#e3ddd3;
+--y-bg:#fff3d6;--y-tx:#8a5a00;--g-bg:#e2f5ec;--g-tx:#1f7a52;--r-bg:#fdeaea;--r-tx:#a32a2a;--shadow:0 2px 10px rgba(0,0,0,.06)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15181a;--card:#1e2326;--text:#eef0f2;--sub:#a6aeb4;--accent:#e89a86;--accent2:#e8b76a;--border:#2e363b;
+--y-bg:#4a3a10;--y-tx:#f5cf7a;--g-bg:#173d2e;--g-tx:#7fe0b8;--r-bg:#43201f;--r-tx:#f2a3a0;--shadow:0 2px 14px rgba(0,0,0,.4)}}
+:root[data-theme="dark"]{--bg:#15181a;--card:#1e2326;--text:#eef0f2;--sub:#a6aeb4;--accent:#e89a86;--accent2:#e8b76a;--border:#2e363b;
+--y-bg:#4a3a10;--y-tx:#f5cf7a;--g-bg:#173d2e;--g-tx:#7fe0b8;--r-bg:#43201f;--r-tx:#f2a3a0;--shadow:0 2px 14px rgba(0,0,0,.4)}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding-bottom:60px}
+header{position:sticky;top:0;z-index:100;background:var(--card);border-bottom:1px solid var(--border);padding:10px 16px;display:flex;justify-content:space-between;align-items:center;box-shadow:var(--shadow)}
+header .title{font-size:14px;font-weight:700;color:var(--accent)}header .sub{font-size:11px;color:var(--sub)}
+.theme-btn{background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:6px 12px;font-size:12px;color:var(--text);cursor:pointer}
+nav{position:sticky;top:55px;z-index:99;background:var(--bg);border-bottom:1px solid var(--border);display:flex;gap:6px;overflow-x:auto;padding:8px 12px}
+nav a{flex-shrink:0;font-size:12px;color:var(--sub);text-decoration:none;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:5px 12px}
+main{max-width:720px;margin:0 auto;padding:16px}
+.hero{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border-radius:16px;padding:22px 18px;margin-bottom:16px;box-shadow:var(--shadow)}
+.hero h1{font-size:20px;margin:0 0 6px}.hero p{font-size:13px;margin:0;opacity:.95}
+.kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.kpi div{background:rgba(255,255,255,.18);border-radius:10px;padding:8px;text-align:center;font-size:11px}
+.kpi b{display:block;font-size:17px}
+section{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;margin-bottom:14px;box-shadow:var(--shadow);scroll-margin-top:110px}
+h2{font-size:15px;margin:0 0 10px;color:var(--accent)}h3{font-size:13px;margin:14px 0 6px;color:var(--accent2)}
+p,li{font-size:13px}ul{padding-left:20px;margin:6px 0}
+table{width:100%;border-collapse:collapse;font-size:12.5px;margin:8px 0}
+th,td{border-bottom:1px solid var(--border);text-align:left;padding:7px 6px;vertical-align:top}
+th{color:var(--sub);font-weight:600}td.t{white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:700;color:var(--accent)}
+td.y{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+tr.move td{color:var(--sub)}tr.move td.t{color:var(--sub);font-weight:600}
+.note{display:block;font-size:11.5px;color:var(--sub)}
+pre.route{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:10px;font-size:11.5px;overflow-x:auto;line-height:1.5}
+blockquote{margin:10px 0;padding:10px 12px;border-left:4px solid var(--accent2);background:var(--bg);border-radius:0 10px 10px 0;font-size:12.5px}
+.tag{display:inline-block;font-size:10.5px;border-radius:6px;padding:1px 6px;margin-right:4px;font-weight:700}
+.ok{background:var(--g-bg);color:var(--g-tx)}.warn{background:var(--y-bg);color:var(--y-tx)}.ng{background:var(--r-bg);color:var(--r-tx)}
+details{border:1px solid var(--border);border-radius:10px;padding:8px 12px;margin:8px 0;background:var(--bg)}
+summary{cursor:pointer;font-weight:700;font-size:13px}
+.total{font-weight:700;font-size:14px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.card{border:1px solid var(--border);border-radius:10px;padding:10px;background:var(--bg)}
+.card h3{margin-top:0}
+.hl li{margin-bottom:4px}
+.check label{display:flex;gap:8px;align-items:flex-start;font-size:13px;padding:6px 0;border-bottom:1px dashed var(--border);cursor:pointer}
+.check input{margin-top:4px;accent-color:var(--accent)}.check label.done span{text-decoration:line-through;color:var(--sub)}
+.progress{height:8px;background:var(--bg);border-radius:6px;overflow:hidden;border:1px solid var(--border)}.progress div{height:100%;background:var(--accent);width:0;transition:width .2s}
+a{color:var(--accent)}.small{font-size:11.5px;color:var(--sub)}
+@media (max-width:520px){.grid2{grid-template-columns:1fr}.kpi b{font-size:15px}}
+</style></head>
+<body>
+<header><div><div class="title">🐉 秩父 彫刻の社と駅前湯さんぽ</div><div class="sub">土曜・早朝出発／予算1万円以内／v1</div></div>
+<button class="theme-btn" id="themeBtn">🌙 ダーク</button></header>
+<nav><a href="#ov">概要</a><a href="#tl">旅程</a><a href="#bud">予算</a><a href="#onsen">温泉</a><a href="#rsv">予約</a><a href="#risk">注意</a><a href="#alt">代替案</a><a href="#bring">持ち物</a><a href="#chk">チェック</a><a href="#src">出典</a></nav>
+<main>
+<div class="hero"><h1>🐉 秩父 彫刻の社と駅前湯さんぽ</h1><p>行きはローカル線でのんびり、帰りは特急ちちぶでラクちん。全部駅から歩ける“コンパクト秩父”だよ〜</p>
+<div class="kpi"><div>想定予算<b>¥9,638</b></div><div>本厚木 出発→帰着<b>05:56→20:08</b></div><div>おすすめ度<b>★★★★☆</b></div></div></div>
+
+<section id="ov"><h2>① 旅の概要</h2>
+<p><b>テーマ：</b>秩父神社の彫刻めぐり＋豚みそ丼＋地酒＋駅直結の温泉</p><p>見どころが西武秩父駅〜秩父駅の徒歩圏にぎゅっと集まってて、移動費ほぼゼロ。バスの時刻に縛られないから、気分で寄り道できるのが最高ポイント。</p>
+<blockquote>🌟 <b>いちばん感動しそうな瞬間</b><br>秩父神社の本殿をぐるっと一周して、極彩色の「つなぎの龍」「子育ての虎」「北辰の梟」と目が合う瞬間。朝イチの静かな境内でじっくり見られるのが早起きのごほうび。</blockquote>
+<h3>✨ ハイライト3選</h3><ol class="hl"><li>秩父神社の社殿彫刻（つなぎの龍・子育ての虎・北辰の梟・お元気三猿）を朝の静けさの中で</li><li>元祖「野さか」の炭火豚みそ丼（開店前に並ぶのがコツ）</li><li>祭の湯の露天でぽかぽか → 館内で地酒とみそポテト → そのまま特急に乗って寝て帰る</li></ol>
+<h3>🗺 ルート</h3><pre class="route">本厚木 05:56 ─小田急(各停)→ 町田 06:15/06:29
+  ─JR横浜線→ 八王子 06:55/06:59 ─八高線→ 東飯能 07:40/07:56
+  ─西武池袋線→ 西武秩父 08:44
+     │ 徒歩15分
+  秩父神社 → 今宮神社 → 武甲酒造(秩父駅そば) → 野さか → (羊山公園) → 祭の湯
+     │
+西武秩父 17:24 ─特急ちちぶ44号→ 池袋 18:46/18:55 ─山手線→ 新宿 19:04/19:21
+  ─小田急 快速急行→ 本厚木 20:08</pre>
+<p class="small">2026/9/28調べ（Yahoo!路線情報・各公式サイト。ダイヤは2026/10/3(土)で検索）。<b>ベストシーズン：</b>通年OK。10〜11月は紅葉と秋の気配。12/2-3は秩父夜祭（激混みなので別枠で）</p>
+</section>
+
+<section id="tl"><h2>② 時系列旅程</h2>
+<table><tr><th>時刻</th><th>内容</th></tr>
+<tr class="move"><td class="t">05:56</td><td>本厚木 発（小田急 各停・当駅始発 新宿行）<span class="note">町田で JR横浜線 06:29発 八王子行に乗換</span></td></tr>
+<tr class="move"><td class="t">06:59</td><td>八王子 発 JR八高線（当駅始発 川越行）<span class="note">車窓は山あいのローカル線。ここで朝ごはんタイム🍙</span></td></tr>
+<tr class="move"><td class="t">07:56</td><td>東飯能 発 西武池袋線 西武秩父行 → <b>08:44 西武秩父 着</b><span class="note">IC ¥1,646（特急を使わない最安ルート）</span></td></tr>
+<tr class="move"><td class="t">08:45</td><td>秩父神社へ歩く（約15分）<span class="note">番場通りのレトロ建築を眺めながら</span></td></tr>
+<tr class="spot"><td class="t">09:00</td><td>⛩ <b>秩父神社</b> 参拝・社殿彫刻めぐり<span class="note">本殿を一周して龍・虎・梟・三猿を探す。御朱印もここで</span></td></tr>
+<tr class="spot"><td class="t">09:55</td><td>⛩ 秩父今宮神社（龍神木）<span class="note">秩父神社から徒歩8分ほど。大ケヤキのパワースポット</span></td></tr>
+<tr class="food"><td class="t">10:15</td><td>🍶 武甲酒造（柳田総本店）<span class="note">秩父駅徒歩3分・8:00〜17:30。蔵見学自由＆売店で地酒チェック <span class="tag warn">⚠️</span>試飲の有無は当日確認</span></td></tr>
+<tr class="move"><td class="t">10:40</td><td>野さかへ移動して開店待ちの列に並ぶ<span class="note">西武秩父駅徒歩3分。土曜は開店前から行列が定番</span></td></tr>
+<tr class="food"><td class="t">11:00</td><td>🍚 <b>豚みそ丼本舗 野さか</b> でランチ<span class="note">11:00〜15:00（売切れ次第終了）。<span class="tag ng">🔴</span>10/17(土)は臨時休業日なので注意</span></td></tr>
+<tr class="spot"><td class="t">12:00</td><td>🌄 羊山公園・見晴しの丘（任意）<span class="note">駅から坂道で約20分。武甲山と秩父の街を一望。お腹ごなしに◎</span></td></tr>
+<tr class="spot"><td class="t">13:30</td><td>♨️ <b>西武秩父駅前温泉 祭の湯</b> IN<span class="note">土日祝 ¥1,380。露天の岩風呂・寝ころび湯でゆっくり</span></td></tr>
+<tr class="food"><td class="t">15:30</td><td>🍶 館内で地酒＆秩父グルメ（みそポテトなど）<span class="note">湯上がりの一杯。飲みすぎ注意ね</span></td></tr>
+<tr class="spot"><td class="t">16:40</td><td>🎁 祭の湯のおみやげ売り場で買い物<span class="note">重い地酒はここで最後に買うのが鉄則</span></td></tr>
+<tr class="move"><td class="t">17:24</td><td>西武秩父 発 <b>特急ちちぶ44号</b>（全席指定）<span class="note">池袋 18:46着 → 山手線 18:55発</span></td></tr>
+<tr class="move"><td class="t">19:21</td><td>新宿 発 小田急 快速急行（当駅始発）<span class="note">座って帰れる始発便</span></td></tr>
+<tr class="move"><td class="t">20:08</td><td>本厚木 着 🏠</td></tr>
+</table>
+<blockquote>💡 行きをちちぶ3号にすると <b>05:40発→08:14着</b>（+¥766）。朝30分の余裕を取るか、八高線の旅情＆節約を取るか選べるよ。</blockquote>
+</section>
+
+<section id="bud"><h2>💰 予算（1万円以内）</h2>
+<details open><summary>内訳を見る（合計 ¥9,638）</summary>
+<table><tr><th>項目</th><th style="text-align:right">金額</th></tr><tr><td>交通：本厚木→西武秩父（八高線経由）<span class="note">特急なし最安ルート</span></td><td class="y">¥1,646</td></tr>
+<tr><td>交通：西武秩父→本厚木（特急ちちぶ44号）<span class="note">うち特急券¥900</span></td><td class="y">¥2,412</td></tr>
+<tr><td>祭の湯 入館料（土日祝）<span class="note">タオルは持参で節約</span></td><td class="y">¥1,380</td></tr>
+<tr><td>野さか 豚みそ丼（並）<span class="note">観光協会掲載価格 <span class="tag warn">⚠️</span>変動あり</span></td><td class="y">¥1,000</td></tr>
+<tr><td>地酒・みそポテトなど湯上がりつまみ</td><td class="y">¥1,200</td></tr>
+<tr><td>御朱印・おみくじ</td><td class="y">¥500</td></tr>
+<tr><td>お土産</td><td class="y">¥1,500</td></tr>
+
+<tr><td class="total">合計</td><td class="y total">¥9,638</td></tr></table>
+<p class="small">交通費はIC運賃。飲食は目安。帰りも特急なし（17:00発→20:16着・¥1,313）にすると −¥1,099。</p></details>
+</section>
+
+<section id="onsen"><h2>♨️ 温泉戦略</h2><p><b>祭の湯</b>（西武秩父駅直結・10:00〜22:00／最終受付21:30）</p><ul>
+<li>泉質：含よう素-ナトリウム-塩化物冷鉱泉（弱アルカリ性）。塩の湯で湯冷めしにくいタイプ</li>
+<li>露天：岩風呂・寝ころび湯・つぼ湯など。駅前なのに開放感あり</li>
+<li>おすすめタイミング：<b>13:30〜15:30</b>。土曜は夕方から混みがちなので早めに入って、上がったら飲んで特急へ直行が最強動線</li></ul></section>
+
+<section id="rsv"><h2>③ 予約リスト</h2><ul><li><span class="tag ng">🔴</span> 特急ちちぶ44号の指定席：西武の「Smooz」でネット購入（発車1か月前の10:00〜）。土曜夕方の上りは埋まりやすいので前日までに</li><li><span class="tag ok">✅</span> 祭の湯・野さか・神社は予約不要（野さかは予約不可、並ぶ前提）</li><li><span class="tag warn">⚠️</span> 行きをちちぶ3号にする場合はそれもSmoozで</li></ul>
+<h3>🎁 お土産戦略</h3><ul><li>地酒（武甲正宗・秩父錦など）：重いので<b>帰り際に祭の湯の売店</b>で。武甲酒造で気に入った銘柄をメモしておくのがコツ</li><li>みそポテト系・豚みそ漬け：要冷蔵ものは帰りの特急直前に</li><li>秩父神社のお守り（お元気三猿モチーフなど）は参拝時に</li></ul></section>
+
+<section id="risk"><h2>④ 注意事項・リスク</h2><ul><li><span class="tag warn">⚠️</span> 野さかは売切れ終了＆行列。開店15〜20分前に並ぶ。<b>2026年10月は1・4・8・11・16〜18・20・25・30日と日曜が休み</b>（10/17土はNG）</li><li><span class="tag warn">⚠️</span> 八高線・西武秩父線は本数が少ない。乗換は4〜16分で余裕あり。遅れたら次の手は東飯能で西武特急に乗る案も</li><li><span class="tag warn">⚠️</span> 祭の湯はメンテナンスで不定休あり→前日に公式を確認</li><li><span class="tag warn">⚠️</span> 秩父夜祭（12/2-3）や芝桜シーズン（4〜5月）は激混み</li><li><span class="tag ok">✅</span> 荷物は日帰りなので基本手持ち。重くなったら西武秩父駅のコインロッカーへ</li></ul></section>
+
+<section id="alt"><h2>🔀 代替案・比較</h2><div class="grid2"><div class="card"><h3>✂️ 削ってもよい候補</h3><ul><li>羊山公園（坂道なので疲れてたらパス）</li><li>今宮神社</li></ul></div><div class="card"><h3>☔ 雨の日</h3><ul><li>神社→野さか→祭の湯を早めにIN。館内で長居できるから雨でも満足度落ちにくい</li><li>秩父まつり会館（秩父神社前）で夜祭の雰囲気を体験 <span class="tag warn">⚠️</span>開館時間は要確認</li></ul></div><div class="card"><h3>💸 もっと節約</h3><ul><li>帰りも特急なし（17:00発 20:16着 ¥1,313）で合計 約¥8,500</li><li>豚みそ丼は並、お土産は神社のお守りだけに</li></ul></div><div class="card"><h3>✨ ちょい贅沢</h3><ul><li>行きも帰りも特急ちちぶ（+¥766）</li><li>祭の湯で岩盤浴や個室サウナ（土日祝90分¥5,000）をプラス→予算オーバーなので記念日向け</li></ul></div></div></section>
+
+<section id="bring"><h2>⑤ 持ち物</h2><ul><li>ICカード（残高5,000円以上）</li><li>フェイスタオル・バスタオル（持参で¥550節約）</li><li>歩きやすい靴（羊山公園は坂道）</li><li>御朱印帳</li><li>薄手の上着（秩父は朝晩が冷える）</li><li>モバイルバッテリー</li><li>エコバッグ（地酒用）</li></ul></section>
+
+<section id="chk"><h2>✅ 出発前チェックリスト</h2>
+<div class="progress"><div id="bar"></div></div><p class="small" id="cnt"></p>
+<div class="check"><label><input type="checkbox"><span>特急ちちぶ44号をSmoozで予約した</span></label><label><input type="checkbox"><span>野さかの営業日カレンダーを確認した（10/17は休み）</span></label><label><input type="checkbox"><span>祭の湯の営業を公式で確認した</span></label><label><input type="checkbox"><span>05:56発に間に合うアラームをセット</span></label><label><input type="checkbox"><span>ICカードをチャージした</span></label><label><input type="checkbox"><span>タオル・御朱印帳を入れた</span></label><label><input type="checkbox"><span>前日に天気予報を確認した</span></label></div></section>
+
+<section id="src"><h2>📚 出典（2026/9/28確認）</h2><ul><li><a href="https://transit.yahoo.co.jp/" target="_blank" rel="noopener">Yahoo!路線情報（本厚木⇔西武秩父）</a></li><li><a href="https://www.seibu-leisure.co.jp/matsuri/serviceguide/index.html" target="_blank" rel="noopener">西武秩父駅前温泉 祭の湯 公式 営業時間・料金</a></li><li><a href="https://onsen.nifty.com/chichibu-onsen/onsen012476/" target="_blank" rel="noopener">祭の湯 泉質（ニフティ温泉）</a></li><li><a href="https://www.butamisodon.jp/omise/" target="_blank" rel="noopener">豚みそ丼本舗 野さか 店舗案内</a></li><li><a href="https://www.chichibuji.gr.jp/spot/spot-syousai32/" target="_blank" rel="noopener">野さか（秩父観光協会）</a></li><li><a href="https://www.chichibuji.gr.jp/spot/spot-syousai53/" target="_blank" rel="noopener">武甲酒造（秩父観光協会）</a></li></ul>
+<p class="small">時刻はYahoo!路線情報で2026/10/3(土)ダイヤを検索した結果。バスは「最新情報に未対応」の注記あり→前日に公式で再確認してね。</p></section>
+</main>
+<script>
+(function(){
+ const root=document.documentElement,btn=document.getElementById('themeBtn');
+ function cur(){const t=root.getAttribute('data-theme');if(t)return t;return matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}
+ function label(){btn.textContent=cur()==='dark'?'☀️ ライト':'🌙 ダーク';}
+ btn.addEventListener('click',()=>{root.setAttribute('data-theme',cur()==='dark'?'light':'dark');label();});label();
+ const boxes=[...document.querySelectorAll('.check input')],bar=document.getElementById('bar'),cnt=document.getElementById('cnt');
+ function upd(){const n=boxes.filter(b=>b.checked).length;boxes.forEach(b=>b.parentElement.classList.toggle('done',b.checked));
+  bar.style.width=(boxes.length?n/boxes.length*100:0)+'%';cnt.textContent=n+' / '+boxes.length;}
+ boxes.forEach(b=>b.addEventListener('change',upd));upd();
+})();
+</script>
+</body></html>

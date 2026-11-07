@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>下部温泉 湯治一人旅｜2026/8/30-31 v19</title>
+<style>
+  :root{
+    --bg:#f5f2ec; --card:#ffffff; --text:#262220; --sub:#6a6058;
+    --accent:#2f6f8f; --accent2:#7a6a3a; --border:#e0d9cd;
+    --tag-yellow-bg:#fff3d6; --tag-yellow-text:#8a5a00;
+    --tag-green-bg:#e2f5ec; --tag-green-text:#1f7a52;
+    --tag-red-bg:#fdeaea; --tag-red-text:#a32a2a;
+    --shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  [data-theme="dark"]{
+    --bg:#16191c; --card:#1f2428; --text:#eef0f2; --sub:#a8b0b6;
+    --accent:#6bb6d6; --accent2:#cbb673; --border:#2f373d;
+    --tag-yellow-bg:#4a3a10; --tag-yellow-text:#f5cf7a;
+    --tag-green-bg:#173d2e; --tag-green-text:#7fe0b8;
+    --tag-red-bg:#43201f; --tag-red-text:#f2a3a0;
+    --shadow: 0 2px 14px rgba(0,0,0,0.4);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; font-family:-apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+    background:var(--bg); color:var(--text); line-height:1.7; padding-bottom:60px;
+    transition: background .2s, color .2s;
+  }
+  header{
+    position:sticky; top:0; z-index:100; background:var(--card); border-bottom:1px solid var(--border);
+    padding:12px 16px; display:flex; justify-content:space-between; align-items:center; box-shadow:var(--shadow);
+  }
+  header .title{font-size:14px; font-weight:700; color:var(--accent);}
+  header .sub{font-size:11px; color:var(--sub);}
+  .theme-btn{background:var(--bg); border:1px solid var(--border); border-radius:20px; padding:6px 12px; font-size:12px; color:var(--text); cursor:pointer;}
+  nav.subnav{
+    position:sticky; top:52px; z-index:99; background:var(--bg); border-bottom:1px solid var(--border);
+    display:flex; gap:6px; overflow-x:auto; padding:8px 12px; -webkit-overflow-scrolling:touch;
+  }
+  nav.subnav a{flex-shrink:0; font-size:12px; color:var(--sub); text-decoration:none; background:var(--card); border:1px solid var(--border); border-radius:16px; padding:6px 12px;}
+  main{max-width:720px; margin:0 auto; padding:16px;}
+  .hero{background:linear-gradient(135deg, var(--accent), var(--accent2)); color:#fff; border-radius:16px; padding:22px 18px; margin-bottom:18px; box-shadow:var(--shadow);}
+  .hero h1{font-size:19px; margin:0 0 6px;}
+  .hero p{font-size:13px; margin:0; opacity:.92;}
+  section{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:16px; margin-bottom:14px; box-shadow:var(--shadow); scroll-margin-top:100px;}
+  h2{font-size:15px; margin:0 0 10px; color:var(--accent);}
+  h3{font-size:13px; margin:14px 0 6px; color:var(--accent2);}
+  table{width:100%; border-collapse:collapse; font-size:12.5px; margin:8px 0;}
+  th,td{border-bottom:1px solid var(--border); text-align:left; padding:7px 6px; vertical-align:top;}
+  th{color:var(--sub); font-weight:600;}
+  td.t{white-space:nowrap; font-variant-numeric:tabular-nums; color:var(--accent); font-weight:700;}
+  td.num{text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums;}
+  .route{background:var(--bg); border:1px dashed var(--border); border-radius:10px; padding:12px; font-size:11px; white-space:pre-wrap; font-family:"SFMono-Regular",Consolas,monospace; line-height:1.85; color:var(--sub); overflow-x:auto;}
+  .tip{border-left:3px solid var(--accent2); background:var(--tag-green-bg); color:var(--tag-green-text); padding:10px 12px; border-radius:0 8px 8px 0; font-size:12.5px; margin:10px 0;}
+  .warn{border-left:3px solid #d05a52; background:var(--tag-red-bg); color:var(--tag-red-text); padding:10px 12px; border-radius:0 8px 8px 0; font-size:12.5px; margin:10px 0;}
+  .flag-y{background:var(--tag-yellow-bg); color:var(--tag-yellow-text); border-radius:6px; padding:1px 6px; font-size:11px; font-weight:700;}
+  .flag-g{background:var(--tag-green-bg); color:var(--tag-green-text); border-radius:6px; padding:1px 6px; font-size:11px; font-weight:700;}
+  .flag-r{background:var(--tag-red-bg); color:var(--tag-red-text); border-radius:6px; padding:1px 6px; font-size:11px; font-weight:700;}
+  details{background:var(--bg); border:1px solid var(--border); border-radius:10px; padding:10px 12px; margin:8px 0;}
+  summary{cursor:pointer; font-size:13px; font-weight:600; color:var(--accent);}
+  ul{margin:6px 0; padding-left:18px; font-size:13px;}
+  li{margin-bottom:4px;}
+  a{color:var(--accent);}
+  .checklist label{display:flex; align-items:center; gap:8px; font-size:13px; padding:6px 0; border-bottom:1px dashed var(--border);}
+  .checklist input{width:16px; height:16px; accent-color:var(--accent);}
+  .checklist label.done span{text-decoration:line-through; color:var(--sub);}
+  .highlight-grid{display:flex; flex-direction:column; gap:8px;}
+  .highlight-item{display:flex; gap:10px; align-items:flex-start; background:var(--bg); border-radius:10px; padding:10px 12px; font-size:13px;}
+  .highlight-num{background:var(--accent); color:#fff; font-weight:700; font-size:12px; border-radius:50%; width:22px; height:22px; display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .total-row td{font-weight:700; color:var(--accent); border-top:2px solid var(--border);}
+  .card-inn{background:var(--bg); border:1px solid var(--border); border-radius:12px; padding:12px; margin:10px 0;}
+  .card-inn h4{margin:0 0 6px; font-size:14px; color:var(--accent);}
+  footer{text-align:center; font-size:11px; color:var(--sub); padding:20px 0;}
+</style>
+</head>
+<body data-theme="light">
+
+<header>
+  <div>
+    <div class="title">♨️ 下部温泉 湯治一人旅</div>
+    <div class="sub">2026/8/30(日)〜8/31(月)・1泊2日・一人旅・v19</div>
+  </div>
+  <button class="theme-btn" onclick="toggleTheme()">🌙 ダーク</button>
+</header>
+
+<nav class="subnav">
+  <a href="#memories">📸思い出</a>
+  <a href="#kekka">まず押さえる</a>
+  <a href="#route">ルート</a>
+  <a href="#day1">Day1</a>
+  <a href="#day2">Day2</a>
+  <a href="#budget">予算</a>
+  <a href="#yado">さのや旅館</a>
+  <a href="#highlight">ハイライト</a>
+  <a href="#alt">雨天</a>
+  <a href="#reserve">予約</a>
+  <a href="#notice">注意</a>
+  <a href="#pack">持ち物</a>
+  <a href="#omiyage">お土産</a>
+  <a href="#geo">📍座標</a>
+  <a href="#check">チェック</a>
+</nav>
+
+<main>
+
+  <div class="hero">
+    <h1>身延山門前町を歩きながら軽く食べる、ロープウェイで奥之院、甲府で横綱寿司・武田神社・サドヤワイナリー</h1>
+    <p>DAY1は富士駅・門前町とも食事は決め打ちせず気になったお店で。菩提梯287段、ロープウェイで奥之院思親閣、チェックイン時刻を優先して下部温泉入り／DAY2は横綱寿司→武田神社（境内散策）→サドヤワイナリーで外観撮影とワイン購入→遠藤フルーツで巨峰、本厚木には夕方に帰着</p>
+  </div>
+
+  <section id="memories">
+    <h2>📸 旅の思い出メモ</h2>
+    <p style="font-size:13px">動画編集のときに思い出せるように、旅先での出来事をそのまま記録（2026-08-31・旅から戻った当日に本人からの報告をもとに記録）。</p>
+    <h3>DAY1</h3>
+    <ul>
+      <li>沼津での乗り継ぎに一本乗り遅れ、予約していた<strong>特急ふじかわ1号</strong>には乗れず</li>
+      <li>念のため沼津のベルマートで<strong>ノッポパン</strong>を購入しておく</li>
+      <li>富士のベルマートで羊羹パンを買おうと思ったら売り切れ……ノッポパン買っておいてよかった</li>
+      <li>富士駅の外で朝ごはん。久遠寺に行くための腹ごなし的な位置づけ</li>
+      <li>富士の天然水はどこでも売っているけど、富士駅で飲むと味が違う気がした</li>
+      <li>結局、特急ではなく<strong>普通列車でのんびり</strong>身延へ向かう</li>
+      <li>予定は1時間押していたけれど、霧がかかっていて展望台に行く必要がなくなったため、結果的にオンスケに戻った</li>
+      <li>夜ご飯の後にもらった<strong>鉱泉水</strong>がとてもマイルドで、本当に美味しかった</li>
+    </ul>
+    <h3>DAY2</h3>
+    <ul>
+      <li>宿（さのや旅館）が<strong>送迎</strong>してくれた</li>
+      <li><strong>お茶のペットボトル</strong>をもらった</li>
+      <li>朝ごはんでお腹いっぱいだったので、予定していた横綱寿司でのランチは<strong>キャンセル</strong></li>
+      <li>電車までの待ち時間で、甲府駅ビルの郷土料理店「<strong>信玄</strong>」でちょい飲みセットを注文。<strong>日本酒</strong>と甲州名物の<strong>鳥モツ煮</strong>を楽しんだ</li>
+      <li>帰りの電車で飲む<strong>スパークリングワイン</strong>を成城石井で購入</li>
+    </ul>
+  </section>
+
+  <section id="kekka">
+    <h2>🔴 まず押さえておきたいこと（v19で変わった点）</h2>
+    <h3>ロープウェイ特典の引き換え場所は「久遠寺境内・報恩閣（総受付）」です</h3>
+    <p style="font-size:13px">「久遠寺のクリアファイル＆お経葩の特典はどこでもらえるの？」とのご質問を受けてChromeで調べたところ、<strong>特典の引き換えは身延山ロープウェイの山麓側ではなく、久遠寺境内にある「報恩閣」（総受付）</strong>で行うとのことでした。祖師堂のすぐ隣にある建物で、窓口受付時間は5:00〜16:20です。ちょうど旅程の10:45〜11:15に久遠寺本堂・祖師堂・五重塔を巡る時間帯に立ち寄れる場所なので、特に寄り道は発生しません。DAY1時系列旅程・JSONにこの一文を追記しました。</p>
+
+    <h2 style="margin-top:18px">🔴 v18までの変更点</h2>
+    <h3>身延山ロープウェイは「くし切りだんご付き」WEBチケット（¥1,900）を購入済みです</h3>
+    <p style="font-size:13px">「身延山ロープウェイは往復＋くし切り団子付きの1900円のを買ったよ」とのご報告を受け、身延山ロープウェイ公式サイトから前売りWEBチケット（フジヤマコネクト）で購入した<strong>「くし切りだんご付き」往復乗車券（¥1,900）</strong>を反映しました。窓口だと往復¥1,700＋くし切り団子単品¥500＝¥2,200のところ、WEBチケットなら¥1,900（¥300お得）で、身延山久遠寺のオリジナルクリアファイル＆お経葩の特典も付いてきます（Chromeでフジヤマコネクト公式サイトの本日の料金を確認）。</p>
+    <p style="font-size:13px">くし切りだんごは、串（苦死）を切り離して福を呼び込むという名物で、ゆば・竹炭・よもぎの3種から選べます。山頂の売店「身延屋」で引き換えられるので、奥之院思親閣での滞在時間（11:50〜12:20）にぜひ味わってみてください。ロープウェイ代が¥1,700→¥1,900に上がった分、予算の確定費用側に計上し直し、<strong>総額目安は約¥26,700〜29,800→約¥26,900〜30,000</strong>にわずかに上方修正しています。</p>
+
+    <h2 style="margin-top:18px">🔴 v17までの変更点</h2>
+    <h3>本厚木発を05:25→06:31に変更。富士での待ち時間が77分→16分に短縮されました</h3>
+    <p style="font-size:13px">「6時31分本厚木発の電車で出発するよ」とのご連絡を受け、DAY1の出発時刻をv8で見送っていた「遅め案」の<strong>06:31発</strong>に変更しました。Yahoo!路線情報で2026/8/30(日)当日ダイヤをChrome確認したところ、新ルートは<strong>06:31本厚木発（小田急急行）→07:09小田原着／07:16発（JR東海道線・沼津行）→08:06沼津着／08:08発（JR東海道線・静岡行）→08:28富士着</strong>で、富士から先は従来どおり<strong>08:44発の特急ふじかわ1号（購入済み）→09:38身延着</strong>と、身延到着時刻はまったく変わりません。</p>
+    <p style="font-size:13px">これまでの05:25発ルートは小田原→熱海経由で富士着7:27・待ち時間77分でしたが、06:31発ルートは小田原→沼津経由で富士着8:28・待ち時間16分に短縮されます。09:38身延着以降（バス乗継・菩提梯・ロープウェイ・下部温泉着・チェックインなど）の旅程はすべて据え置きで、変更はDAY1の早朝区間のみです。本厚木⇔小田原の小田急運賃（往復¥944）や乗車券・特急券の費用にも変動はなく、予算総額（約¥26,700〜29,800）はそのままです。</p>
+
+    <h2 style="margin-top:18px">🔴 v16までの変更点</h2>
+    <h3>サドヤワイナリーの地下セラー見学ツアーはキャンセル。外観撮影とワイン購入だけの気軽な立ち寄りに戻しました</h3>
+    <p style="font-size:13px">「サドヤワイナリーの見学ツアーはキャンセルしたので予定組み直して。ワイナリーでは外観やおしゃれなオブジェとかを撮影してワインをお土産で買う予定」とのご意向を受け、v14で予約したサドヤワイナリーの地下セラー見学ツアー（13:30〜・¥1,000）を取りやめました。</p>
+    <p style="font-size:13px">ツアーの「開始時間を過ぎての受付はできません」という制約がなくなったため、DAY2の順番も<strong>v13までと同じ「昼食→武田神社→サドヤワイナリー」に戻し</strong>ました。武田神社は往路10系統13:00発・復路11系統14:00発のバスでゆったり48分参拝（宝物殿はv15の方針どおり見送り、境内散策のみ）。サドヤワイナリーでは大正6年創業の趣ある建物やワインオブジェを撮影しつつ、ショップで気に入った1本を購入していただく、25分ほどの気軽な立ち寄りにしています。</p>
+    <p style="font-size:13px">順番が戻ったことで、甲府発の特急も<strong>かいじ40号（16:11発）からあずさ38号（15:54発）に戻し</strong>ました（特急料金は同額のため差額なし）。本厚木着は18:19→<strong>17:58</strong>と21分早まります。遠藤フルーツでの巨峰購入はそのまま残し、サドヤワイナリーのあとに立ち寄る流れにしました。</p>
+
+    <h2 style="margin-top:18px">🔴 v15までの変更点</h2>
+    <h3>武田神社の宝物殿はキャンセル。境内散策のみに</h3>
+    <p style="font-size:13px">「武田神社の宝物殿はキャンセルでいい」とのご意向を受け、拝観料500円がかかる宝物殿の見学を取りやめ、無料の境内散策のみに変更しました（この方針はv16でも継続）。重要文化財の太刀「吉岡一文字」が見られる宝物殿は、また機会があればぜひ。</p>
+    <h3>信玄餅は見送り。セレオ甲府でのお土産探しもカット</h3>
+    <p style="font-size:13px">「信玄餅も買わないのでスキップで」とのご意向を受け、セレオ甲府でのお土産探し（想定¥500〜800）を旅程からカットしました（この方針もv16で継続）。甲州ワインはサドヤワイナリーで、巨峰は遠藤フルーツで、というお土産の流れは変わりません。</p>
+
+    <h2 style="margin-top:18px">🔴 v14までの変更点</h2>
+    <h3>サドヤワイナリーの地下セラー見学ツアー（13:30〜）を予約済み。DAY2午後を全面組み替え</h3>
+    <p style="font-size:13px">「Day2は13時半からのワイナリー見学を申し込んだ」とのご報告を受けました。v13までは月曜受付が11:00と13:30のみでスケジュールに合わず見送っていましたが、ちょうどその13:30の回を予約されたとのことで、DAY2午後の順番を丸ごと組み替えました。ツアーは<strong>所要40分・大人1,000円・「開始時間を過ぎての受付はできません」</strong>との公式案内があるため、<strong>武田神社より先にワイナリーへ向かう順番</strong>に変更。昼食（横綱寿司）→サドヤワイナリー着・待機→<strong>13:30〜14:10見学ツアー</strong>→試飲→バスで武田神社（14:30発→14:38着）→参拝（52分）→バスで甲府駅へ、という流れです。甲府発の特急も<strong>あずさ38号→かいじ40号（16:11発）</strong>に変更が必要ですが、指定席特急料金はどちらも¥1,020のため追加費用はありません。本厚木着は17:58→<strong>18:19</strong>と21分遅くなりますが、「帰りは遅くてもいい」とのご意向の範囲内です。</p>
+    <h3>葡萄の季節なので、お土産に巨峰を追加</h3>
+    <p style="font-size:13px">甲府駅南口徒歩5分の老舗青果店<strong>「遠藤フルーツ」</strong>（甲府市丸の内1-8-16・8:30-19:00・年中無休）を追加しました。重くて潰れやすいので、旅程の一番最後、電車に乗る直前（15:43〜16:00ごろ）に購入する配置にしています。</p>
+
+    <h2 style="margin-top:18px">🔴 v13までの変更点</h2>
+    <h3>門前町でのブランチは取りやめ。チェックイン時刻を優先してDAY1をv11と同じペースに戻しました</h3>
+    <p style="font-size:13px">「さのやのチェックイン時刻は守りたいのでブランチもなしでいい。門前町をぶらついていて目についたものを適当に食べる」とのご意向を受け、喫茶室園林での固定ブランチ（10:00〜10:40）を取りやめました。空いた時間はそのまま観光の余裕に還元し、DAY1の午後を<strong>v11までと同じ13:05発バス→13:17身延駅着→13:45発普通列車→13:57下部温泉着</strong>のペースに戻しています。これにより下部温泉着・さのや到着は15:05ごろ（何も寄り道しなければ14:20ごろ）に早まり、v12の15:19〜15:50ごろよりチェックインの余裕がしっかり戻りました。あわせて、時間短縮のために使っていた特急ふじかわ7号（+330円）も不要になり、通常の各駅停車（通し乗車券のみでOK）に戻しています。</p>
+    <p style="font-size:13px">食事は総門から三門へ向かう道すがら、あるいは門前町に戻ってきたタイミングで、気になったお店があれば気軽に立ち寄っていただく形で大丈夫です。事前の決め打ちはしませんが、喫茶室園林（身延3722・土日祝8:00開店）は引き続き選択肢の一つとして残っていますので、気になれば覗いてみてください。</p>
+
+    <h2 style="margin-top:18px">🔴 v12までの変更点</h2>
+    <h3>乗車券・特急券を購入済みに。富士での朝食はカットして門前町でブランチ。DAY1帰路はふじかわ7号に、砂金採りの代わりに無料足湯を追加</h3>
+    <p style="font-size:13px"><strong>乗車券¥4,950・特急ふじかわ1号/3号の特急券を購入済み</strong>（あずさ38号はオンライン特急券のため発券不要）とのご報告を受け、予算・予約リストを実額に更新しました。</p>
+    <p style="font-size:13px">あわせて「富士着7:27とオニオン開店8:00が合っていない」とのご指摘どおり、待ち時間が発生する富士駅での朝食は<strong>カット</strong>。その代わり、<strong>身延山門前町の喫茶室園林（土日祝8:00開店・オリジナル園林カレーが名物）で09:57着後すぐにブランチ</strong>をとる構成に変更しました。この分の時間を確保するため、DAY1の身延山滞在をゆったり目に組み直し、<strong>身延→下部温泉の帰路は各駅停車ではなく特急ふじかわ7号（15:10発・自由席特急料金+330円）を利用</strong>します（各駅停車の次発は15:45発まで空いてしまうため）。下部温泉着は13:57→<strong>15:19</strong>に後ろ倒しになりますが、身延駅でのきっぷ発券作業（乗車券・特急券とも購入済みのため不要）もなくなり、道中はゆったり過ごせます。</p>
+    <p style="font-size:13px">また「砂金採りはやらないので他に時間潰しできることないかな」とのご相談を受け、<strong>下部温泉駅から徒歩1分の無料足湯（ヘルシースパサンロード しもべの湯）</strong>を新たにご提案。甲斐黄金村・湯之奥金山博物館の観覧（砂金採りなし）は引き続き任意で選べます。</p>
+
+    <h2 style="margin-top:18px">🔴 v11までの変更点</h2>
+    <h3>カーシェア・甲州寿司プランは取りやめ。武田神社はバスで、昼食は「横綱寿司 甲府駅前店」、サドヤワイナリーの試飲を復活</h3>
+    <p style="font-size:13px">v10でご提案したカーシェア＋魚そう中道分店（甲州寿司）プランは、ご本人が別途調べていた<strong>横綱寿司 甲府駅前店</strong>（甲府駅南口徒歩3分・ランチセット+300円で茶碗蒸し等が追加できる）を選んだため取りやめになりました。本格的な甲州寿司はまたの機会に。これに伴い、<strong>武田神社へのアクセスはv9までと同じバス移動に戻し、カーシェアは全面キャンセル</strong>。カットしていた<strong>サドヤワイナリーのショップ試飲も復活</strong>し、DAY2はv9とほぼ同じ構成（武田神社→サドヤワイナリー→昼食→帰路）に、昼食の店だけ小作から横綱寿司に差し替えた形になっています。</p>
+
+    <h2 style="margin-top:18px">🔴 v10までの変更点</h2>
+    <h3>DAY2の甲府はカーシェアで移動。昼食は甲州寿司の名店「魚そう中道分店」、サドヤワイナリーはカット（v11で取りやめ）</h3>
+    <p style="font-size:13px">「甲州寿司（大きい握りに甘ダレ）を食べたい」とのご希望を受けて調査した結果、代表格の魚保・魚そう本店はどちらも8/31(月)は利用できない（魚保は月曜定休、魚そう本店は8/29〜31が公式サイトで臨時休業）ことが判明しました。系列の<strong>魚そう中道分店</strong>（甲府市上曽根町・木曜定休で8/31は営業）は営業していますが甲府駅から徒歩20分超と離れているため、甲府駅でカーシェア（タイムズカー・220円/15分）を借りて武田神社と合わせて回るプランに変更していました。※このプランはv11で取りやめになりました。</p>
+
+    <h2 style="margin-top:18px">🔴 v9までの変更点</h2>
+    <h3>朝食は喫茶オニオンのモーニングセットで確定。地酒は「七賢」を前日までに本厚木で購入して持参</h3>
+    <p style="font-size:13px">富士駅の朝食は<strong>喫茶オニオンのモーニングセット（¥500）</strong>で確定。地酒は身延の教報社ではなく、<strong>七賢（山梨銘醸）を望月商店</strong>（本厚木市旭町3-17-27・☎046-228-2567）で<strong>前日までに購入して持参</strong>する方針に変更しました。</p>
+
+    <h2 style="margin-top:18px">🔴 v8までの変更点</h2>
+
+    <h3>① DAY1：昼食をカットし、本厚木発を05:25に前倒し</h3>
+    <p style="font-size:13px">門前町でのゆば料理の昼食を取りやめ、代わりに<strong>本厚木05:25発</strong>で富士駅の待ち時間を77分に広げ、<strong>改札を出て朝食</strong>をとる構成にしました。</p>
+
+    <h3>② DAY1：ロープウェイ後は13:05発バスで、下部温泉着13:57を目指す</h3>
+    <div class="tip">昼食がなくなった分をそのまま観光に使わず、v5までと同じ<strong>「13:05発バス→13:17身延駅着→13:45発身延線→13:57下部温泉着」</strong>の安全な乗り継ぎに戻しました。金山博物館は<strong>時間に余裕があれば任意で立ち寄る</strong>形です。</p>
+
+    <h3>③ DAY1夜「温泉街をひとまわり」、DAY2朝「朝さんぽ」はカット</h3>
+    <p style="font-size:13px">「下部温泉は何もない」とのご指摘どおり、DAY1夜の散策とDAY2朝の熊野神社・お土産さんぽを取りやめ、シンプルにしました。</p>
+
+    <h3>④ DAY2：勝沼ぶどうの丘 → 甲府駅そばの「サドヤワイナリー」に変更</h3>
+    <div class="tip">勝沼ぶどう郷への往復をやめ、代わりに<strong>甲府駅北口から徒歩5分のサドヤワイナリー</strong>（大正6年創業）でのショップ試飲に変更。本厚木着は<strong>17:58</strong>まで早まります（v6の20:11着から2時間13分短縮）。</p>
+
+    <h3>⑤ あずさ30号 → あずさ38号に列車変更を</h3>
+    <div class="warn">新しい時間配分では14:16発には間に合わないため、<strong>予約済みのあずさ30号をえきねっとで「あずさ38号」（甲府15:54発・指定席）へ無料列車変更</strong>してください（1回まで手数料なし・差額100円のみ）。</div>
+  </section>
+
+  <section id="route">
+    <h2>🗺 ルート図</h2>
+    <div class="route">DAY1  8/30(日)  ── 門前町を歩きながら軽く食べる → 身延山でロープウェイ ──
+本厚木 06:31 ─[小田急急行・小田原行]─ 小田原 07:09
+       07:16 ─[JR東海道線・沼津行]─ 沼津 08:06
+       08:08 ─[JR東海道線・静岡行]─ 富士 08:28
+          ↓ 16分（富士駅でひと休み）
+       富士 08:44 ─[特急ふじかわ1号・自由席]─ 身延 09:38 ★きっぷ購入済み
+          ↓ バス7分
+       身延山（門前町）── 気になったお店で軽食 → 三門 → 菩提梯287段 → 久遠寺本堂
+          ↓ 徒歩15分
+       身延山ロープウェイ 久遠寺駅 ─(7分)→ 奥之院駅・思親閣参拝・展望台
+          ↓ 徒歩15分・13:05発バス
+       身延 13:45 ─[JR身延線]─ 下部温泉 13:57
+          ↓ （任意で足湯・博物館）徒歩20分
+       さのや旅館 ♨️ 部屋食（グレードアップ会席）
+
+DAY2  8/31(月)  ── 信玄公のかくし湯から、横綱寿司・武田神社・サドヤワイナリー・巨峰へ ──
+さのや旅館 チェックアウト（11:00より少し前）─ 徒歩20分 ─ 下部温泉駅
+       11:18 ─[特急ふじかわ3号・自由席]─ 甲府 12:05 ★予約済み
+          ↓ 徒歩3分（南口）
+       横綱寿司 甲府駅前店 ── ランチにぎり（甲州寿司はまたの機会に）
+          ↓ 徒歩8分・甲府駅北口13:00発バス
+       山梨交通バス 13:00発 → 武田神社 13:11着 参拝（境内散策のみ・48分）
+          ↓ 14:00発バス
+       山梨交通バス → 甲府駅北口14:08着 → 甲府駅14:15着
+          ↓ 徒歩5分
+       サドヤワイナリー ── 外観撮影・ワイン購入
+          ↓ 徒歩10分（南口へ・甲府駅経由）
+       遠藤フルーツ ── 🍇巨峰を購入
+          ↓ 徒歩・改札へ
+       甲府 15:54 ─[特急あずさ38号・指定席]─ 八王子 16:49
+          ↓ 9分乗換
+       八王子 16:58 ─[JR横浜線]─ 町田 17:27
+          ↓ 13分乗換
+       町田 17:40 ─[小田急急行]─ 本厚木 17:58</div>
+  </section>
+
+  <section id="day1">
+    <h2>🌅 DAY1｜8/30(日)　門前町でブランチ → 身延山（ロープウェイ）→ さのや旅館</h2>
+    <table>
+      <tr><td class="t">06:31</td><td><strong>本厚木発</strong> 小田急小田原線急行 小田原行</td></tr>
+      <tr><td class="t">07:09</td><td>小田原着 → 07:16発 JR東海道線 沼津行<span class="flag-y">7分乗換</span></td></tr>
+      <tr><td class="t">08:06</td><td>沼津着 → 08:08発 JR東海道線 静岡行<span class="flag-y">2分乗換</span></td></tr>
+      <tr><td class="t">08:28</td><td>富士着 <span class="flag-g">きっぷは購入済みなので発券不要</span></td></tr>
+      <tr><td class="t">08:28〜08:44</td><td>富士駅でひと休み（約16分）<br>05:25発ルートにあった77分の待ち時間はなくなりました。軽く一息つく程度で、そのまま08:44発のふじかわ1号へ</td></tr>
+      <tr><td class="t">08:44</td><td><strong>富士発 特急ふじかわ1号・自由席</strong>（¥660・購入済み）</td></tr>
+      <tr><td class="t">09:38</td><td><strong>身延着</strong></td></tr>
+      <tr><td class="t">09:45</td><td>身延駅発 山梨交通バス 身延山行（¥350）<span class="flag-y">7分乗継</span><br><span class="flag-r">現金不可・IC/タッチ決済のみ</span></td></tr>
+      <tr><td class="t">09:57</td><td>身延山（門前町）着</td></tr>
+      <tr><td class="t">10:00〜10:10</td><td>総門 → 門前町 → <strong>三門</strong>／気になったお店があれば軽く食べながら</td></tr>
+      <tr><td class="t">10:10〜10:45</td><td>★ <strong>菩提梯 287段</strong></td></tr>
+      <tr><td class="t">10:45〜11:15</td><td><strong>久遠寺 本堂・祖師堂・五重塔</strong>／本堂天井の墨絵の龍／祖師堂隣の<strong>報恩閣（総受付）</strong>でロープウェイWEBチケットの特典（クリアファイル＆お経葩）を引き換え</td></tr>
+      <tr><td class="t">11:15〜11:30</td><td>徒歩でロープウェイ久遠寺駅へ（約15分）</td></tr>
+      <tr><td class="t">11:30〜11:50</td><td><strong>身延山ロープウェイ 上り</strong>（久遠寺駅→奥之院駅・片道7分）<span class="flag-g">「くし切りだんご付き」WEBチケット往復¥1,900・購入済み</span></td></tr>
+      <tr><td class="t">11:50〜12:20</td><td><strong>奥之院 思親閣 参拝・展望台</strong>／富士山・南アルプスを一望／山頂売店「身延屋」でくし切りだんご（ゆば・竹炭・よもぎ）と引き換え</td></tr>
+      <tr><td class="t">12:20〜12:35</td><td><strong>ロープウェイ 下り</strong>（奥之院駅→久遠寺駅・片道7分）</td></tr>
+      <tr><td class="t">12:35〜12:50</td><td>徒歩で門前町（バス停）へ戻る（約15分）／お土産・気になるお店があればここでも</td></tr>
+      <tr><td class="t">13:05</td><td>身延山発 バス 身延駅行（¥350）<span class="flag-g">15分の余裕を持って乗車</span></td></tr>
+      <tr><td class="t">13:17</td><td>身延駅着 <span class="flag-g">きっぷは購入済みのため窓口不要</span></td></tr>
+      <tr><td class="t">13:17〜13:45</td><td>身延駅で待機（28分）</td></tr>
+      <tr><td class="t">13:45</td><td>身延発 JR身延線 甲府行<span class="flag-g">通し乗車券でカバー・追加料金なし</span></td></tr>
+      <tr><td class="t">13:57</td><td><strong>下部温泉着</strong></td></tr>
+      <tr><td class="t">（任意）14:05〜14:15</td><td><strong>しもべの湯の無料足湯</strong>（駅徒歩1分）<br>ヘルシースパサンロード しもべの湯・屋外デッキ／土日祝9:30-22:00</td></tr>
+      <tr><td class="t">（任意）14:15〜14:45</td><td><strong>甲斐黄金村・湯之奥金山博物館</strong>（観覧のみ）<br>駅徒歩3分／9:00-17:00・水曜休・観覧のみ¥500</td></tr>
+      <tr><td class="t">14:45〜15:05<br>（何も寄らないなら13:57発すぐ〜14:20ごろ）</td><td>徒歩でさのや旅館へ（約20分）</td></tr>
+      <tr><td class="t">15:05ごろ<br>（何も寄らないなら14:20ごろ）</td><td><strong>さのや旅館 到着</strong>（IN 15:00〜／到着時刻は事前に電話連絡を）</td></tr>
+      <tr><td class="t">17:00</td><td>♨️ <strong>温泉（24時間・源泉掛け流し）</strong>／49.4℃の源泉</td></tr>
+      <tr><td class="t">18:00</td><td><strong>夕食（グレードアップ会席・部屋食）</strong>／献立詳細は要電話確認</td></tr>
+      <tr><td class="t">20:00</td><td>2度目の温泉（温泉街の散策はなし）</td></tr>
+    </table>
+    <div class="tip">09:38身延着→09:45発バスは7分乗継。乗り遅れたら次は10:45発（60分待ち）です。</div>
+    <div class="tip">13:05発バス→13:17身延駅着→13:45発普通列車→13:57下部温泉着、というv11までと同じ安全な乗り継ぎに戻しています。ここを逃すバッファはないので、ロープウェイ下山後は門前町でゆっくりし過ぎないよう注意してください。</div>
+    <div class="tip">しもべの湯の足湯・博物館ともに任意です。どちらも寄らない場合は13:57発すぐ徒歩に入り、14:20ごろの早着になります。両方寄ると15:05ごろ到着で、それでも17:00の温泉には余裕で間に合います。</div>
+    <div class="warn">ロープウェイの営業時間は季節・天候で短縮されることがあります。出発1週間前を目安に<a href="https://www.minobusanropeway.co.jp/" target="_blank">公式サイト</a>で再確認してください。</div>
+
+    <h3>🍙 DAY1の食事は決め打ちせず、道すがら気になったお店で</h3>
+    <div class="tip">「チェックイン時刻を優先したいのでブランチもなし、門前町をぶらついて目についたものを適当に食べる」とのご意向を受け、富士駅の朝食に続き、門前町でのブランチも固定の予約・時間確保をやめました。総門から三門へ向かう道すがら、あるいはロープウェイから戻ってきたタイミングで、気になったお店があれば気軽に立ち寄っていただければと思います。事前の決め打ちはしませんが、<strong>喫茶室園林</strong>（身延3722・☎0556-62-0046・土日祝8:00開店・オリジナル園林カレーが名物）は引き続き選択肢の一つとして残っていますので、しっかり座って食べたい気分になったら覗いてみてください。</div>
+
+    <h3>🍶 身延の地酒は見送り、「七賢」を前日までに本厚木で購入して持参</h3>
+    <div class="tip">身延・門前町の地酒（教報社「純米酒 身延山」など）も候補に挙がりましたが、ご本人の希望で<strong>七賢（山梨銘醸・北杜市白州）を宿で飲みたい</strong>とのことでした。七賢は身延エリアでは取り扱いが確認できなかったため、<strong>本厚木の望月商店</strong>（厚木市旭町3-17-27・☎046-228-2567・本厚木駅南口徒歩約9分・平日9:30-20:00／土日祝9:30-19:00・水曜定休）で<strong>前日8/29(土)までに購入して持参</strong>する形に変更しました。望月商店では「七賢 山ノ霞 スパークリング」の取り扱いを確認済みで、老舗の日本酒専門店のため他の七賢銘柄（純米酒など常温でも楽しめるタイプ）の在庫も電話で相談すると良さそうです。この変更により、DAY1の教報社への立ち寄りはキャンセルとなり、13:05発バスまでの余裕は15分に戻りました。</div>
+  </section>
+
+  <section id="day2">
+    <h2>🌄 DAY2｜8/31(月)　下部温泉 → 甲府（横綱寿司・武田神社・サドヤワイナリー・巨峰）→ 帰宅</h2>
+    <table>
+      <tr><td class="t">07:00</td><td>♨️ 朝湯</td></tr>
+      <tr><td class="t">08:00</td><td>朝食（部屋食）</td></tr>
+      <tr><td class="t">09:00〜10:45</td><td>部屋や宿でゆっくり過ごす（朝さんぽはカット）</td></tr>
+      <tr><td class="t">10:45</td><td><strong>チェックアウト</strong>（11:00より少し前に）</td></tr>
+      <tr><td class="t">10:45〜11:05</td><td>徒歩で下部温泉駅へ（約20分）</td></tr>
+      <tr><td class="t">11:18</td><td><strong>下部温泉発 特急ふじかわ3号・自由席</strong>（¥660・購入済み）</td></tr>
+      <tr><td class="t">12:05</td><td><strong>甲府着</strong></td></tr>
+      <tr><td class="t">12:05〜12:08</td><td>徒歩で横綱寿司 甲府駅前店へ（南口徒歩3分・山梨県庁向かい）</td></tr>
+      <tr><td class="t">12:08〜12:50</td><td><strong>昼食：横綱寿司 甲府駅前店</strong>（42分）<br>甲府市丸の内2-16-6／☎055-226-6779／ランチ11:30-14:00・年中無休／ランチにぎり¥1,276、+300円で茶碗蒸し等を追加できるとのこと（ご本人調べ）</td></tr>
+      <tr><td class="t">12:50〜12:58</td><td>徒歩で甲府駅北口バス停（2のりば）へ（8分・南口から北口へ駅をまたいで移動）</td></tr>
+      <tr><td class="t">12:58〜13:00</td><td>バス待ち</td></tr>
+      <tr><td class="t">13:00</td><td>甲府駅北口発 山梨交通バス（10系統・武田神社行）（¥230）</td></tr>
+      <tr><td class="t">13:11</td><td>武田神社バス停着 → 徒歩1分</td></tr>
+      <tr><td class="t">13:12〜14:00</td><td><strong>武田神社 参拝</strong>（境内散策のみ・48分）<br>境内拝観自由8:30-17:00。宝物殿（拝観料おとな500円）は見送り。バスの往復時刻が固定のため境内をゆったり歩ける</td></tr>
+      <tr><td class="t">14:00</td><td>武田神社発 山梨交通バス（11系統・甲府駅北口行）（¥230）</td></tr>
+      <tr><td class="t">14:08</td><td>甲府駅北口着 → 徒歩で甲府駅へ</td></tr>
+      <tr><td class="t">14:15</td><td>甲府駅着</td></tr>
+      <tr><td class="t">14:15〜14:20</td><td>徒歩でサドヤワイナリーへ（北口徒歩5分）</td></tr>
+      <tr><td class="t">14:20〜14:45</td><td>🍷 <strong>サドヤワイナリー 外観撮影・ワイン購入</strong>（25分）<br>甲府市北口3-3-24／大正6年創業。趣ある建物やワインオブジェを撮影しつつ、ショップで気に入った1本を購入</td></tr>
+      <tr><td class="t">14:45〜14:55</td><td>徒歩で遠藤フルーツへ（南口・甲府駅経由・10分）<br>サドヤワイナリーは北口、遠藤フルーツは南口のため駅を挟んで移動</td></tr>
+      <tr><td class="t">14:55〜15:12</td><td>🍇 <strong>遠藤フルーツで巨峰を購入</strong>（17分）<br>甲府市丸の内1-8-16／☎055-235-5919／8:30-19:00・年中無休／南口徒歩5分／目安¥1,500〜2,500（要現地確認）</td></tr>
+      <tr><td class="t">15:12〜15:54</td><td>徒歩・改札・ホームへ（42分の余裕）<br>特に予定は入れていません。気になったら駅ビルを覗くくらいの気持ちでゆったりどうぞ</td></tr>
+      <tr><td class="t">15:54</td><td><strong>甲府発 特急あずさ38号・指定席</strong>（¥1,020）<span class="flag-y">あずさ30号からの無料列車変更で乗車。オンライン特急券のため発券不要</span></td></tr>
+      <tr><td class="t">16:49</td><td>八王子着 → 16:58発 JR横浜線（当駅始発）<span class="flag-y">9分乗換</span></td></tr>
+      <tr><td class="t">17:27</td><td>町田着 → 17:40発 小田急小田原線急行<span class="flag-y">13分乗換</span></td></tr>
+      <tr><td class="t">17:58</td><td><strong>本厚木着</strong></td></tr>
+    </table>
+    <div class="tip">甲府駅北口⇔武田神社のバス時刻はYahoo!路線情報で8/31(月)当日ダイヤを確認済みです（往路10系統13:00発、復路11系統14:00発）。バスは日中30〜60分に1本程度なので、乗り遅れると次の便まで間が空く点にご注意ください。</div>
+    <div class="tip">横綱寿司は南口、武田神社行きバス乗り場・サドヤワイナリーは北口にあるため、駅を挟んでの移動が2回発生します。それぞれ徒歩時間には余裕を持たせています。</div>
+    <div class="tip">横綱寿司のランチタイムは11:30〜14:00。12:08着なら余裕をもって注文できますが、一人旅の確実性を取るなら前日までに☎055-226-6779で軽く確認しておくと安心です。</div>
+    <div class="tip">巨峰は重くて潰れやすいため、サドヤワイナリーのあと・電車に乗る前の遠藤フルーツで購入する配置にしています。</div>
+  </section>
+
+  <section id="budget">
+    <h2>💰 予算</h2>
+    <h3>確定している費用（購入済み・宿確認済み）</h3>
+    <table>
+      <tr><th>区分</th><th>項目</th><th style="text-align:right">金額</th></tr>
+      <tr><td>交通</td><td>通し乗車券（小田原→富士→身延→甲府→町田）</td><td class="num">¥4,950</td></tr>
+      <tr><td>交通 D1</td><td>特急ふじかわ1号 自由席特急料金</td><td class="num">¥660</td></tr>
+      <tr><td>交通 D2</td><td>特急ふじかわ3号 自由席特急料金</td><td class="num">¥660</td></tr>
+      <tr><td>交通 D2</td><td>特急あずさ38号 指定席特急料金（あずさ30号から変更・差額込み・オンライン特急券）</td><td class="num">¥1,020</td></tr>
+      <tr><td>交通 D1</td><td><strong>身延山ロープウェイ 往復</strong>（「くし切りだんご付き」WEBチケット・購入済み）</td><td class="num">¥1,900</td></tr>
+      <tr><td>宿泊</td><td>さのや旅館「山吹」グレードアップ（1泊2食）</td><td class="num">¥10,950</td></tr>
+      <tr><td>宿泊</td><td>入湯税</td><td class="num">¥150</td></tr>
+      <tr class="total-row"><td colspan="2">小計</td><td class="num">¥20,290</td></tr>
+    </table>
+    <div class="tip">これまで通し乗車券は「本人所持で要確認」として総額に含めていませんでしたが、実際の購入額¥4,950が判明したため確定費用に計上しました。総額表示が前バージョンより大きく上がって見えますが、これは実質的な支出増ではなく、もともと必要だった費用を正しく数えるようになったためです。</div>
+
+    <h3>概算費用（共通）</h3>
+    <table>
+      <tr><th>区分</th><th>項目</th><th style="text-align:right">金額</th></tr>
+      <tr><td>交通</td><td>本厚木⇔小田原（小田急・往復IC）</td><td class="num">¥944</td></tr>
+      <tr><td>交通</td><td>町田→本厚木（小田急・帰路分）</td><td class="num">¥261</td></tr>
+      <tr><td>交通 D1</td><td>身延駅⇔身延山 バス往復</td><td class="num">¥700</td></tr>
+      <tr><td>交通 D2</td><td>甲府駅⇔武田神社 バス往復（山梨交通・IC優先）</td><td class="num">¥460</td></tr>
+      <tr><td>食事 D1</td><td>門前町で気になったお店の軽食（未定・気分次第）</td><td class="num">¥0〜800</td></tr>
+      <tr><td>食事 D2</td><td>昼食：横綱寿司 甲府駅前店（+茶碗蒸しセットで上振れ）</td><td class="num">¥1,276〜1,576</td></tr>
+      <tr><td>土産 D2</td><td>甲州ワイン（サドヤワイナリーで購入）</td><td class="num">¥1,500〜2,500</td></tr>
+      <tr><td>土産 D2</td><td>巨峰（遠藤フルーツ）</td><td class="num">¥1,500〜2,500</td></tr>
+    </table>
+    <div class="tip">武田神社の宝物殿拝観（¥500）と信玄餅などのお土産（セレオ甲府・¥500〜800）は見送りのため、この概算費用からは除外しています。サドヤワイナリーは見学ツアーをキャンセルしたため試飲代の計上もありません（ワイン購入費のみ）。</div>
+
+    <details>
+      <summary>▶ 任意（博物館・足湯）</summary>
+      <ul>
+        <li>しもべの湯 無料足湯（駅徒歩1分） ¥0</li>
+        <li>甲斐黄金村・湯之奥金山博物館 観覧のみ ¥500</li>
+      </ul>
+    </details>
+
+    <div class="tip"><strong>結論：</strong>確定費用¥20,290＋概算約¥6,641〜9,741で、<strong>総額目安は約¥26,900〜30,000</strong>。博物館（観覧のみ）を足すと約¥27,400〜30,500です（七賢の購入費は未加算）。ロープウェイをWEBチケット（くし切りだんご付き・¥1,900）に変更した分、v17までの総額目安からわずかに上がっています。</div>
+
+    <details>
+      <summary>▶ 予算を抑える場合</summary>
+      <ul>
+        <li>横綱寿司はランチにぎりのみで茶碗蒸しセットは見送り（¥300浮く）</li>
+        <li>サドヤワイナリーでのワイン購入は見送り、写真だけにする（¥1,500〜2,500浮く）</li>
+        <li>巨峰は小さめの1房にする（¥500〜1,000浮く）</li>
+        <li>門前町では食べ歩きをせず、水分補給程度に留める（¥800浮く）</li>
+        <li>博物館には寄らない（¥500浮く）</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>▶ 贅沢にする場合</summary>
+      <ul>
+        <li>横綱寿司でランチセットに+300円の茶碗蒸しを追加、または「昼の大関にぎり」（¥1,980）にアップグレード</li>
+        <li>サドヤワイナリーでショップ試飲を追加する（¥300〜500）、または上質なお土産用ワインを奮発</li>
+        <li>巨峰を贈答用の上質な房にする（山国屋などでは¥4,000〜5,000程度の贈答箱もあり）</li>
+        <li>帰りをグリーン車にアップグレード</li>
+      </ul>
+    </details>
+  </section>
+
+  <section id="yado">
+    <h2>🏮 さのや旅館（予約済み）</h2>
+    <div class="card-inn">
+      <h4>下部温泉 さのや旅館「山吹」グレードアッププラン</h4>
+      <table>
+        <tr><th>住所</th><td>〒409-2942 山梨県南巨摩郡身延町下部991-1</td></tr>
+        <tr><th>電話</th><td>0556-36-0256（電話予約のみ）</td></tr>
+        <tr><th>部屋</th><td>山吹／8畳・和室・3階・定員2名</td></tr>
+        <tr><th>一人泊2食</th><td><strong>グレードアップ ¥10,950</strong>（税込）＋入湯税¥150</td></tr>
+        <tr><th>チェックイン/アウト</th><td>15:00 / 11:00</td></tr>
+        <tr><th>泉質</th><td>アルカリ性単純硫黄温泉／源泉49.4℃・低張性アルカリ性高温泉／<strong>24時間源泉掛け流し</strong></td></tr>
+        <tr><th>総部屋数</th><td>5室</td></tr>
+        <tr><th>設備</th><td><span class="flag-y">客室にお手洗いなし（廊下共有）</span>・<span class="flag-y">エレベーターなし</span></td></tr>
+        <tr><th>送迎</th><td><span class="flag-r">往復とも辞退</span>。徒歩約20分でのんびり移動</td></tr>
+        <tr><th>注意</th><td><span class="flag-r">現地決済は現金のみ</span></td></tr>
+        <tr><th>キャンセル規定</th><td>3日前から発生：2日前10%・前日30%・当日50%</td></tr>
+      </table>
+    </div>
+    <div class="tip">部屋数5室のこぢんまりした宿で、24時間いつでも源泉掛け流しの湯に入れるのが最大の魅力。</div>
+  </section>
+
+  <section id="highlight">
+    <h2>✨ ハイライト</h2>
+    <div class="tip"><strong>この旅で最も感動しそうな瞬間：昼過ぎ、ロープウェイが久遠寺の谷を離れて上昇していく数十秒間。</strong> 振り返ると身延山の稜線と門前町がみるみる小さくなり、山頂の展望台では富士山と南アルプスが一望できます。</div>
+    <div class="highlight-grid">
+      <div class="highlight-item"><div class="highlight-num">1</div><div>朝いちの菩提梯287段 → 久遠寺本堂（人がいない時間帯）</div></div>
+      <div class="highlight-item"><div class="highlight-num">2</div><div>身延山ロープウェイで奥之院思親閣へ（富士山・南アルプスの大パノラマ）</div></div>
+      <div class="highlight-item"><div class="highlight-num">3</div><div>サドヤワイナリーの趣ある大正建築とワインオブジェを写真におさめ、お気に入りの1本をお土産に選ぶ（大正6年創業の老舗の空気感を、気軽に楽しめる立ち寄り方）</div></div>
+    </div>
+    <h3>削ってもよい候補</h3>
+    <table>
+      <tr><th>優先度</th><th>削るもの</th><th>浮くもの</th></tr>
+      <tr><td>中</td><td>サドヤワイナリーでのワイン購入（写真だけにする）</td><td>¥1,500〜2,500</td></tr>
+      <tr><td>中</td><td>巨峰を小さめの房にする、または見送る</td><td>¥500〜2,500</td></tr>
+      <tr><td>低</td><td>金山博物館（もともと任意・観覧のみ）</td><td>¥500・30分</td></tr>
+      <tr><td>低</td><td>しもべの湯の足湯（もともと任意・無料）</td><td>¥0・10分</td></tr>
+    </table>
+  </section>
+
+  <section id="alt">
+    <h2>🌧 雨天時の代替案</h2>
+    <ul>
+      <li><strong>DAY1雨</strong>：菩提梯は石段が滑るので<strong>男坂・女坂へ迂回</strong>。ロープウェイは強風時に運休することがあるため当日朝に運行状況を確認。運休の場合は久遠寺境内・門前町でゆっくり過ごす時間に振り替え</li>
+      <li><strong>DAY2雨</strong>：横綱寿司・サドヤワイナリーのショップは屋内なので影響なし。ただし外観撮影は雨だと厳しいので、庇の下から撮る程度にして無理はしないこと。武田神社の境内とバス停までの徒歩区間は滑りやすいので折りたたみ傘を用意し、参拝時間を少し短縮しても良いでしょう</li>
+      <li><strong>大雨警報級</strong>：身延線は大雨で運休しやすい路線。前日と当日朝にJR東海の運行情報を確認</li>
+    </ul>
+    <div class="warn">2026-08-14時点、8/30・31の天気予報はまだ出ていません。<strong>出発1週間前を目安に必ず再確認</strong>してください。</div>
+  </section>
+
+  <section id="reserve">
+    <h2>📋 予約リスト</h2>
+    <table>
+      <tr><th>内容</th><th>必要度</th><th>方法・メモ</th></tr>
+      <tr><td><strong>さのや旅館</strong><br>「山吹」グレードアッププラン</td><td><span class="flag-g">予約済み</span></td><td>☎0556-36-0256／8/30(日)1泊・¥10,950＋入湯税150円</td></tr>
+      <tr><td><strong>通し乗車券</strong>（小田原→富士→身延→甲府→町田）</td><td><span class="flag-g">購入済み</span></td><td>¥4,950・2日間有効・途中下車自由</td></tr>
+      <tr><td><strong>特急ふじかわ1号</strong>（富士→身延）</td><td><span class="flag-g">購入済み</span></td><td>自由席・¥660。発券済みなので当日は不要</td></tr>
+      <tr><td><strong>特急ふじかわ3号</strong>（下部温泉→甲府）</td><td><span class="flag-g">購入済み</span></td><td>自由席・¥660。発券済みなので当日は不要</td></tr>
+      <tr><td><strong>身延山ロープウェイ</strong><br>「くし切りだんご付き」往復WEBチケット</td><td><span class="flag-g">購入済み</span></td><td>フジヤマコネクト・¥1,900。スマホ画面で当日提示（購入時のご案内どおりに引き換え）</td></tr>
+      <tr><td><strong>特急あずさ30号→38号への列車変更</strong></td><td><span class="flag-r">要対応</span></td><td>えきねっとで乗車前に。無料列車変更・差額100円のみ。<strong>オンライン特急券のため変更後も発券不要</strong>（スマホ画面でOK）</td></tr>
+      <tr><td><strong>地酒：七賢（望月商店）</strong></td><td><span class="flag-r">要対応</span></td><td>8/29(土)までに購入・厚木市旭町3-17-27・☎046-228-2567・平日9:30-20:00／土日祝9:30-19:00・水曜定休</td></tr>
+      <tr><td>身延山行きバス</td><td>不要</td><td>当日・<strong>IC/タッチ決済のみ（現金不可）</strong></td></tr>
+      <tr><td>しもべの湯 無料足湯</td><td>不要</td><td>予約不要・無料</td></tr>
+      <tr><td>甲斐黄金村・湯之奥金山博物館</td><td>不要</td><td>当日窓口。水曜休（8/31月曜OK）</td></tr>
+      <tr><td>甲府駅⇔武田神社バス（山梨交通）</td><td>不要</td><td>当日IC決済。往路10系統13:00発・復路11系統14:00発</td></tr>
+      <tr><td>横綱寿司 甲府駅前店</td><td><span class="flag-y">予約推奨</span></td><td>☎055-226-6779。一人旅の当日確実性を上げるため前日までに一報を（ネット予約可）</td></tr>
+      <tr><td>サドヤワイナリー（外観撮影・ワイン購入）</td><td>不要</td><td>予約不要・当日ふらっと立ち寄りOK</td></tr>
+      <tr><td>遠藤フルーツ（巨峰）</td><td>不要</td><td>予約不要・当日ふらっと購入OK</td></tr>
+    </table>
+    <h3>🔴 残っている確認事項</h3>
+    <ul>
+      <li>あずさ30号→38号のえきねっとでの列車変更（オンライン特急券のため変更後の発券は不要）</li>
+      <li>望月商店で七賢を8/29(土)までに購入（事前に電話で在庫を確認しておくと安心）</li>
+      <li>出発1週間前を目安に、身延山ロープウェイの営業時間短縮の有無を再確認</li>
+    </ul>
+  </section>
+
+  <section id="notice">
+    <h2>⚠️ 注意事項</h2>
+    <ul>
+      <li><span class="flag-r">重要</span> <strong>さのや旅館は現地決済が現金のみ</strong>。ATMは下部温泉にほぼ無い前提で現金を用意（宿泊費10,950円＋入湯税150円＋α）</li>
+      <li><span class="flag-r">重要</span> <strong>身延山のバス・武田神社バスは現金が使えない</strong>（IC/タッチ決済のみ）。宿は現金のみなので、真逆の準備が要ります</li>
+      <li><span class="flag-r">重要</span> <strong>下部温泉駅は完全無人駅・券売機なし</strong>。ただしDAY1・DAY2の特急券は全て購入済みなので、当日に窓口へ立ち寄る必要はありません</li>
+      <li><span class="flag-r">重要</span> <strong>あずさ30号→38号の列車変更は乗車前に</strong>。忘れると14:16発の指定席のまま無効になります（オンライン特急券のため変更後の発券作業は不要）</li>
+      <li><span class="flag-y">要注意</span> 09:38身延着→09:45発バスは7分乗継。ゆとりを持って改札を出ること</li>
+      <li><span class="flag-y">要注意</span> 13:05発バス→13:17身延駅着→13:45発普通列車→13:57下部温泉着が今回の生命線。ここを逃すと次発は15:45発まで空くため、ロープウェイ下山後は門前町で長居しすぎないこと</li>
+      <li><span class="flag-y">要注意</span> 身延山ロープウェイは強風・点検などで運休することがある。当日朝に運行状況を確認</li>
+      <li><span class="flag-y">要注意</span> 七賢の瓶は前日までに望月商店で購入し、当日は割れないよう荷造りして持参すること</li>
+      <li><span class="flag-y">要注意</span> 横綱寿司は南口、武田神社行きバス乗り場・サドヤワイナリーは北口。駅を挟んでの移動が2回発生するため、それぞれの徒歩時間には余裕を持たせています</li>
+      <li><span class="flag-y">要注意</span> 甲府駅⇔武田神社のバスは日中30〜60分に1本程度。乗り遅れると次の便まで間が空くので、13:00発・14:00発の時刻は覚えておくと安心</li>
+      <li><span class="flag-y">要注意</span> 巨峰は重くて潰れやすいので、遠藤フルーツで購入したあとは他の荷物で潰さないよう注意</li>
+      <li><span class="flag-y">要注意</span> さのや旅館はエレベーターなし・客室にお手洗いなし（廊下共有）</li>
+      <li><span class="flag-y">要注意</span> 8月下旬は台風シーズン。身延線は大雨に弱い。前日と当日朝に運行情報を確認</li>
+      <li><span class="flag-g">確認済</span> 8/30(日)の身延山バスは通常運行</li>
+      <li><span class="flag-g">確認済</span> キャンセル規定は3日前から発生（2日前10%・前日30%・当日50%）</li>
+    </ul>
+  </section>
+
+  <section id="pack">
+    <h2>🎒 持ち物（8月下旬）</h2>
+    <div class="checklist">
+      <label><input type="checkbox"><span>現金（宿が現金のみ・入湯税込みで多めに）</span></label>
+      <label><input type="checkbox"><span>Suica / PASMO（身延山バス・武田神社バスは現金不可・チャージ済み）</span></label>
+      <label><input type="checkbox"><span>帽子（菩提梯・武田神社は日陰が少ない）</span></label>
+      <label><input type="checkbox"><span>汗拭きシート・替えのTシャツ1枚</span></label>
+      <label><input type="checkbox"><span>水筒</span></label>
+      <label><input type="checkbox"><span>サンダル（足湯用）</span></label>
+      <label><input type="checkbox"><span>折りたたみ傘</span></label>
+      <label><input type="checkbox"><span>モバイルバッテリー</span></label>
+      <label><input type="checkbox"><span><strong>七賢（望月商店で事前購入した地酒）</strong>：割れないよう緩衝材で包んで持参</span></label>
+      <label><input type="checkbox"><span>購入済みの乗車券・特急券（ふじかわ1号・3号）を無くさないよう1か所にまとめる（あずさ38号・ロープウェイWEBチケットはスマホでOK）</span></label>
+      <label><input type="checkbox"><span>早起き対策（本厚木06:31発。前夜は早めに寝る）</span></label>
+    </div>
+  </section>
+
+  <section id="omiyage">
+    <h2>🛍 お土産戦略</h2>
+    <table>
+      <tr><th>買うもの</th><th>どこで</th><th>いつ</th><th>重さ</th></tr>
+      <tr><td><strong>地酒（七賢）</strong></td><td>望月商店（本厚木）</td><td>出発前・8/29(土)までに購入して持参</td><td>重い → 旅程には荷物として持ち込む</td></tr>
+      <tr><td>下部の鉱泉水</td><td>温泉街の売店・宿の売店</td><td>DAY2朝</td><td>重い（小サイズで）</td></tr>
+      <tr><td><strong>甲州ワイン</strong></td><td>サドヤワイナリー ショップ</td><td>DAY2 14:20〜14:45（外観撮影とあわせて）</td><td>重い → 気に入った銘柄をその場で購入</td></tr>
+      <tr><td><strong>巨峰（葡萄の季節のお土産）</strong></td><td>遠藤フルーツ（甲府駅南口徒歩5分）</td><td>DAY2 14:55〜15:12</td><td>重い＆潰れやすい → サドヤワイナリーのあと・電車に乗る前に買うのが鉄則</td></tr>
+    </table>
+    <div class="tip">信玄餅などのお土産探し（セレオ甲府）は見送りました。サドヤワイナリーで気に入ったワインをその場で購入し、続けて遠藤フルーツで巨峰を買えば、重いものを持って歩く距離が最小限で済みます。あとは特急に乗って座って帰るだけ。</div>
+  </section>
+
+  <section id="geo">
+    <h2>📍 座標検証記録</h2>
+    <table>
+      <tr><th>スポット</th><th>lat</th><th>lng</th><th>出典</th><th>判定</th></tr>
+      <tr><td>本厚木駅</td><td>35.4393177</td><td>139.3642806</td><td>OSM 駅ノード</td><td>◎</td></tr>
+      <tr><td>富士駅</td><td>35.1514444</td><td>138.6510861</td><td>Wikipedia測地座標</td><td>◎</td></tr>
+      <tr><td>身延駅</td><td>35.3611644</td><td>138.4525475</td><td>OSM（駅前バス停）</td><td>◎</td></tr>
+      <tr><td>身延山バス停</td><td>35.3766661</td><td>138.4251004</td><td>OSM バス停ノード</td><td>◎</td></tr>
+      <tr><td>身延山久遠寺</td><td>35.383202</td><td>138.428558</td><td>国土地理院API（番地一致）</td><td>◎</td></tr>
+      <tr><td>身延山ロープウェイ 久遠寺駅</td><td>35.383202</td><td>138.428558</td><td>久遠寺の座標を流用（住所は国土地理院APIで町名までしか解決できず✕）</td><td><span class="flag-y">△要確認</span></td></tr>
+      <tr><td>下部温泉駅</td><td>35.4255804</td><td>138.4722161</td><td>OSM 駅ノード</td><td>◎</td></tr>
+      <tr><td>しもべの湯（無料足湯）</td><td>35.4255804</td><td>138.4722161</td><td>※隣接施設の座標を流用（下部温泉駅の座標）。住所「上之平1917-3」は国土地理院APIで町名までしか解決できず✕、返り値の距離が公式の「駅徒歩1分」と矛盾（約590m）したため不採用</td><td><span class="flag-y">△要確認（※ピン位置は概略。現地では下部温泉駅前ですぐ見つかります）</span></td></tr>
+      <tr><td>甲斐黄金村・湯之奥金山博物館</td><td>35.4238717</td><td>138.4719007</td><td>OSM 施設ノード</td><td>◎</td></tr>
+      <tr><td><strong>さのや旅館</strong></td><td><strong>35.4233901</strong></td><td><strong>138.480578</strong></td><td>Googleマップ実地図の施設ピン（評価4.6・68件）</td><td><span class="flag-y">△</span></td></tr>
+      <tr><td>甲府駅</td><td>35.6673798</td><td>138.5690672</td><td>OSM 駅ノード</td><td>◎</td></tr>
+      <tr><td>武田神社</td><td>35.6867034</td><td>138.5773899</td><td>OSM 神社ノード（公式住所と整合）</td><td>◎</td></tr>
+      <tr><td>サドヤワイナリー</td><td>35.667088</td><td>138.57338</td><td>国土地理院API（「北口3-3-24」番地まで一致）</td><td>◎</td></tr>
+      <tr><td>横綱寿司 甲府駅前店</td><td>35.664551</td><td>138.56778</td><td>国土地理院API（「丸の内2-16-6」番地まで一致）</td><td>◎</td></tr>
+      <tr><td>遠藤フルーツ</td><td>35.664936</td><td>138.568207</td><td>国土地理院API（「丸の内一丁目8番16号」番地まで一致）</td><td>◎</td></tr>
+    </table>
+    <div class="tip">勝沼ぶどう郷駅・勝沼ぶどうの丘（v6まで使用）は今回のDAY2ルートから外れたため座標記録から削除しました。タイムズ甲府駅前・魚そう中道分店（v10で使用）はカーシェアプランの取りやめに伴い削除しました。喫茶オニオン（v9まで使用）は富士駅の朝食カットに伴い削除しました。喫茶室園林（v12で使用）はブランチの固定予約を取りやめ、決め打ちしない選択肢の一つに格下げしたため座標記録からも削除しました（行きたくなったら現地で住所検索してください：山梨県南巨摩郡身延町身延3722）。</div>
+  </section>
+
+  <section id="check">
+    <h2>✅ 出発前チェックリスト</h2>
+    <div class="checklist">
+      <label class="done"><input type="checkbox" checked><span>宿を決める・予約する（さのや旅館「山吹」グレードアップ ¥10,950＋入湯税150円）</span></label>
+      <label class="done"><input type="checkbox" checked><span>特急券を購入する（ふじかわ1号・ふじかわ3号）</span></label>
+      <label class="done"><input type="checkbox" checked><span>通し乗車券を購入する（小田原→富士→身延→甲府→町田・¥4,950）</span></label>
+      <label class="done"><input type="checkbox" checked><span>身延山ロープウェイのWEBチケットを購入する（「くし切りだんご付き」往復・¥1,900・フジヤマコネクト）</span></label>
+      <label><input type="checkbox"><span><strong>あずさ30号→38号への列車変更をえきねっとで行う</strong>（オンライン特急券のため変更後の発券は不要）</span></label>
+      <label><input type="checkbox"><span><strong>望月商店（本厚木）で七賢を8/29(土)までに購入する</strong></span></label>
+      <label><input type="checkbox"><span>横綱寿司 甲府駅前店に念のため予約の電話を入れる（☎055-226-6779）</span></label>
+      <label><input type="checkbox"><span>到着予定時刻（14:20ごろ／博物館・足湯に寄るなら15:05ごろ）をさのや旅館に伝える</span></label>
+      <label><input type="checkbox"><span>現金を用意（宿が現金のみ＋入湯税）</span></label>
+      <label><input type="checkbox"><span>Suica/PASMOにチャージ（身延山バス・武田神社バスは現金不可）</span></label>
+      <label><input type="checkbox"><span>富士駅・門前町とも朝食/昼食は決め打ちせず、気になったお店で軽く済ませる</span></label>
+      <label><input type="checkbox"><span>身延山ロープウェイの当日の運行状況を確認</span></label>
+      <label><input type="checkbox"><span>JR東海の運行情報を前日＋当日朝に確認</span></label>
+      <label><input type="checkbox"><span>天気予報を1週間前を目安に再確認</span></label>
+      <label><input type="checkbox"><span>06:31発。前夜は早めに就寝＆荷造り完了</span></label>
+    </div>
+  </section>
+
+  <section>
+    <h2>🔗 参考リンク</h2>
+    <ul>
+      <li><a href="https://www.sanoyaryokan.com/" target="_blank">下部温泉 さのや旅館 公式</a>｜<a href="https://www.sanoyaryokan.com/guestroom/yamabuki/" target="_blank">山吹（お部屋・料金）</a></li>
+      <li><a href="https://shimobeonsen.jp/" target="_blank">山梨県しもべ温泉（下部観光協会）</a></li>
+      <li><a href="https://shimobenoyu.com/" target="_blank">ヘルシースパサンロード しもべの湯（無料足湯）</a></li>
+      <li><a href="https://www.town.minobu.lg.jp/kinzan/" target="_blank">甲斐黄金村・湯之奥金山博物館</a></li>
+      <li><a href="https://www.kuonji.jp/access/" target="_blank">身延山久遠寺 交通案内（バス時刻表つき）</a></li>
+      <li><a href="https://www.minobusanropeway.co.jp/" target="_blank">身延山ロープウェイ</a></li>
+      <li><a href="http://www.takedajinja.or.jp/" target="_blank">甲斐 武田神社 公式</a></li>
+      <li><a href="https://sadoya.co.jp/" target="_blank">サドヤワイナリー 公式</a></li>
+      <li><a href="https://yokozunazushi.com/" target="_blank">横綱寿司 甲府駅前店 公式</a></li>
+      <li>遠藤フルーツ（甲府市丸の内1-8-16・☎055-235-5919・公式サイトは未確認）</li>
+    </ul>
+  </section>
+
+  <footer>
+    v19（2026-08-29）／時刻・運賃はYahoo!路線情報の2026年8月ダイヤ（8/30・8/31当日基準）、身延山ロープウェイ・フジヤマコネクト・身延山久遠寺・サドヤワイナリー・横綱寿司・山梨交通バス・しもべの湯・遠藤フルーツは各公式サイト・情報でChrome確認
+  </footer>
+
+</main>
+
+<script>
+function toggleTheme(){
+  const b=document.body;
+  const next=b.getAttribute('data-theme')==='light'?'dark':'light';
+  b.setAttribute('data-theme',next);
+  document.querySelector('.theme-btn').textContent = next==='light' ? '🌙 ダーク' : '☀️ ライト';
+}
+document.querySelectorAll('.checklist input').forEach(function(cb){
+  cb.addEventListener('change',function(){ this.closest('label').classList.toggle('done', this.checked); });
+});
+</script>
+</body>
+</html>

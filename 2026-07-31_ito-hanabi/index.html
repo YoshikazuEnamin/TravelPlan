@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>伊東温泉・花火大会 1泊2日旅行計画書 v3（宇佐美泊）</title>
+<style>
+  :root{
+    --navy:#1f3a5f; --sea:#2e6f95; --sun:#e98a3c; --coral:#d8553f;
+    --paper:#fbf7f0; --ink:#2b2b2b; --soft:#6b7280; --line:#e4ddd0;
+    --card:#ffffff; --ok:#3a7d44; --warn:#b8860b;
+  }
+  html[data-theme="dark"]{
+    --navy:#8fb8e0; --sea:#7fb3d3; --sun:#f0a463; --coral:#ef8a74;
+    --paper:#16191d; --ink:#e6e6e6; --soft:#9aa2ac; --line:#2f353c;
+    --card:#1e2227; --ok:#7fc08c; --warn:#e0b95a;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    background:var(--paper); color:var(--ink); line-height:1.75;
+    transition:background .2s,color .2s;
+  }
+  .wrap{max-width:780px; margin:0 auto; padding:0 18px 60px;}
+  header.hero{
+    background:linear-gradient(135deg,#1f3a5f,#2e6f95 60%,#e98a3c);
+    color:#fff; padding:42px 24px 36px; text-align:center; position:relative;
+  }
+  .hero h1{margin:0 0 8px; font-size:1.6rem; letter-spacing:.04em;}
+  .hero .date{font-size:1rem; opacity:.95; font-weight:600;}
+  .hero .theme{
+    margin:18px auto 0; max-width:580px; font-size:.95rem;
+    background:rgba(255,255,255,.16); padding:12px 16px; border-radius:10px;
+  }
+  #themeBtn{
+    position:absolute; top:14px; right:14px; background:rgba(255,255,255,.2);
+    border:1px solid rgba(255,255,255,.35); color:#fff; border-radius:999px;
+    padding:6px 14px; font-size:.8rem; cursor:pointer;
+  }
+  nav.sticky{
+    position:sticky; top:0; z-index:20; background:var(--card);
+    border-bottom:1px solid var(--line); display:flex; gap:6px;
+    padding:8px 12px; overflow-x:auto; font-size:.82rem;
+  }
+  nav.sticky a{
+    white-space:nowrap; text-decoration:none; color:var(--sea);
+    border:1px solid var(--line); border-radius:999px; padding:4px 12px;
+  }
+  .meta{display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin:22px 0 6px;}
+  .chip{
+    background:var(--card); border:1px solid var(--line); border-radius:999px;
+    padding:7px 16px; font-size:.85rem;
+  }
+  .chip b{color:var(--sea);}
+  h2.day{
+    margin:36px 0 4px; font-size:1.22rem; color:var(--navy);
+    display:flex; align-items:center; gap:10px; scroll-margin-top:56px;
+  }
+  h2.day .dot{
+    width:30px;height:30px;border-radius:50%;background:var(--sun);
+    color:#fff;display:flex;align-items:center;justify-content:center;
+    font-size:.9rem;font-weight:700;flex:none;
+  }
+  .day-sub{color:var(--soft); font-size:.85rem; margin:0 0 14px 40px;}
+  .timeline{position:relative; margin-left:14px; padding-left:26px; border-left:2px solid var(--line);}
+  .item{position:relative; padding:0 0 20px 4px;}
+  .item::before{
+    content:""; position:absolute; left:-34px; top:5px;
+    width:12px;height:12px;border-radius:50%;
+    background:var(--sea); border:3px solid var(--paper);
+  }
+  .item.hi::before{background:var(--coral); box-shadow:0 0 0 4px rgba(216,85,63,.18);}
+  .item.move::before{background:var(--sun);}
+  .time{font-weight:700; color:var(--sea); font-size:.9rem;}
+  .item.hi .time{color:var(--coral);}
+  .ttl{font-weight:700; margin:2px 0 2px;}
+  .desc{font-size:.9rem; color:var(--ink); opacity:.9;}
+  .desc a{color:var(--sea); word-break:break-all;}
+  ul.mini{margin:6px 0 0; padding-left:18px; font-size:.88rem;}
+  .badge{
+    display:inline-block; font-size:.7rem; font-weight:700; color:#fff;
+    background:var(--coral); border-radius:5px; padding:1px 7px; margin-left:6px;
+    vertical-align:middle;
+  }
+  .badge.go{background:var(--sun);}
+  .badge.new{background:var(--sea);}
+  .ok{color:var(--ok);} .warn{color:var(--warn);}
+  pre.route{
+    background:var(--card); border:1px solid var(--line); border-radius:12px;
+    padding:14px; font-size:.72rem; overflow-x:auto; line-height:1.6; color:var(--ink);
+  }
+  .note{
+    background:var(--card); border:1px solid var(--line); border-radius:12px;
+    padding:14px 18px; margin-top:14px; font-size:.88rem; scroll-margin-top:56px;
+  }
+  .note b{color:var(--coral);}
+  .note.alert{border-left:4px solid var(--coral);}
+  details.budget{
+    background:var(--card); border:1px solid var(--line); border-radius:12px;
+    padding:12px 18px; margin-top:14px; font-size:.88rem;
+  }
+  details.budget summary{cursor:pointer; font-weight:700; color:var(--navy);}
+  table{width:100%; border-collapse:collapse; font-size:.85rem; margin-top:10px;}
+  th,td{border-bottom:1px solid var(--line); padding:7px 6px; text-align:left;}
+  th{color:var(--soft); font-weight:600;}
+  .chk{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 18px; margin-top:14px;}
+  .chk label{display:flex; gap:9px; align-items:flex-start; font-size:.88rem; padding:5px 0; cursor:pointer;}
+  .chk input{margin-top:5px; flex:none;}
+  .chk input:checked + span{opacity:.45; text-decoration:line-through;}
+  footer{margin-top:40px; text-align:center; color:var(--soft); font-size:.8rem;}
+</style>
+</head>
+<body>
+<header class="hero">
+  <button id="themeBtn">🌙 ダーク</button>
+  <h1>🎆 伊東温泉・花火大会 ひとり旅 <span style="font-size:.8rem;opacity:.8;">v3</span></h1>
+  <div class="date">2026年7月31日（金）〜 8月1日（土）／1泊2日</div>
+  <div class="theme">「宇佐美に泊まり、伊東で遊ぶ。ローカル線をちょこちょこ乗り継ぐ、温泉・地魚・海上花火の一人旅。」</div>
+</header>
+
+<nav class="sticky">
+  <a href="#route">🗺️ 移動の骨格</a>
+  <a href="#day1">1日目</a>
+  <a href="#day2">2日目</a>
+  <a href="#budget">💴 費用</a>
+  <a href="#booking">📌 予約</a>
+  <a href="#risk">⚠️ 注意</a>
+  <a href="#rain">☔ 雨天</a>
+  <a href="#pack">🎒 持ち物</a>
+  <a href="#geo">📍 座標検証</a>
+</nav>
+
+<div class="wrap">
+  <div class="meta">
+    <span class="chip">🏨 <b>ウィスタリアンライフクラブ宇佐美</b></span>
+    <span class="chip">🍽️ 夕食は居酒屋・<b>朝食あり</b></span>
+    <span class="chip">🚆 本厚木スタート</span>
+    <span class="chip">🛁 <b>本館限定・お部屋で温泉</b></span>
+  </div>
+
+  <div class="note alert">
+    📍 <b>2026/7/26 更新（v3）：</b>ぽけたび用JSONの<b>住所と緯度経度を全アイテム作り直しました</b>。公式情報で住所を番地まで確定 → 国土地理院のジオコーディングAPIで座標取得 → 返り値を照合 → 疑わしいものは標高と直線距離で検算。<b>旧v2の伊東市街側の座標は最大1.25kmずれていました</b>（詳細は末尾の「📍 座標の検証記録」）。<br><br>
+    📌 <b>2026/7/26 更新（v2）：</b>宿を <b>東急ハーヴェストクラブ伊東 → ウィスタリアンライフクラブ宇佐美</b> に変更。宿が伊東の街から離れた宇佐美の高台になったため、<b>伊東⇔宇佐美のJR伊東線移動と送迎バス・タクシーを軸に旅程を全面的に組み直しました</b>。時刻はすべて2026年7月26日時点の公式・最新ダイヤで確認済みです。
+  </div>
+
+  <div class="note">
+    ⚠️ <b>送迎バスの時刻を1点だけ訂正：</b>公式サイトの無料送迎は <b>宇佐美駅発 15:30／16:00</b>、<b>クラブ発 8:40／9:20</b> の各2便（<b>事前予約制</b>）です。お聞きしていた「15:20」は15:30の記憶違いと思われますので <b>15:30便</b> で組みました。朝の9:20はぴったり一致しています <span class="ok">✅</span>
+  </div>
+
+  <h2 class="day" id="route"><span class="dot">🗺</span>この旅の移動の骨格</h2>
+  <pre class="route">【DAY1】
+本厚木 ━━ 小田原 ━━(踊り子7号)━━ 伊東 ━━(伊東線 15:21)━━ 宇佐美 15:25
+                                    ▲ ランチ・街歩き・地酒        ↓ 乗換5分⚠
+                                                          (送迎バス 15:30) 宿
+
+宿 ━(徒歩37分・下り190m)━ 宇佐美 ━━(伊東線 17:28)━━ 伊東 17:33
+                                        ━ 居酒屋18:00 ━ 花火20:30〜20:50
+
+伊東 ━━(伊東線 21:39)━━ 宇佐美 21:44 ━(タクシー約7分)━ 宿 ━ 温泉(〜24:00)
+
+【DAY2】
+宿 ━(送迎バス 9:20)━ 宇佐美 9:30
+      ┗━ ⛩宇佐美さんぽ（海岸→漁港→比波預天神社→駅）9:35〜10:27
+宇佐美 ━━(伊東線 10:32)━━ 伊東 10:37 ━ 街歩き・カフェ
+伊東 ━━(踊り子4号 13:05)━━ 小田原 13:49 ━━ 本厚木</pre>
+  <p class="desc" style="margin-left:2px;"><b>伊東線 宇佐美⇔伊東は所要4〜5分</b>、1時間に2〜3本。「宿は宇佐美・遊ぶのは伊東」という組み方は現実的に成立します（<span class="ok">平日・土曜・休日いずれも同一ダイヤであることを確認済み ✅</span>）。</p>
+  <div class="note">
+    📌 <b>2026/7/26 追記：</b>伊東線の3本（<b>伊東15:21→宇佐美15:25／伊東21:39→宇佐美21:44／宇佐美9:58→伊東10:02</b>）はご指定どおりに反映しました。<span class="ok">いずれも実在するダイヤであることを確認済みです ✅</span> 夕方の <b>宇佐美17:28→伊東17:33</b> だけは18:00の予約に間に合わせるため据え置き（17:51発だと17:56着で、駅から店まで走ることになります）。
+  </div>
+
+  <!-- DAY 1 -->
+  <h2 class="day" id="day1"><span class="dot">1</span>1日目 ・ 7/31（金）</h2>
+  <p class="day-sub">移動 → 伊東で街歩き → 宇佐美で温泉 → また伊東で地魚＆花火 → 宇佐美へ</p>
+  <div class="timeline">
+
+    <div class="item move">
+      <div class="time">9:31</div>
+      <div class="ttl">本厚木駅 出発（小田急線）🚆 <span class="badge go">確定</span></div>
+      <div class="desc">本厚木 9:31発 →〔約40分〕→ 小田原 10:11着。💴 小田急IC運賃 <b>472円</b>。</div>
+    </div>
+
+    <div class="item">
+      <div class="time">10:15〜11:15</div>
+      <div class="ttl">🏯 小田原城 立ち寄り観光（据え置き）</div>
+      <div class="desc">小田原駅から徒歩約10分。城址公園散策＋天守閣（大人510円・9:00–17:00／最終入館16:30）。リュックのままでOK。<br>
+      <span class="warn">時間はタイトめ：往復徒歩20分＋改札の余裕を引くと滞在は正味35〜40分。混雑時は外観・公園散策だけに切り替えを。</span></div>
+    </div>
+
+    <div class="item move">
+      <div class="time">11:31</div>
+      <div class="ttl">小田原発 特急「踊り子7号」🚆 <span class="badge go">座席指定済み</span></div>
+      <div class="desc">小田原 11:31発 → 伊東 12:13着。海が見える車窓が旅のはじまり。<br>💴 運賃715円（IC）＋指定席特急料金760円＝<b>計1,475円</b>。</div>
+    </div>
+
+    <div class="item">
+      <div class="time">12:25〜13:15</div>
+      <div class="ttl">🍜 昼食 ・ 田中屋製麺所</div>
+      <div class="desc">伊東温泉焼きそば（焼きそば三兄弟）。動画撮影しながら堪能。<br>
+      <b>静岡県伊東市湯川1-16-7</b>（2025年7月開店の伊東駅前店・湯の花通り入口すぐ・駅から127m）<br>
+      <span class="ok">🔴 営業 10:30–21:00／木曜定休 → 7/31（金）営業◎</span>（旧記載「10:00–20:00」から訂正）<br>
+      <a href="https://www.ito-yukitei.com/relaxationnews/?p=15940">店舗情報</a></div>
+    </div>
+
+    <div class="item">
+      <div class="time">13:20〜14:35</div>
+      <div class="ttl">伊東市街を散策</div>
+      <ul class="mini">
+        <li>東海館（趣ある木造建築・撮影向き） ・ <a href="https://itospa.com/spot/detail_52002.html">観光ガイド</a></li>
+        <li>なぎさ公園・オレンジビーチ ・ <a href="https://itospa.com/spot/detail_54012.html">観光ガイド</a></li>
+      </ul>
+      <div class="desc" style="margin-top:6px;">💡 夜も伊東に戻ってきますが、<b>花火のあとは店じまいの時間で買い物ができません</b>。街歩きはここで済ませておくのが正解です。</div>
+    </div>
+
+    <div class="item">
+      <div class="time">14:35〜14:55</div>
+      <div class="ttl">🍶 谷口酒店で地酒を購入</div>
+      <div class="desc"><b>静岡県伊東市松原湯端町1-8</b>・☎ 0557-37-3939・伊東駅から約120m徒歩2分・金 11:30–21:00／水休 → <span class="ok">営業◎</span><br>
+      <b>買うのは今のうち。</b>このあと送迎バスで宿まで運んでもらえるので、瓶を持って歩く距離が最短で済みます。<br>
+      <a href="https://maps.app.goo.gl/j8J6adC6sTk7yM3b9">地図</a></div>
+    </div>
+
+    <div class="item">
+      <div class="time">14:55〜15:10</div>
+      <div class="ttl">🛒 マックスバリュ伊東駅前店で買い出し <span class="badge new">新規</span></div>
+      <div class="desc"><b>水とスポーツドリンクのペットボトル</b>を調達。伊東市猪戸1-5-28・<b>伊東駅から約200m</b>・☎ 0557-35-9677<br>
+      <span class="ok">営業 7:00–23:30</span>（谷口酒店とほぼ同じブロックなので、そのまま流れで寄れます）<br>
+      💡 <b>重い荷物こそ今のうち。</b>このあとは伊東線5分 → 送迎バスで宿まで運んでもらえるので、<b>ペットボトルを担いで歩く距離はほぼゼロ</b>です。宿の売店（7:30–22:00）でも買えますが、値段はスーパーのほうが確実に安いです。<br>
+      🧊 部屋に冷蔵庫があれば、<b>夜のうちに翌朝ぶんを冷やしておく</b>と8/1の宇佐美さんぽが楽になります。<br>
+      <a href="https://www.mv-tokai.co.jp/store/14141/">店舗情報</a></div>
+    </div>
+
+    <div class="item">
+      <div class="time">15:10〜15:15</div>
+      <div class="ttl">伊東駅へ（徒歩3分）</div>
+      <div class="desc"><span class="warn">この電車を逃すと送迎バスに間に合わなくなります。</span>余裕を持ってホームへ。</div>
+    </div>
+
+    <div class="item move">
+      <div class="time">15:21 → 15:25</div>
+      <div class="ttl">🚆 伊東発（JR伊東線・熱海行）→ 宇佐美着 <span class="badge new">本人選択</span></div>
+      <div class="desc">わずか4分の短いローカル線移動。海沿いを走る区間なので車窓も◎。💴 IC約200円。</div>
+    </div>
+
+    <div class="item move">
+      <div class="time">15:30</div>
+      <div class="ttl">🚌 宿の無料送迎バス（宇佐美駅発）<span class="badge">要事前予約</span></div>
+      <div class="desc">☎ <b>0557-47-2661</b> → 15:40頃 ウィスタリアンライフクラブ宇佐美 着・チェックイン。<br>
+      <span class="warn">⚠️ <b>乗換5分</b>です。宇佐美駅は改札からロータリーまですぐなので定刻なら間に合いますが、遅延が出たら詰みます。</span>下の「⚠️ 注意事項 ④」に保険を書いてあります。<br>
+      <a href="https://wlc-gs.com/usami/">宿 公式サイト</a></div>
+    </div>
+
+    <div class="item hi">
+      <div class="time">15:45〜16:15</div>
+      <div class="ttl">🛁 部屋の温泉風呂でさっぱり <span class="badge go">新B案で確定</span></div>
+      <div class="desc">ご予約は「<b>〇本館限定〇 お部屋で温泉〜朝食付きプラン〜</b>」。ユニットバスですが<b>シャワーも湯船も「宇佐美温泉」</b>（アルカリ性単純温泉）です。<br>
+      <b>このあと37分の下り坂を歩くので、夕方は部屋の温泉でさっと流すだけにします。</b>「温泉に入らずに宿を出る」わけではないので、我慢した感じは残りません。大浴場は<b>花火後（22:10〜）と翌朝（6:00〜）</b>に寄せました。<br>
+      💡 窓辺から宇佐美港が見える時間帯なので、部屋の景色だけは撮っておきたいところです。</div>
+    </div>
+
+    <div class="item">
+      <div class="time">16:15〜16:35</div>
+      <div class="ttl">涼んで汗を引かせ、身支度</div>
+      <div class="desc">着替えと汗拭きシートをバッグへ。</div>
+    </div>
+
+    <div class="item move">
+      <div class="time">16:35〜17:15</div>
+      <div class="ttl">🚶 宿 → 宇佐美駅へ 徒歩で下山</div>
+      <div class="desc">約2.8km・37分・<b>下り190m</b>。坂を下るだけなので体力的には楽ですが、7月末の夕方は汗をかきます。夕方の入浴を部屋の温泉シャワーにしたのはこのためです。<br>
+      🍊 宇佐美は<b>みかんの里</b>で、この坂道は柑橘畑の中を下っていきます。宿の紹介文にも「窓辺には柑橘類の甘い香りが漂います」とある土地。夕方の光と海を背景に、撮りながらのんびり降りてください。</div>
+    </div>
+
+    <div class="item move">
+      <div class="time">17:28 → 17:33</div>
+      <div class="ttl">🚆 宇佐美発（JR伊東線）→ 伊東着</div>
+    </div>
+
+    <div class="item">
+      <div class="time">17:40〜18:55</div>
+      <div class="ttl">🐟 夕食 ・ すいーとぼっくす ストウ家の食卓 <span class="badge go">18:00予約済み</span></div>
+      <div class="desc">地魚料理と日本酒でゆっくり。伊東駅徒歩3分。<br>
+      <span class="ok">木〜土 11:00–22:00（L.O.21:00）→ 7/31（金）営業◎</span>　☎ 0557-28-0124<br>
+      <a href="https://izu.link/723/">店舗情報</a></div>
+    </div>
+
+    <div class="item">
+      <div class="time">19:00〜19:20</div>
+      <div class="ttl">🎋 竹あかり夜さんぽ</div>
+      <div class="desc">松川遊歩道沿いに約500本の竹あかり（18:00〜22:00点灯）。途中の<b>音無神社</b>では竹あかりのハート型絵馬（600円・現金／東海館か伊東駅観光案内所で購入）を奉納できます。<br>
+      <a href="https://ito-marinetown.co.jp/sitescene/izu/otonashi-jinja/">音無神社について</a></div>
+    </div>
+
+    <div class="item">
+      <div class="time">19:20〜20:05</div>
+      <div class="ttl">🏮 夕涼みわくわく市（松川藤の広場）</div>
+      <div class="desc">地元の子どもが描いたイラスト提灯約500個、盆踊り、音楽ステージ。屋台で軽くつまみながら撮影を。入場無料（17:30〜21:30）。<span class="ok">7/31（金）開催◎</span><br>
+      <a href="https://itospa.com/event/detail_10017.html">イベント詳細</a></div>
+    </div>
+
+    <div class="item">
+      <div class="time">20:05〜20:30</div>
+      <div class="ttl">海辺で場所取り 📷</div>
+      <div class="desc">打ち上げは20:30から。良い撮影スポットを早めにキープ。</div>
+    </div>
+
+    <div class="item hi">
+      <div class="time">20:30〜20:50</div>
+      <div class="ttl">🎆 伊東温泉 夢花火 PART2（約1000発）</div>
+      <div class="desc">約20分の海上花火をゆっくり鑑賞。<b>この旅いちばんの瞬間。</b></div>
+    </div>
+
+    <div class="item">
+      <div class="time">20:50〜21:30</div>
+      <div class="ttl">伊東駅へ移動</div>
+      <div class="desc">花火後は歩道が渋滞するので、<b>通常10分の道が15〜20分</b>かかる想定で。屋台で夜食を買って歩くくらいのつもりで。</div>
+    </div>
+
+    <div class="item move">
+      <div class="time">21:39 → 21:44</div>
+      <div class="ttl">🚆 伊東発（JR伊東線・熱海行）→ 宇佐美着 <span class="badge">本命便</span></div>
+      <div class="desc"><span class="warn">⚠️ 21:06発は花火直後で間に合いません。</span>取りこぼしても <b>22:05発／22:41発（最終）</b> があるので、走らず歩けば大丈夫です。</div>
+    </div>
+
+    <div class="item">
+      <div class="time">21:45〜22:00</div>
+      <div class="ttl">🚕 宇佐美駅 → 宿へタクシー（約7分・1,500〜2,000円）</div>
+      <div class="desc">💡 <b>21:39発の電車に乗った瞬間にGoアプリで配車をかける</b>のがベスト。乗車時間5分なので、宇佐美駅に着く頃ちょうど到着します。<br>
+      <span class="ok">この時間帯に営業している会社は複数あります（下の「🚕 タクシー事情」参照）。</span></div>
+    </div>
+
+    <div class="item hi">
+      <div class="time">22:10〜23:30</div>
+      <div class="ttl">♨️ 大浴場でゆっくり（24:00まで）</div>
+      <div class="desc"><b>この日いちばんの湯です。</b>花火のあとの温泉は格別。部屋に戻って谷口酒店の地酒をひとり乾杯して就寝。</div>
+    </div>
+  </div>
+
+  <!-- DAY 2 -->
+  <h2 class="day" id="day2"><span class="dot">2</span>2日目 ・ 8/1（土）</h2>
+  <p class="day-sub">朝風呂 → 朝食 → 送迎バス → 伊東で朝市＆カフェ → のんびり帰路</p>
+  <div class="timeline">
+
+    <div class="item hi">
+      <div class="time">6:00〜7:00</div>
+      <div class="ttl">♨️ 朝風呂（大浴場 6:00–10:00）</div>
+      <div class="desc">宇佐美港と伊豆の山並みが朝の光で見える時間帯。<b>この旅で温泉に入るなら、ここが一番静かで気持ちいい</b>と思います。</div>
+    </div>
+
+    <div class="item">
+      <div class="time">7:30〜8:30</div>
+      <div class="ttl">🍚 ホテル朝食（和膳）</div>
+      <div class="desc">提供は7:30〜9:00。朝食付きプランなのでゆっくりどうぞ。</div>
+    </div>
+
+    <div class="item">
+      <div class="time">8:30〜9:10</div>
+      <div class="ttl">🎁 売店でお土産＋荷造り</div>
+      <div class="desc">売店 7:30–22:00。💡 重いもの（地酒・干物など）はここで買うと<b>送迎バスに積んで駅まで運べる</b>ので、実は宿の売店がいちばん楽なお土産ポイントです。<br>
+      🧴 <b>チェックアウト前に、余った水を水筒へ移す。</b>このあとの宇佐美さんぽ（海岸〜神社）で飲みます。前夜に冷蔵庫で冷やしておけたなら、そのぶんを優先で。飲みきれなかったペットボトルは持って出て、駅で処分を。</div>
+    </div>
+
+    <div class="item move">
+      <div class="time">9:20</div>
+      <div class="ttl">🚌 クラブ発 無料送迎バス <span class="badge">要事前予約</span></div>
+      <div class="desc">→ 宇佐美駅 9:30頃着。</div>
+    </div>
+
+    <div class="item">
+      <div class="time">9:35〜9:50</div>
+      <div class="ttl">🌊 宇佐美海岸を歩く <span class="badge new">新規</span></div>
+      <div class="desc">宇佐美駅から徒歩5分で、<b>1.5km続く遠浅のロングビーチ</b>に出ます。海開き中（7月中旬〜8月下旬）ですが、9時台なら人はまばら。<b>前夜に花火を見た同じ相模湾を、朝の光で撮り直せる</b>のがいいところ。そのまま浜沿いに北へ歩いて漁港方向へ。<br>
+      <a href="https://itospa.com/spot/detail_54015.html">宇佐美海水浴場（観光ガイド）</a></div>
+    </div>
+
+    <div class="item hi">
+      <div class="time">9:55〜10:15</div>
+      <div class="ttl">⛩️ 比波預天神社（ひはよてんじんしゃ）参拝 <span class="badge">この旅の隠れた一番</span></div>
+      <div class="desc">宇佐美漁港のそばに鎮座する、<b>宇佐美の総鎮守</b>。しかも<b>延喜式内社</b>（『延喜式神名帳』の「加理波夜須多祁比波預命神社」に比定される古社）で、社伝では<b>淳和天皇の御代（823〜833年）の創建</b>、延喜年間（901〜923年）に菅原道真を合祀と伝わります。<br>
+      ご祭神の<b>加理波夜須多祁比波預命</b>は三嶋水口彦命の長男で、<b>古代に海から上陸してこの地を開いた神</b>とされ、宇佐美の産土神として祀られてきました。海から来た神が守る漁港の町、という成り立ちがそのまま残っています。10月中旬の秋祭りでは<b>神輿が海上を渡御</b>。<br>
+      駅から徒歩12分・800m・ほぼ平坦。参拝自由。</div>
+    </div>
+
+    <div class="item move">
+      <div class="time">10:15〜10:27</div>
+      <div class="ttl">🚶 駅へ戻る（徒歩12分）</div>
+      <div class="desc">神社から宇佐美駅までは直帰で800m・ほぼ平坦です。</div>
+    </div>
+
+    <div class="item move">
+      <div class="time">10:32 → 10:37</div>
+      <div class="ttl">🚆 宇佐美発（JR伊東線）→ 伊東着</div>
+      <div class="desc">💴 IC約200円。<br>
+      <span class="ok">✅ 9:58発 → 10:32発に確定変更</span>（宇佐美さんぽのため）。<b>伊東の朝市はカット確定</b>です。</div>
+    </div>
+
+    <div class="item">
+      <div class="time">10:40〜11:30</div>
+      <div class="ttl">海辺散歩＆街歩き（伊東）</div>
+      <div class="desc">前日の夜に歩いた道を、朝の光で撮り直すのがおすすめ。松川遊歩道と東海館の外観は、昼と夜で表情が全然違います。</div>
+    </div>
+
+    <div class="item">
+      <div class="time">11:30〜12:40</div>
+      <div class="ttl">☕ オシャレカフェでひと休み（お好みで二択）</div>
+      <ul class="mini">
+        <li><b>和憩い処 茶彩</b>（市川製茶 湯の花通り店2階／伊東駅徒歩5分・<b>静岡県伊東市猪戸1-2-1</b>）🔴<b>10:00–16:00</b>／木曜定休＋不定休あり → <span class="ok">8/1（土）営業◎</span>　☎ 0557-37-3796 ・ <a href="https://www.ichikawa-guricha.com/saya.php">公式</a></li>
+        <li><b>ちっ茶カフェ</b>（伊東駅徒歩6分・中央町8-13）11:00–16:30／<span class="warn">⚠️ 不定休なので当日SNSで確認を</span>　☎ 0557-28-0394</li>
+      </ul>
+    </div>
+
+    <div class="item move">
+      <div class="time">13:05</div>
+      <div class="ttl">🚆 伊東発 特急「踊り子4号」で帰路へ <span class="badge go">座席指定済み</span></div>
+      <div class="desc">伊東 13:05発 → 小田原 13:49着 →〔小田急〕→ 本厚木。<br>
+      8/1（土）は海水浴シーズンの土曜で駅が混みます。<b>10分前には改札を</b>。<br>💴 運賃715円（IC）＋特急料金760円＝計1,475円＋小田急472円（IC）。</div>
+    </div>
+  </div>
+
+  <details class="budget" id="budget" open>
+    <summary>💴 交通費まとめ（2026年7月時点・IC利用）</summary>
+    <table>
+      <tr><th>区間</th><th>内訳</th><th style="text-align:right;">金額</th></tr>
+      <tr><td>本厚木 → 小田原（小田急）</td><td>IC運賃</td><td style="text-align:right;">472円</td></tr>
+      <tr><td>小田原 → 伊東（踊り子7号）</td><td>運賃715＋特急760</td><td style="text-align:right;">1,475円</td></tr>
+      <tr><td>伊東 ⇔ 宇佐美（JR伊東線）</td><td>約200円 × <b>4回</b></td><td style="text-align:right;">約800円</td></tr>
+      <tr><td>宇佐美駅 → 宿（DAY1夜・タクシー）</td><td>約7分</td><td style="text-align:right;">約1,500〜2,000円</td></tr>
+      <tr><td>伊東 → 小田原（踊り子4号）</td><td>運賃715＋特急760</td><td style="text-align:right;">1,475円</td></tr>
+      <tr><td>小田原 → 本厚木（小田急）</td><td>IC運賃</td><td style="text-align:right;">472円</td></tr>
+      <tr><td><b>合計</b></td><td></td><td style="text-align:right;"><b>約4,694〜5,194円</b></td></tr>
+    </table>
+    <p style="font-size:.85rem;">🚌 <b>宿の送迎バスは無料</b>（宇佐美駅発 15:30/16:00・クラブ発 8:40/9:20）。これを2回使えるおかげで、宿が高台にあるハンデはほぼ帳消しになっています。<br>
+    えきねっと「トク割」（特急券35%引）を往復とも使えれば、特急券が760円→494円で<b>約530円お得</b>です。</p>
+  </details>
+
+  <div class="note" id="booking">
+    📌 <b>予約リスト</b>
+    <br><br><b style="color:var(--ok);">✅ 予約済み</b>
+    <br>・踊り子7号（小田原11:31発→伊東12:13着）／踊り子4号（伊東13:05発→小田原13:49着）— 座席指定まで完了
+    <br>・ウィスタリアンライフクラブ宇佐美（朝食付きプラン）
+    <br>・すいーとぼっくす ストウ家の食卓（7/31 18:00）
+    <br>・<b>宿の無料送迎バス</b>（7/31 宇佐美駅15:30発／8/1 クラブ発9:20）
+    <br>　<span class="warn">⚠️ 往路は伊東15:21発→宇佐美15:25着からの乗換5分。降車準備は車内で。乗り遅れたら16:00便（宿着16:10頃）で、その場合は夕方の駅までをタクシーに切り替えれば17:28発に間に合います。</span>
+    <br><br><b style="color:var(--ok);">🟢 任意（しなくても大丈夫そうです）</b>
+    <br>・<b>7/31 21:45頃 宇佐美駅 → 宿のタクシー</b>
+    <br>　調べ直したところ、<b>この時間帯の宇佐美で配車できる会社は複数ありました</b>（下の「🚕 タクシー事情」参照）。前回「事前手配を強く推奨」と書きましたが、<b>過剰な警戒でした。訂正します。</b>
+    <br>　実用的には、<b>21:39発の電車に乗った瞬間にGoアプリで配車をかける</b>のがいちばんスマート。乗車時間が5分なので、宇佐美駅に着く頃ちょうど到着します。
+    <br>　それでも確実にしたいなら <b>東豆タクシー ☎ 0557-37-3511</b>（24時間営業）に前日までに予約を。迎車料金はかかります。
+  </div>
+
+  <div class="note">
+    ⛩️ <b>宇佐美さんぽの入れ方（2026/7/26 追加）</b>
+    <br><b>駅 → 海岸 → 漁港 → 比波預天神社 → 駅</b> が、ほぼ平坦な一本道でつながります（駅〜神社は海岸経由1.5km・22分／直帰なら800m・12分）。9:20の送迎バスで駅に9:30に着けば、<b>約1時間</b>でひと回りできる計算です。
+    <p style="font-size:.9rem;"><span class="ok">✅ <b>2026/7/26 確定：案A</b></span>（10:32発・海岸＋比波預天神社／<b>伊東の朝市はカット</b>）。以下は参考記録です。</p>
+    <table>
+      <tr><th>案</th><th>内容</th><th>失うもの</th></tr>
+      <tr><td><b>★ 案A<br>（確定）</b></td><td><b>10:32発に変更</b>して、海岸＋比波預天神社をゆっくり。9:35〜10:27。</td><td>伊東の朝市<br>（〜10:30）</td></tr>
+      <tr><td>案B</td><td>9:58発のまま、海岸だけ往復15分の駆け足で。神社はカット。</td><td>神社</td></tr>
+      <tr><td>案C</td><td>送迎バスを8:40便に変更すれば両取り可。</td><td>宿への電話1本＋朝食が駆け足に</td></tr>
+    </table>
+    <p style="font-size:.88rem;margin-top:14px;"><b>🕘 当日の歩き方メモ</b><br>
+    ・<b>9:30 宇佐美駅着 → 9:35 出発</b>。駅を出たら海側（東）へ、まっすぐ5分で浜に出ます。<br>
+    ・海岸は<b>浜沿いに北（漁港方向）へ</b>歩けば、そのまま神社にたどり着けます。砂浜を歩くと時間を食うので、<b>波打ち際まで降りるのは写真を撮るときだけ</b>にして、基本は舗装路を進むのが安全です。<br>
+    ・<b>10:15には必ず神社を出る</b>こと。ここから駅まで直帰で12分、10:32発に5分の余裕が残ります。<b>神社での滞在が延びそうなら、海岸の時間を削って調整</b>を（海はまた見られますが、電車は30分待ちです）。<br>
+    ・8/1（土）朝は<b>海開き期間中の土曜</b>なので、10時を過ぎると海水浴客の車で駅前の道が少し混みます。9時台に歩き切る今の組み方はその点でも正解です。<br>
+    ・☀️ 朝でも日差しは強いので、<b>帽子</b>と<b>水筒</b>をお忘れなく（水はDAY1にマックスバリュで買っておいたぶんを、チェックアウト時に水筒へ移す段取りです）。神社まで日陰は多くありません。</p>
+  </div>
+
+  <div class="note">
+    🚕 <b>タクシー事情（2026/7/26 調べ直し）</b>
+    <br><b style="color:var(--ok);">結論：21:45の宇佐美駅なら、まず捕まります。</b>
+    <table>
+      <tr><th>会社</th><th>電話</th><th>営業時間</th><th>車両数</th></tr>
+      <tr><td><b>東豆タクシー</b><br><span style="font-size:.8rem;color:var(--soft);">全車アプリ・キャッシュレス対応</span></td><td>0557-37-3511</td><td><b>24時間営業</b><br><span style="font-size:.8rem;">（2026/2/21〜）</span></td><td>23台</td></tr>
+      <tr><td><b>伊豆交通</b></td><td>0120-36-4692</td><td>6:00〜<b>深夜3:00</b></td><td><b>44台</b><br><span style="font-size:.8rem;">市内最大</span></td></tr>
+      <tr><td>伊豆東海タクシー 伊東営業所</td><td>0557-55-1241</td><td>7:15〜23:30</td><td>15台</td></tr>
+      <tr><td>伊東観光タクシー<br><span style="font-size:.8rem;color:var(--soft);">営業所が宇佐美駅出口すぐ</span></td><td>0557-47-3388<br><span style="font-size:.8rem;">（宿案内は0557-48-9236）</span></td><td>非公開</td><td>—</td></tr>
+    </table>
+    <p style="font-size:.86rem;">
+    <b>3社合わせて80台以上が21:45に稼働しています。</b>「1台もいない」ということはまず起きません。<br>
+    ・<b>Goアプリは伊東市が対応エリア</b>です <span class="ok">✅</span><br>
+    ・<b>宇佐美駅出口すぐに伊東観光タクシーの営業所がある</b>のは心強いポイント。伊東駅前のような常設待機列ではありませんが、地元の会社が目の前にいる駅です。<br>
+    ・<span class="warn">⚠️ 唯一の注意点</span>：花火大会の日は<b>19:30〜21:30頃に伊東駅周辺で交通規制</b>があり、市内のタクシーが伊東側に張り付きます。宇佐美までの回送に少し時間がかかる可能性はあるので、<b>電車に乗った時点で配車をかけておく</b>とロスがゼロに。<br>
+    ・迎車料金がかかる会社が多いので、料金は1,500〜2,000円＋迎車料と見ておくと安心です。</p>
+  </div>
+
+  <div class="note alert" id="risk">
+    ⚠️ <b>いちばん気にしておきたい4つ</b>
+    <br><br><b>① 花火後の帰路（21:39発を逃さない）</b>
+    <br>花火終了20:50 → 伊東駅まで通常10分の道が人波で15〜20分。<b>21:06発は物理的に無理</b>なので21:39発が本命。逃しても22:05発・22:41発（最終）があるので走らなくて大丈夫です。ただし<b>最終22:41を逃すと宇佐美までタクシーで数千円コース</b>になるので、22:05発までには乗っておきたいところ。
+    <br>🆕 なお<b>最終22:41発になっても、部屋が温泉なので「風呂に入り損ねる」心配はなくなりました</b>（宿着23:00過ぎだと大浴場24:00まではギリギリでしたが、部屋なら時間を気にせず入れます）。慌てる理由がひとつ減ったのは大きいです。
+    <br><br><b>② 宇佐美駅の夜のタクシー → 🟢 調べ直して格下げしました</b>
+    <br>21:45なら3社80台以上が稼働しています（上の「🚕 タクシー事情」）。<b>電車に乗った時点でGoアプリを開く</b>だけで十分です。ただし<b>徒歩は依然として非現実的</b>なのは変わりません（駅→宿は登り2.8km・標高差190mで45分以上・夜道は街灯も少ない）。「歩けばいいや」という逃げ道はないので、配車だけは必ずかけてください。
+    <br><br><b>③ ♨️ 温泉の入り方 → 新B案で確定しました</b>
+    <br><b>DAY1夕方＝部屋の温泉シャワーでさっと ／ DAY1夜22:10〜23:30＝大浴場 ／ DAY2朝6:00〜7:00＝大浴場</b>、の3回構成です。
+    <br>・37分の下り坂で汗をかくのが分かっているので、<b>夕方に大浴場でゆっくりするのは順番として損</b>。夜と朝に寄せました。
+    <br>・「温泉に入らずに宿を出る」わけではないのが、本館限定プランのいちばんおいしいところです。
+    <br>・<b>大浴場のベストは翌朝6:00〜</b>。宇佐美港と伊豆の山並みに朝の光が入って、人もいません。ここを最大化する構成になっています。
+    <br>・汗拭きシートと替えのTシャツは忘れずに。
+    <br><br><b>④ 🆕 伊東15:25着 → 15:30送迎バスの「乗換5分」</b>
+    <br>宇佐美駅は改札からロータリーまで目と鼻の先なので、<b>定刻なら間に合います</b>。ただし余裕はゼロなので、次の備えを。
+    <br>・降りる準備を車内で済ませておく（リュックは肩にかけておく）
+    <br>・<b>予約時に「15:30便で。電車が15:25着なので少し遅れるかも」と一言伝えておく</b>。少人数の送迎バスなので、事情を伝えておけば待ってもらえる可能性が高いです。
+    <br>・<b>🛟 保険は16:00便</b>。同じ宇佐美駅発でもう1本あるので、万一乗り遅れても宿には16:10頃に着けます。ただしその場合は<b>夕方の徒歩下山（37分）が間に合わなくなる</b>ので、駅まではタクシー（伊東観光タクシー ☎0557-47-3388・営業所が宇佐美駅前）に切り替えを。それでも17:28発には十分乗れます。
+    <br>・どうしても不安なら、<b>ひとつ前の14:55発（宇佐美15:00着）</b>に前倒しすれば35分の余裕ができます。伊東の街歩きが25分短くなるだけなので、天気が悪い日などはこちらでも。
+  </div>
+
+  <div class="note">
+    📎 <b>そのほかの確認事項</b>
+    <br>・<span class="ok">JR伊東線は平日・土曜・休日とも同一ダイヤ ✅</span>（2026年6月19日現在のダイヤで確認）。曜日を気にする必要はありません。
+    <br>・<b>宿のレストランは毎週水曜が定休</b>ですが、7/31（金）〜8/1（土）は該当しません <span class="ok">✅</span>
+    <br>・<b>みのりの村巡回バス</b>（無料・宇佐美駅発 15:00/17:10、ウィスタリアン入口発 7:30/9:55／<b>木曜運休</b>）も使えますが、<b>夕方に「宿→駅」方向の便がない</b>ため、DAY1夕方の移動には使えません。
+    <br>・<b>8/1（土）の小田原→本厚木は小田急が土休日ダイヤ</b>。本数は多いので待ち時間の心配は不要ですが、接続は当日アプリで確認を。
+    <br>・<b>花火</b>は荒天時に順延・中止の可能性あり。前日〜当日に <a href="https://itospa.com/event/detail_10019.html">伊豆・伊東観光ガイド</a> で最終確認を。
+    <br>・☔ <b>7/31の天気</b>：7/26時点で週間予報の範囲に入ってきています。<b>7/29頃にもう一度確認を。</b>
+  </div>
+
+  <div class="note" id="rain">
+    ☔ <b>雨天・荒天時の代替案</b>
+    <br>・<b>小雨程度</b>…花火は決行の可能性が高いです。傘よりレインポンチョ＋カメラの防水対策を。竹あかりは濡れた石畳に灯りが映り込んで、むしろ絵になります。
+    <br>・<b>花火中止・街歩きは可能</b>…東海館の内部見学＋わくわく市の提灯を撮影 → <b>21:22発か21:54発の早い便で宇佐美に戻り</b>、温泉を長めに。宿の湯は24:00まで開いているので、早く戻るほど得です。
+    <br>・<b>終日大雨</b>…小田原城はライト版（外観のみ）に切替。伊東到着後は焼きそば → 東海館 → 街歩きを削って<b>14:20発（宇佐美14:25着）で宇佐美へ</b>。15:30の送迎便に1時間の余裕を持って乗れます（雨の日に5分乗換は避けたいので、この日は必ず前倒しを）。あとは温泉に振り切る一日に。谷口酒店の地酒を数本買って部屋で飲み比べ。
+    <br>・<b>雨で徒歩下山がつらい</b>…DAY1夕方はタクシー（伊東観光タクシー 0557-47-3388・約7分）に切り替え。坂道＋雨＋暗がりは避けるのが賢明です。
+    <br><br>🎆 <b>今回が今シーズン最後の花火チャンス</b>です（PART3の8/4は東北旅行の初日、それ以降は振替せず今季は見送りの方針）。中止の連絡が出たら無理に海辺で粘らず、<b>東海館とわくわく市の提灯</b>に切り替えて早めに宿の温泉へ。「花火は流れたけど、伊東の夏の夜は撮れた」で締められる構成にしてあります。
+  </div>
+
+  <div class="note">
+    ✨ <b>この旅のハイライト3選</b>
+    <br>1. <b>🎆 夢花火PART2（20:30〜20:50）</b>…海に開く1000発。今シーズン最後の一発。
+    <br>2. <b>♨️ ウィスタリアン宇佐美の朝風呂（6:00〜）</b>…高台から宇佐美港と伊豆の山並み。人の少ない朝の湯が、この宿の一番おいしいところ。しかも<b>部屋に戻ってからのシャワーも温泉</b>なので、湯冷めするまで温泉のまま。1泊で温泉に4回でも5回でも入れる宿です。
+    <br>3. <b>⛩️ 比波預天神社（8/1 朝）</b>…延喜式内社で宇佐美の総鎮守。<b>海から上陸した神</b>が漁港の町を守っている、という成り立ちがそのまま残っている場所。宿が宇佐美になったからこそ寄れる、この旅の隠れた一番。
+    <br><span style="font-size:.85rem;color:var(--soft);">（次点：伊東線・宇佐美⇔伊東の5分間。たった5分ですが、この旅では4回乗ります。夕方の海、夜の車窓、朝の光。同じ区間の表情が変わるのを味わえるのは、宿を宇佐美にしたからこその副産物です。）</span>
+    <br><br>💫 <b>この旅で最も感動しそうな瞬間</b>
+    <br>花火を見終えて、<b>21:39発の電車で宇佐美に戻る5分間</b>だと思います。伊東駅は花火帰りの人でごった返しているのに、宇佐美で降りるのはほんの数人。ホームに降りた瞬間、潮の匂いと虫の声だけになる——その落差が、たぶんこの旅で一番記憶に残ります。
+  </div>
+
+  <div class="note">
+    💡 <b>削ってもよい候補・グレード調整</b>
+    <br>・<b>削ってOK</b>…①小田原城 ②DAY2のカフェ（駅前で済ませても可）③DAY1夜の海辺の場所取り（20:15からでも十分間に合います）
+    <br>・<b>節約するなら</b>…えきねっと「トク割」で特急券を往復35%引に（約530円減）／DAY1夕方の徒歩下山を維持してタクシー代を浮かせる
+    <br>・<b>より贅沢にするなら</b>…DAY1夕方の移動をタクシーに／帰りを<b>サフィール踊り子</b>に変更（伊東発17:35。DAY2に大室山や城ヶ崎海岸を足す余裕も生まれます）／宿の夕食（和風膳「乙姫」3,300円〜「龍宮」5,500円）を1食入れる（今回は18:00に居酒屋を予約済みなので次回の楽しみに）
+  </div>
+
+  <div class="chk" id="pack">
+    <b>🎒 持ち物チェック</b>（タップでチェック）
+    <label><input type="checkbox"><span>カメラ（DJI Osmo Action 4）</span></label>
+    <label><input type="checkbox"><span>予備バッテリー／microSDカード／モバイルバッテリー</span></label>
+    <label><input type="checkbox"><span>ミニ三脚／PLフィルター／レンズクロス</span></label>
+    <label><input type="checkbox"><span>🆕 水筒（DAY1にマックスバリュで買った水を、8/1チェックアウト時に移して宇佐美さんぽへ）</span></label>
+    <label><input type="checkbox"><span>🆕 帽子（8/1朝の宇佐美さんぽ用。神社まで日陰は多くありません）</span></label>
+    <label><input type="checkbox"><span>モバイルSuica（伊東線は4回乗るのでICが圧倒的に楽）</span></label>
+    <label><input type="checkbox"><span>🆕 Goアプリ（インストール＆決済登録を済ませておく）</span></label>
+    <label><input type="checkbox"><span>🆕 汗拭きシート・替えのTシャツ（DAY1夕方の徒歩下山用）</span></label>
+    <label><input type="checkbox"><span>🆕 小型の懐中電灯かスマホライト（宇佐美の夜道は街灯が少なめ）</span></label>
+    <label><input type="checkbox"><span>歩きやすい靴（下り2.8kmを歩く前提）</span></label>
+    <label><input type="checkbox"><span>現金（音無神社のハート絵馬600円・屋台・朝市はキャッシュ推奨）</span></label>
+    <label><input type="checkbox"><span>イヤホン／飲み物／着替え／温泉用の小物</span></label>
+    <label><input type="checkbox"><span>地酒を持ち帰るなら緩衝材代わりのタオル1枚</span></label>
+  </div>
+
+  <div class="chk">
+    <b>📞 出発前にやること</b>
+    <label><input type="checkbox" checked><span>✅ 宿の送迎バスを予約（7/31 宇佐美駅15:30発／8/1 クラブ発9:20）☎ 0557-47-2661</span></label>
+    <label><input type="checkbox"><span>Goアプリのインストール＆決済登録（花火帰りの配車用。21:39発の車内で配車をかける）</span></label>
+    <label><input type="checkbox"><span>（任意）確実にしたいなら東豆タクシーに7/31 21:45頃・宇佐美駅を予約 ☎ 0557-37-3511（24時間営業）</span></label>
+    <label><input type="checkbox"><span>7/29頃に7/31の天気予報を確認</span></label>
+    <label><input type="checkbox"><span>当日朝にJR伊東線・小田急の運行情報を確認</span></label>
+    <label><input type="checkbox"><span>ちっ茶カフェに行くなら8/1朝にSNSで営業確認</span></label>
+  </div>
+
+
+  <h2 id="geo">📍 座標の検証記録（2026/7/26・v3）</h2>
+  <p>ぽけたびのピンがずれると「台本以前に行き先が違う」事故になるので、全アイテムの住所を公式情報で番地まで取り直し、国土地理院のジオコーディングAPIで座標を引き直しました。</p>
+
+  <h3>判定の内訳</h3>
+  <table>
+    <tr><th>判定</th><th>意味</th><th>件数</th></tr>
+    <tr><td>◎</td><td>APIの返り値が投げた住所と番地まで一致。確定値として採用</td><td>14地点</td></tr>
+    <tr><td>△</td><td>枝番落ち・町名までしか解決されず。標高と直線距離で検算のうえ採用し、memoに <code>※ピン位置は概略（要確認）</code> を明記</td><td>3地点</td></tr>
+    <tr><td>✕</td><td>使用不可（該当なし）</td><td>0地点</td></tr>
+  </table>
+
+  <h3>🔴 旧v2から大きく動いた地点</h3>
+  <table>
+    <tr><th>地点</th><th>移動量</th><th>確定した住所</th></tr>
+    <tr><td><b>伊東駅</b></td><td><b>1,030m</b></td><td>静岡県伊東市湯川3-12-1</td></tr>
+    <tr><td><b>なぎさ公園（花火会場・場所取り）</b></td><td><b>1,254m</b></td><td>静岡県伊東市東松原町178-36</td></tr>
+    <tr><td>マックスバリュ伊東駅前店</td><td>1,026m</td><td>静岡県伊東市猪戸1-5-28</td></tr>
+    <tr><td>田中屋製麺所</td><td>953m</td><td>静岡県伊東市湯川1-16-7</td></tr>
+    <tr><td>谷口酒店</td><td>848m</td><td>静岡県伊東市松原湯端町1-8</td></tr>
+    <tr><td>ストウ家の食卓</td><td>787m</td><td>静岡県伊東市湯川1-11-6</td></tr>
+    <tr><td>音無神社</td><td>415m</td><td>静岡県伊東市音無町1-13</td></tr>
+    <tr><td>小田原城</td><td>500m</td><td>神奈川県小田原市城内6-1</td></tr>
+  </table>
+  <blockquote>旧v2の伊東市街の座標は、まとまって<b>南西へ約1km</b>ずれていました。旧「花火会場」の座標は標高58mの内陸の斜面で、砂浜ではありませんでした。宇佐美側（宇佐美駅・比波預天神社）は20〜30m以内で、こちらは問題ありませんでした。</blockquote>
+
+  <h3>⚠️ ぽけたびで手直しをお願いしたい3件</h3>
+  <table>
+    <tr><th>地点</th><th>状況</th><th>お願い</th></tr>
+    <tr><td><b>ウィスタリアンライフクラブ宇佐美</b><br>（宇佐美3242-225）</td><td>APIは枝番225を解決できず「宇佐美3242番地」の代表点（標高324m・宇佐美駅から直線3.04km）を返しました。<b>既知の徒歩2.8km（道のり）を直線距離が上回るのは物理的にありえない</b>ので不採用。現行座標（標高171m・駅から直線1.89km・標高差157m）は方角も距離も矛盾しませんが、番地レベルでは未確定です</td><td>宿のピンだけ現地の実位置に寄せていただけると確実です</td></tr>
+    <tr><td><b>なぎさ公園</b>（東松原町178-36）</td><td>町名までしか解決できず。標高4.5mの海岸線上で整合はしています</td><td>観覧エリアは砂浜一帯なので実害は小さめ。気になれば微調整を</td></tr>
+    <tr><td><b>宇佐美海水浴場</b></td><td>公式表記が「静岡県伊東市宇佐美」で番地がなく確定不能。宇佐美駅から南東約240m・標高7.6mの海岸線上の代表点を採用（駅徒歩3分の記載と整合）</td><td>そのままでも歩き出せます</td></tr>
+  </table>
+
+  <h3>🎁 副産物として見つかった訂正</h3>
+  <ul>
+    <li><b>田中屋製麺所</b>：営業 <b>10:30–21:00</b>（旧記載10:00–20:00は誤り）。2025年7月開店の伊東駅前店で、湯の花通り入口すぐ・伊東駅から127m</li>
+    <li><b>和憩い処 茶彩</b>：営業 <b>10:00–16:00</b>（旧記載10:00–17:00は誤り）。公式サイトで確認。11:30〜12:40の組みなら支障なし</li>
+    <li><b>谷口酒店</b>：☎ 0557-37-3939（新規記載）</li>
+    <li><b>比波預天神社</b>：正式な鎮座地は静岡県神社庁のデータで <b>静岡県伊東市宇佐美432</b>。一部サイトの「宇佐美上生戸432」は小字入りの表記で、そのままではAPIが解決できません</li>
+  </ul>
+
+  <footer>
+    伊東温泉・花火大会 1泊2日旅行計画書 v3 ／ 2026.07.31–08.01<br>
+    最終更新 2026/7/26（全アイテムの住所と座標を再確定・時刻は駅探／JR公式／宿公式サイトの同日時点の情報で確認）
+  </footer>
+</div>
+
+<script>
+(function(){
+  var btn=document.getElementById('themeBtn');
+  btn.addEventListener('click',function(){
+    var d=document.documentElement;
+    var dark=d.getAttribute('data-theme')==='dark';
+    d.setAttribute('data-theme',dark?'light':'dark');
+    btn.textContent=dark?'🌙 ダーク':'☀️ ライト';
+  });
+})();
+</script>
+</body>
+</html>

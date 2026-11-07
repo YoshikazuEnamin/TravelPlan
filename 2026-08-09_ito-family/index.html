@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>伊東家族旅行｜（保養所） 1泊2日（2026/8/9-10）v7</title>
+<style>
+  :root{
+    --bg:#faf6f0; --card:#ffffff; --text:#2b2420; --sub:#6b5f54;
+    --accent:#c9722f; --accent2:#2f7a6b; --border:#e6ddd0;
+    --tag-yellow-bg:#fff3d6; --tag-yellow-text:#8a5a00;
+    --tag-green-bg:#e2f5ec; --tag-green-text:#1f7a52;
+    --shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  [data-theme="dark"]{
+    --bg:#1b1815; --card:#242019; --text:#f0e9df; --sub:#b8ab9c;
+    --accent:#e08a4c; --accent2:#4fb89e; --border:#3a332c;
+    --tag-yellow-bg:#4a3a10; --tag-yellow-text:#f5cf7a;
+    --tag-green-bg:#173d2e; --tag-green-text:#7fe0b8;
+    --shadow: 0 2px 14px rgba(0,0,0,0.4);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; font-family:-apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+    background:var(--bg); color:var(--text); line-height:1.7; padding-bottom:60px;
+    transition: background .2s, color .2s;
+  }
+  header{
+    position:sticky; top:0; z-index:100; background:var(--card); border-bottom:1px solid var(--border);
+    padding:12px 16px; display:flex; justify-content:space-between; align-items:center; box-shadow:var(--shadow);
+  }
+  header .title{font-size:14px; font-weight:700; color:var(--accent);}
+  header .sub{font-size:11px; color:var(--sub);}
+  .theme-btn{
+    background:var(--bg); border:1px solid var(--border); border-radius:20px; padding:6px 12px;
+    font-size:12px; color:var(--text); cursor:pointer;
+  }
+  nav.subnav{
+    position:sticky; top:52px; z-index:99; background:var(--bg); border-bottom:1px solid var(--border);
+    display:flex; gap:6px; overflow-x:auto; padding:8px 12px; -webkit-overflow-scrolling:touch;
+  }
+  nav.subnav a{
+    flex-shrink:0; font-size:12px; color:var(--sub); text-decoration:none; background:var(--card);
+    border:1px solid var(--border); border-radius:16px; padding:6px 12px;
+  }
+  main{max-width:720px; margin:0 auto; padding:16px;}
+  .hero{
+    background:linear-gradient(135deg, var(--accent), var(--accent2)); color:#fff; border-radius:16px;
+    padding:22px 18px; margin-bottom:18px; box-shadow:var(--shadow);
+  }
+  .hero h1{font-size:19px; margin:0 0 6px;}
+  .hero p{font-size:13px; margin:0; opacity:.92;}
+  section{
+    background:var(--card); border:1px solid var(--border); border-radius:14px; padding:16px;
+    margin-bottom:14px; box-shadow:var(--shadow); scroll-margin-top:100px;
+  }
+  h2{font-size:15px; margin:0 0 10px; color:var(--accent);}
+  h3{font-size:13px; margin:14px 0 6px; color:var(--accent2);}
+  table{width:100%; border-collapse:collapse; font-size:12.5px; margin:8px 0;}
+  th,td{border-bottom:1px solid var(--border); text-align:left; padding:7px 6px; vertical-align:top;}
+  th{color:var(--sub); font-weight:600;}
+  .route{
+    background:var(--bg); border:1px dashed var(--border); border-radius:10px; padding:12px;
+    font-size:12px; white-space:pre-wrap; font-family:"SFMono-Regular",Consolas,monospace; line-height:1.9;
+    color:var(--sub);
+  }
+  .tip{
+    border-left:3px solid var(--accent2); background:var(--tag-green-bg); color:var(--tag-green-text);
+    padding:10px 12px; border-radius:0 8px 8px 0; font-size:12.5px; margin:10px 0;
+  }
+  .flag-y{background:var(--tag-yellow-bg); color:var(--tag-yellow-text); border-radius:6px; padding:1px 6px; font-size:11px; font-weight:700;}
+  .flag-g{background:var(--tag-green-bg); color:var(--tag-green-text); border-radius:6px; padding:1px 6px; font-size:11px; font-weight:700;}
+  details{background:var(--bg); border:1px solid var(--border); border-radius:10px; padding:10px 12px; margin:8px 0;}
+  summary{cursor:pointer; font-size:13px; font-weight:600; color:var(--accent);}
+  ul{margin:6px 0; padding-left:18px; font-size:13px;}
+  li{margin-bottom:4px;}
+  .checklist label{display:flex; align-items:center; gap:8px; font-size:13px; padding:6px 0; border-bottom:1px dashed var(--border);}
+  .checklist input{width:16px; height:16px; accent-color:var(--accent);}
+  .checklist label.done span{text-decoration:line-through; color:var(--sub);}
+  .highlight-grid{display:flex; flex-direction:column; gap:8px;}
+  .highlight-item{
+    display:flex; gap:10px; align-items:flex-start; background:var(--bg); border-radius:10px; padding:10px 12px;
+  }
+  .highlight-num{
+    background:var(--accent); color:#fff; font-weight:700; font-size:12px; border-radius:50%;
+    width:22px; height:22px; display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  footer{text-align:center; font-size:11px; color:var(--sub); padding:20px 0;}
+</style>
+</head>
+<body data-theme="light">
+
+<header>
+  <div>
+    <div class="title">♨️ 伊東家族旅行｜（保養所）</div>
+    <div class="sub">2026/8/9(日)〜8/10(月)・1泊2日・家族4人</div>
+  </div>
+  <button class="theme-btn" onclick="toggleTheme()">🌙 ダーク</button>
+</header>
+
+<nav class="subnav">
+  <a href="#overview">概要</a>
+  <a href="#route">ルート</a>
+  <a href="#day1">Day1</a>
+  <a href="#day2">Day2</a>
+  <a href="#highlight">ハイライト</a>
+  <a href="#alt">代替案</a>
+  <a href="#reserve">予約</a>
+  <a href="#notice">注意</a>
+  <a href="#pack">持ち物</a>
+  <a href="#check">チェックリスト</a>
+  <a href="#geo">📍座標検証</a>
+</nav>
+
+<main>
+
+  <div class="hero">
+    <h1>会社の保養所「（保養所）」1泊2日</h1>
+    <p>本厚木10:30発・カーシェア／わいわいカフェでアップルパイランチ／特別会席（金目鯛の煮付け・サザエ壺焼き・サーロインステーキ）</p>
+  </div>
+
+  <div class="tip" style="border-left:4px solid #d8553f;">🥧 <b>v7の変更点（2026/8/8）</b><br>
+  Day1のランチを伊東市荻の「Ramen&amp;Bar Kei」から伊東市八幡野の「わいわいカフェ」（看板メニュー＝自家製アップルパイ）に変更しました。保養所（大室高原）に近い伊豆高原エリアにあるため、<b>ルート順序も「マックスバリュで買い出し→わいわいカフェでランチ→保養所」に並べ替え</b>、保養所14:00到着は維持しています。詳細は末尾の「📍 座標の検証記録」に。</div>
+
+  <div class="tip" style="border-left:4px solid #d8553f;">📍 <b>v6の変更点（2026/7/26｜住所と座標を全17アイテム再確定）</b><br>
+  🔴<b>いちばん危ないのが保養所です。</b>国土地理院APIは「伊東市大室高原」を解決できず、<b>別地名の「伊東市大原」（伊東市街・市役所そば）を返してきます</b>。実際の大室高原はそこから<b>約6.7km南</b>。カーナビや地図アプリでも同じ誤変換が起きうるので、<b>施設名「（保養所）」か電話番号 0557-51-5999 で検索してください</b>。<br>
+  🔴伊東駅の座標も旧v5では約1.1kmずれていました。<br>
+  🆕<b>ぐらんぱるぽーとの住所を新たに確定</b>＝〒413-0231 静岡県伊東市富戸1090（☎0557-51-1158）。あわせて<b>営業時間の表記を訂正</b>（「10:00〜17:00（平日）」→ <b>10:00〜17:00・無休</b>）。</div>
+
+  <section id="overview">
+    <h2>① 旅の概要</h2>
+    <p><b>テーマ：</b>家族でゆったり伊豆高原ステイ。伊豆高原の隠れ家カフェで自家製アップルパイを楽しんでから、保養所で温泉と豪華会席を堪能する、欲張らない1泊2日。</p>
+    <p><b>魅力：</b>保養所の宿泊費はかなりリーズナブル。そのぶん夕食は金目鯛の煮付け・サザエの壺焼き・サーロインステーキという贅沢ラインナップ（別注済み）。泉質は硫酸塩泉（アルカリ性）でとろみのある柔らかいお湯。2日目は旅の駅ぐらんぱるぽーとでお土産、伊東駅前のちっ茶カフェで伊豆特産「ぐり茶」スイーツも。</p>
+    <details>
+      <summary>💰 想定予算（4人・目安）を見る</summary>
+      <table>
+        <tr><th>項目</th><th>目安</th></tr>
+        <tr><td>保養所 宿泊費＋食事代</td><td>被保険者・被扶養者¥1,800/泊〜、食事代 大人¥3,740・小人¥2,420（規定料金）</td></tr>
+        <tr><td>特別料理 別注代</td><td>保養所に要確認（当日精算の可能性）</td></tr>
+        <tr><td>カーシェア（往復4〜5h分）</td><td>¥6,000〜10,000程度</td></tr>
+        <tr><td>わいわいカフェ ランチ＋アップルパイ（4人）</td><td>¥5,000前後</td></tr>
+        <tr><td>ちっ茶カフェ等カフェ代（4人）</td><td>¥3,000〜4,000程度</td></tr>
+        <tr><td>お土産・雑費</td><td>¥5,000〜10,000</td></tr>
+      </table>
+    </details>
+    <p><b>おすすめ度：</b>◎（温泉＋会席狙いなら文句なし。1泊なので観光は無理しない設計）</p>
+  </section>
+
+  <section id="route">
+    <h2>② ルート概要</h2>
+    <div class="route">本厚木 ══(カーシェア・約75km/1.5〜2h)══&gt; 伊東市街（荻）
+                                          │
+                          マックスバリュエクスプレス伊東荻店（買い出し）
+                                          │
+                                    ══(車約14分/7.8km)══&gt;
+                                          │
+                              わいわいカフェ（八幡野・ランチ＆アップルパイ）
+                                          │
+                                    ══(車約15分/750m)══&gt;
+                                          │
+                              （保養所）（大室高原）
+                                    ★ 温泉・夕食・宿泊 ★
+                                          │
+              （翌朝）旅の駅ぐらんぱるぽーとでお土産
+                                          │
+                                    ══(車15〜20分)══&gt;
+                                          │
+                              伊東駅周辺・ちっ茶カフェ
+                                          │
+                                    ══(カーシェア・約1.5〜2h)══&gt; 本厚木</div>
+    <div class="tip">💡 保養所（大室高原）から旅の駅ぐらんぱるぽーとまでは車で10〜15分、そこから伊東駅までさらに15〜20分。マーケットウィングでのお土産探しに加え、足湯でひと休みもできます。</div>
+  </section>
+
+  <section id="day1">
+    <h2>③ 時系列旅程</h2>
+    <h3>Day1｜8/9(日) 移動＆チェックイン＆特別会席の夜</h3>
+    <table>
+      <tr><th>時刻</th><th>内容</th></tr>
+      <tr><td>10:30</td><td>本厚木発（カーシェア）</td></tr>
+      <tr><td>〜12:15頃</td><td>伊東市街（荻） 着（夏の日曜の渋滞を見込み余裕あり）</td></tr>
+      <tr><td>12:15-12:30</td><td><b>マックスバリュエクスプレス伊東荻店</b>（伊東市荻158-2・7:00-23:30）で水・お茶など買い出し</td></tr>
+      <tr><td>12:30-12:45</td><td>わいわいカフェへ移動（車約14分・7.8km／県道351号・県道111号経由）</td></tr>
+      <tr><td>12:45-13:45</td><td>昼食：<b>わいわいカフェ</b>（〒413-0232 伊東市八幡野1261-21／伊豆高原の隠れ家カフェ）<br>看板メニューの<b>自家製アップルパイ</b>をデザートに。紅玉りんごの自家製ジャム×サクサク生地が評判。カレーなど軽食もあり<br>🟡不定休のため前日までにTEL 0557-27-1461で営業確認を<br><a href="https://sumitai.izu-fj.jp/gourmet/cafe/itou-waiwaicafe-w241-20241215/">紹介記事（伊豆に住みたい！）</a></td></tr>
+      <tr><td>13:45-14:00</td><td>保養所へ移動（車約15分・750m。別荘地内の道のため時間に余裕を）</td></tr>
+      <tr><td>14:00頃</td><td><b>（保養所） 到着・チェックイン</b>（受付14:00〜）</td></tr>
+      <tr><td>14:00-17:30</td><td>館内でゆったり／温泉（14:00〜23:00）／気分で城ヶ崎海岸を覗くのもアリ<br><a href="https://itospa.com/spot/detail_54002.html">城ヶ崎海岸（観光ガイド）</a></td></tr>
+      <tr><td>18:00</td><td><b>夕食：懐石風料理</b>（金目鯛の煮付け／別注＝サザエの壺焼き・サーロインステーキ）</td></tr>
+      <tr><td>19:30〜</td><td>温泉2回目 or カラオケ（要予約・無料）</td></tr>
+      <tr><td>23:00</td><td>門限</td></tr>
+    </table>
+  </section>
+
+  <section id="day2">
+    <h3>Day2｜8/10(月) 朝風呂＆お土産＆カフェ＆帰路</h3>
+    <table>
+      <tr><th>時刻</th><th>内容</th></tr>
+      <tr><td>6:00-10:00</td><td>朝風呂タイム</td></tr>
+      <tr><td>7:30 or 8:00</td><td>朝食（旅館スタイル・しっかりめ）</td></tr>
+      <tr><td>9:00-10:30</td><td>部屋でゆっくり／身支度</td></tr>
+      <tr><td>11:00</td><td>チェックアウト</td></tr>
+      <tr><td>11:10-11:40</td><td><b>旅の駅ぐらんぱるぽーと</b>（🆕<b>〒413-0231 静岡県伊東市富戸1090</b>／☎0557-51-1158／国道135号線沿い）でお土産探し・足湯でひと休み<br>🔴営業 <b>10:00〜17:00・無休</b>（※時間は変動する場合あり）<br><a href="https://granpalport.com/">公式サイト</a></td></tr>
+      <tr><td>11:40-12:10</td><td>伊東駅へ移動（車15〜20分）</td></tr>
+      <tr><td>12:15-13:15</td><td><b>ちっ茶カフェ</b>でスイーツタイム（伊東市中央町8-13／伊東駅徒歩6分／ワッフル・大室山風パフェ・ぐり茶ラテなど）<br><a href="https://www.instagram.com/chitchat_izu/">Instagram（営業確認用）</a></td></tr>
+      <tr><td>13:15頃</td><td>本厚木へ出発</td></tr>
+      <tr><td>〜15:15頃</td><td>本厚木 着（翌8/11山の日の祝日前・Uターン渋滞を見込み余裕あり）</td></tr>
+    </table>
+  </section>
+
+  <section id="highlight">
+    <h2>④ 感動の瞬間・ハイライト</h2>
+    <p><b>最も感動しそうな瞬間：</b>夕食で金目鯛の煮付け・サザエの壺焼き・サーロインステーキが一度にテーブルに並ぶ瞬間。保養所のお得な宿泊費だからこそ実現できる、ちょっと贅沢な家族の食卓です。</p>
+    <div class="highlight-grid">
+      <div class="highlight-item"><div class="highlight-num">1</div><div>別注込みの豪華会席ディナー（金目鯛・サザエ壺焼き・サーロインステーキ）</div></div>
+      <div class="highlight-item"><div class="highlight-num">2</div><div>アルカリ性硫酸塩泉のとろみ湯でのんびり2回入浴</div></div>
+      <div class="highlight-item"><div class="highlight-num">3</div><div>初日はわいわいカフェの自家製アップルパイ、2日目はちっ茶カフェのワッフル＆ぐり茶ラテで伊東のカフェ＆スイーツを満喫</div></div>
+    </div>
+    <p style="margin-top:12px;"><b>削ってもよい候補：</b>Day2のぐらんぱるぽーと＆ちっ茶カフェ。無理にカットしてチェックアウトぎりぎりまで温泉をゆったり楽しむ選択肢もアリ。</p>
+  </section>
+
+  <section id="alt">
+    <h2>⑤ 代替プラン</h2>
+    <p><b>雨天時：</b>ちっ茶カフェは屋内なので影響なし。ぐらんぱるぽーともマーケットウィング部分は屋内で買い物できます。荒天なら伊東駅から近い東海館（レトロ建築の見学スポット・<a href="https://itospa.com/spot/detail_52002.html">観光ガイド</a>）に立ち寄るのもアリ。</p>
+    <p><b>予算を抑える場合：</b>ちっ茶カフェでの注文をドリンクのみに／ぐらんぱるぽーとでのお土産購入を最小限に／カーシェア利用時間を短縮。</p>
+    <p><b>より贅沢にする場合：</b>特別期間（夏休み）は2泊まで延長可能（要早めの予約・抽選の場合あり）。2泊にできれば帰りに熱海・MOA美術館へ寄り道も。</p>
+  </section>
+
+  <section id="reserve">
+    <h2>⑥ 予約リスト</h2>
+    <table>
+      <tr><th>予約対象</th><th>要否</th><th>備考</th></tr>
+      <tr><td>（保養所） 宿泊＋特別会席</td><td><span class="flag-g">✅済</span></td><td>人数・アレルギー最終確認：TEL 0557-51-5999（9:00-18:00）</td></tr>
+      <tr><td>わいわいカフェ</td><td><span class="flag-y">🟡要確認</span></td><td>不定休のため前日までにTEL 0557-27-1461で営業確認を。4名分の席確保のため事前連絡が安心</td></tr>
+      <tr><td>カーシェア</td><td><span class="flag-y">🟡要確保</span></td><td>山の日前日の飛び石連休で車両が埋まりやすい可能性。早めに</td></tr>
+      <tr><td>ちっ茶カフェ</td><td><span class="flag-y">🟡要確認</span></td><td>不定休のため直前にInstagram等で営業確認を。小さめの店で4人一緒に座れるか要チェック（TEL 0557-28-0394）</td></tr>
+      <tr><td>旅の駅ぐらんぱるぽーと</td><td>不要</td><td>予約不要。🔴営業時間 <b>10:00〜17:00・無休</b>（旧記載「（平日）」から訂正・v6／※変動する場合あり）なので11:10到着なら余裕あり。伊東市富戸1090・☎0557-51-1158</td></tr>
+    </table>
+  </section>
+
+  <section id="notice">
+    <h2>⑦ 注意事項</h2>
+    <ul>
+      <li><span class="flag-y">🟡</span> わいわいカフェは不定休。前日までに電話（0557-27-1461）で営業確認を。営業時間11:00〜16:00なので12:45到着なら余裕あり。</li>
+      <li><span class="flag-y">🟡</span> 8/10(月)は8/11(火)山の日の前日。行楽・帰省Uターン渋滞が重なりやすいタイミング。帰路は余裕を持ったスケジュールに。</li>
+      <li><span class="flag-y">🟡</span> ちっ茶カフェは不定休。前日までにInstagram（@chitchat_izu）で営業確認を。休みの場合は駅近くの他カフェ（cafe TATI sweets等）に切り替え。</li>
+      <li><span class="flag-y">🟡</span> マックスバリュでの買い出しは「飲み物まで」に。保養所規定で「食中毒防止のため弁当類・副食物等を食堂・客室で喫食しないでください（持込禁止）」となっているため、水・お茶などのドリンク類はOKでも、お惣菜・お弁当系の夜食は客室で食べられない可能性大。買うなら個包装のお菓子程度が無難。</li>
+      <li>チェックイン14:00・チェックアウト11:00・門限23:00は厳守。</li>
+      <li>全館禁煙。食中毒防止のため弁当類・副食物の館内持ち込み・客室での喫食は不可。夕食の館内持ち帰りも不可。</li>
+      <li>駐車場は8台のみ。混雑期は早めの到着がベター。</li>
+      <li>カーシェアのため、お酒を楽しみたい場合は翌朝の運転担当をあらかじめ決めておくと安心。</li>
+    </ul>
+  </section>
+
+  <section id="pack">
+    <h2>⑧ 持ち物</h2>
+    <ul>
+      <li>日焼け対策（帽子・日焼け止め）：8月の伊豆は日差しが強く湿度も高め</li>
+      <li>温泉用タオル（バスタオルはレンタル¥220あり／フェイスタオル・歯ブラシ・浴衣は施設に用意あり）</li>
+      <li>折りたたみ傘（夏の夕立・台風シーズンのため）</li>
+      <li>現金（施設・店舗によりカード非対応の場合あり）</li>
+      <li>伊東駅前パーキング用の小銭 or 電子マネー</li>
+      <li>着替え（温泉2回入る想定なので多めに）</li>
+    </ul>
+  </section>
+
+  <section id="check">
+    <h2>✅ 最終チェックリスト</h2>
+    <div class="checklist" id="checklist">
+      <label><input type="checkbox" data-key="c1"><span>カーシェア予約（8/9 10:30本厚木発で確保）</span></label>
+      <label><input type="checkbox" data-key="c2"><span>わいわいカフェ 事前TEL営業確認（0557-27-1461・不定休のため）</span></label>
+      <label><input type="checkbox" data-key="c3"><span>保養所へ人数・アレルギー最終確認TEL（0557-51-5999）</span></label>
+      <label><input type="checkbox" data-key="c4"><span>ちっ茶カフェの営業日をSNSで直前確認（不定休のため）</span></label>
+      <label><input type="checkbox" data-key="c5"><span>バスタオル持参 or 現地レンタル（¥220）の方針決め</span></label>
+      <label><input type="checkbox" data-key="c6"><span>🆕 カーナビには保養所の住所ではなく「（保養所）」または 0557-51-5999 を入れる（住所だと伊東市街の「大原」に飛ぶ恐れあり）</span></label>
+    </div>
+  </section>
+
+
+  <section id="geo">
+    <h2>📍 座標の検証記録（v7・2026/8/8｜わいわいカフェ追加）</h2>
+    <h3>わいわいカフェ（伊東市八幡野1261-21）</h3>
+    <table>
+      <tr><th>項目</th><th>内容</th></tr>
+      <tr><td>情報源</td><td>伊豆に住みたい！掲載記事（2024/12/15）／楽天ぐるなび店舗ページ（住所・電話番号を突合）</td></tr>
+      <tr><td>住所</td><td>〒413-0232 静岡県伊東市八幡野1261-21（番地まで両情報源で一致）</td></tr>
+      <tr><td>国土地理院APIの返り値</td><td>「静岡県伊東市八幡野１２６１番地」（34.895035, 139.104797）＝枝番21が落ちた代表点 → <b>△判定</b></td></tr>
+      <tr><td>検算に使った座標</td><td>Googleマップで施設名（わいわいカフェ／通称インディ）を検索してヒットした実店舗ピン（34.89384, 139.105341）</td></tr>
+      <tr><td>ずれ</td><td>国土地理院の代表点とGoogle実店舗ピンの差は約142m。同一番地内の誤差として妥当な範囲 → <b>採用可</b></td></tr>
+      <tr><td>採用した座標</td><td>Googleマップの実店舗ピン：lat 34.89384／lng 139.105341（番地代表点よりも精度が高いため、こちらをJSONに採用）</td></tr>
+      <tr><td>検算した区間</td><td>マックスバリュ荻店→わいわいカフェ：Googleマップ実測14分・7.8km。わいわいカフェ→保養所：Googleマップ実測15分・750m（別荘地内の細い道経由のため、車の所要時間には余裕を見込むのが無難）</td></tr>
+      <tr><td>参照日</td><td>2026/8/8</td></tr>
+    </table>
+
+    <h2>📍 座標の検証記録（v6・2026/7/26）</h2>
+    <p>ぽけたびのピンがずれると「台本以前に行き先が違う」事故になるため、全17アイテムの住所を公式情報で取り直し、国土地理院のジオコーディングAPIで座標を引き直しました。</p>
+
+    <h3>🔴 いちばん重要：保養所の住所は自動変換できません</h3>
+    <table>
+      <tr><th>項目</th><th>内容</th></tr>
+      <tr><td>正しい住所</td><td>〒413-0235 静岡県伊東市大室高原6-187（公式サイトで確認）</td></tr>
+      <tr><td>APIの返り値</td><td><b>「静岡県伊東市大原」</b>（34.963409, 139.100677）＝伊東市街・市役所のそば</td></tr>
+      <tr><td>ずれ</td><td><b>約6.7km 北</b></td></tr>
+      <tr><td>採用したピン</td><td>国土地理院の地名情報「<b>大室山</b>」（34.9030068, 139.094608・標高577.9m＝公称580mと一致）</td></tr>
+      <tr><td>残る誤差</td><td>大室高原の別荘地は大室山の南東側に広がるため、実際の宿は<b>東へ1km前後</b></td></tr>
+    </table>
+    <div class="tip" style="border-left:4px solid #d8553f;"><b>「大室高原」の "大" と "原" だけを拾って「大原」に化けています。</b>カーナビ・地図アプリでも同じことが起きうるので、<b>施設名「（保養所）」か電話番号 0557-51-5999 で検索してください</b>。ぽけたび側のピンも、可能なら手で寄せておくと安心です。</div>
+
+    <h3>🔴 旧v5から動いた座標</h3>
+    <table>
+      <tr><th>地点</th><th>ずれ</th><th>確定した住所</th></tr>
+      <tr><td><b>伊東駅</b></td><td><b>1.1km</b></td><td>静岡県伊東市湯川3-12-1（伊東観光協会の公式表記とも一致）</td></tr>
+      <tr><td>本厚木駅</td><td>440m</td><td>神奈川県厚木市泉町1-1</td></tr>
+      <tr><td>Day1の目的地</td><td>—</td><td>「伊東市街」から<b>Ramen&amp;Bar Kei（伊東市荻）</b>に変更。実際の昼食地点を指すようにしました</td></tr>
+    </table>
+
+    <h3>✅ 検算が通った区間</h3>
+    <table>
+      <tr><th>区間</th><th>直線距離</th><th>既知の情報</th></tr>
+      <tr><td>Ramen&amp;Bar Kei → マックスバリュ荻店</td><td>0.70km</td><td>車数分 ✅</td></tr>
+      <tr><td>マックスバリュ荻店 → 保養所</td><td>3.75km</td><td>車20〜30分 ✅</td></tr>
+      <tr><td>保養所 → ぐらんぱるぽーと</td><td>2.46km</td><td>車10〜15分 ✅</td></tr>
+      <tr><td>ぐらんぱるぽーと → 伊東駅</td><td>8.17km</td><td>車15〜20分 ✅</td></tr>
+      <tr><td>伊東駅 → ちっ茶カフェ</td><td>0.37km</td><td>徒歩6分 ✅</td></tr>
+    </table>
+    <div class="tip">ぐらんぱるぽーとは<b>住所検索（富戸1090番地・番地まで一致）と伊東観光協会公式ページの埋め込み地図が267m差で一致</b>。標高225mも国道135号の富戸区間として妥当なので、確定値として扱えます。</div>
+
+    <h3>⚠️ そのほか要確認（memo冒頭に「※ピン位置は概略（要確認）」を入れてあります／17件中13件）</h3>
+    <ul>
+      <li><b>Ramen&amp;Bar Kei</b>（荻574-53）・<b>マックスバリュ荻店</b>（荻158-2）＝どちらも枝番が落ちた「荻○○番地」の代表点。互いの距離が公称と合うので実害は小さめ</li>
+      <li><b>保養所</b>＝上記のとおり大室山の座標を流用</li>
+    </ul>
+
+    <h3>🎁 副産物として見つかった情報</h3>
+    <ul>
+      <li><b>旅の駅ぐらんぱるぽーと</b>：住所 <b>伊東市富戸1090</b>・☎0557-51-1158・営業 <b>10:00〜17:00 無休</b>（旧記載の「（平日）」は訂正）</li>
+      <li><b>マックスバリュエクスプレス伊東荻店</b>：☎<b>0557-35-9766</b>（新規記載）</li>
+      <li><b>（保養所）</b>：泉質は<b>硫酸塩泉（アルカリ性）</b>。〒は<b>413-0235</b></li>
+      <li><b>Ramen&amp;Bar Kei</b>：11:00〜14:00（スープ売切れ次第終了）／17:30〜20:30・<b>月曜定休＋不定休</b> → 8/9（日）は営業日</li>
+    </ul>
+  </section>
+
+  <footer>伊東家族旅行プラン <b>v7</b>（2026/8/8にDay1ランチをわいわいカフェに変更）｜2026/8/9-10｜作成：旅行参謀</footer>
+</main>
+
+<script>
+  function toggleTheme(){
+    const body = document.body;
+    const btn = document.querySelector('.theme-btn');
+    if(body.getAttribute('data-theme') === 'dark'){
+      body.setAttribute('data-theme','light');
+      btn.textContent = '🌙 ダーク';
+      localStorage.setItem('ito-trip-theme','light');
+    } else {
+      body.setAttribute('data-theme','dark');
+      btn.textContent = '☀️ ライト';
+      localStorage.setItem('ito-trip-theme','dark');
+    }
+  }
+  (function(){
+    const saved = localStorage.getItem('ito-trip-theme');
+    if(saved === 'dark'){
+      document.body.setAttribute('data-theme','dark');
+      document.querySelector('.theme-btn').textContent = '☀️ ライト';
+    }
+  })();
+  document.querySelectorAll('#checklist input[type=checkbox]').forEach(cb=>{
+    const key = 'ito-trip-' + cb.dataset.key;
+    if(localStorage.getItem(key) === '1'){
+      cb.checked = true;
+      cb.closest('label').classList.add('done');
+    }
+    cb.addEventListener('change', ()=>{
+      localStorage.setItem(key, cb.checked ? '1' : '0');
+      cb.closest('label').classList.toggle('done', cb.checked);
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>下北沢・渋谷・荻窪 日帰り旅行計画書</title>
+<style>
+  :root{
+    --navy:#1f3a5f; --sea:#2e6f95; --sun:#e98a3c; --coral:#d8553f;
+    --paper:#fbf7f0; --ink:#2b2b2b; --soft:#6b7280; --line:#e4ddd0;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    background:var(--paper); color:var(--ink); line-height:1.7;
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:0 18px 60px;}
+  header.hero{
+    background:linear-gradient(135deg,var(--navy),var(--sea) 60%,var(--sun));
+    color:#fff; padding:42px 24px 36px; text-align:center;
+  }
+  .hero h1{margin:0 0 8px; font-size:1.7rem; letter-spacing:.04em;}
+  .hero .date{font-size:1rem; opacity:.95; font-weight:600;}
+  .hero .theme{
+    margin:18px auto 0; max-width:560px; font-size:.95rem;
+    background:rgba(255,255,255,.14); padding:12px 16px; border-radius:10px;
+  }
+  .meta{
+    display:flex; flex-wrap:wrap; gap:12px; justify-content:center;
+    margin:22px 0 6px;
+  }
+  .chip{
+    background:#fff; border:1px solid var(--line); border-radius:999px;
+    padding:7px 16px; font-size:.85rem; box-shadow:0 1px 3px rgba(0,0,0,.05);
+  }
+  .chip b{color:var(--sea);}
+  h2.day{
+    margin:36px 0 4px; font-size:1.25rem; color:var(--navy);
+    display:flex; align-items:center; gap:10px;
+  }
+  h2.day .dot{
+    width:30px;height:30px;border-radius:50%;background:var(--sun);
+    color:#fff;display:flex;align-items:center;justify-content:center;
+    font-size:.9rem;font-weight:700;flex:none;
+  }
+  .day-sub{color:var(--soft); font-size:.85rem; margin:0 0 14px 40px;}
+  .timeline{position:relative; margin-left:14px; padding-left:26px;
+    border-left:2px solid var(--line);}
+  .item{position:relative; padding:0 0 20px 4px;}
+  .item::before{
+    content:""; position:absolute; left:-34px; top:5px;
+    width:12px;height:12px;border-radius:50%;
+    background:var(--sea); border:3px solid var(--paper);
+  }
+  .item.hi::before{background:var(--coral); box-shadow:0 0 0 4px rgba(216,85,63,.18);}
+  .time{font-weight:700; color:var(--sea); font-size:.9rem;}
+  .item.hi .time{color:var(--coral);}
+  .ttl{font-weight:700; margin:2px 0 2px;}
+  .desc{font-size:.9rem; color:#444;}
+  .desc a{color:var(--sea); word-break:break-all;}
+  ul.mini{margin:6px 0 0; padding-left:18px; font-size:.88rem; color:#444;}
+  .badge{
+    display:inline-block; font-size:.7rem; font-weight:700; color:#fff;
+    background:var(--coral); border-radius:5px; padding:1px 7px; margin-left:6px;
+    vertical-align:middle;
+  }
+  .badge.go{background:var(--sun);}
+  footer{margin-top:40px; text-align:center; color:var(--soft); font-size:.8rem;}
+  .note{
+    background:#fff; border:1px solid var(--line); border-radius:12px;
+    padding:14px 18px; margin-top:14px; font-size:.88rem;
+  }
+  .note b{color:var(--coral);}
+</style>
+</head>
+<body>
+<header class="hero">
+  <h1>🎻 猫米＆微わかる展＆クラシックコンサート ひとり旅</h1>
+  <div class="date">2026年7月19日（日）／日帰り</div>
+  <div class="theme">「三連休の中日に、下北沢の可愛い台湾カフェでランチ、渋谷で話題の体験型展示、阿佐ヶ谷神明宮に参拝してから荻窪でフレンチディナー、食後はカフェで時間調整、夜はクラシックコンサートで締めくくる大人の一人旅。小田急区間はSuica、東京メトロ区間はVisaのタッチ決済（クレカ乗車）で移動、夏のクレカ乗車還元キャンペーンにも参加。」</div>
+</header>
+
+<div class="wrap">
+  <div class="meta">
+    <span class="chip">📱 Suica（小田急計<b>1,121円</b>）＋Visaタッチ（メトロ計<b>774円</b>・30%還元）</span>
+    <span class="chip">🐈 猫米（下北沢）開店同時入店</span>
+    <span class="chip">🏙️ 渋谷ヒカリエ スカイロビー（無料）</span>
+    <span class="chip">🎨 微わかる展2＋小さいすぎるよ展（14:00入場・確定）</span>
+    <span class="chip">⛩️ 阿佐ヶ谷神明宮（神むすび更新・季節限定）</span>
+    <span class="chip">🍽️ フレンチ<b>予約済み</b>（ORCHESTRA荻窪・17時）</span>
+    <span class="chip">☕ 食後カフェで時間調整（CAFFE STRADA）</span>
+    <span class="chip">🎼 コンサート<b>無料・任意寄付</b>（要teket登録）</span>
+  </div>
+
+  <!-- DAY 1 -->
+  <h2 class="day"><span class="dot">1</span>7/19（日）・日帰り</h2>
+  <p class="day-sub">小田急線で下北沢 → 猫米ランチ → 東京メトロで渋谷 → 体験型展示 → メトロで阿佐ヶ谷（神明宮で神むすび更新）→ 荻窪でフレンチディナー → 食後カフェで時間調整 → クラシックコンサート → 帰路</p>
+  <div class="timeline">
+
+    <div class="item">
+      <div class="time">10:35</div>
+      <div class="ttl">本厚木駅 出発（小田急線）🚆</div>
+      <div class="desc">本厚木 → 下北沢（快速急行）。所要目安44分。時刻は目安（指定席なし）、出発が近づいたら乗換案内で要確認。<br>
+      <span style="color:#3a7d44;">運賃：472円（IC・Suica）</span></div>
+    </div>
+
+    <div class="item">
+      <div class="time">11:15〜11:30</div>
+      <div class="ttl">下北沢駅から猫米へ徒歩 🚶</div>
+      <div class="desc">下北沢駅から徒歩7〜8分で猫米（鎌倉通り沿い）へ。開店11:30に合わせて到着。</div>
+    </div>
+
+    <div class="item hi">
+      <div class="time">11:30〜12:30</div>
+      <div class="ttl">🐈 昼食 ・ 猫米（まおみい） <span class="badge go">開店同時入店</span></div>
+      <div class="desc">北沢4-17-7、鎌倉通り沿いの台湾料理店。セージグリーンを基調としたレトロで可愛い店内。<br>
+      鶏肉飯定食（ジーロー飯定食）1,100円などが人気。滞在は最大1時間の予定。<br>
+      <span style="color:#3a7d44;">営業 11:30〜15:30（L.O.15:00）／定休日：月・火・水 → 7/19（日）営業◎</span><br>
+      <a href="https://maomi-online.com/">猫米 公式サイト</a></div>
+    </div>
+
+    <div class="item">
+      <div class="time">12:30〜12:35</div>
+      <div class="ttl">徒歩で下北沢駅へ 🚶</div>
+      <div class="desc">猫米から下北沢駅まで徒歩7〜8分。</div>
+    </div>
+
+    <div class="item">
+      <div class="time">12:45〜12:50</div>
+      <div class="ttl">下北沢 → 代々木上原（小田急線）🚆</div>
+      <div class="desc">1駅、所要約2〜3分。Suicaで改札タッチ。<br>
+      <span style="color:#3a7d44;">運賃：136円（IC・Suica）</span></div>
+    </div>
+
+    <div class="item">
+      <div class="time">12:50〜12:55</div>
+      <div class="ttl">代々木上原でいったん改札を出てメトロへ再入場</div>
+      <div class="desc">小田急⇔千代田線はホーム向かい側の対面乗換で改札を通らず1分未満で移動できるけど、あえて実際の改札まで歩いてSuicaでタップアウト→東京メトロの改札でVisaカードにタッチして入場し直す。急いでいなければこちらの方がVisaタッチ決済のキャンペーン対象になる。通常の乗換より数分余分にかかる想定。</div>
+    </div>
+
+    <div class="item">
+      <div class="time">12:55〜13:15</div>
+      <div class="ttl">代々木上原 → 表参道 → 渋谷（東京メトロ千代田線・銀座線）🚇 <span class="badge go">Visaタッチ決済</span></div>
+      <div class="desc">千代田線で表参道へ（約10〜12分）、表参道で銀座線に乗り換え渋谷まで約4分（メトロ線内の乗り換えは再タッチ不要）。<br>
+      <span style="color:#3a7d44;">運賃：178円（IC・Visaタッチ）／「東京メトロ 夏のクレカ乗車 還元キャンペーン」対象区間（2026/7/16〜7/31、Visaのタッチ決済利用分合計の30%キャッシュバック・上限600円、事前にVisa割登録が必要）</span></div>
+    </div>
+
+    <div class="item">
+      <div class="time">13:15〜13:40</div>
+      <div class="ttl">渋谷ヒカリエ 11階「スカイロビー」 <span class="badge go">入場無料</span></div>
+      <div class="desc">渋谷駅新南口直結、完全屋内の吹き抜けロビーからスクランブル交差点方面や109を見渡せる展望スペース。予約不要・無料開放（オフィスエントランス兼用のフロアなので落ち着いた雰囲気）。屋内なので雨天でも閉鎖の心配なし。<br>
+      <span style="color:#3a7d44;">開放時間 7:00〜24:00</span><br>
+      <a href="https://www.hikarie.jp/floorguide/floormap/?floor=11f">渋谷ヒカリエ 11Fフロアマップ（公式）</a></div>
+    </div>
+
+    <div class="item">
+      <div class="time">13:40〜13:55</div>
+      <div class="ttl">西武渋谷店へ移動</div>
+      <div class="desc">渋谷ヒカリエから西武渋谷店まで徒歩約12〜15分（駅を挟んで反対側）。14:00の入場時間に遅れないよう余裕を持って向かう。</div>
+    </div>
+
+    <div class="item">
+      <div class="time">14:00〜15:00</div>
+      <div class="ttl">🎨 微わかる展2＋小さいすぎるよ展 <span class="badge go">確定：14時入場チケット購入済み</span></div>
+      <div class="desc">会場：西武渋谷店 B館4階。SNSで大反響を呼んだ体験型展示の続編。「微妙にわかるかも…わからないかも？」という絶妙な違和感を楽しむ内容。1時間程度で見学予定。<br>
+      <span style="color:#3a7d44;">営業 10:00〜20:00（最終入場19:30）／料金：休日2,100円</span><br>
+      <a href="https://www.sogo-seibu.jp/shibuya/topics/biwakaru-exhibition">微わかる展2＋小さいすぎるよ展（西武渋谷店 公式）</a></div>
+    </div>
+
+    <div class="item">
+      <div class="time">15:15〜15:50</div>
+      <div class="ttl">渋谷 → 赤坂見附 → 南阿佐ヶ谷（東京メトロ）🚇 <span class="badge go">Visaタッチ決済</span></div>
+      <div class="desc">西武渋谷店から渋谷駅まで徒歩約12分。銀座線で渋谷→赤坂見附（約10分）、赤坂見附で丸ノ内線（荻窪方面）に乗り換えて南阿佐ヶ谷まで（約22分）。メトロ線内の乗り換えのみで再タッチ不要。所要目安トータル35分。<br>
+      <span style="color:#3a7d44;">運賃：209円（IC・Visaタッチ）／引き続きVisaタッチ決済でクレカ乗車還元キャンペーン対象。</span></div>
+    </div>
+
+    <div class="item">
+      <div class="time">15:50〜16:02</div>
+      <div class="ttl">南阿佐ヶ谷駅から神明宮へ 🚶</div>
+      <div class="desc">南阿佐ヶ谷駅（青梅街道沿い）から中杉通りを北へ、徒歩約10〜12分。<br>
+      <span style="color:#6b7280;">※JR阿佐ヶ谷駅からだと徒歩2〜4分と近いですが、今回はメトロ移動なので南阿佐ヶ谷から歩きます。</span></div>
+    </div>
+
+    <div class="item hi">
+      <div class="time">16:02〜16:35</div>
+      <div class="ttl">⛩️ 阿佐ヶ谷神明宮 参拝・神むすび更新・御朱印</div>
+      <div class="desc">住所：杉並区阿佐谷北1-25-5。<b>今回の目的は、今持っている「神むすび」を新しいものに更新すること。</b>神むすびは神明宮オリジナルのブレスレット型お守りで、季節ごとに限定デザイン・限定色が登場するのが楽しみのひとつ。当日どんなデザインが出ているかは現地でのお楽しみ。あわせて二十四節気の刺繍入り限定御朱印「大和がさね」も授かれる。伊勢神宮ゆかりの厄除（八難除）の神社で、白木造りの能楽殿や神明造の本殿も見どころ。<br>
+      <span style="color:#3a7d44;">授与所・御朱印受付 9:00〜17:00（開門6:00〜）→ 時間内で余裕あり</span><br>
+      <a href="https://shinmeiguu.com/">公式サイト</a></div>
+    </div>
+
+    <div class="item">
+      <div class="time">16:35〜16:52</div>
+      <div class="ttl">南阿佐ヶ谷 → 荻窪（東京メトロ丸ノ内線）🚇 <span class="badge go">Visaタッチ決済</span></div>
+      <div class="desc">神明宮から南阿佐ヶ谷駅へ徒歩約10〜12分、丸ノ内線で荻窪まで1駅（約2分）。荻窪は丸ノ内線の終点。Visaタッチ決済で還元対象。<br>
+      <span style="color:#3a7d44;">運賃：178円（IC・Visaタッチ）</span></div>
+    </div>
+
+    <div class="item">
+      <div class="time">16:52〜17:00</div>
+      <div class="ttl">荻窪駅からORCHESTRA荻窪へ 🚶</div>
+      <div class="desc">荻窪駅南口から徒歩約2分。17:00の予約時間に到着。</div>
+    </div>
+
+    <div class="item">
+      <div class="time">17:00〜18:15</div>
+      <div class="ttl">🍽️ 夕食 ・ ORCHESTRA荻窪（フレンチ） <span class="badge">予約済み</span></div>
+      <div class="desc">荻窪駅南口から徒歩2分のフレンチビストロ。カウンター席希望・1名で17時から予約済み。<br>
+      注文予定メニュー：季節の前菜盛り合わせ（1,300円）／金目鯛のカツレツ デュグレレソース（1,200円）／鹿肉ボロネーゼのラザニア（1,700円）＝食事のみ計4,200円。<br>
+      予約時に上記メニューと、食事中に自分の手元・お料理だけを動画に残したい旨（店内・他のお客様・スタッフは映さない配慮）を事前に伝達済み。<br>
+      <a href="https://hitosara.com/0020008778/">ORCHESTRA荻窪 店舗情報</a></div>
+    </div>
+
+    <div class="item">
+      <div class="time">18:25〜19:00</div>
+      <div class="ttl">☕ 食後のカフェ休憩 ・ CAFFE STRADA <span class="badge go">時間調整</span></div>
+      <div class="desc">フレンチの食後、開演までの時間をゆったり調整するためのカフェ。ORCHESTRAから徒歩数分、ビルの奥にひっそり佇む隠れ家カフェで、バリスタの市原さんが7年修業して開いた店。イタリア製マシンで淹れる本格エスプレッソやラテアートのカフェモカが自慢。食後なのでコーヒー1杯でのんびり。<br>
+      <span style="color:#3a7d44;">営業 11:30〜22:00／定休日：月・第3木 → 7/19（日）営業◎</span><br>
+      住所：東京都杉並区荻窪4-21-19 スカイハイツ101<br>
+      <a href="https://caffe-strada-ogikubo.com">店舗情報</a></div>
+    </div>
+
+    <div class="item">
+      <div class="time">19:00〜19:10</div>
+      <div class="ttl">徒歩で杉並公会堂へ 🚶</div>
+      <div class="desc">CAFFE STRADAから荻窪駅北口方面へ徒歩約8〜10分。開場19:00・開演19:30なので、19:10頃到着でも余裕を持って着席できる。</div>
+    </div>
+
+    <div class="item">
+      <div class="time">19:00（開場）</div>
+      <div class="ttl">杉並公会堂 大ホール 開場</div>
+      <div class="desc">住所：東京都杉並区上荻1-23-15（荻窪駅北口徒歩7分）。<br>
+      <a href="https://www.suginamikoukaidou.com/">杉並公会堂 公式サイト</a></div>
+    </div>
+
+    <div class="item hi">
+      <div class="time">19:30〜21:00</div>
+      <div class="ttl">🎼 オーケストラ・ファンダメンタルズ第4回演奏会 <span class="badge go">要teket登録</span></div>
+      <div class="desc">「シューマン もう1つのピアノ協奏曲と秘曲集」。指揮・ピアノ：平林遼（音楽監督・常任指揮者）。<br>
+      プログラム：シューマン「ピアノ小協奏曲 序奏とアレグロ・アパッショナート」「ヘルマンとドロテア」序曲「マンフレッド」序曲、メンデルスゾーン「美しいメルジーネの物語」「フィンガルの洞窟」「静かな海と楽しい航海」。<br>
+      入場は無料・任意寄付制（teketで無料会員登録の上、事前予約推奨）。この旅いちばんの感動の瞬間。<br>
+      <a href="https://teket.jp/6363/53911">チケット・詳細</a></div>
+    </div>
+
+    <div class="item">
+      <div class="time">21:10〜21:25</div>
+      <div class="ttl">荻窪 → 新宿（東京メトロ丸ノ内線）🚇 <span class="badge go">Visaタッチ決済</span></div>
+      <div class="desc">丸ノ内線（荻窪始発）で新宿まで約14分。座って帰れる始発駅。Visaタッチ決済で還元対象。<br>
+      <span style="color:#3a7d44;">運賃：209円（IC・Visaタッチ）</span></div>
+    </div>
+
+    <div class="item">
+      <div class="time">21:25〜21:35</div>
+      <div class="ttl">新宿駅構内を徒歩で小田急線ホームへ</div>
+      <div class="desc">丸ノ内線新宿駅の改札でVisaタッチして出場、駅構内を徒歩5〜8分で小田急線新宿駅へ。</div>
+    </div>
+
+    <div class="item">
+      <div class="time">21:35〜22:25</div>
+      <div class="ttl">新宿 → 本厚木（小田急線）🚆</div>
+      <div class="desc">快速急行（小田原行など）で所要約47分。Suicaで改札タッチ。始発の快速急行なら座って帰れる。<br>
+      <span style="color:#3a7d44;">運賃：513円（IC・Suica）</span></div>
+    </div>
+
+    <div class="item">
+      <div class="time">22:25頃</div>
+      <div class="ttl">本厚木駅 到着</div>
+    </div>
+  </div>
+
+  <div class="note">
+    📌 <b>予約・確認メモ：</b>
+    <br>・移動は<b>小田急線区間はSuica、東京メトロ区間はVisaのタッチ決済（クレカ乗車）</b>で使い分ける。「東京メトロ 夏のクレカ乗車 還元キャンペーン」（2026/7/16 4:00〜7/31 23:59）対象で、Visaのタッチ決済利用分の合計金額の30%がキャッシュバック（上限600円、カード1枚につき）。
+    <br>・<span style="color:#b3441f;"><b>要事前準備：</b>キャンペーンの利用には出発前にVisa割ページでのエントリー（メールアドレス＋カード番号登録）が必要。未登録だと還元対象外になるので、旅行前に済ませておくこと。</span>
+    <br>・クレカ乗車はSuica/PASMOのチャージには使えず、東京メトロの改札でVisaカード（現物・スマホ・ウェアラブル）を直接タッチする方式。<b>代々木上原</b>は小田急⇔千代田線が対面乗換で改札を通らない構造（1分未満）だけど、キャンペーン対象にするため、あえて実際の改札まで歩いてSuicaでタップアウト→メトロ改札でVisaにタッチし直す。通常の乗換より数分余分にかかる想定（急がない前提で組み込み済み）。
+    <br>・<b>猫米</b>は開店11:30と同時入店予定、滞在は最大1時間で12:30頃に切り上げ。予約不可店のため、開店直後を逃すと混雑・待ちの可能性あり。
+    <br>・渋谷到着後は天候を考慮し屋外散策の代わりに、渋谷ヒカリエ11階「スカイロビー」（完全屋内・無料・予約不要）に立ち寄る。西武渋谷店までは駅を挟んで反対側のため徒歩12〜15分かかる想定、13:40頃には移動を始めること。
+    <br>・<b>微わかる展2＋小さいすぎるよ展</b>は14:00入場の日時指定チケット購入済み。
+    <br>・<b>コンサート</b>は入場無料・任意寄付制ですが、teketでの無料会員登録＋事前予約が必要。当日21:00まで購入可能ですが、埋まる可能性もあるので早めの確保が安心。
+    <br>・<b>阿佐ヶ谷神明宮</b>は<b>今持っている神むすびの更新が目的</b>。神むすびは季節ごとに限定デザイン・限定色が出るので、当日どんなのがあるかは現地でのお楽しみ。あわせて限定御朱印「大和がさね」も。授与所・御朱印は9:00〜17:00で、16:02着なら時間内で余裕あり。
+    <br>・<b>アクセスはすべて東京メトロ利用：</b>渋谷→（銀座線）→赤坂見附→（丸ノ内線）→<b>南阿佐ヶ谷</b>で下車→徒歩約10〜12分で神明宮→帰りは南阿佐ヶ谷→（丸ノ内線1駅）→荻窪。全区間メトロなのでVisaタッチ決済の還元キャンペーン対象。<span style="color:#6b7280;">※神明宮の最寄りはJR阿佐ヶ谷駅（徒歩2〜4分）の方が近いですが、メトロ移動優先のため南阿佐ヶ谷から歩く前提（約10〜12分・健脚なら問題なし）。</span>
+    <br>・<b>行程順の変更：</b>展示のあと阿佐ヶ谷神明宮で神むすび更新→荻窪でフレンチ（17:00〜）→<b>食後にカフェで時間調整</b>（18:25〜19:00）→コンサート（19:00開場・19:30開演）の流れ。フレンチが18時過ぎに終わっても、カフェで一息ついてから会場入りできる。
+    <br>・<b>ORCHESTRA荻窪</b>は17:00・1名・カウンター席希望で予約済み。注文メニューと動画撮影（手元・料理のみ、他のお客様やスタッフは映さない）の了承依頼を予約時に伝達済み。
+    <br>・<b>CAFFE STRADA</b>は隠れ家的な立地（ビル内の通路奥）のため、看板を見落とさないよう注意。日曜営業なので問題なし。食後の利用なので飲み物1杯でのんびり。
+    <br>・電車の時刻・所要時分はすべて目安。出発が近づいたら乗換案内アプリで最新時刻を確認すると安心。
+    <br>・雨天予報のため、折りたたみ傘は必携。屋内中心のプランに変更したので大きな影響はなし。
+    <br>・<b>予算目安（交通費はYahoo!乗換案内で2026/7/18時点のIC運賃を確認）</b>：<br>
+    　＜交通費・小田急Suica＞本厚木→下北沢 472円＋下北沢→代々木上原 136円＋新宿→本厚木 513円＝<b>1,121円</b><br>
+    　＜交通費・メトロVisaタッチ＞代々木上原→渋谷 178円＋渋谷→南阿佐ヶ谷 209円＋南阿佐ヶ谷→荻窪 178円＋荻窪→新宿 209円＝<b>774円</b>（うち30%＝約232円が後日キャッシュバック、上限600円以内なので全額対象）<br>
+    　＜交通費合計＞1,895円（還元後の実質負担 約1,663円）<br>
+    　＜その他＞猫米ランチ1,100円＋展示2,100円＋神明宮 神むすび＋御朱印 約1,000円＋ディナー4,200円（＋グラスワイン等）＋食後カフェ600〜800円＋コンサート（無料・任意寄付）<br>
+    　＜総額＞<b>約9,900〜10,100円前後</b>（メトロ30%キャッシュバック反映後は実質 約9,700〜9,900円）。
+  </div>
+
+  <footer>
+    下北沢・渋谷・荻窪 日帰り旅行計画書 ／ 2026.07.19
+  </footer>
+</div>
+</body>
+</html>

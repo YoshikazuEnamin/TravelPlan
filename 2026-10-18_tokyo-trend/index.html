@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>東京トレンドがっつり1日旅 v1</title>
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--ink:#2b2420;--sub:#7a6a5e;--line:#dfe5ef;--acc:#1e3a8a;--acc2:#b8862b;--ok:#15803d;--warn:#b45309;--soft:#eef2fb}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif;line-height:1.7;font-size:15px}
+header{background:linear-gradient(135deg,#0f1f4d,#1e3a8a 55%,#b8862b);color:#fff;padding:28px 16px 22px}
+header h1{margin:0;font-size:1.45rem;line-height:1.4}
+header p{margin:6px 0 0;opacity:.92;font-size:.9rem}
+nav{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
+nav a{display:inline-block;padding:10px 12px;color:var(--acc);text-decoration:none;font-weight:600;font-size:.88rem}
+main{max-width:760px;margin:0 auto;padding:12px 16px 60px}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0;scroll-margin-top:52px}
+h2{margin:0 0 10px;font-size:1.15rem;color:var(--acc)}
+h3{margin:14px 0 6px;font-size:1rem}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:6px}
+.kpi{background:var(--soft);border-radius:10px;padding:10px;text-align:center}
+.kpi b{display:block;font-size:1.05rem}
+.kpi span{font-size:.75rem;color:var(--sub)}
+blockquote{margin:12px 0;padding:10px 12px;background:var(--soft);border-left:4px solid var(--acc2);border-radius:6px}
+.route{font-family:ui-monospace,Menlo,monospace;font-size:.78rem;background:#eef1f7;border-radius:8px;padding:10px;overflow-x:auto;white-space:pre;line-height:1.5}
+.tl{list-style:none;margin:0;padding:0}
+.tl li{display:grid;grid-template-columns:92px 1fr;gap:8px;padding:10px 0;border-bottom:1px dashed var(--line)}
+.tl li:last-child{border-bottom:0}
+.t{font-weight:700;color:var(--acc);font-variant-numeric:tabular-nums;font-size:.9rem}
+.tl .ttl{font-weight:700}
+.tl .m{font-size:.86rem;color:var(--sub)}
+.tag{display:inline-block;font-size:.72rem;padding:1px 7px;border-radius:99px;margin-left:4px;vertical-align:1px}
+.ok{background:#dcfce7;color:var(--ok)}.wa{background:#fef3c7;color:var(--warn)}
+table{width:100%;border-collapse:collapse;font-size:.88rem}
+td,th{padding:7px 6px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+td.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+tr.total td{font-weight:700;border-top:2px solid var(--acc)}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px;margin:8px 0}
+summary{cursor:pointer;font-weight:700}
+ul{padding-left:1.2em;margin:6px 0}
+.check label{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-bottom:1px dashed var(--line)}
+.check input{margin-top:5px;width:18px;height:18px;accent-color:var(--acc)}
+.check label.done span{text-decoration:line-through;color:var(--sub)}
+a{color:var(--acc)}
+.small{font-size:.8rem;color:var(--sub)}
+.hl{display:grid;gap:8px}
+.hl div{background:var(--soft);border-radius:10px;padding:10px 12px}
+@media(max-width:420px){.tl li{grid-template-columns:78px 1fr}.kpi b{font-size:.95rem}}
+</style>
+</head>
+<body>
+<header>
+<h1>🗼 東京トレンドがっつり1日旅<br>高輪 → 八重洲 → 両国 → 大井町 v1</h1>
+<p>2026/10/18(日)・本厚木 08:32発 → 21:59着／江戸の歴史 × できたての東京</p>
+</header>
+<nav>
+<a href="#about">概要</a><a href="#plan">旅程</a><a href="#budget">予算</a><a href="#reserve">予約</a><a href="#risk">注意</a><a href="#alt">代替案</a><a href="#items">持ち物</a><a href="#check">チェック</a><a href="#src">出典</a>
+</nav>
+<main>
+
+<section id="about">
+<h2>① 旅の概要</h2>
+<p>朝は赤穂浪士のお寺・泉岳寺からスタートして、高輪ゲートウェイシティの足湯でひと休み。午後は東京駅のできたてタワーでお神輿を見て、江戸博で江戸の街にどっぷり。夜は26階のルーフトップから電車の車両基地を見下ろして乾杯！ってプランだよ。ほぼ屋内だから天気にも左右されにくいし、明日は晴れ予報☀️</p>
+<div class="kpis">
+<div class="kpi"><b>約¥9,200</b><span>想定予算</span></div>
+<div class="kpi"><b>08:32→21:59</b><span>本厚木 発→着</span></div>
+<div class="kpi"><b>★★★★☆</b><span>おすすめ度</span></div>
+</div>
+<div class="route">本厚木
+  │ 🚃 小田急 → 海老名 → 相鉄特急 → 横浜 → 京急特急
+泉岳寺 ⛩️
+  │ 🚶 約10分
+MoN Takanawa ♨️足湯 → ELLE café 🥐
+  │ 🚃 京浜東北線快速（9分）
+東京駅八重洲 TOFROM YAESU 🏮
+  │ 🚃 山手線 → 秋葉原 → 総武線
+両国 江戸東京博物館 🏯
+  │ 🚃 総武線 → 秋葉原 → 京浜東北線
+大井町 ROOFTOP BAR 🍹
+  │ 🚃 京浜東北線 → 横浜 → 相鉄特急 → 海老名 → 小田急
+本厚木</div>
+<h3>✨ この旅でいちばん感動しそうな瞬間</h3>
+<p>暗くなった26階のテラスから、車両基地に電車がずらっと並んでるのを見下ろしながら飲む一杯。日曜の日の入りは17時過ぎだから、18時に着いたときにはもう夜景モードだよ。</p>
+<h3>🏆 ハイライト3選</h3>
+<div class="hl">
+<div><b>1. MoN Takanawaの足湯テラス</b><br>草木に囲まれた6階の半屋外テラスで、街なかなのに足湯。しかも無料！</div>
+<div><b>2. 山王祭のお神輿の常設展示</b><br>9/10オープンのTOFROM YAESU TOWER。広場「檜物町スクエア」にある約1トンのお神輿。</div>
+<div><b>3. ルーフトップの夜景</b><br>車両基地と都心の夜景をいっぺんに見られる、電車好きにはたまらない場所。</div>
+</div>
+<blockquote>☀️ <b>明日の天気</b>（港区・tenki.jp 10/17 07:00発表）：晴れ、最高24℃／最低15℃。降水確率は日中0〜10%、夜20%。夜のテラス用に羽織りものがあると安心。</blockquote>
+</section>
+
+<section id="plan">
+<h2>② 時系列旅程</h2>
+<p class="small">✅＝公式・時刻表で確認済み　⚠️＝目安や要再確認（電車の時刻はYahoo!路線情報で10/18(日)のダイヤを10/17に確認）</p>
+<ul class="tl">
+<li><div class="t">08:32</div><div><div class="ttl">🚃 本厚木 発 → 泉岳寺 09:54着<span class="tag ok">✅</span></div><div class="m">小田急 新宿行で海老名へ → 08:43発 相鉄特急 横浜行 → 横浜09:28発 京急特急 青砥行。¥807。新宿を通らないから、乗り換えもラクだよ。</div></div></li>
+<li><div class="t">09:55<br>〜10:45</div><div><div class="ttl">⛩️ 泉岳寺<span class="tag ok">✅</span></div><div class="m">赤穂浪士のお墓があるお寺。開門は7:00〜16:00。赤穂義士記念館＋義士木像館は共通券¥500（9:00〜15:30）。お墓の線香料は¥500（任意）。御朱印もいただいていこ。</div></div></li>
+<li><div class="t">10:45<br>〜10:55</div><div><div class="ttl">🚶 高輪ゲートウェイシティへ（徒歩約10分）</div></div></li>
+<li><div class="t">10:55<br>〜12:25</div><div><div class="ttl">♨️ MoN Takanawa<span class="tag ok">✅入館無料</span></div><div class="m">隈研吾さんデザインのミュージアム。6階の<b>足湯テラス</b>と月見テラス、屋上の花見テラスをめぐってね。有料のライブや展示は別チケット。基本10:00〜21:00で、原則 第2火曜が休館（日曜はOK）。</div></div></li>
+<li><div class="t">12:30<br>〜13:35</div><div><div class="ttl">🥐 ランチ：ELLE café TAKANAWA<span class="tag ok">✅</span></div><div class="m">9/8オープン。9:00〜21:00で定休日なし。名物の「Croger」ビーフ＆ラタトゥイユ¥2,100に、スープかサラダのセット＋¥550。</div></div></li>
+<li><div class="t">13:48</div><div><div class="ttl">🚃 高輪ゲートウェイ → 東京 13:57着<span class="tag ok">✅</span></div><div class="m">京浜東北線快速 南浦和行。¥199。13:46の山手線でもOK。</div></div></li>
+<li><div class="t">13:57<br>〜15:10</div><div><div class="ttl">🏮 TOFROM YAESU TOWER</div><div class="m">東京駅と地下で直結。広場「檜物町スクエア」に<b>山王祭のお神輿</b>がずっと飾ってあるよ。岩井俊二さんの物語から生まれたアート「人魚の街」もチェック。専門店ゾーン「YAESU 東京界」でお茶やお土産も<span class="tag wa">⚠️お店の営業時間は未確認</span>。</div></div></li>
+<li><div class="t">15:16</div><div><div class="ttl">🚃 東京 → 両国 15:28着<span class="tag ok">✅</span></div><div class="m">山手線内回り → 秋葉原15:24発 総武線 千葉行。¥199。</div></div></li>
+<li><div class="t">15:30<br>〜17:30</div><div><div class="ttl">🏯 江戸東京博物館<span class="tag ok">✅</span></div><div class="m">約4年の改修を終えて今年3/31に再オープン。¥800。<b>日曜は17:30閉館（入館は17:00まで）</b>だから、閉館と同時に駅へ向かおう。両国駅西口から徒歩3分。</div></div></li>
+<li><div class="t">17:36</div><div><div class="ttl">🚃 両国 → 大井町 18:05着<span class="tag ok">✅</span></div><div class="m">総武線 三鷹行 → 秋葉原17:45発 京浜東北線 大船行。¥253。乗り遅れても17:42発（18:10着）があるよ。</div></div></li>
+<li><div class="t">18:10<br>〜20:30</div><div><div class="ttl">🍹 The TRAVELERS HOUSE ROOFTOP BAR（26F）</div><div class="m">ホテルメトロポリタン 大井町トラックスの最上階。<b>日・祝は15:00〜22:00</b><span class="tag ok">✅</span>。ハワイアン・ポリネシアンがテーマのカクテルとフード。料金と予約の要否は未確認<span class="tag wa">⚠️</span>だから、気になるなら午後に電話してね（03-6452-3202）。</div></div></li>
+<li><div class="t">20:42</div><div><div class="ttl">🚃 大井町 → 本厚木 21:59着<span class="tag ok">✅</span></div><div class="m">京浜東北線 大船行 → 横浜21:17発 相鉄特急 → 海老名21:56発 小田急急行。¥801。早く帰りたいなら20:35発のりんかい線 → 大崎 → 湘南新宿ライン → 新宿21:01発 快速急行で21:50着（¥932）。</div></div></li>
+</ul>
+</section>
+
+<section id="budget">
+<h2>💰 予算</h2>
+<details open><summary>内訳（合計 約¥9,209）</summary>
+<table>
+<tr><th>項目</th><th>メモ</th><td class="n"><b>金額</b></td></tr>
+<tr><td>本厚木→泉岳寺</td><td>IC ✅</td><td class="n">¥807</td></tr>
+<tr><td>泉岳寺 記念館</td><td>共通券 ✅</td><td class="n">¥500</td></tr>
+<tr><td>MoN Takanawa</td><td>入館無料</td><td class="n">¥0</td></tr>
+<tr><td>ELLE café ランチ</td><td>Croger＋セット</td><td class="n">¥2,650</td></tr>
+<tr><td>高輪ゲートウェイ→東京</td><td>IC ✅</td><td class="n">¥199</td></tr>
+<tr><td>東京→両国</td><td>IC ✅</td><td class="n">¥199</td></tr>
+<tr><td>江戸東京博物館</td><td>一般 ✅</td><td class="n">¥800</td></tr>
+<tr><td>両国→大井町</td><td>IC ✅</td><td class="n">¥253</td></tr>
+<tr><td>ルーフトップバー</td><td><span class="tag wa">⚠️目安</span></td><td class="n">¥3,000</td></tr>
+<tr><td>大井町→本厚木</td><td>IC ✅</td><td class="n">¥801</td></tr>
+<tr class="total"><td colspan="2">合計</td><td class="n">¥9,209</td></tr>
+</table>
+<p class="small">泉岳寺の線香料（¥500・任意）とお土産代は入れてないよ。</p>
+</details>
+</section>
+
+<section id="reserve">
+<h2>③ 予約リスト</h2>
+<ul>
+<li><b>予約が必要なもの</b>：なし！全部当日そのまま行けるよ。</li>
+<li><b>確認しておくと安心</b>：ルーフトップバーの混み具合と予約の要否（03-6452-3202）。</li>
+<li><b>支払い</b>：電車は交通系ICでOK。江戸博は現金・主要カードが使える。</li>
+</ul>
+</section>
+
+<section id="risk">
+<h2>④ 注意事項</h2>
+<h3>🚃 乗り換えのリスク</h3>
+<ul>
+<li>どの区間も数分おきに電車があるから、1本逃しても大丈夫。いちばん大事なのは<b>江戸博の17:00最終入館</b>。</li>
+<li>泉岳寺は16:00で閉門、記念館は15:30まで → 朝いちで行くのが正解。</li>
+</ul>
+<h3>👥 混雑のリスク</h3>
+<ul>
+<li>日曜の高輪ゲートウェイシティとTOFROMは混みやすい。ランチは12:30より早めにずらすのもアリ。</li>
+<li>ルーフトップは夕暮れから夜が人気の時間。席が空いてなかったら、ホテル5階のレストランやOIMACHI TRACKSの館内で軽く食べて、あとからもう一度のぞいてみてね。</li>
+</ul>
+<h3>🧳 荷物</h3>
+<ul><li>お土産は八重洲で買うと荷物が増えるから、帰りに大井町か横浜で買うのがラク。</li></ul>
+</section>
+
+<section id="alt">
+<h2>🔀 代替案</h2>
+<h3>✂️ 削ってもいい候補</h3>
+<ul><li><b>江戸東京博物館</b>：疲れたらカットして、八重洲でカフェタイム → 17時台に大井町へ。夕焼けから夜景に変わるところを見られるよ。</li></ul>
+<h3>☔ 雨の日バージョン</h3>
+<ul><li>泉岳寺と足湯テラス（半屋外）以外はぜんぶ屋内。雨ならMoNの館内やカフェで過ごす時間を長めにしてね。</li></ul>
+<h3>💸 もっと安くするなら</h3>
+<ul><li>ランチをMoN 1階のテイクアウトカフェにして、バーは1杯だけにする → 合計¥6,500くらい。</li></ul>
+<h3>✨ ちょっと贅沢にするなら</h3>
+<ul><li>八重洲の「YAESU 東京界」で、ミシュラン一つ星「天 よこた」の新店や焼鳥「おみ乃」の新店をディナーにする<span class="tag wa">⚠️要予約・料金未確認</span>。そのときはバーと順番を入れ替えるね。</li></ul>
+</section>
+
+<section id="items">
+<h2>⑤ 持ち物</h2>
+<ul>
+<li>歩きやすい靴</li>
+<li>足湯用の小さいタオル</li>
+<li>夜のテラス用の羽織りもの（最低15℃の予報）</li>
+<li>御朱印帳</li>
+<li>交通系ICカード</li>
+<li>モバイルバッテリー</li>
+</ul>
+</section>
+
+<section id="check">
+<h2>✅ 最終チェックリスト</h2>
+<div class="check" id="cl">
+<label><input type="checkbox"><span>ICカードのチャージOK</span></label>
+<label><input type="checkbox"><span>当日朝：運行情報（小田急・相鉄・京急・JR）をチェック</span></label>
+<label><input type="checkbox"><span>足湯用タオル・羽織りもの・御朱印帳をカバンに入れた</span></label>
+<label><input type="checkbox"><span>泉岳寺の記念館は15:30まで → 朝いちで行く</span></label>
+<label><input type="checkbox"><span>江戸博には17:00までに入る</span></label>
+<label><input type="checkbox"><span>（任意）ルーフトップバーに電話で混み具合を確認</span></label>
+</div>
+</section>
+
+<section id="src">
+<h2>📚 出典（2026/10/17確認）</h2>
+<ul class="small">
+<li><a href="https://transit.yahoo.co.jp/">Yahoo!路線情報（10/18(日)のダイヤで検索）</a></li>
+<li><a href="https://sengakuji.or.jp/access/">泉岳寺 公式｜アクセス・拝観時間</a>／<a href="https://sengakuji.or.jp/worship/">境内案内</a></li>
+<li><a href="https://montakanawa.jp/">MoN Takanawa 公式</a>／<a href="https://kaibutsu-blog.com/?p=1477">MoN Takanawa 完全ガイド</a></li>
+<li><a href="https://prtimes.jp/main/html/rd/p/000000005.000160522.html">ELLE café TAKANAWA メニュー公開（PR TIMES）</a></li>
+<li><a href="https://travel.watch.impress.co.jp/docs/news/2138894.html">トラベル Watch｜TOFROM YAESU TOWER</a></li>
+<li><a href="https://www.gotokyo.org/jp/spot/1745/index.html">GO TOKYO｜江戸東京博物館</a></li>
+<li><a href="https://www.timeout.jp/tokyo/ja/レストラン/the-travelers-house-rooftop-bar">Time Out｜The TRAVELERS HOUSE ROOFTOP BAR</a></li>
+<li><a href="https://tenki.jp/forecast/3/16/4410/13103/">tenki.jp｜港区の天気</a></li>
+</ul>
+</section>
+</main>
+<script>
+(function(){
+  var key='tokyo-trend-1018-v1-check';var boxes=document.querySelectorAll('#cl input');var saved=[];
+  try{saved=JSON.parse(localStorage.getItem(key)||'[]')}catch(e){}
+  boxes.forEach(function(b,i){
+    if(saved[i]){b.checked=true;b.parentNode.classList.add('done')}
+    b.addEventListener('change',function(){
+      b.parentNode.classList.toggle('done',b.checked);
+      var s=[];boxes.forEach(function(x){s.push(x.checked)});
+      try{localStorage.setItem(key,JSON.stringify(s))}catch(e){}
+    });
+  });
+})();
+</script>
+</body>
+</html>

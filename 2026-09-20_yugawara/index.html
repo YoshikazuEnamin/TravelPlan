@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>湯河原 雨の湯めぐりチル旅｜2026/9/20(日) v5・実施レポ入り</title>
+<style>
+  :root{
+    --bg:#f4f2ee; --card:#ffffff; --text:#24221f; --sub:#6b635b;
+    --accent:#3a7a6d; --accent2:#8a6a3a; --border:#e1dbd1;
+    --tag-yellow-bg:#fff3d6; --tag-yellow-text:#8a5a00;
+    --tag-green-bg:#e2f5ec; --tag-green-text:#1f7a52;
+    --tag-red-bg:#fdeaea; --tag-red-text:#a32a2a;
+    --shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  [data-theme="dark"]{
+    --bg:#15181a; --card:#1e2326; --text:#eef0f2; --sub:#a6aeb4;
+    --accent:#6fc2b1; --accent2:#cfb277; --border:#2e363b;
+    --tag-yellow-bg:#4a3a10; --tag-yellow-text:#f5cf7a;
+    --tag-green-bg:#173d2e; --tag-green-text:#7fe0b8;
+    --tag-red-bg:#43201f; --tag-red-text:#f2a3a0;
+    --shadow: 0 2px 14px rgba(0,0,0,0.4);
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; font-family:-apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+    background:var(--bg); color:var(--text); line-height:1.7; padding-bottom:60px; transition:background .2s,color .2s;}
+  header{position:sticky; top:0; z-index:100; background:var(--card); border-bottom:1px solid var(--border);
+    padding:12px 16px; display:flex; justify-content:space-between; align-items:center; box-shadow:var(--shadow);}
+  header .title{font-size:14px; font-weight:700; color:var(--accent);}
+  header .sub{font-size:11px; color:var(--sub);}
+  .theme-btn{background:var(--bg); border:1px solid var(--border); border-radius:20px; padding:6px 12px; font-size:12px; color:var(--text); cursor:pointer;}
+  nav.subnav{position:sticky; top:52px; z-index:99; background:var(--bg); border-bottom:1px solid var(--border);
+    display:flex; gap:6px; overflow-x:auto; padding:8px 12px; -webkit-overflow-scrolling:touch;}
+  nav.subnav a{flex-shrink:0; font-size:12px; color:var(--sub); text-decoration:none; background:var(--card); border:1px solid var(--border); border-radius:16px; padding:6px 12px;}
+  main{max-width:720px; margin:0 auto; padding:16px;}
+  .hero{background:linear-gradient(135deg, var(--accent), var(--accent2)); color:#fff; border-radius:16px; padding:22px 18px; margin-bottom:18px; box-shadow:var(--shadow);}
+  .hero h1{font-size:19px; margin:0 0 6px;}
+  .hero p{font-size:13px; margin:0; opacity:.93;}
+  section{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:16px; margin-bottom:14px; box-shadow:var(--shadow); scroll-margin-top:100px;}
+  h2{font-size:15px; margin:0 0 10px; color:var(--accent);}
+  h3{font-size:13px; margin:14px 0 6px; color:var(--accent2);}
+  p{font-size:13px;}
+  table{width:100%; border-collapse:collapse; font-size:12.5px; margin:8px 0;}
+  th,td{border-bottom:1px solid var(--border); text-align:left; padding:7px 6px; vertical-align:top;}
+  th{color:var(--sub); font-weight:600;}
+  td.t{white-space:nowrap; font-variant-numeric:tabular-nums; color:var(--accent); font-weight:700;}
+  td.num{text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums;}
+  .route{background:var(--bg); border:1px dashed var(--border); border-radius:10px; padding:12px; font-size:11px; white-space:pre-wrap; font-family:"SFMono-Regular",Consolas,monospace; line-height:1.85; color:var(--sub); overflow-x:auto;}
+  .tip{border-left:3px solid var(--accent2); background:var(--tag-green-bg); color:var(--tag-green-text); padding:10px 12px; border-radius:0 8px 8px 0; font-size:12.5px; margin:10px 0;}
+  .warn{border-left:3px solid #d05a52; background:var(--tag-red-bg); color:var(--tag-red-text); padding:10px 12px; border-radius:0 8px 8px 0; font-size:12.5px; margin:10px 0;}
+  .flag-y{background:var(--tag-yellow-bg); color:var(--tag-yellow-text); border-radius:6px; padding:1px 6px; font-size:11px; font-weight:700;}
+  .flag-g{background:var(--tag-green-bg); color:var(--tag-green-text); border-radius:6px; padding:1px 6px; font-size:11px; font-weight:700;}
+  .flag-r{background:var(--tag-red-bg); color:var(--tag-red-text); border-radius:6px; padding:1px 6px; font-size:11px; font-weight:700;}
+  details{background:var(--bg); border:1px solid var(--border); border-radius:10px; padding:10px 12px; margin:8px 0;}
+  summary{cursor:pointer; font-size:13px; font-weight:600; color:var(--accent);}
+  ul{margin:6px 0; padding-left:18px; font-size:13px;}
+  li{margin-bottom:4px;}
+  a{color:var(--accent);}
+  .checklist label{display:flex; align-items:center; gap:8px; font-size:13px; padding:6px 0; border-bottom:1px dashed var(--border);}
+  .checklist input{width:16px; height:16px; accent-color:var(--accent);}
+  .checklist label.done span{text-decoration:line-through; color:var(--sub);}
+  .highlight-grid{display:flex; flex-direction:column; gap:8px;}
+  .highlight-item{display:flex; gap:10px; align-items:flex-start; background:var(--bg); border-radius:10px; padding:10px 12px; font-size:13px;}
+  .highlight-num{background:var(--accent); color:#fff; font-weight:700; font-size:12px; border-radius:50%; width:22px; height:22px; display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .total-row td{font-weight:700; color:var(--accent); border-top:2px solid var(--border);}
+  .card-inn{background:var(--bg); border:1px solid var(--border); border-radius:12px; padding:12px; margin:10px 0;}
+  .card-inn h4{margin:0 0 6px; font-size:14px; color:var(--accent);}
+  footer{text-align:center; font-size:11px; color:var(--sub); padding:20px 0;}
+</style>
+</head>
+<body data-theme="light">
+
+<header>
+  <div>
+    <div class="title">☔♨️ 湯河原 雨の湯めぐりチル旅</div>
+    <div class="sub">2026/9/20(日) 日帰り・一人・動画撮影あり／v5（9/20実施・思い出を追記）</div>
+  </div>
+  <button class="theme-btn" onclick="toggleTheme()">🌙 ダーク</button>
+</header>
+
+<nav class="subnav">
+  <a href="#memo">🎬 旅の記録</a>
+  <a href="#first">まず押さえる</a>
+  <a href="#route">ルート</a>
+  <a href="#gaiyo">概要</a>
+  <a href="#plan">旅程</a>
+  <a href="#spot">スポット</a>
+  <a href="#meal">食べる・買う</a>
+  <a href="#movie">撮影メモ</a>
+  <a href="#budget">予算</a>
+  <a href="#highlight">ハイライト</a>
+  <a href="#alt">調整・プランB</a>
+  <a href="#notice">注意</a>
+  <a href="#pack">持ち物</a>
+  <a href="#check">チェック</a>
+  <a href="#link">リンク</a>
+</nav>
+
+<main>
+
+  <div class="hero">
+    <h1>朝7時の湯から、滝と源泉、甘味と地酒、海まで一日で降りる</h1>
+    <p>05:25本厚木発 → 駅前の手湯 → みやかみの湯で朝風呂 → 不動滝と源泉 → 美術館と足湯 → むろさだの地酒 → BONの坦々焼きそば → 万葉公園の足湯 → ゑふや → 味楽庵 → 駅前の蝦蟇。<strong>雨なので15分以上の徒歩はぜんぶバスに置き換えた版</strong>です。</p>
+  </div>
+
+
+  <section id="memo">
+    <h2>🎬 旅の記録（2026/9/20 実施・動画用メモ）</h2>
+    <p><strong>実施済み。</strong>予報どおり一日雨。そのおかげで「雨の湯河原」は撮れたけれど、<strong>足湯はどこもやっていなかった</strong>という想定外つき。以下、編集で使うための素材メモです。</p>
+
+    <h3>🦶 今日いちばんの事件＝足湯オール休止</h3>
+    <div class="warn">☔ <strong>雨のため、予定していた足湯が全部お休み</strong>（不動滝茶屋／MUSEUM CAFE／万葉公園）。3か所を軸に組んだ日だったので痛恨…かと思いきや、<strong>空っぽの足湯を全部撮ってある</strong>のでネタとして使える。</div>
+    <ul>
+      <li><strong>使い方の案</strong>：「今日は足湯を3か所めぐります」と宣言してスタート → 1か所目・空っぽ → 2か所目・空っぽ → 3か所目・空っぽ、と同じ構図で3連発。オチは<strong>駅前の手湯</strong>（屋根の下なので雨でも稼働）に着地する</li>
+      <li>空の浴槽は「水滴」「濡れた石」「湯気のない静けさ」が撮れているはずなので、<strong>音は雨だけ</strong>にして無音気味に見せるとコントラストが出る</li>
+      <li>テロップ候補：<em>「足湯、3か所ぜんぶ休み」</em>／<em>「湯がない湯めぐり」</em>／<em>「でも最後に救世主がいた」</em></li>
+    </ul>
+
+    <h3>🥛 美術館の濃厚豆乳がハイライト</h3>
+    <ul>
+      <li>MUSEUM CAFE and garden の<strong>濃厚豆乳に感動</strong>。とにかく濃くて甘い</li>
+      <li><strong>すぐに湯葉ができる</strong>。というより<strong>湯葉どころか目の前で豆腐になった</strong>（笑）</li>
+      <li><strong>これは寄りで撮れていれば一番の“おっ”ポイント</strong>。膜が張る瞬間 → すくう → 食べる、の3カットが繋がれば勝ち。ナレーションは「豆乳が…固まってる？」くらいの実況調で</li>
+      <li>テロップ候補：<em>「豆乳、濃すぎて豆腐になる」</em></li>
+    </ul>
+
+    <h3>🍶 むろさだは“表参道のような空気感”</h3>
+    <ul>
+      <li>店内の空気が<strong>表参道っぽい</strong>。チルするにはちょうどいい温度感だった</li>
+      <li>🤣 <strong>飲み水を取りに行っている間に、注文品が流れてきていた</strong>のに気づかず焦る。リバーカウンターならではの事故</li>
+      <li><strong>「席を外すと桶が流れてくる」</strong>という構造そのものがネタ。戻ってきて気づく瞬間が撮れていれば最高、なければ流れてくる桶の画＋テロップで再現できる</li>
+      <li>テロップ候補：<em>「水を汲みに行ったら、注文が先に到着していた」</em></li>
+    </ul>
+
+    <h3>🤲 手湯に救われた話（今日の裏テーマ）</h3>
+    <ul>
+      <li>朝、<strong>1時間早く駅に着いてしまい</strong>、駅で勉強して時間をつぶしていたら<strong>だんだん寒くなってきた</strong> → <strong>手湯があって助かった</strong></li>
+      <li>そして<strong>最後にもう一度、手湯を堪能して終了</strong>。図らずも<strong>「手湯に始まり手湯に終わる一日」</strong>になった</li>
+      <li>💡 <strong>構成の軸はこれで決まり</strong>：足湯が全滅した日に、唯一ずっと湯が出ていたのが駅前の手湯。オープニングとエンディングを同じ手湯の画で挟めば、それだけで一本の形になる</li>
+      <li>テロップ候補：<em>「始まりも終わりも、手湯だった」</em></li>
+    </ul>
+
+    <h3>🍗 夜：炭火焼き鶏 蝦蟇の注文ログ</h3>
+    <table>
+      <tr><th>ラウンド</th><th>飲みもの</th><th>食べもの</th></tr>
+      <tr><td class="t">1回目</td><td><strong>ゆきの美人</strong>（秋田の日本酒）</td><td>レバー／白モツ／ねぎま／つくね／タレピーマン</td></tr>
+      <tr><td class="t">2回目</td><td><strong>三岳</strong>（屋久島の芋焼酎）お湯割り</td><td>せせり／手羽先／厚揚げ豆腐</td></tr>
+      <tr><td class="t">3回目</td><td><strong>和らぎ</strong>（和らぎ水）</td><td>しいたけ／もも</td></tr>
+    </table>
+    <div class="tip">🎬 <strong>締めのシーンの作り方</strong>：串の画は「焼き上がり→かじる→もう一杯」の3拍子でテンポが出ます。1回目＝日本酒（冷）、2回目＝焼酎のお湯割り（温）、3回目＝和らぎ水、と<strong>体が温まっていく流れ</strong>になっているので、雨で冷えた一日の回収として使えます。<span class="flag-y">※「和らぎ」を和らぎ水として書いています。銘柄のことだったら直します</span></div>
+
+    <h3>📋 素材の棚卸し（編集前チェック）</h3>
+    <div class="checklist">
+      <label><input type="checkbox"><span>空っぽの足湯3か所（不動滝茶屋・MUSEUM CAFE・万葉公園）</span></label>
+      <label><input type="checkbox"><span>駅前の手湯：朝（寒くて助かった）と夜（締め）の2本</span></label>
+      <label><input type="checkbox"><span>濃厚豆乳が固まる瞬間の寄り</span></label>
+      <label><input type="checkbox"><span>むろさだのリバーカウンター／流れてくる桶</span></label>
+      <label><input type="checkbox"><span>不動滝＋源泉の湯けむり（雨の日の本命カット）</span></label>
+      <label><input type="checkbox"><span>蝦蟇の串と、お湯割りの湯気</span></label>
+      <label><input type="checkbox"><span>雨音だけのアンビエント（滝・軒下・川）</span></label>
+    </div>
+  </section>
+
+  <section id="first">
+    <h2>🔴 まず押さえておきたいこと</h2>
+
+    <h3>9/20は「本降りの雨、でも暴風ではない」日</h3>
+    <p>台風25号（ドゥージェン）は9/19午前3時時点で父島の南西約190km、勢力を強めて「強い」台風に。<strong>大雨と暴風のピークは21日(月・祝)</strong>で、最大風速35m/s・瞬間50m/sの予想。<strong>20日(日)は湯河原で一日雨（降水確率90%・1〜3mm/h・23〜24℃・北の風4〜6m）</strong>という予報です。</p>
+    <div class="tip">☔ つまり<strong>狙っていた「雨の湯河原」がちょうど成立する日</strong>。滝の水量も源泉の湯けむりも濃く出ます。ただし<strong>台風接近の前日</strong>なので、予報は前夜と当日朝に必ず取り直すこと。</div>
+    <div class="warn">🌊 <strong>海は別物です。</strong>台風接近で波が高くなる予報。湯河原海浜公園では<strong>堤防・波打ち際に絶対に近づかず、芝生側から眺めるだけ</strong>に。荒れていたら海はスキップして、そのまま駅前へ向かってください。</div>
+
+    <h3>時間の締切は3つ</h3>
+    <ul>
+      <li><span class="flag-r">16:00</span> <strong>町立湯河原美術館の入館</strong>（9:00〜16:30・入館16:00まで）。今日は10:45に入るので余裕</li>
+      <li><span class="flag-r">15:00</span> <strong>cafe&amp;bar BON のカフェ営業</strong>（11:00〜15:00）。坦々焼きそばはここで食べるので<strong>13:30入店</strong>で組んであります</li>
+      <li><span class="flag-r">15:30</span> <strong>味楽庵のカフェ</strong>（9:30〜15:30・在庫終了で閉店）。<span class="flag-g">落合橋15:08のバスに乗れば15:15着で余裕</span></li>
+      <li><span class="flag-y">17:00</span> <strong>ゑふや本店</strong>（8:00〜17:00）。今回は14:35に寄るので余裕あり</li>
+    </ul>
+
+    <h3>15分以上の徒歩を全部バスにしました</h3>
+    <p>雨なので、<strong>①駅→みやかみの湯（徒歩15分）②不動滝→美術館（徒歩25〜30分）③ゑふや→味楽庵（徒歩20分）④味楽庵→海浜公園（徒歩35〜40分）</strong>の4区間をバスに置き換えました。①②③はいずれも本数の多い温泉場の路線なので素直に乗れます。<strong>④だけはバスが1〜2本しかない</strong>ので、海は「任意ルート」に格下げしています。</p>
+    <p>浮いた時間で、<strong>不動滝茶屋の足湯（10時開店）を待てる</strong>ようになり、<strong>味楽庵の15:30締切も余裕</strong>になりました。残る徒歩は全部10分以内です。</p>
+
+    <h3>足湯は今日3か所ある</h3>
+    <p>①不動滝茶屋（100円・10時開店）②<strong>MUSEUM CAFE and garden（無料・美術館併設）</strong>③万葉公園の足湯（共有の地図ピン）。全部入れると時間が足りないので、<strong>②と③を本命、①は任意</strong>にしてあります。タオルは2枚あると安心。</p>
+
+    <h3>朝は05:25本厚木発の一本勝負</h3>
+    <p>みやかみの湯の7:00オープンに合わせるなら<strong>05:25本厚木 → 06:08小田原 → 06:22 → 06:38湯河原</strong>（IC813円）。駅前の手湯を10分楽しんで、歩いて15分でちょうど7時過ぎにIN。1本後の05:45発だと湯河原07:01着で、INは7:20頃になります。</p>
+
+    <h3>駅に戻らずバスに乗れる</h3>
+    <p>みやかみの湯（宮上42-15）から<strong>徒歩5分・370mの「宮上」バス停</strong>で不動滝方面のバスを拾えます。日曜の宮上発は 09:05 / 09:17 / 09:29 / 09:41 / 09:53 / 10:05。駅まで戻る20分がまるごと浮きます。</p>
+
+    <h3>蝦蟇は予約しておくと安心</h3>
+    <p>駅徒歩2分の人気店で、日曜の夕方＋連休。当日の昼までに<strong>0465-20-6551</strong>に電話しておくと確実です。</p>
+  </section>
+
+  <section id="route">
+    <h2>🗺 ルート（標高でたどる一日）</h2>
+    <div class="route">05:25 本厚木 ─小田急─ 06:08 小田原 06:22 ─JR─ 06:38 湯河原（標高36m）
+   │
+   ├ 06:40〜06:55 駅前広場の手湯 🤲（隈研吾設計・檜と御影石・本物の温泉）
+   │
+   └ 🚌 駅 07:00 ─5分─ 07:05 宮上 ＋徒歩5分 ▼
+     07:10 みやかみの湯 ♨️ 朝風呂（標高46m・源泉かけ流し＋ラムネ湯）
+        │ 徒歩5分 ▼
+     09:05 宮上バス停 ─バス8分─ 09:13 不動滝（標高157m）💧 滝＋源泉の湯けむり
+        │  🚌 不動滝 10:16 ─2分─ 10:18 美術館前
+        ▼
+     10:25 町立湯河原美術館 🖼（標高117m・企画展「水の動と静」600円）
+        └ 11:30 MUSEUM CAFE and garden 🦶 無料の足湯つき
+        │ 徒歩10分 ▼
+     12:15 流甘味 むろさだ 🍶（標高92m・地酒三種飲み比べ1,100円）
+        ├ 13:25 cafe&amp;bar BON 🍜 坦々焼きそば（15時閉店）
+        ├ 14:30 万葉公園の足湯 🦶 ＋玄関テラス／狸福神社
+        └ 14:45 ゑふや本店 🍡 きび餅・温泉まんじゅう
+        │ 🚌 落合橋 15:08 ─4分─ 15:12 宮上 ＋徒歩2分 ▼
+     15:15 味楽庵 湯河原本店 🍊（みかん最中ジェラート550円／カフェ15:30まで）
+        │ 🚌 宮上 15:48 ─12分─ 16:00 湯河原駅 ▼
+     17:00 炭火焼き鶏 蝦蟇 🍗（駅徒歩2分）※海に行くなら18:00スタート
+        │
+     20:09 湯河原 ─JR─ 20:26 小田原 20:34 ─小田急快速急行─ 21:14 本厚木</div>
+  </section>
+
+  <section id="gaiyo">
+    <h2>① 旅の概要</h2>
+    <table>
+      <tr><th>テーマ</th><td>雨の日に、山の湯から海まで標高250mを歩いて下る一日</td></tr>
+      <tr><th>日付</th><td>2026年9月20日(日)　日帰り・一人旅</td></tr>
+      <tr><th>天気</th><td>雨／降水確率90%／1〜3mm/h／最高24℃・最低23℃／北の風4〜6m（9/19時点）</td></tr>
+      <tr><th>歩く距離</th><td><strong>バス置換版</strong>。残る徒歩は全部10分以内（最長は美術館→むろさだの450m）</td></tr>
+      <tr><th>想定予算</th><td><strong>約12,300円</strong>（交通・温泉・甘味・食事・お土産こみ）</td></tr>
+      <tr><th>おすすめ度</th><td>★★★★★（雨の日にやるべきことを全部やる構成）</td></tr>
+    </table>
+  </section>
+
+  <section id="plan">
+    <h2>② 時系列旅程</h2>
+    <table>
+      <tr><th>時刻</th><th>行動</th></tr>
+      <tr><td class="t">05:25</td><td><strong>本厚木</strong>発 小田急小田原線 小田原行（2番線）</td></tr>
+      <tr><td class="t">06:08</td><td>小田原着（10番線）→ <strong>06:22</strong> JR東海道本線 熱海行（3番線）</td></tr>
+      <tr><td class="t">06:38</td><td><strong>湯河原</strong>着（1番線）／ここまでIC813円</td></tr>
+      <tr><td class="t">06:40</td><td>🤲 <strong>駅前広場の手湯</strong>。杉とガラスの大屋根の下なので雨でも濡れない。旅のオープニングカットに</td></tr>
+      <tr><td class="t">06:40</td><td>🤲 <strong>駅前広場の手湯</strong>でのんびり15分。大屋根の下なので濡れない</td></tr>
+      <tr><td class="t">07:00</td><td>🚌 <strong>駅2番のりば発のバス</strong>（奥湯河原方面）→ <strong>07:05 宮上</strong>。<span class="flag-g">徒歩15分をバスに置換</span>／190円前後。朝は 06:12 / 06:45 / 07:00 / 07:20 / 07:40</td></tr>
+      <tr><td class="t">07:05</td><td>🚶 宮上バス停から徒歩5分（370m）</td></tr>
+      <tr><td class="t">07:10</td><td>♨️ <strong>みやかみの湯</strong>で朝風呂（7:00〜21:00・1,100円＋入湯税）。源泉かけ流し＋「みやかみラムネ湯」</td></tr>
+      <tr><td class="t">09:00</td><td>🚶 宮上バス停へ徒歩5分</td></tr>
+      <tr><td class="t">09:05</td><td>🚌 宮上発 奥湯河原行 → <strong>09:13 不動滝</strong>（8分・280円前後）。次は09:17</td></tr>
+      <tr><td class="t">09:15</td><td>💧 <strong>不動滝と源泉</strong>。落差15m、左に不動明王・右に出世大黒天。<strong>源泉の湯けむりが滝のしぶきと混ざる</strong>のが雨の日のハイライト</td></tr>
+      <tr><td class="t">10:00</td><td>🦶 <strong>不動滝茶屋</strong>（10:00開店）の足湯100円。<span class="flag-g">バスにしたぶん、ここを待つ余裕ができました</span>。<span class="flag-r">現金のみ</span></td></tr>
+      <tr><td class="t">10:16</td><td>🚌 不動滝発 → <strong>10:18 美術館前</strong>。<span class="flag-g">徒歩25〜30分をバス2分に置換</span>／180円前後。不動滝発は 09:52 / 10:04 / 10:16 / 10:28 / 10:43 / 10:58</td></tr>
+      <tr><td class="t">10:25</td><td>🖼 <strong>町立湯河原美術館</strong>（大人600円・9:00〜16:30）。企画展<strong>「水の動と静」（〜10/18）</strong>。庭園にモネ財団から譲られた睡蓮の株。館内は撮影不可</td></tr>
+      <tr><td class="t">11:30</td><td>🦶 <strong>MUSEUM CAFE and garden</strong>（10:00〜16:00）。<strong>テラスに無料の足湯</strong>。昼はこのあとBONなのでドリンク＋足湯で</td></tr>
+      <tr><td class="t">12:00</td><td>🚶 むろさだへ（450m・徒歩10分）。<span class="flag-y">15分かからないのでここは歩き</span>。強く降っていれば美術館前→落合橋のバスでも2〜3分</td></tr>
+      <tr><td class="t">12:15</td><td>🍶 <strong>流甘味 むろさだ</strong>。<strong>地酒三種類飲み比べ（本醸・吟醸・純米吟醸）小付け付 1,100円</strong>＋甘味</td></tr>
+      <tr><td class="t">13:25</td><td>🍜 <strong>cafe&amp;bar BON</strong>で<strong>坦々焼きそば900円</strong>。<span class="flag-r">カフェ営業は15:00まで</span>。むろさだから徒歩3分</td></tr>
+      <tr><td class="t">14:30</td><td>🦶 <strong>万葉公園の足湯</strong>＋玄関テラスでドリンク。<strong>狸福神社</strong>まわりを5分だけ</td></tr>
+      <tr><td class="t">14:45</td><td>🍡 <strong>ゑふや本店</strong>で<strong>きび餅と温泉まんじゅう</strong>（〜15:00）。そのまま落合橋バス停へ徒歩3分</td></tr>
+      <tr><td class="t">15:08</td><td>🚌 落合橋発 → <strong>15:12 宮上</strong> → 徒歩2分。<span class="flag-g">徒歩20分をバスに置換</span>／190円前後。落合橋発は 14:56 / 15:08 / 15:20 / 15:32 / 15:44</td></tr>
+      <tr><td class="t">15:15</td><td>🍊 <strong>味楽庵 湯河原本店</strong>で<strong>みかん最中ジェラート550円</strong>＋抹茶。<span class="flag-g">カフェ15:30ラストに余裕で間に合う</span></td></tr>
+      <tr><td class="t">15:48</td><td>🚌 宮上発 → <strong>16:00 湯河原駅</strong>（12分・250円前後）。<span class="flag-g">海までの徒歩2.4kmは取りやめ</span></td></tr>
+      <tr><td class="t">16:00</td><td>🛍 駅前でお土産を見たり、手湯にもう一度。<span class="flag-y">海に行くなら17:15発のバスで往復（下の任意ルート）</span></td></tr>
+      <tr><td class="t">17:00</td><td>🍗 <strong>炭火焼き鶏 蝦蟇</strong>（17:00〜23:00・月休・駅徒歩2分・予算3,000〜3,999円）。要予約推奨</td></tr>
+      <tr><td class="t">20:09</td><td>湯河原発 JR（2番線）→ 20:26 小田原 → <strong>20:34</strong> 小田急快速急行（10番線・当駅始発＝座れる）</td></tr>
+      <tr><td class="t">21:14</td><td><strong>本厚木</strong>着。おつかれさま！</td></tr>
+    </table>
+    <div class="tip">🚌 <strong>今日使うバスは5本</strong>：駅07:00→宮上／宮上09:05→不動滝／不動滝10:16→美術館前／落合橋15:08→宮上／宮上15:48→駅。全部PASMO・Suicaが使えます。温泉場の路線は毎時4〜5本あるので1本逃しても12〜15分で次が来ます。</div>
+  <div class="warn">🌊 <strong>海浜公園に行く場合（任意）</strong>：門川へのバスは本数が極端に少なく、<strong>駅→門川は15:35と17:15だけ、門川→駅は16:09 / 17:44</strong>（日曜）。行くなら<strong>17:15駅発 → 17:17門川 → 公園20分 → 17:44門川発 → 17:50駅着</strong>とセットにして、蝦蟇を18:00スタートに。波が高い予報なので芝生側から眺めるだけにして、風雨が強ければ迷わずカットを。</div>
+  </section>
+
+  <section id="spot">
+    <h2>③ スポット情報</h2>
+
+    <div class="card-inn">
+      <h4>🤲 ゆがわらの手湯（湯河原駅前広場）</h4>
+      <p>2017年10月完成。<strong>隈研吾の設計</strong>で、檜と御影石の長さ約5.4m・幅70cmの湯船に地下の配管から温泉が流れる。杉とガラスの波打つ大屋根が特徴で、雨でも濡れずに使えます。</p>
+    </div>
+
+    <div class="card-inn">
+      <h4>♨️ みやかみの湯（宮上42-15／☎0465-20-7538）</h4>
+      <p>7:00〜21:00（最終受付20:30）・定休日なし（月1〜2回の火・水メンテ休）・<strong>1,100円＋入湯税</strong>。2019年オープン、千歳川のほとりの源泉かけ流し。<strong>湯河原初の炭酸泉「みやかみラムネ湯」</strong>、泥パックのスチームサウナ、ハーブテント。貸切風呂は要予約。駅から徒歩15分／タクシー4分。</p>
+    </div>
+
+    <div class="card-inn">
+      <h4>💧 不動滝と源泉（宮上750）</h4>
+      <p>バス停から徒歩1分、落差15m。左に不動明王、右に出世大黒天。<strong>すぐ近くに源泉があり、湯けむりが滝のしぶきと混ざる</strong>のがここの個性。不動滝茶屋（10:00〜17:00・不定休・現金のみ）は<strong>足湯100円</strong>、甘酒500円、源泉ゆでたまご150円。</p>
+    </div>
+
+    <div class="card-inn">
+      <h4>🍶 流甘味 むろさだ（宮上469／☎0465-62-2016）</h4>
+      <p>10:00〜17:00・火曜休（水曜も休む場合あり）。<strong>水の流れるリバーカウンターに小さな桶で甘味が流れてくる</strong>店。あんみつ・パフェ・フルーツポンチ・かき氷、うどんや牛カレーなどの食事も。店内32席＋テラス12席、落合橋バス停すぐ。カード・交通系IC可（QR不可）。</p><p><strong>お酒（2026年5月のメニュー）</strong>：🍶<strong>地酒三種類飲み比べ（本醸・吟醸・純米吟醸）小付け付 1,100円</strong>／ビール（HEARTLAND小瓶）580円／ハイボール580円／グラスワイン（赤・白）580円／湯河原産レモンサワー・甘夏サワー各580円。ノンアルは湯河原みかんジュース550円、レモンスカッシュ・グァバサイダー各450円、フロート飲料580円。</p>
+    </div>
+
+    <div class="card-inn">
+      <h4>🖼 町立湯河原美術館／MUSEUM CAFE and garden（宮上623-1／☎0465-63-7788）</h4>
+      <p>9:00〜16:30（入館16:00まで）・水曜休・<strong>大人600円</strong>。老舗旅館を改装した建物で、竹内栖鳳・安井曾太郎・平松礼二。企画展<strong>「水の動と静」（〜10/18）</strong>と「はじめまして！コレクション展」を開催中。庭園の入口にモネ財団から譲られた<strong>睡蓮の株</strong>。館内は基本的に撮影不可。</p>
+      <p>併設の<strong>MUSEUM CAFE and garden</strong>（10:00〜16:00・水曜休・☎0465-63-8686）は、<strong>テラスに無料の足湯</strong>つき。豆腐・湯葉の店が手がける豆乳スープのセットやがんもサンド、ほうじ茶のソフトパフェ。店内30席・テラス20席。<strong>雨の庭を見ながら足だけ温める</strong>のが今日の使い方。</p>
+    </div>
+
+    <div class="card-inn">
+      <h4>🦶 万葉公園の足湯／玄関テラス（宮上566）</h4>
+      <p>足湯の位置は共有してもらった<strong>Googleマップのピン（35.1451053, 139.0746369・標高97.4m）</strong>＝落合橋バス停から西へ約110m、むろさだから徒歩すぐ。玄関テラスの建物はさらに西へ160mほどで、<strong>入場無料のカフェ＋観光案内＋ライブラリー（10:00〜17:30・第2火曜休・☎0465-43-7830）</strong>。しらすピザmini 500円、湯河原みかんのドリンク200〜600円。<strong>足湯用のタオルは持参</strong>で。</p>
+    </div>
+
+    <div class="card-inn">
+      <h4>🍜 cafe&amp;bar BON（熱海市泉35／☎0465-63-1839）</h4>
+      <p>カフェ11:00〜15:00／バー19:00〜24:00・水曜休。<strong>坦々焼きそば900円</strong>。約70年続いた喫茶店が2010年に移転した店で、ジャズの流れる白黒基調の店内とテラス席。落合橋バス停から徒歩2分（橋を渡ると熱海市泉）。</p>
+    </div>
+
+    <div class="card-inn">
+      <h4>🍊 味楽庵 湯河原本店（宮上230／☎0465-62-5577）</h4>
+      <p>店舗9:00〜16:30／<strong>カフェ9:30〜15:30（在庫終了で閉店）</strong>・火曜休。神奈川県指定銘菓の「みかん餅」で知られる和菓子店。<strong>人車</strong>（芥川龍之介『トロッコ』のモデルとされる人力鉄道車両）の復元展示、工場見学は無料。</p>
+      <p><strong>カフェの単品メニュー</strong>：🍊<strong>みかん最中ジェラート 500円（税込550円）</strong>＝みかん最中のみかんあんとフレッシュミルクの特製ジェラート／よりどり小倉トースト770円／あんのおしるこ990円（おかわり440円）／たっぷりあんの栗どらやき550円／たっぷりあんどらやき440円。数量限定の<strong>味楽あんもち</strong>、ふたくちあんもちセット550円、あんもちトーストセット550円も。<span class="flag-y">抹茶は単品ドリンク385円の扱いと思われるので、取り扱いだけ現地で確認</span></p>
+    </div>
+
+    <div class="card-inn">
+      <h4>🍗 炭火焼き鶏 蝦蟇（土肥1-8-15 ニュー城山ビル2F／☎0465-20-6551）</h4>
+      <p>17:00〜23:00・月曜休・予算3,000〜3,999円・予約可・駅徒歩2分。日曜夕方は混むので当日昼までに電話を。</p>
+    </div>
+  </section>
+
+  <section id="meal">
+    <h2>④ 食べる・買う（今日の並び）</h2>
+    <ul>
+      <li><strong>朝</strong>＝みやかみの湯のあと、バスまでの時間で軽く。宮上〜温泉場エリアは朝から開く店が少ないので、駅かコンビニで軽食を買っておくと安心</li>
+      <li><strong>11:00 むろさだ</strong>＝地酒三種飲み比べ1,100円＋甘味。ここが実質のブランチ</li>
+      <li><strong>13:30 BON</strong>＝坦々焼きそば900円（ご当地グルメ枠）</li>
+      <li><strong>15:10 味楽庵</strong>＝みかん最中ジェラート550円＋抹茶（甘味の締め）</li>
+      <li><strong>17:40 蝦蟇</strong>＝炭火焼き鳥で夜ごはん</li>
+      <li><strong>お土産</strong>＝ゑふや本店できび餅＋温泉まんじゅう（14:35）。添加物不使用で日持ちは短めなので個数はほどほどに。味楽庵の「みかん餅」も候補</li>
+    </ul>
+    <div class="tip">🍶 お酒は<strong>むろさだの地酒三種</strong>と<strong>蝦蟇</strong>の2回。間に歩きが多いので、昼のお酒は控えめにして夜に回すのが安全です。</div>
+  </section>
+
+  <section id="movie">
+    <h2>⑤ 撮影メモ（雨の日仕様）</h2>
+    <ul>
+      <li><strong>オープニング</strong>＝駅前の手湯。屋根の下なので雨粒を背景に手元を撮れる</li>
+      <li><strong>不動滝</strong>＝傘を閉じて滝の音だけ30秒。<strong>源泉の湯けむりと滝のしぶきが混ざる瞬間</strong>を狙う</li>
+      <li><strong>藤木川の下り</strong>＝歩きながらの手持ち移動ショット。濡れた石段・苔・湯けむり・雨粒の水面</li>
+      <li><strong>むろさだ</strong>＝水の流れるカウンターに桶が流れてくる瞬間は、固定＋寄りの2カット</li>
+      <li><strong>締め</strong>＝海浜公園の灰色の海か、蝦蟇の炭火。今日は「山の湯から海まで」の構成なので、海のカットがあると効く</li>
+      <li><span class="flag-r">撮影NG</span>＝みやかみの湯の浴室・脱衣所、他のお客さんが映る構図。店内撮影は各店にひと声</li>
+      <li>装備＝レインジャケットかポンチョ（両手を空ける）、替えの靴下、防水スマホケース、レンズ拭き、ジップ袋</li>
+    </ul>
+  </section>
+
+  <section id="budget">
+    <h2>⑥ 予算</h2>
+    <details open>
+      <summary>合計 約14,430円（バス代こみ・タップで内訳）</summary>
+      <table>
+        <tr><th>項目</th><th class="num">金額</th></tr>
+        <tr><td>本厚木⇄湯河原（小田急＋JR・IC）</td><td class="num">¥1,626</td></tr>
+        <tr><td>バス5本（駅→宮上190／宮上→不動滝300／不動滝→美術館前180／落合橋→宮上190／宮上→駅250）</td><td class="num">¥1,110前後 <span class="flag-y">目安</span></td></tr>
+        <tr><td>みやかみの湯（入湯税こみ）</td><td class="num">¥1,200</td></tr>
+        <tr><td>不動滝茶屋の足湯（任意）</td><td class="num">¥100</td></tr>
+        <tr><td>町立湯河原美術館</td><td class="num">¥600</td></tr>
+        <tr><td>MUSEUM CAFE（ドリンク＋足湯）</td><td class="num">¥700</td></tr>
+        <tr><td>むろさだ（地酒三種飲み比べ1,100円＋甘味）</td><td class="num">¥1,900</td></tr>
+        <tr><td>万葉公園の足湯＋玄関テラス</td><td class="num">¥300</td></tr>
+        <tr><td>cafe&amp;bar BON 坦々焼きそば</td><td class="num">¥900</td></tr>
+        <tr><td>ゑふや（きび餅＋温泉まんじゅう）</td><td class="num">¥1,200</td></tr>
+        <tr><td>味楽庵（ジェラート550円＋抹茶385円）</td><td class="num">¥935</td></tr>
+        <tr><td>炭火焼き鶏 蝦蟇</td><td class="num">¥3,500</td></tr>
+        <tr><td>【任意】海浜公園への往復バス</td><td class="num">¥360</td></tr>
+        <tr class="total-row"><td>合計</td><td class="num">¥14,431</td></tr>
+      </table>
+    </details>
+    <div class="tip">💰 <strong>節約版</strong>＝玄関テラスと不動滝茶屋を抜き、夜を軽めにすれば1万円弱。<br>💎 <strong>贅沢版</strong>＝みやかみの湯の貸切風呂（要予約）を足す、または蝦蟇で日本酒を一本。</div>
+  </section>
+
+  <section id="highlight">
+    <h2>⑦ ハイライト3選</h2>
+    <div class="highlight-grid">
+      <div class="highlight-item"><div class="highlight-num">1</div><div><strong>誰もいない朝7時の源泉かけ流し</strong>。雨音を聞きながらのラムネ湯は、この日程だから撮れる画</div></div>
+      <div class="highlight-item"><div class="highlight-num">2</div><div><strong>不動滝＋源泉の湯けむり</strong>。雨で水量が増した滝と、地面から立つ湯気が混ざる</div></div>
+      <div class="highlight-item"><div class="highlight-num">3</div><div><strong>むろさだの流れる甘味と地酒三種飲み比べ</strong>（1,100円・小付け付き）。歩き通しの体に、ここで一回ちゃんと座る</div></div>
+    </div>
+    <h3>いちばん感動しそうな瞬間</h3>
+    <p>不動滝の前で傘を閉じた瞬間。雨音と滝音と湯けむりで、周りの情報が全部消えます。</p>
+    <h3>削ってもいい候補</h3>
+    <ul>
+      <li><strong>湯河原海浜公園</strong>（往復1時間）＝波が高ければ最初から外す。そのぶん蝦蟇を早めても、駅前でお土産を追加してもいい</li>
+      <li><strong>不動滝茶屋</strong>（15分）＝10時開店を待つのが惜しければ、滝を撮ったらそのまま歩き出す。足湯はこのあと2か所ある</li>
+    </ul>
+  </section>
+
+  <section id="alt">
+    <h2>⑧ 調整・プランB</h2>
+
+    <h3>⏱ 締切から逆算した「動かせない時刻」（美術館を足した版）</h3>
+    <table>
+      <tr><th>時刻</th><th>何が締まるか</th></tr>
+      <tr><td class="t">13:30</td><td>BON入店（カフェ15:00閉店）。ここが最優先</td></tr>
+      <tr><td class="t">15:25</td><td>味楽庵入店（カフェ15:30終了・在庫次第で早じまい）。ゑふやを後回しにすれば15分稼げる</td></tr>
+      <tr><td class="t">17:00</td><td>ゑふや閉店（今回は14:55に寄る。味楽庵に間に合わないときの「後回し先」でもある）</td></tr>
+    </table>
+    <p>逆に<strong>不動滝の滞在と美術館は伸ばしてOK</strong>。伸ばしたぶんは、不動滝茶屋・万葉公園の散策・海浜公園の3つで吸収できます。</p>
+
+    <h3>☔ 雨脚が強まったら</h3>
+    <ul>
+      <li>残った徒歩（美術館→むろさだの450m）も、美術館前→落合橋のバス2〜3分に置き換えられる</li>
+      <li>むろさだ・玄関テラス・BON・味楽庵は全部屋内なので、<strong>雨宿りしながら時間を潰せる場所は十分ある</strong></li>
+      <li>それでも荒れるようなら、<strong>みやかみの湯に戻って長風呂</strong>（21時まで営業）という手もある。駅から徒歩15分なので帰りも読める</li>
+    </ul>
+
+    <h3>🚨 中止・撤退ライン</h3>
+    <ul>
+      <li>朝の時点でJR東海道線が<strong>計画運休や見合わせ</strong>を発表していたら、その日は行かない</li>
+      <li>大雨警報・土砂災害警戒情報が出たら、<strong>不動滝（山側）は行かず</strong>、温泉場から下だけにする</li>
+      <li>夜に風雨が強まりそうなら、蝦蟇を早めに切り上げて<strong>19時台の電車</strong>に前倒し</li>
+    </ul>
+  </section>
+
+  <section id="notice">
+    <h2>⑨ 注意事項</h2>
+    <ul>
+      <li><span class="flag-r">台風</span> 21日(月・祝)が大雨・暴風のピーク。20日は本降りの雨だが、<strong>予報は動く</strong>ので前夜と当日朝に必ず確認</li>
+      <li><span class="flag-r">海</span> 波が高くなる予報。海浜公園では堤防・波打ち際に近づかない</li>
+      <li><span class="flag-r">足元</span> 不動滝周辺と万葉公園の木道は濡れると滑る。グリップ重視の靴で</li>
+      <li><span class="flag-y">現金</span> 不動滝茶屋は現金のみ。和菓子店も現金前提で</li>
+      <li><span class="flag-y">定休</span> むろさだ＝火（水も休む場合）、BON＝水、味楽庵＝火、蝦蟇＝月、ゑふや＝木。<strong>9/20(日)はすべて営業日</strong></li>
+      <li><span class="flag-y">混雑</span> 連休中日の日曜。蝦蟇は予約推奨、むろさだも昼前がねらい目</li>
+    </ul>
+  </section>
+
+  <section id="pack">
+    <h2>⑩ 持ち物</h2>
+    <ul>
+      <li>レインジャケット or 透明ポンチョ＋折りたたみ傘（撮影で両手を空けるため）</li>
+      <li>替えの靴下・タオル2枚（みやかみの湯ぶんと、万葉公園の足湯ぶん。足湯は備え付けなしの前提で）</li>
+      <li>防水スマホケース、レンズ拭き、モバイルバッテリー</li>
+      <li>現金3,000円以上（小銭込み）、交通系IC</li>
+      <li>お土産用のジップ袋（きび餅が濡れないように）、薄手の羽織り</li>
+    </ul>
+  </section>
+
+  <section id="check">
+    <h2>⑪ 当日までのチェック</h2>
+    <div class="checklist">
+      <label><input type="checkbox"><span>前夜：台風25号の進路と雨雲レーダー</span></label>
+      <label><input type="checkbox"><span>当日朝：JR東海道線・箱根登山バスの運行情報</span></label>
+      <label><input type="checkbox"><span>蝦蟇に予約の電話（0465-20-6551）</span></label>
+      <label><input type="checkbox"><span>みやかみの湯のメンテナンス休がないか（0465-20-7538）</span></label>
+      <label><input type="checkbox"><span>むろさだの営業（水曜も休む場合あり・0465-62-2016）／足湯用のタオル</span></label>
+      <label><input type="checkbox"><span>現金を3,000円以上おろす</span></label>
+      <label><input type="checkbox"><span>05:25本厚木発に乗るためのアラーム（04:30起き）</span></label>
+      <label><input type="checkbox"><span>雨対策の装備一式とスマホの容量</span></label>
+    </div>
+  </section>
+
+  <section id="link">
+    <h2>⑫ リンク</h2>
+    <ul>
+      <li><a href="https://miyakaminoyu.jp/" target="_blank" rel="noopener">みやかみの湯</a></li>
+      <li><a href="https://murosada.com/" target="_blank" rel="noopener">流甘味 むろさだ</a></li>
+      <li><a href="https://yugawarasoyu.jp/genkan-terrace/" target="_blank" rel="noopener">湯河原惣湯 玄関テラス</a></li>
+      <li><a href="https://www.efuya-honten.jp/" target="_blank" rel="noopener">ゑふや本店</a></li>
+      <li><a href="https://www.town.yugawara.kanagawa.jp/site/museum/" target="_blank" rel="noopener">町立湯河原美術館</a></li>
+      <li><a href="https://www.mirakuan.com/" target="_blank" rel="noopener">和菓子処 味楽庵</a></li>
+      <li><a href="https://www.yugawara.or.jp/sightseeing/646/" target="_blank" rel="noopener">不動滝（湯河原温泉公式観光サイト）</a></li>
+      <li><a href="https://www.town.yugawara.kanagawa.jp/soshiki/5/1408.html" target="_blank" rel="noopener">湯河原海浜公園（町公式）</a></li>
+      <li><a href="https://transit.yahoo.co.jp/" target="_blank" rel="noopener">Yahoo!路線情報</a></li>
+      <li><a href="https://weathernews.jp/onebox/tenki/kanagawa/14384/" target="_blank" rel="noopener">湯河原町の天気</a></li>
+      <li><a href="https://tenki.jp/bousai/typhoon/" target="_blank" rel="noopener">台風情報（tenki.jp）</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    v5／2026-09-21更新（9/20に実施。冒頭に「旅の記録」＝動画用の素材メモを追加。以下の旅程は実施前の計画のまま残してあります）。時刻・料金・営業情報は2026年9月17〜19日にWebで確認したものです。当日の運行情報と天気は必ず再確認してください。ぽけたび用JSONは同じフォルダの .json ファイル。
+  </footer>
+
+</main>
+
+<script>
+function toggleTheme(){
+  const b=document.body, btn=document.querySelector('.theme-btn');
+  const dark = b.getAttribute('data-theme')==='dark';
+  b.setAttribute('data-theme', dark?'light':'dark');
+  btn.textContent = dark?'🌙 ダーク':'☀️ ライト';
+  try{ localStorage.setItem('yg20-theme', dark?'light':'dark'); }catch(e){}
+}
+try{
+  const saved = localStorage.getItem('yg20-theme');
+  if(saved==='dark'){ document.body.setAttribute('data-theme','dark'); document.querySelector('.theme-btn').textContent='☀️ ライト'; }
+}catch(e){}
+document.querySelectorAll('.checklist input').forEach((el,i)=>{
+  const key='yg20-check-'+i;
+  try{ if(localStorage.getItem(key)==='1'){ el.checked=true; el.parentElement.classList.add('done'); } }catch(e){}
+  el.addEventListener('change',()=>{
+    el.parentElement.classList.toggle('done', el.checked);
+    try{ localStorage.setItem(key, el.checked?'1':'0'); }catch(e){}
+  });
+});
+</script>
+</body>
+</html>
