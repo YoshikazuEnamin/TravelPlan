@@ -27,6 +27,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body)
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .wrap{max-width:720px;margin:0 auto;padding-block:8px 64px}
 a{color:var(--rail)}
+.map{display:inline-block;margin-left:6px;font-size:12.5px;font-weight:700;white-space:nowrap;text-decoration:none;background:var(--rail-soft);padding:0 8px;border-radius:999px}
 a:focus-visible,summary:focus-visible,input:focus-visible{outline:2px solid var(--rail);outline-offset:2px}
 
 nav{position:sticky;top:0;z-index:5;background:var(--sheet);border-bottom:1px solid var(--line);
@@ -113,13 +114,13 @@ footer{margin-top:36px;font-size:12px;color:var(--sub)}
 
 <div class="wrap">
 <header id="overview">
-  <div class="eyebrow">2026.11.21 土 ／ 日帰り ／ 奥さん・息子さん（大人2人） ／ 確定版 v3</div>
+  <div class="eyebrow">2026.11.21 土 ／ 日帰り ／ 奥さん・息子さん（大人2人） ／ 確定版 v4</div>
   <h1>72年ぶりの御開帳と、熱田神宮と、三河の名物めし</h1>
-  <p class="lede">朝いちばんの熱田神宮で草薙神剣ゆかりの宝物を見て、お昼はJR熱田駅前の食堂で名古屋名物の味噌カツ。午後は豊川稲荷で、この日しか見られない大祭の渡御と御開帳の本殿へ。三河国一宮の砥鹿神社にもお参りして、灯りがともった豊川稲荷の夜の境内を見てから豊橋に出て、名物のカレーうどんで締めます。</p>
+  <p class="lede">朝いちばんの静かな熱田神宮にお参りして、お昼はJR熱田駅前の食堂で名古屋名物の味噌カツ。午後は豊川稲荷で、この日しか見られない大祭の渡御を見てから三河国一宮の砥鹿神社へ。豊川稲荷に戻って御開帳の本殿にお参りし、豊橋の名物カレーうどんで締めます。</p>
   <div class="facts">
     <div class="fact"><b>出発・帰着</b><span>本厚木 06:06発 → 22:12着</span></div>
     <div class="fact"><b>移動</b><span>新幹線自由席＋名鉄・JR</span></div>
-    <div class="fact"><b>予算</b><span>1人 約23,700円（2人で約47,400円）</span></div>
+    <div class="fact"><b>予算</b><span>1人 約22,900円（2人で約45,800円）</span></div>
     <div class="fact"><b>おすすめ度</b><span>★★★★★ 大祭の日だけの行列</span></div>
   </div>
 </header>
@@ -131,103 +132,100 @@ footer{margin-top:36px;font-size:12px;color:var(--sub)}
 
 <h2>ハイライト3選</h2>
 <div class="three">
-  <div class="card"><div class="k">1 ／ 09:30〜11:30</div><h3>朝の熱田神宮と駅前の味噌カツ</h3>人が少ない朝の本宮と草薙館。お昼は地元で愛される「みどりや」の味噌カツ。</div>
-  <div class="card"><div class="k">2 ／ 14:00〜15:00</div><h3>大祭の渡御と、御開帳の本殿</h3>行列を見届けたら、15時に再開する本殿へ。御縁柱に触れてご縁を結びます。</div>
-  <div class="card"><div class="k">3 ／ 17:00〜19:30</div><h3>ヨルモウデと豊橋カレーうどん</h3>ライトアップされた夜の境内を歩いてから、豊橋の老舗「玉川」で名物のカレーうどん。</div>
+  <div class="card"><div class="k">1 ／ 09:30〜11:30</div><h3>朝の熱田神宮と駅前の味噌カツ</h3>人が少ない朝の本宮へ。お昼は地元で愛される「みどりや」の味噌カツ。</div>
+  <div class="card"><div class="k">2 ／ 12:40〜17:45</div><h3>大祭の渡御と、御開帳の本殿</h3>御縁柱に触れ、14時の渡御を見届けて、夕方は本殿へ。豊川稲荷には合わせて約4時間。</div>
+  <div class="card"><div class="k">3 ／ 15:05〜16:00</div><h3>三河国一宮・砥鹿神社</h3>欅と楠の杜に囲まれた檜造りの社殿と、日本一のさざれ石。御朱印もいただけます。</div>
 </div>
 
 <h2 id="plan">旅程（11/21のダイヤで確認済み）</h2>
+<p class="src">📍をタップするとGoogleマップが開きます。</p>
 <div class="daylabel">朝 ― 名古屋・熱田へ</div>
 <ol class="rail">
   <li><span class="t">06:06</span><div class="what">本厚木 発</div><div class="det"><span class="train">小田急 普通 小田原行（2番線）→ 06:53 小田原</span></div></li>
   <li><span class="t">07:05</span><div class="what">小田原 発 こだま801号（自由席）<span class="tag k">✅確認済</span></div><div class="det"><span class="train">13番線 → 09:06 名古屋（16番線）</span></div></li>
-  <li><span class="t">09:18</span><div class="what">名古屋 発 JR東海道線 岡崎行</div><div class="det"><span class="train">2番線 → 09:26 熱田</span>　切符は本厚木→熱田の通しでOK</div></li>
-  <li class="spot"><span class="t">09:30</span><div class="what">熱田神宮 本宮へ参拝</div><div class="det">参拝は無料。樹齢千年を超える大楠や、信長が奉納した信長塀も参道沿いに。朝の境内は静かでおすすめです</div></li>
-  <li class="spot"><span class="t">10:20</span><div class="what">剣の宝庫 草薙館・宝物館<span class="tag m">追加スポット</span></div><div class="det">9:00〜16:30（最終入館16:00）・共通拝観料 大人800円。11/21（土）は開館日。刀剣好きでなくても、大太刀の迫力は見ごたえあり</div></li>
-  <li class="food"><span class="t">11:30</span><div class="what">お昼：みどりや（味噌カツ）</div><div class="det">名古屋市熱田区森後町9-8、JR熱田駅から徒歩30秒。土曜は11:00〜13:30（夜は17:00〜19:30）、日曜定休。<b>予約可</b>なので11:30で予約がおすすめ。予算は1人1,000〜2,000円ほど（食べログ口コミ集計）。甘辛い味噌だれの柔らかいカツが評判の、地元の駅前食堂です</div></li>
-  <li><span class="t">12:30</span><div class="what">名鉄 神宮前駅へ（徒歩6分）</div><div class="det">みどりやから名鉄神宮前駅まで歩いて6分ほど</div></li>
+  <li><span class="t">09:18</span><div class="what">名古屋 発 JR東海道線 岡崎行</div><div class="det"><span class="train">2番線 → 09:26 熱田</span>　切符は本厚木→熱田の通しでOK <a class="map" href="https://www.google.com/maps/search/?api=1&query=JR%E7%86%B1%E7%94%B0%E9%A7%85" target="_blank" rel="noopener">📍JR熱田駅</a></div></li>
+  <li class="spot"><span class="t">09:30</span><div class="what">熱田神宮 本宮へ参拝</div><div class="det">参拝は無料。樹齢千年を超える大楠や、信長が奉納した信長塀も参道沿いに。朝の境内は静かでおすすめです。御朱印もここで <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E7%86%B1%E7%94%B0%E7%A5%9E%E5%AE%AE%20%E6%84%9B%E7%9F%A5%E7%9C%8C%E5%90%8D%E5%8F%A4%E5%B1%8B%E5%B8%82%E7%86%B1%E7%94%B0%E5%8C%BA%E7%A5%9E%E5%AE%AE1-1-1" target="_blank" rel="noopener">📍熱田神宮</a></div></li>
+  <li class="food"><span class="t">11:00</span><div class="what">お昼：みどりや（味噌カツ）</div><div class="det">名古屋市熱田区森後町9-8、JR熱田駅から徒歩30秒。土曜は11:00〜13:30、日曜定休。<b>予約可</b>なので開店の11:00で予約がおすすめ。予算は1人1,000〜2,000円ほど（食べログ口コミ集計）。甘辛い味噌だれの柔らかいカツが評判の、地元の駅前食堂です。<b>11:30には店を出る</b> <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E3%81%BF%E3%81%A9%E3%82%8A%E3%82%84%20%E6%84%9B%E7%9F%A5%E7%9C%8C%E5%90%8D%E5%8F%A4%E5%B1%8B%E5%B8%82%E7%86%B1%E7%94%B0%E5%8C%BA%E6%A3%AE%E5%BE%8C%E7%94%BA9-8" target="_blank" rel="noopener">📍みどりや</a></div></li>
+  <li><span class="t">11:30</span><div class="what">名鉄 神宮前駅へ（徒歩6分）</div><div class="det"> <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%90%8D%E9%89%84%20%E7%A5%9E%E5%AE%AE%E5%89%8D%E9%A7%85" target="_blank" rel="noopener">📍名鉄 神宮前駅</a></div></li>
+  <li><span class="t">11:40</span><div class="what">神宮前 発 名鉄 特急 豊橋行</div><div class="det"><span class="train">4番線 → 12:18 国府（豊川稲荷行に乗換）12:26 → 12:38 豊川稲荷</span>　1,190円</div></li>
 </ol>
 
 <div class="daylabel">昼 ― 豊川稲荷の大祭</div>
 <ol class="rail">
-  <li><span class="t">12:40</span><div class="what">神宮前 発 名鉄 特急 豊橋行</div><div class="det"><span class="train">4番線 → 13:18 国府（豊川稲荷行に乗換）13:26 → 13:38 豊川稲荷</span>　1,190円</div></li>
-  <li class="food"><span class="t">13:40</span><div class="what">門前町で稲荷寿司をつまむ</div><div class="det">駅から境内までの門前町で、豊川名物のいなり寿司を。夕方は店が閉まり始めるので、ここで買っておくのがおすすめ</div></li>
-  <li class="spot"><span class="t">13:50</span><div class="what">豊川稲荷：御縁柱</div><div class="det">本殿は<b>13:00〜15:00、大祭のためお休み</b>。先に本殿前の<b>御縁柱</b>へ。善の綱で御前立尊像とつながっていて、触れると秘仏・吒枳尼真天に触れるのと同じご利益があるとされています（無料）</div></li>
-  <li class="spot"><span class="t">14:00</span><div class="what">開帳大祭渡御を見学<span class="tag r">この日だけ</span></div><div class="det">尊天さまを神輿に乗せ、稚児・雅楽・僧侶が境内を練り歩きます。人出が多いので、早めに場所を決めて</div></li>
-  <li class="spot"><span class="t">15:00</span><div class="what">本殿拝観＋各御堂セット</div><div class="det">各御堂セット1,500円：本殿（普段は御祈祷の人しか入れない祈祷施主殿）・法堂（千手観音）・万堂・襖絵「豊川 新鳥獣戯画」。15:50にはJR豊川駅へ向かうので、少し早足で</div></li>
-  <li><span class="t">15:55</span><div class="what">JR豊川 発 飯田線 本長篠行</div><div class="det"><span class="train">豊川稲荷から徒歩2分 → 15:59 三河一宮</span>　190円</div></li>
-  <li class="spot"><span class="t">16:05</span><div class="what">砥鹿神社（三河国一宮）<span class="tag m">追加スポット</span></div><div class="det">愛知県豊川市一宮町西垣内2、三河一宮駅から徒歩5〜6分。参拝は無料。<b>授与所・御朱印は8:30〜16:30</b>なので、着いたら先に御朱印をお願いして。檜造りの社殿と欅・楠の杜、本宮山遙拝所、高さ2.6mの「日本一のさざれ石」など</div></li>
-  <li><span class="t">16:59</span><div class="what">三河一宮 発 飯田線 豊橋行</div><div class="det"><span class="train">→ 17:03 豊川</span>　190円</div></li>
-  <li class="spot"><span class="t">17:05</span><div class="what">ヨルモウデ（境内ライトアップ）</div><div class="det">土曜は17:00〜21:00。点灯したての境内をのんびり。千体以上のキツネ像が並ぶ霊狐塚・奥の院へも（ライトアップの範囲は未確認）</div></li>
+  <li class="food"><span class="t">12:40</span><div class="what">門前町で稲荷寿司をつまむ → 御縁柱</div><div class="det">駅から境内までの門前町で、豊川名物のいなり寿司を。そのあと本殿前の<b>御縁柱</b>へ。善の綱で御前立尊像とつながっていて、触れると秘仏・吒枳尼真天に触れるのと同じご利益があるとされています（無料）。本殿は<b>13:00〜15:00、大祭のためお休み</b>なので、御縁柱は13時前がおすすめ <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E8%B1%8A%E5%B7%9D%E7%A8%B2%E8%8D%B7%20%E6%84%9B%E7%9F%A5%E7%9C%8C%E8%B1%8A%E5%B7%9D%E5%B8%82%E8%B1%8A%E5%B7%9D%E7%94%BA1" target="_blank" rel="noopener">📍豊川稲荷</a></div></li>
+  <li class="spot"><span class="t">13:00</span><div class="what">法堂・万堂・襖絵（各御堂セット）</div><div class="det">各御堂セット1,500円：本殿・法堂（千手観音）・万堂・襖絵「豊川 新鳥獣戯画」。13〜15時も本殿以外は拝観できるので、先に法堂などを。本殿は夕方に戻ってから入ります<span class="tag w">⚠️セット券で本殿だけ夕方に入れるかは、受付で確認を</span></div></li>
+  <li class="spot"><span class="t">14:00</span><div class="what">開帳大祭渡御を見学<span class="tag r">この日だけ</span></div><div class="det">尊天さまを神輿に乗せ、稚児・雅楽・僧侶が境内を練り歩きます。人出が多いので、13:50ごろには場所を決めて</div></li>
+  <li><span class="t">14:55</span><div class="what">JR豊川 発 飯田線</div><div class="det"><span class="train">豊川稲荷から徒歩2分 → 14:59 三河一宮</span>　190円。渡御を見届けたら14:50には駅へ <a class="map" href="https://www.google.com/maps/search/?api=1&query=JR%E8%B1%8A%E5%B7%9D%E9%A7%85" target="_blank" rel="noopener">📍JR豊川駅</a></div></li>
+  <li class="spot"><span class="t">15:05</span><div class="what">砥鹿神社（三河国一宮）</div><div class="det">愛知県豊川市一宮町西垣内2、三河一宮駅から徒歩5〜6分。参拝は無料。授与所・御朱印は8:30〜16:30。檜造りの社殿と欅・楠の杜、本宮山遙拝所、高さ2.6mの「日本一のさざれ石」など <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E7%A0%A5%E9%B9%BF%E7%A5%9E%E7%A4%BE%20%E6%84%9B%E7%9F%A5%E7%9C%8C%E8%B1%8A%E5%B7%9D%E5%B8%82%E4%B8%80%E5%AE%AE%E7%94%BA%E8%A5%BF%E5%9E%A3%E5%86%852" target="_blank" rel="noopener">📍砥鹿神社</a></div></li>
+  <li><span class="t">15:59</span><div class="what">三河一宮 発 飯田線 豊橋行</div><div class="det"><span class="train">→ 16:02 豊川</span>　190円。ゆっくりしたいときは16:26発（16:30豊川着）でも <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%89%E6%B2%B3%E4%B8%80%E5%AE%AE%E9%A7%85" target="_blank" rel="noopener">📍三河一宮駅</a></div></li>
+  <li class="spot"><span class="t">16:05</span><div class="what">豊川稲荷に戻って本殿拝観</div><div class="det">本殿は20:00まで受付。15時の再開直後の混雑が落ち着いたころに、普段は御祈祷の人しか入れない祈祷施主殿へ</div></li>
+  <li class="spot"><span class="t">16:45</span><div class="what">奥の院・霊狐塚 → 門前町でお土産</div><div class="det">千体以上のキツネ像が並ぶ霊狐塚へ。日の入りは16:40ごろなので、暗くなる前に。最後に門前町でお土産を <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E8%B1%8A%E5%B7%9D%E7%A8%B2%E8%8D%B7%20%E9%9C%8A%E7%8B%90%E5%A1%9A" target="_blank" rel="noopener">📍霊狐塚</a></div></li>
 </ol>
 
 <div class="daylabel">夜 ― 豊橋でカレーうどん、帰路へ</div>
 <ol class="rail">
-  <li><span class="t">17:48</span><div class="what">JR豊川 発 飯田線 豊橋行</div><div class="det"><span class="train">豊川稲荷から徒歩2分の豊川駅 → 18:03 豊橋</span>　切符は豊川→本厚木の通しでOK</div></li>
-  <li class="food"><span class="t">18:10</span><div class="what">夜ごはん：玉川 豊橋広小路本店（豊橋カレーうどん）</div><div class="det">豊橋市広小路1-13、豊橋駅から徒歩3分。夜は17:00〜21:00（L.O.20:20）、火曜定休。<b>予約可</b>。明治42年創業の、豊橋カレーうどんの代表店。器の底にとろろご飯が隠れていて、うどんを食べたあとにカレーと混ぜて二度おいしい豊橋名物です<span class="tag w">⚠️価格は未確認</span></div></li>
-  <li><span class="t">19:25</span><div class="what">豊橋駅でお土産 → 新幹線改札へ</div><div class="det">ヤマサちくわやブラックサンダー（豊橋に工場がある有楽製菓）など</div></li>
+  <li><span class="t">17:48</span><div class="what">JR豊川 発 飯田線 豊橋行</div><div class="det"><span class="train">→ 18:03 豊橋</span>　切符は豊川→本厚木の通しでOK</div></li>
+  <li class="food"><span class="t">18:10</span><div class="what">夜ごはん：玉川 豊橋広小路本店（豊橋カレーうどん）</div><div class="det">豊橋市広小路1-13、豊橋駅から徒歩3分。夜は17:00〜21:00（L.O.20:20）、火曜定休。<b>予約可</b>。明治42年創業の、豊橋カレーうどんの代表店。器の底にとろろご飯が隠れていて、うどんを食べたあとにカレーと混ぜて二度おいしい豊橋名物です<span class="tag w">⚠️価格は未確認</span> <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E7%8E%89%E5%B7%9D%20%E8%B1%8A%E6%A9%8B%E5%BA%83%E5%B0%8F%E8%B7%AF%E6%9C%AC%E5%BA%97%20%E6%84%9B%E7%9F%A5%E7%9C%8C%E8%B1%8A%E6%A9%8B%E5%B8%82%E5%BA%83%E5%B0%8F%E8%B7%AF1-13" target="_blank" rel="noopener">📍玉川</a></div></li>
+  <li><span class="t">19:25</span><div class="what">豊橋駅でお土産 → 新幹線改札へ</div><div class="det">ヤマサちくわやブラックサンダー（豊橋に工場がある有楽製菓）など <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E8%B1%8A%E6%A9%8B%E9%A7%85" target="_blank" rel="noopener">📍豊橋駅</a></div></li>
   <li><span class="t">19:41</span><div class="what">豊橋 発 こだま848号（自由席）<span class="tag k">✅確認済</span></div><div class="det"><span class="train">12番線 → 21:09 小田原（小田急 急行 本厚木行 21:33）→ 22:12 本厚木 着</span>　小田原21:31発の特急さがみ94号（+650円）なら22:02着</div></li>
 </ol>
-<div class="note rail"><b>少し早く帰りたいとき</b><p>17:44に豊川稲荷を出る同じ飯田線で豊橋へ。玉川を18:55ごろに出れば、豊橋19:09発のこだま846号で21:42に本厚木に着きます。</p></div>
+<div class="note rail"><b>少し早く帰りたいとき</b><p>17:44に豊川稲荷を出て同じ飯田線で豊橋へ。玉川を18:55ごろに出れば、豊橋19:09発のこだま846号で21:42に本厚木に着きます。</p></div>
 
 <h2 id="extra">追加スポットの候補</h2>
 <p>滞在時間が延びたぶん、こんな候補を考えました。緑の行は旅程に入れてあります。</p>
 <div class="tbl"><table>
   <thead><tr><th>候補</th><th>場所・時間</th><th class="n">大人</th></tr></thead>
   <tbody>
-    <tr class="in"><td><b>剣の宝庫 草薙館・宝物館</b><br><small>熱田神宮ゆかりの刀剣と宝物</small></td><td>熱田神宮の境内・9:00〜16:30</td><td class="n">800円（共通）</td></tr>
+    <tr><td><b>剣の宝庫 草薙館・宝物館</b><br><small>熱田神宮ゆかりの刀剣と宝物</small></td><td>熱田神宮の境内・9:00〜16:30</td><td class="n">800円（共通）</td></tr>
     <tr class="in"><td><b>砥鹿神社</b><br><small>三河国一宮。さざれ石・本宮山遙拝所</small></td><td>豊川市一宮町・三河一宮駅から徒歩5〜6分・授与所8:30〜16:30</td><td class="n">無料</td></tr>
-    <tr class="in"><td><b>ヨルモウデ</b><br><small>夜の境内ライトアップ</small></td><td>豊川稲荷・金土日の17:00〜21:00</td><td class="n">無料（庭園・通天廊は有料）</td></tr>
+    <tr><td><b>ヨルモウデ</b><br><small>夜の境内ライトアップ</small></td><td>豊川稲荷・金土日の17:00〜21:00</td><td class="n">無料（庭園・通天廊は有料）</td></tr>
     <tr class="in"><td><b>霊狐塚・奥の院</b><br><small>千体以上のキツネ像</small></td><td>豊川稲荷の境内</td><td class="n">無料</td></tr>
     <tr><td><b>西元祐貴美術館</b><br><small>墨絵。御開帳のための描き下ろし作品も</small></td><td>豊川稲荷の境内（旧寺宝館）・土日祝10:00〜16:00最終入館</td><td class="n">1,500円</td></tr>
     <tr><td><b>宮きしめん 神宮店</b><br><small>境内のきしめん店。限定の宮クリームぜんざいも</small></td><td>熱田神宮の境内・9:00〜16:30・無休</td><td class="n">1,000円ほど</td></tr>
     <tr><td><b>宮の渡し公園</b><br><small>東海道「七里の渡し」跡。常夜灯と時の鐘</small></td><td>熱田神宮の南。地下鉄 熱田神宮伝馬町駅から徒歩10分</td><td class="n">無料</td></tr>
   </tbody>
 </table></div>
-<div class="note rail"><b>入れ替えるなら</b><p>西元祐貴美術館は、13:45〜14:00の渡御前か、霊狐塚の代わりに15:45ごろ（16:00最終入館）。宮の渡し公園は、草薙館の代わりに入れると熱田でちょうど収まります。宮きしめんは、草薙館のあとの10:50ごろに、おやつ代わりの小腹満たしにも。</p></div>
+<div class="note rail"><b>入れ替えるなら</b><p>西元祐貴美術館（16:00最終入館）は、13時台の法堂などのあとに。宮の渡し公園は、熱田神宮の参拝のあと10:20〜10:50ごろに入れられます。</p></div>
 
 <h2 id="dinner">ごはんの決め方</h2>
 <div class="alt">
   <div class="card"><div class="k">お昼の本命</div><h3>みどりや（JR熱田駅前）</h3>熱田駅の改札を出てすぐの、地元で愛されるとんかつの食堂。甘辛い味噌だれの柔らかい味噌カツが評判です。予約できるので、11:30で押さえておくと安心。</div>
-  <div class="card"><div class="k">お昼の予備</div><h3>宮きしめん 神宮店</h3>みどりやが満席だったら、熱田神宮の境内に戻ってきしめんに。名鉄神宮前駅にも近く、12:40の電車に間に合います。</div>
+  <div class="card"><div class="k">お昼の予備</div><h3>宮きしめん 神宮店</h3>みどりやが満席だったら、熱田神宮の境内のきしめんに（9:00〜16:30・無休）。食べ終わったら11:40の名鉄に間に合うよう、神宮前駅へ。</div>
   <div class="card"><div class="k">夜の本命</div><h3>玉川 豊橋広小路本店</h3>豊橋カレーうどんの代表店。豊橋駅から徒歩3分で、新幹線の前にちょうどいい距離。予約できるので、18:10で予約がおすすめ。</div>
 </div>
 
 <h2 id="budget">予算（1人あたり）</h2>
 <details open>
-  <summary><span>1人 約23,700円（2人で約47,400円）</span><span class="sum">23,724円</span></summary>
+  <summary><span>1人 約22,900円（2人で約45,800円）</span><span class="sum">22,924円</span></summary>
   <div><div class="tbl"><table><tbody>
     <tr><td>本厚木→熱田（小田急＋こだま自由席）</td><td class="n">9,042円</td></tr>
     <tr><td>名鉄 神宮前→豊川稲荷</td><td class="n">1,190円</td></tr>
     <tr><td>JR 豊川⇔三河一宮（往復）</td><td class="n">380円</td></tr>
     <tr><td>豊川→本厚木（飯田線＋こだま自由席＋小田急）</td><td class="n">7,612円</td></tr>
-    <tr><td>草薙館・宝物館 共通拝観料</td><td class="n">800円</td></tr>
     <tr><td>みどりや 味噌カツ ⚠️目安</td><td class="n">1,200円</td></tr>
     <tr><td>豊川稲荷 各御堂セット</td><td class="n">1,500円</td></tr>
     <tr><td>門前の稲荷寿司 ⚠️目安</td><td class="n">500円</td></tr>
     <tr><td>玉川 豊橋カレーうどん ⚠️目安</td><td class="n">1,500円</td></tr>
-  </tbody><tfoot><tr><td>合計</td><td class="n">23,724円</td></tr></tfoot></table></div>
+  </tbody><tfoot><tr><td>合計</td><td class="n">22,924円</td></tr></tfoot></table></div>
   <p class="src">運賃はIC優先・自由席（Yahoo!路線情報）。お土産代は別。帰りの特急さがみ94号を使うなら+650円。</p></div>
 </details>
 
 <h2 id="caution">注意事項</h2>
 <div class="note warn"><b>本殿は13:00〜15:00お休み・御祈祷は13:30締切</b><p>11/21は大祭の日。御前立尊像に拝礼できる御祈祷（5,000円〜）は受付が13:30までなので、この旅程では受けられません。受けたい場合は「別案」のとおり、豊川稲荷を午前にしてください。</p></div>
 <div class="note warn"><b>三連休の初日で混みます</b><p>帰りのこだまの自由席は混むかもしれません。並んで座りたいなら指定席に（こだまは1人+730円ほど）。</p></div>
-<div class="note rail"><b>お昼は予約がおすすめ</b><p>みどりやは土曜の昼が13:30まで。12:40の名鉄に乗るので、11:30で予約しておくと時間が読めます。</p></div>
-<div class="note mori"><b>雨の日</b><p>熱田神宮は草薙館・宝物館を長めに。豊川稲荷は法堂・万堂・襖絵の屋内拝観と、西元祐貴美術館（屋内・16:00最終入館）を足すのがおすすめ。渡御の雨天時の扱いは公式に記載がないので、当日に確認してください。</p></div>
+<div class="note rail"><b>お昼は予約がおすすめ</b><p>11:40の名鉄に乗るので、みどりやは開店の11:00で予約して、11:30には店を出てください。</p></div>
+<div class="note mori"><b>雨の日</b><p>熱田神宮は境内の草薙館・宝物館（共通800円）で雨宿りも。豊川稲荷は法堂・万堂・襖絵の屋内拝観と、西元祐貴美術館（屋内・16:00最終入館）を足すのがおすすめ。渡御の雨天時の扱いは公式に記載がないので、当日に確認してください。</p></div>
 
 <h2>削ってもいい候補</h2>
 <ul>
-  <li><b>草薙館・宝物館</b>：1人800円の節約。熱田神宮をのんびり歩くだけでも十分</li>
-  <li><b>ヨルモウデ</b>：疲れていたら早めに豊橋へ出て、19:09のこだまで帰れば21:42に本厚木に着きます</li>
-  <li><b>各御堂セット</b>：本殿だけ（500円）にすれば1,000円の節約。砥鹿神社に向けて時間にも余裕ができます</li>
-  <li><b>砥鹿神社のあとのヨルモウデ</b>：三河一宮から豊川に戻らず、そのまま飯田線で豊橋へ出れば早めに夜ごはんにできます</li>
+  <li><b>夕方の豊川稲荷</b>：疲れていたら早めに豊橋へ出て、19:09のこだまで帰れば21:42に本厚木に着きます</li>
+  <li><b>各御堂セット</b>：本殿だけ（500円）にすれば1,000円の節約</li>
 </ul>
 
 <h2 id="options">別案</h2>
 <div class="alt">
-  <div class="card"><div class="k">予算を抑える</div><h3>草薙館と各御堂セットを外す</h3>熱田神宮は参拝だけ、豊川稲荷は本殿のみ（500円）にすると、1人約21,900円（2人で約43,800円）になります。</div>
-  <div class="card"><div class="k">贅沢にする</div><h3>指定席＋西元祐貴美術館＋有料ライトアップ</h3>新幹線を往復とも指定席にして（1人+1,300円ほど）、豊川稲荷では西元祐貴美術館（1,500円）と、ヨルモウデの有料エリア（庭園・通天廊のライトアップ）も。帰りは小田原から特急さがみ94号で座って帰れます。</div>
+  <div class="card"><div class="k">予算を抑える</div><h3>各御堂セットを外す</h3>豊川稲荷を本殿のみ（500円）にすると、1人約21,900円（2人で約43,800円）になります。</div>
+  <div class="card"><div class="k">贅沢にする</div><h3>指定席＋草薙館＋西元祐貴美術館</h3>新幹線を往復とも指定席にして（1人+1,300円ほど）、熱田神宮では草薙館・宝物館（800円）、豊川稲荷では西元祐貴美術館（1,500円）も。帰りは小田原から特急さがみ94号で座って帰れます。</div>
   <div class="card"><div class="k">御祈祷を受けたい</div><h3>順番を逆にして、豊川稲荷を午前に</h3>06:06本厚木発・こだま801号を豊橋（08:35着）で降りて、名鉄で09:12に豊川稲荷へ。13:30の締切前に御祈祷を受けて、午後に熱田神宮。そのかわり14:00の渡御は見られず、夜ごはんは名古屋になります。</div>
 </div>
 
@@ -263,7 +261,7 @@ footer{margin-top:36px;font-size:12px;color:var(--sub)}
     <li>列車時刻：Yahoo!路線情報（JR時刻表 令和8年10月号）</li>
   </ul>
 </div>
-<footer>確定版 v3・2026/11/7更新（砥鹿神社を追加。お昼はみどりやの味噌カツ、夜は豊橋の玉川のカレーうどん、帰りは豊橋19:41発）。</footer>
+<footer>確定版 v4・2026/11/7更新（草薙館とヨルモウデを外し、豊川稲荷を約4時間に。砥鹿神社は15:05着。各スポットにGoogleマップのリンクを追加）。</footer>
 </div>
 
 <script>
